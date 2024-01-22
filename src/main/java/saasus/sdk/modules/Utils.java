@@ -2,11 +2,15 @@ package saasus.sdk.modules;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 import okhttp3.Call;
+import okhttp3.RequestBody;
+import okio.Buffer;
 
 public class Utils {
 
@@ -36,10 +40,18 @@ public class Utils {
 
         String fullResourceUri = (queryString == null)
                                 ? host + applyResource
-                                : host + applyResource + "?" + queryString;    
-        String body = (call.request().body() == null)
-                    ? ""
-                    : call.request().body().toString();
+                                : host + applyResource + "?" + queryString;
+        String body = "";
+        // ApiClientに同様のメソッド#requestBodyToStringはあるがprivateのためrewrite
+        if (call.request().body() != null) {
+            try {
+                final Buffer buffer = new Buffer();
+                call.request().body().writeTo(buffer);
+                body = buffer.readUtf8();
+            } catch (final IOException e) {
+                throw new Exception(e);
+            }
+        }
 
         String message = now.concat(apiKey).concat(method).concat(fullResourceUri).concat(body);
         byte[] hash = signatureHmac.doFinal(message.getBytes(StandardCharsets.UTF_8));
