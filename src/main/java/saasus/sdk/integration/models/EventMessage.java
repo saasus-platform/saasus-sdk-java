@@ -14,13 +14,13 @@
 package saasus.sdk.integration.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.integration.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.integration.JSON;
 /**
  * EventMessage
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:23.586706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-14T09:09:39.918403889Z[Etc/UTC]")
 public class EventMessage {
   public static final String SERIALIZED_NAME_EVENT_TYPE = "event_type";
   @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
@@ -68,13 +67,12 @@ public class EventMessage {
   }
 
   public EventMessage eventType(String eventType) {
-    
     this.eventType = eventType;
     return this;
   }
 
    /**
-   * イベントタイプ(event type)
+   * event type
    * @return eventType
   **/
   @javax.annotation.Nonnull
@@ -82,20 +80,18 @@ public class EventMessage {
     return eventType;
   }
 
-
   public void setEventType(String eventType) {
     this.eventType = eventType;
   }
 
 
   public EventMessage eventDetailType(String eventDetailType) {
-    
     this.eventDetailType = eventDetailType;
     return this;
   }
 
    /**
-   * 詳細イベントタイプ(detailed event type)
+   * detailed event type
    * @return eventDetailType
   **/
   @javax.annotation.Nonnull
@@ -103,27 +99,24 @@ public class EventMessage {
     return eventDetailType;
   }
 
-
   public void setEventDetailType(String eventDetailType) {
     this.eventDetailType = eventDetailType;
   }
 
 
   public EventMessage message(String message) {
-    
     this.message = message;
     return this;
   }
 
    /**
-   * イベントメッセージ(event message)
+   * event message
    * @return message
   **/
   @javax.annotation.Nonnull
   public String getMessage() {
     return message;
   }
-
 
   public void setMessage(String message) {
     this.message = message;
@@ -203,9 +196,9 @@ public class EventMessage {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EventMessage.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EventMessage` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

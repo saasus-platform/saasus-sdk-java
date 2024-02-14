@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import saasus.sdk.auth.models.IdentityProviderProps;
 import saasus.sdk.auth.models.ProviderName;
 
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -52,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateIdentityProviderParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-14T09:09:22.553151855Z[Etc/UTC]")
 public class UpdateIdentityProviderParam {
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)
@@ -66,7 +65,6 @@ public class UpdateIdentityProviderParam {
   }
 
   public UpdateIdentityProviderParam provider(ProviderName provider) {
-    
     this.provider = provider;
     return this;
   }
@@ -80,14 +78,12 @@ public class UpdateIdentityProviderParam {
     return provider;
   }
 
-
   public void setProvider(ProviderName provider) {
     this.provider = provider;
   }
 
 
   public UpdateIdentityProviderParam identityProviderProps(IdentityProviderProps identityProviderProps) {
-    
     this.identityProviderProps = identityProviderProps;
     return this;
   }
@@ -100,7 +96,6 @@ public class UpdateIdentityProviderParam {
   public IdentityProviderProps getIdentityProviderProps() {
     return identityProviderProps;
   }
-
 
   public void setIdentityProviderProps(IdentityProviderProps identityProviderProps) {
     this.identityProviderProps = identityProviderProps;
@@ -175,9 +170,9 @@ public class UpdateIdentityProviderParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateIdentityProviderParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateIdentityProviderParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -190,6 +185,8 @@ public class UpdateIdentityProviderParam {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `provider`
+      ProviderName.validateJsonElement(jsonObj.get("provider"));
       // validate the optional field `identity_provider_props`
       if (jsonObj.get("identity_provider_props") != null && !jsonObj.get("identity_provider_props").isJsonNull()) {
         IdentityProviderProps.validateJsonElement(jsonObj.get("identity_provider_props"));
