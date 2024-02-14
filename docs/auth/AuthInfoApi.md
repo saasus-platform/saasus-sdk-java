@@ -4,21 +4,21 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getAuthInfo**](AuthInfoApi.md#getAuthInfo) | **GET** /auth-info | 認証情報を取得(Get Authentication Info) |
-| [**getIdentityProviders**](AuthInfoApi.md#getIdentityProviders) | **GET** /identity-providers |  |
-| [**getSignInSettings**](AuthInfoApi.md#getSignInSettings) | **GET** /sign-in-settings | パスワード要件を取得(Get Password Requirements) |
-| [**updateAuthInfo**](AuthInfoApi.md#updateAuthInfo) | **PUT** /auth-info | 認証情報を更新(Update Authentication Info) |
-| [**updateIdentityProvider**](AuthInfoApi.md#updateIdentityProvider) | **PUT** /identity-providers |  |
-| [**updateSignInSettings**](AuthInfoApi.md#updateSignInSettings) | **PUT** /sign-in-settings | パスワード要件を更新(Update Password Requirements) |
+| [**getAuthInfo**](AuthInfoApi.md#getAuthInfo) | **GET** /auth-info | Get Authentication Info |
+| [**getIdentityProviders**](AuthInfoApi.md#getIdentityProviders) | **GET** /identity-providers | Get Sign-In Information Via External Provider |
+| [**getSignInSettings**](AuthInfoApi.md#getSignInSettings) | **GET** /sign-in-settings | Get Password Requirements |
+| [**updateAuthInfo**](AuthInfoApi.md#updateAuthInfo) | **PUT** /auth-info | Update Authentication Info |
+| [**updateIdentityProvider**](AuthInfoApi.md#updateIdentityProvider) | **PUT** /identity-providers | Update Sign-In Information |
+| [**updateSignInSettings**](AuthInfoApi.md#updateSignInSettings) | **PUT** /sign-in-settings | Update Password Requirements |
 
 
 <a id="getAuthInfo"></a>
 # **getAuthInfo**
 > AuthInfo getAuthInfo()
 
-認証情報を取得(Get Authentication Info)
+Get Authentication Info
 
-ログイン後に認証情報を渡す SaaS の URL を取得します。 ここで取得した URL へ認証情報を渡し、SaaSus SDK を利用してこの Callback の実装をすることが可能となります。  Get the post-login SaaS URL that contains authentication information. You can pass authentication information to the URL obtained here and implement this Callback using the SaaSus SDK. 
+Get the post-login SaaS URL that contains authentication information. You can pass authentication information to the URL obtained here and implement this Callback using the SaaSus SDK. 
 
 ### Example
 ```java
@@ -80,9 +80,9 @@ This endpoint does not need any parameter.
 # **getIdentityProviders**
 > IdentityProviders getIdentityProviders()
 
+Get Sign-In Information Via External Provider
 
-
-cognitoに設定している外部プロバイダ経由のサインイン情報取得  Get sign-in information via external provider set in cognito 
+Get sign-in information via external provider set in cognito. 
 
 ### Example
 ```java
@@ -144,9 +144,9 @@ This endpoint does not need any parameter.
 # **getSignInSettings**
 > SignInSettings getSignInSettings()
 
-パスワード要件を取得(Get Password Requirements)
+Get Password Requirements
 
-ユーザーパスワードの要件設定を取得します。 アルファベット、数字、記号の組み合わせで、桁数を長くすれば解読されづらい安全なパスワードを設定することが可能となります。  Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
 
 ### Example
 ```java
@@ -208,9 +208,9 @@ This endpoint does not need any parameter.
 # **updateAuthInfo**
 > updateAuthInfo(body)
 
-認証情報を更新(Update Authentication Info)
+Update Authentication Info
 
-ログイン後に認証情報を渡す SaaS の URL を登録します。 ここで登録した URL に認証情報を渡し、SaaSus SDK を利用してこの Callback の実装をすることが可能となります。  Register post-login SaaS URL for authentication information. It is possible to pass authentication information to the URL registered here and implement this Callback using the SaaSus SDK. 
+Register post-login SaaS URL for authentication information. It is possible to pass authentication information to the URL registered here and implement this Callback using the SaaSus SDK. 
 
 ### Example
 ```java
@@ -275,9 +275,9 @@ null (empty response body)
 # **updateIdentityProvider**
 > updateIdentityProvider(updateIdentityProviderParam)
 
+Update Sign-In Information
 
-
-外部IDプロバイダのサインイン情報更新
+Update the sign-in information for the external ID provider
 
 ### Example
 ```java
@@ -342,9 +342,9 @@ null (empty response body)
 # **updateSignInSettings**
 > updateSignInSettings(updateSignInSettingsParam)
 
-パスワード要件を更新(Update Password Requirements)
+Update Password Requirements
 
-ユーザーパスワードの要件設定を更新します。 アルファベット、数字、記号の組み合わせで、桁数を長くすれば解読されづらい安全なパスワードを設定することが可能となります。  Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
 
 ### Example
 ```java

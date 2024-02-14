@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**tenantId** | **String** |  |  |
 |**envId** | **Integer** |  |  |
-|**saasId** | **String** | saas id |  |
+|**saasId** | **String** | SaaS ID |  |
 
 
 

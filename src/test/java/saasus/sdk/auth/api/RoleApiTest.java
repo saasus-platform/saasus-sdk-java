@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -34,9 +34,9 @@ public class RoleApiTest {
     private final RoleApi api = new RoleApi();
 
     /**
-     * 役割(ロール)を作成(Create Role)
+     * Create Role
      *
-     * 役割(ロール)を作成します。 ここで作成した役割をユーザーに付与することによって、SaaS側で役割ベースの認可を実装することが用意になります。 また、同じユーザーでも、属するテナント・環境ごとに持っている役割を変えることが可能です。  Create a role. By granting users the roles created here, it becomes easier to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
+     * Create a role. By granting users the roles created here, it becomes easier to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -48,9 +48,9 @@ public class RoleApiTest {
     }
 
     /**
-     * 役割(ロール)を削除(Delete Role)
+     * Delete Role
      *
-     * 役割(ロール)を削除します。  Delete role. 
+     * Delete role. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -62,9 +62,9 @@ public class RoleApiTest {
     }
 
     /**
-     * 役割(ロール)一覧を取得(Get Roles)
+     * Get Roles
      *
-     * 登録されている役割(ロール)を一覧として取得します。 ここで定義した役割をユーザーに付与することによって、SaaS側で役割ベースの認可を実装することが用意になります。 また、同じユーザーでも、属するテナント・環境ごとに持っている役割を変えることが可能です。  Get registered roles list. Granting users the roles defined here makes it easy to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
+     * Get registered roles list. Granting users the roles defined here makes it easy to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
      *
      * @throws ApiException if the Api call fails
      */

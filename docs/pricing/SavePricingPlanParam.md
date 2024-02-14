@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | 料金プラン名(pricing plan name) |  |
-|**displayName** | **String** | 料金プラン表示名(pricing plan display name) |  |
-|**description** | **String** | 料金プラン説明(pricing plan description) |  |
-|**menuIds** | **List&lt;String&gt;** | メニューID（料金プランに追加するメニューIDを設定） Menu ID (menu ID to be added to the pricing plan)  |  |
+|**name** | **String** | Pricing plan name |  |
+|**displayName** | **String** | Pricing plan display name |  |
+|**description** | **String** | Pricing plan description |  |
+|**menuIds** | **List&lt;String&gt;** | Menu ID to be added to the pricing plan |  |
 
 
 

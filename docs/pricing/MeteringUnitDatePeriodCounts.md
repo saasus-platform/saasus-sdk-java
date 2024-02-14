@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**meteringUnitName** | **String** | 計測ユニット名(metering unit name) |  |
+|**meteringUnitName** | **String** | Metering unit name |  |
 |**counts** | [**List&lt;MeteringUnitCount&gt;**](MeteringUnitCount.md) |  |  |
 
 
