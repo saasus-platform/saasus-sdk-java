@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -79,7 +79,7 @@ public class InvitationApi {
 
     /**
      * Build call for createTenantInvitation
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param createTenantInvitationParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -150,9 +150,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待を作成(Create Tenant Invitation)
-     * テナントへの招待を作成します。  Create an invitation to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Create Tenant Invitation
+     * Create an invitation to the tenant. 
+     * @param tenantId Tenant ID (required)
      * @param createTenantInvitationParam  (optional)
      * @return Invitation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -170,9 +170,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待を作成(Create Tenant Invitation)
-     * テナントへの招待を作成します。  Create an invitation to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Create Tenant Invitation
+     * Create an invitation to the tenant. 
+     * @param tenantId Tenant ID (required)
      * @param createTenantInvitationParam  (optional)
      * @return ApiResponse&lt;Invitation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -191,9 +191,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待を作成(Create Tenant Invitation) (asynchronously)
-     * テナントへの招待を作成します。  Create an invitation to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Create Tenant Invitation (asynchronously)
+     * Create an invitation to the tenant. 
+     * @param tenantId Tenant ID (required)
      * @param createTenantInvitationParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -215,8 +215,8 @@ public class InvitationApi {
     }
     /**
      * Build call for deleteTenantInvitation
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * @param tenantId Tenant ID (required)
+     * @param invitationId Invitation ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -291,10 +291,10 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待を削除(Delete Tenant Invitation)
-     * テナントへの招待を削除します。  Delete an invitation to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Delete Tenant Invitation
+     * Delete an invitation for the tenant. 
+     * @param tenantId Tenant ID (required)
+     * @param invitationId Invitation ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -309,10 +309,10 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待を削除(Delete Tenant Invitation)
-     * テナントへの招待を削除します。  Delete an invitation to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Delete Tenant Invitation
+     * Delete an invitation for the tenant. 
+     * @param tenantId Tenant ID (required)
+     * @param invitationId Invitation ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -329,10 +329,10 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待を削除(Delete Tenant Invitation) (asynchronously)
-     * テナントへの招待を削除します。  Delete an invitation to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Delete Tenant Invitation (asynchronously)
+     * Delete an invitation for the tenant. 
+     * @param tenantId Tenant ID (required)
+     * @param invitationId Invitation ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -352,7 +352,7 @@ public class InvitationApi {
     }
     /**
      * Build call for getInvitationValidity
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * @param invitationId Invitation ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -421,9 +421,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待の有効性を取得(Get Invitation Validity)
-     * テナントへの招待の有効性を取得します。  Get the validity of an invitation to the tenant. 
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Get Invitation Validity
+     * Get the validity of an invitation to the tenant. 
+     * @param invitationId Invitation ID (required)
      * @return InvitationValidity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -440,9 +440,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待の有効性を取得(Get Invitation Validity)
-     * テナントへの招待の有効性を取得します。  Get the validity of an invitation to the tenant. 
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Get Invitation Validity
+     * Get the validity of an invitation to the tenant. 
+     * @param invitationId Invitation ID (required)
      * @return ApiResponse&lt;InvitationValidity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -460,9 +460,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待の有効性を取得(Get Invitation Validity) (asynchronously)
-     * テナントへの招待の有効性を取得します。  Get the validity of an invitation to the tenant. 
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Get Invitation Validity (asynchronously)
+     * Get the validity of an invitation to the tenant. 
+     * @param invitationId Invitation ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -483,8 +483,8 @@ public class InvitationApi {
     }
     /**
      * Build call for getTenantInvitation
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * @param tenantId Tenant ID (required)
+     * @param invitationId Invitation ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -559,10 +559,10 @@ public class InvitationApi {
     }
 
     /**
-     * テナントの招待情報を取得(Get Tenant Invitation)
-     * テナントへの招待情報を取得します。  Get invitation information to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Get Tenant Invitation
+     * Get invitation information for the tenant. 
+     * @param tenantId Tenant ID (required)
+     * @param invitationId Invitation ID (required)
      * @return Invitation
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -579,10 +579,10 @@ public class InvitationApi {
     }
 
     /**
-     * テナントの招待情報を取得(Get Tenant Invitation)
-     * テナントへの招待情報を取得します。  Get invitation information to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Get Tenant Invitation
+     * Get invitation information for the tenant. 
+     * @param tenantId Tenant ID (required)
+     * @param invitationId Invitation ID (required)
      * @return ApiResponse&lt;Invitation&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -600,10 +600,10 @@ public class InvitationApi {
     }
 
     /**
-     * テナントの招待情報を取得(Get Tenant Invitation) (asynchronously)
-     * テナントへの招待情報を取得します。  Get invitation information to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Get Tenant Invitation (asynchronously)
+     * Get invitation information for the tenant. 
+     * @param tenantId Tenant ID (required)
+     * @param invitationId Invitation ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -624,7 +624,7 @@ public class InvitationApi {
     }
     /**
      * Build call for getTenantInvitations
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -692,9 +692,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントの招待一覧を取得(Get Tenant Invitations)
-     * テナントへの招待一覧を取得します。  Get a list of invitations to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get Tenant Invitations
+     * Get a list of invitations to the tenant. 
+     * @param tenantId Tenant ID (required)
      * @return Invitations
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -710,9 +710,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントの招待一覧を取得(Get Tenant Invitations)
-     * テナントへの招待一覧を取得します。  Get a list of invitations to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get Tenant Invitations
+     * Get a list of invitations to the tenant. 
+     * @param tenantId Tenant ID (required)
      * @return ApiResponse&lt;Invitations&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -729,9 +729,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントの招待一覧を取得(Get Tenant Invitations) (asynchronously)
-     * テナントへの招待一覧を取得します。  Get a list of invitations to the tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get Tenant Invitations (asynchronously)
+     * Get a list of invitations to the tenant. 
+     * @param tenantId Tenant ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -751,7 +751,7 @@ public class InvitationApi {
     }
     /**
      * Build call for validateInvitation
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * @param invitationId Invitation ID (required)
      * @param validateInvitationParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -823,9 +823,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待を検証(Validate Invitation)
-     * テナントへの招待を検証します。  Validate an invitation to the tenant. 
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Validate Invitation
+     * Validate an invitation to the tenant. 
+     * @param invitationId Invitation ID (required)
      * @param validateInvitationParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -842,9 +842,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待を検証(Validate Invitation)
-     * テナントへの招待を検証します。  Validate an invitation to the tenant. 
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Validate Invitation
+     * Validate an invitation to the tenant. 
+     * @param invitationId Invitation ID (required)
      * @param validateInvitationParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -863,9 +863,9 @@ public class InvitationApi {
     }
 
     /**
-     * テナントへの招待を検証(Validate Invitation) (asynchronously)
-     * テナントへの招待を検証します。  Validate an invitation to the tenant. 
-     * @param invitationId 招待ID(Invitation ID) (required)
+     * Validate Invitation (asynchronously)
+     * Validate an invitation to the tenant. 
+     * @param invitationId Invitation ID (required)
      * @param validateInvitationParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

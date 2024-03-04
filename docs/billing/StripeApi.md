@@ -4,18 +4,18 @@ All URIs are relative to *https://api.saasus.io/v1/billing*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**deleteStripeInfo**](StripeApi.md#deleteStripeInfo) | **DELETE** /stripe/info | Stripe連携情報を削除(Delete Stripe Connection) |
-| [**getStripeInfo**](StripeApi.md#getStripeInfo) | **GET** /stripe/info | Stripe連携情報を取得(Get Stripe Connection information) |
-| [**updateStripeInfo**](StripeApi.md#updateStripeInfo) | **PUT** /stripe/info | Stripe連携情報を更新(Update Stripe Connection Info) |
+| [**deleteStripeInfo**](StripeApi.md#deleteStripeInfo) | **DELETE** /stripe/info | Delete Stripe Connection |
+| [**getStripeInfo**](StripeApi.md#getStripeInfo) | **GET** /stripe/info | Get Stripe Connection information |
+| [**updateStripeInfo**](StripeApi.md#updateStripeInfo) | **PUT** /stripe/info | Update Stripe Connection Info |
 
 
 <a id="deleteStripeInfo"></a>
 # **deleteStripeInfo**
 > deleteStripeInfo()
 
-Stripe連携情報を削除(Delete Stripe Connection)
+Delete Stripe Connection
 
-請求業務で使う外部SaaSとの連携情報を削除します。  Delete connection with external billing SaaS 
+Delete connection with external billing SaaS 
 
 ### Example
 ```java
@@ -76,9 +76,9 @@ null (empty response body)
 # **getStripeInfo**
 > StripeInfo getStripeInfo()
 
-Stripe連携情報を取得(Get Stripe Connection information)
+Get Stripe Connection information
 
-請求業務で使う外部SaaSとの連携情報を取得します。 現在は Stripe と連携が可能です。 連携を行わない場合は、 SaaSus SDK/API を利用して請求処理を実装する必要があります。  Get information on connnections with external billing SaaS. Currently possible to integrate with Stripe. Without integration, you will need to implement billing using the SaaSus SDK/API. 
+Get information on connnections with external billing SaaS. Currently possible to integrate with Stripe. Without integration, you will need to implement billing using the SaaSus SDK/API. 
 
 ### Example
 ```java
@@ -140,9 +140,9 @@ This endpoint does not need any parameter.
 # **updateStripeInfo**
 > updateStripeInfo(updateStripeInfoParam)
 
-Stripe連携情報を更新(Update Stripe Connection Info)
+Update Stripe Connection Info
 
-請求業務で使う外部SaaSとの連携情報を更新します。 現在は Stripe と連携が可能です。  Updates information on connection with external billing SaaS. Currently possible to connect to Stripe. 
+Updates information on connection with external billing SaaS. Currently possible to connect to Stripe. 
 
 ### Example
 ```java

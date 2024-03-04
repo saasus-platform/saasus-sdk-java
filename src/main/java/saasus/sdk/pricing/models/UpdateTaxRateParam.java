@@ -14,13 +14,13 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * UpdateTaxRateParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-04T15:36:41.854356266Z[Etc/UTC]")
 public class UpdateTaxRateParam {
   public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
   @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
@@ -64,13 +63,12 @@ public class UpdateTaxRateParam {
   }
 
   public UpdateTaxRateParam displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
 
    /**
-   * 表示名(display name)
+   * Display name
    * @return displayName
   **/
   @javax.annotation.Nonnull
@@ -78,27 +76,24 @@ public class UpdateTaxRateParam {
     return displayName;
   }
 
-
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
   public UpdateTaxRateParam description(String description) {
-    
     this.description = description;
     return this;
   }
 
    /**
-   * 説明(description)
+   * Description
    * @return description
   **/
   @javax.annotation.Nonnull
   public String getDescription() {
     return description;
   }
-
 
   public void setDescription(String description) {
     this.description = description;
@@ -174,9 +169,9 @@ public class UpdateTaxRateParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateTaxRateParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateTaxRateParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

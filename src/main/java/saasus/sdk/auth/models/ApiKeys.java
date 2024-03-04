@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -52,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * ApiKeys
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-04T15:36:36.586460884Z[Etc/UTC]")
 public class ApiKeys {
   public static final String SERIALIZED_NAME_API_KEYS = "api_keys";
   @SerializedName(SERIALIZED_NAME_API_KEYS)
@@ -62,7 +61,6 @@ public class ApiKeys {
   }
 
   public ApiKeys apiKeys(List<String> apiKeys) {
-    
     this.apiKeys = apiKeys;
     return this;
   }
@@ -76,14 +74,13 @@ public class ApiKeys {
   }
 
    /**
-   * APIキー(API Key)
+   * API Key
    * @return apiKeys
   **/
   @javax.annotation.Nonnull
   public List<String> getApiKeys() {
     return apiKeys;
   }
-
 
   public void setApiKeys(List<String> apiKeys) {
     this.apiKeys = apiKeys;
@@ -155,9 +152,9 @@ public class ApiKeys {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ApiKeys.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiKeys` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
