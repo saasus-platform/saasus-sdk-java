@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -52,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * TenantProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-04T15:36:36.586460884Z[Etc/UTC]")
 public class TenantProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -70,13 +69,12 @@ public class TenantProps {
   }
 
   public TenantProps name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * テナント名(tenant name)
+   * tenant name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -84,14 +82,12 @@ public class TenantProps {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TenantProps attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -105,7 +101,7 @@ public class TenantProps {
   }
 
    /**
-   * 属性情報(attribute info)
+   * attribute info
    * @return attributes
   **/
   @javax.annotation.Nonnull
@@ -113,27 +109,24 @@ public class TenantProps {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
   public TenantProps backOfficeStaffEmail(String backOfficeStaffEmail) {
-    
     this.backOfficeStaffEmail = backOfficeStaffEmail;
     return this;
   }
 
    /**
-   * 事務管理部門スタッフメールアドレス(administrative staff email address)
+   * administrative staff email address
    * @return backOfficeStaffEmail
   **/
   @javax.annotation.Nonnull
   public String getBackOfficeStaffEmail() {
     return backOfficeStaffEmail;
   }
-
 
   public void setBackOfficeStaffEmail(String backOfficeStaffEmail) {
     this.backOfficeStaffEmail = backOfficeStaffEmail;
@@ -213,9 +206,9 @@ public class TenantProps {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TenantProps.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TenantProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

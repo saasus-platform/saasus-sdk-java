@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,17 +14,17 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * stripe連携している場合で、プラン変更時の比例配分の挙動を設定できます。 プラン変更した場合に、請求金額を日割り計算し次回請求書に反映させるか、日割り計算した請求を即時に発行する、日割り計算をしないを設定できます。  If you have a strine linkage, you can set the behavior of the proportional allocation when changing plans. When a plan is changed, you can set whether to prorate the billing amount and reflect it on the next invoice, to issue a prorated invoice immediately, or not to prorate at all. 
+ * If you have a strine linkage, you can set the behavior of the proportional allocation when changing plans. When a plan is changed, you can set whether to prorate the billing amount and reflect it on the next invoice, to issue a prorated invoice immediately, or not to prorate at all. 
  */
 @JsonAdapter(ProrationBehavior.Adapter.class)
 public enum ProrationBehavior {
@@ -70,6 +70,11 @@ public enum ProrationBehavior {
       String value = jsonReader.nextString();
       return ProrationBehavior.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    ProrationBehavior.fromValue(value);
   }
 }
 

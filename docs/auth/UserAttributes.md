@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**userAttributes** | [**List&lt;Attribute&gt;**](Attribute.md) | ユーザー属性定義(User attribute definition) |  |
+|**userAttributes** | [**List&lt;Attribute&gt;**](Attribute.md) | User Attribute Definition |  |
 
 
 
