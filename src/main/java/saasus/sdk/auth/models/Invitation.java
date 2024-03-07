@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.auth.models.InvitationStatus;
 import saasus.sdk.auth.models.UserAvailableEnv;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -54,7 +53,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Invitation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-07T05:43:38.036872771Z[Etc/UTC]")
 public class Invitation {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -84,7 +83,6 @@ public class Invitation {
   }
 
   public Invitation id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -98,20 +96,18 @@ public class Invitation {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
 
 
   public Invitation email(String email) {
-    
     this.email = email;
     return this;
   }
 
    /**
-   * 招待されたユーザーのメールアドレス(email address of the invited user)
+   * Email address of the invited user
    * @return email
   **/
   @javax.annotation.Nonnull
@@ -119,20 +115,18 @@ public class Invitation {
     return email;
   }
 
-
   public void setEmail(String email) {
     this.email = email;
   }
 
 
   public Invitation invitationUrl(String invitationUrl) {
-    
     this.invitationUrl = invitationUrl;
     return this;
   }
 
    /**
-   * 招待URL(invitation URL)
+   * Invitation URL
    * @return invitationUrl
   **/
   @javax.annotation.Nonnull
@@ -140,14 +134,12 @@ public class Invitation {
     return invitationUrl;
   }
 
-
   public void setInvitationUrl(String invitationUrl) {
     this.invitationUrl = invitationUrl;
   }
 
 
   public Invitation envs(List<UserAvailableEnv> envs) {
-    
     this.envs = envs;
     return this;
   }
@@ -169,20 +161,18 @@ public class Invitation {
     return envs;
   }
 
-
   public void setEnvs(List<UserAvailableEnv> envs) {
     this.envs = envs;
   }
 
 
   public Invitation expiredAt(Integer expiredAt) {
-    
     this.expiredAt = expiredAt;
     return this;
   }
 
    /**
-   * 招待の有効期限(expiration date of the invitation)
+   * Expiration date of the invitation
    * @return expiredAt
   **/
   @javax.annotation.Nonnull
@@ -190,14 +180,12 @@ public class Invitation {
     return expiredAt;
   }
 
-
   public void setExpiredAt(Integer expiredAt) {
     this.expiredAt = expiredAt;
   }
 
 
   public Invitation status(InvitationStatus status) {
-    
     this.status = status;
     return this;
   }
@@ -210,7 +198,6 @@ public class Invitation {
   public InvitationStatus getStatus() {
     return status;
   }
-
 
   public void setStatus(InvitationStatus status) {
     this.status = status;
@@ -302,9 +289,9 @@ public class Invitation {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Invitation.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Invitation` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -336,6 +323,8 @@ public class Invitation {
       for (int i = 0; i < jsonArrayenvs.size(); i++) {
         UserAvailableEnv.validateJsonElement(jsonArrayenvs.get(i));
       };
+      // validate the required field `status`
+      InvitationStatus.validateJsonElement(jsonObj.get("status"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
