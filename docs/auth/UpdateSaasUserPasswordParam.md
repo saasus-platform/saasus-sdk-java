@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**password** | **String** | パスワード(password) |  |
+|**password** | **String** | Password |  |
 
 
 

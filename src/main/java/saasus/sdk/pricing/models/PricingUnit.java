@@ -14,7 +14,6 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.pricing.models.AggregateUsage;
 import saasus.sdk.pricing.models.Currency;
@@ -68,7 +68,7 @@ import com.google.gson.JsonParseException;
 
 import saasus.sdk.pricing.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-07T05:45:42.520143187Z[Etc/UTC]")
 public class PricingUnit extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PricingUnit.class.getName());
 

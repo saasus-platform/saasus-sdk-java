@@ -32,9 +32,9 @@ public class ErrorApiTest {
     private final ErrorApi api = new ErrorApi();
 
     /**
-     * ステータスコード500でサーバーエラーを返却(Return Internal Server Error)
+     * Returns a server error with status code 500
      *
-     * テスト用途で使用するエンドポイントです。ステータスコード500でサーバーエラーを返却します。  This endpoint is used for testing purposes. Returns a server error with status code 500. 
+     * This endpoint is used for testing purposes. Returns a server error with status code 500. 
      *
      * @throws ApiException if the Api call fails
      */

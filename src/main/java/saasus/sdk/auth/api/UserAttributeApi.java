@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -139,8 +139,8 @@ public class UserAttributeApi {
     }
 
     /**
-     * ユーザー属性の作成(Create User Attributes)
-     * SaaSus Platform にて保持するユーザーの追加属性を登録します。 例えば、ユーザー名を持たせる、誕生日を持たせるなど、ユーザーに紐付いた項目の定義を行うことができます。 一方で、個人情報を SaaSus Platform 側に持たせたくない場合は、このユーザー属性定義を行わずに SaaS 側で個人情報を持つことを検討してください。  Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+     * Create User Attributes
+     * Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
      * @param body  (optional)
      * @return Attribute
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -157,8 +157,8 @@ public class UserAttributeApi {
     }
 
     /**
-     * ユーザー属性の作成(Create User Attributes)
-     * SaaSus Platform にて保持するユーザーの追加属性を登録します。 例えば、ユーザー名を持たせる、誕生日を持たせるなど、ユーザーに紐付いた項目の定義を行うことができます。 一方で、個人情報を SaaSus Platform 側に持たせたくない場合は、このユーザー属性定義を行わずに SaaS 側で個人情報を持つことを検討してください。  Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+     * Create User Attributes
+     * Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
      * @param body  (optional)
      * @return ApiResponse&lt;Attribute&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -176,8 +176,8 @@ public class UserAttributeApi {
     }
 
     /**
-     * ユーザー属性の作成(Create User Attributes) (asynchronously)
-     * SaaSus Platform にて保持するユーザーの追加属性を登録します。 例えば、ユーザー名を持たせる、誕生日を持たせるなど、ユーザーに紐付いた項目の定義を行うことができます。 一方で、個人情報を SaaSus Platform 側に持たせたくない場合は、このユーザー属性定義を行わずに SaaS 側で個人情報を持つことを検討してください。  Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+     * Create User Attributes (asynchronously)
+     * Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -198,7 +198,7 @@ public class UserAttributeApi {
     }
     /**
      * Build call for deleteUserAttribute
-     * @param attributeName 属性名(Attribute Name) (required)
+     * @param attributeName Attribute Name (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -267,9 +267,9 @@ public class UserAttributeApi {
     }
 
     /**
-     * ユーザー属性の削除(Delete User Attribute)
-     * SaaSus Platform にて保持するユーザーの追加属性を削除します。  Delete user attributes kept on the SaaSus Platform. 
-     * @param attributeName 属性名(Attribute Name) (required)
+     * Delete User Attribute
+     * Delete user attributes kept on the SaaSus Platform. 
+     * @param attributeName Attribute Name (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -284,9 +284,9 @@ public class UserAttributeApi {
     }
 
     /**
-     * ユーザー属性の削除(Delete User Attribute)
-     * SaaSus Platform にて保持するユーザーの追加属性を削除します。  Delete user attributes kept on the SaaSus Platform. 
-     * @param attributeName 属性名(Attribute Name) (required)
+     * Delete User Attribute
+     * Delete user attributes kept on the SaaSus Platform. 
+     * @param attributeName Attribute Name (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -303,9 +303,9 @@ public class UserAttributeApi {
     }
 
     /**
-     * ユーザー属性の削除(Delete User Attribute) (asynchronously)
-     * SaaSus Platform にて保持するユーザーの追加属性を削除します。  Delete user attributes kept on the SaaSus Platform. 
-     * @param attributeName 属性名(Attribute Name) (required)
+     * Delete User Attribute (asynchronously)
+     * Delete user attributes kept on the SaaSus Platform. 
+     * @param attributeName Attribute Name (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -386,8 +386,8 @@ public class UserAttributeApi {
     }
 
     /**
-     * ユーザー属性の一覧を取得(Get User Attributes)
-     * SaaSus Platform にて保持するユーザーの追加属性を取得します。 例えば、ユーザー名を持たせる、誕生日を持たせるなど、ユーザーに紐付いた項目の定義を行うことができます。 一方で、個人情報を SaaSus Platform 側に持たせたくない場合は、このユーザー属性定義を行わずに SaaS 側で個人情報を持つことを検討してください。  Get additional attributes of the user saved in the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+     * Get User Attributes
+     * Get additional attributes of the user saved in the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
      * @return UserAttributes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -403,8 +403,8 @@ public class UserAttributeApi {
     }
 
     /**
-     * ユーザー属性の一覧を取得(Get User Attributes)
-     * SaaSus Platform にて保持するユーザーの追加属性を取得します。 例えば、ユーザー名を持たせる、誕生日を持たせるなど、ユーザーに紐付いた項目の定義を行うことができます。 一方で、個人情報を SaaSus Platform 側に持たせたくない場合は、このユーザー属性定義を行わずに SaaS 側で個人情報を持つことを検討してください。  Get additional attributes of the user saved in the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+     * Get User Attributes
+     * Get additional attributes of the user saved in the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
      * @return ApiResponse&lt;UserAttributes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -421,8 +421,8 @@ public class UserAttributeApi {
     }
 
     /**
-     * ユーザー属性の一覧を取得(Get User Attributes) (asynchronously)
-     * SaaSus Platform にて保持するユーザーの追加属性を取得します。 例えば、ユーザー名を持たせる、誕生日を持たせるなど、ユーザーに紐付いた項目の定義を行うことができます。 一方で、個人情報を SaaSus Platform 側に持たせたくない場合は、このユーザー属性定義を行わずに SaaS 側で個人情報を持つことを検討してください。  Get additional attributes of the user saved in the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+     * Get User Attributes (asynchronously)
+     * Get additional attributes of the user saved in the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

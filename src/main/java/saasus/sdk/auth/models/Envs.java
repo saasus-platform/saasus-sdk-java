@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.auth.models.Env;
 
@@ -45,15 +45,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
 
 /**
- * env一覧(env list)
+ * env list
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-07T05:45:37.582394909Z[Etc/UTC]")
 public class Envs {
   public static final String SERIALIZED_NAME_ENVS = "envs";
   @SerializedName(SERIALIZED_NAME_ENVS)
@@ -63,7 +62,6 @@ public class Envs {
   }
 
   public Envs envs(List<Env> envs) {
-    
     this.envs = envs;
     return this;
   }
@@ -84,7 +82,6 @@ public class Envs {
   public List<Env> getEnvs() {
     return envs;
   }
-
 
   public void setEnvs(List<Env> envs) {
     this.envs = envs;
@@ -156,9 +153,9 @@ public class Envs {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Envs.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Envs` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

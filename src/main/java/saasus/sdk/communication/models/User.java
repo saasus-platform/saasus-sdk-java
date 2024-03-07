@@ -14,13 +14,13 @@
 package saasus.sdk.communication.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.communication.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.communication.JSON;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:32.358898Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-07T05:45:57.638102190Z[Etc/UTC]")
 public class User {
   public static final String SERIALIZED_NAME_USER_ID = "user_id";
   @SerializedName(SERIALIZED_NAME_USER_ID)
@@ -60,7 +59,6 @@ public class User {
   }
 
   public User userId(String userId) {
-    
     this.userId = userId;
     return this;
   }
@@ -73,7 +71,6 @@ public class User {
   public String getUserId() {
     return userId;
   }
-
 
   public void setUserId(String userId) {
     this.userId = userId;
@@ -145,9 +142,9 @@ public class User {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!User.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `User` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

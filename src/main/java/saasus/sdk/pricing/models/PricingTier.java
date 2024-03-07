@@ -14,13 +14,13 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingTier
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-07T05:45:42.520143187Z[Etc/UTC]")
 public class PricingTier {
   public static final String SERIALIZED_NAME_UP_TO = "up_to";
   @SerializedName(SERIALIZED_NAME_UP_TO)
@@ -72,13 +71,12 @@ public class PricingTier {
   }
 
   public PricingTier upTo(Integer upTo) {
-    
     this.upTo = upTo;
     return this;
   }
 
    /**
-   * 上限(upper limit)
+   * Upper limit
    * @return upTo
   **/
   @javax.annotation.Nonnull
@@ -86,20 +84,18 @@ public class PricingTier {
     return upTo;
   }
 
-
   public void setUpTo(Integer upTo) {
     this.upTo = upTo;
   }
 
 
   public PricingTier unitAmount(Integer unitAmount) {
-    
     this.unitAmount = unitAmount;
     return this;
   }
 
    /**
-   * 単位金額(amount per unit)
+   * Amount per unit
    * @return unitAmount
   **/
   @javax.annotation.Nonnull
@@ -107,20 +103,18 @@ public class PricingTier {
     return unitAmount;
   }
 
-
   public void setUnitAmount(Integer unitAmount) {
     this.unitAmount = unitAmount;
   }
 
 
   public PricingTier flatAmount(Integer flatAmount) {
-    
     this.flatAmount = flatAmount;
     return this;
   }
 
    /**
-   * 固定金額(fixed Amount)
+   * Fixed amount
    * @return flatAmount
   **/
   @javax.annotation.Nonnull
@@ -128,27 +122,24 @@ public class PricingTier {
     return flatAmount;
   }
 
-
   public void setFlatAmount(Integer flatAmount) {
     this.flatAmount = flatAmount;
   }
 
 
   public PricingTier inf(Boolean inf) {
-    
     this.inf = inf;
     return this;
   }
 
    /**
-   * inf
+   * Indefinite
    * @return inf
   **/
   @javax.annotation.Nonnull
   public Boolean getInf() {
     return inf;
   }
-
 
   public void setInf(Boolean inf) {
     this.inf = inf;
@@ -232,9 +223,9 @@ public class PricingTier {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PricingTier.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PricingTier` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

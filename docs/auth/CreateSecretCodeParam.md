@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**accessToken** | **String** | アクセストークン(access token) |  |
+|**accessToken** | **String** | access token |  |
 
 
 
