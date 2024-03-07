@@ -14,13 +14,13 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import saasus.sdk.pricing.models.Currency;
 import saasus.sdk.pricing.models.RecurringInterval;
 import saasus.sdk.pricing.models.UnitType;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingFixedUnit
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-07T05:43:43.826043278Z[Etc/UTC]")
 public class PricingFixedUnit {
   public static final String SERIALIZED_NAME_UNIT_AMOUNT = "unit_amount";
   @SerializedName(SERIALIZED_NAME_UNIT_AMOUNT)
@@ -95,13 +94,12 @@ public class PricingFixedUnit {
   }
 
   public PricingFixedUnit unitAmount(Integer unitAmount) {
-    
     this.unitAmount = unitAmount;
     return this;
   }
 
    /**
-   * 料金(price)
+   * Price
    * @return unitAmount
   **/
   @javax.annotation.Nonnull
@@ -109,14 +107,12 @@ public class PricingFixedUnit {
     return unitAmount;
   }
 
-
   public void setUnitAmount(Integer unitAmount) {
     this.unitAmount = unitAmount;
   }
 
 
   public PricingFixedUnit recurringInterval(RecurringInterval recurringInterval) {
-    
     this.recurringInterval = recurringInterval;
     return this;
   }
@@ -130,20 +126,18 @@ public class PricingFixedUnit {
     return recurringInterval;
   }
 
-
   public void setRecurringInterval(RecurringInterval recurringInterval) {
     this.recurringInterval = recurringInterval;
   }
 
 
   public PricingFixedUnit name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * 名前(name)
+   * Name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -151,20 +145,18 @@ public class PricingFixedUnit {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public PricingFixedUnit displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
 
    /**
-   * 表示名(display name)
+   * Display Name
    * @return displayName
   **/
   @javax.annotation.Nonnull
@@ -172,20 +164,18 @@ public class PricingFixedUnit {
     return displayName;
   }
 
-
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
   public PricingFixedUnit description(String description) {
-    
     this.description = description;
     return this;
   }
 
    /**
-   * 説明(description)
+   * Description
    * @return description
   **/
   @javax.annotation.Nonnull
@@ -193,14 +183,12 @@ public class PricingFixedUnit {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public PricingFixedUnit type(UnitType type) {
-    
     this.type = type;
     return this;
   }
@@ -214,14 +202,12 @@ public class PricingFixedUnit {
     return type;
   }
 
-
   public void setType(UnitType type) {
     this.type = type;
   }
 
 
   public PricingFixedUnit currency(Currency currency) {
-    
     this.currency = currency;
     return this;
   }
@@ -235,20 +221,18 @@ public class PricingFixedUnit {
     return currency;
   }
 
-
   public void setCurrency(Currency currency) {
     this.currency = currency;
   }
 
 
   public PricingFixedUnit id(String id) {
-    
     this.id = id;
     return this;
   }
 
    /**
-   * Get id
+   * Universally Unique Identifier
    * @return id
   **/
   @javax.annotation.Nonnull
@@ -256,14 +240,12 @@ public class PricingFixedUnit {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
 
 
   public PricingFixedUnit used(Boolean used) {
-    
     this.used = used;
     return this;
   }
@@ -276,7 +258,6 @@ public class PricingFixedUnit {
   public Boolean getUsed() {
     return used;
   }
-
 
   public void setUsed(Boolean used) {
     this.used = used;
@@ -380,9 +361,9 @@ public class PricingFixedUnit {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PricingFixedUnit.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PricingFixedUnit` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -395,6 +376,8 @@ public class PricingFixedUnit {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `recurring_interval`
+      RecurringInterval.validateJsonElement(jsonObj.get("recurring_interval"));
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
@@ -404,6 +387,10 @@ public class PricingFixedUnit {
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      // validate the required field `type`
+      UnitType.validateJsonElement(jsonObj.get("type"));
+      // validate the required field `currency`
+      Currency.validateJsonElement(jsonObj.get("currency"));
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }

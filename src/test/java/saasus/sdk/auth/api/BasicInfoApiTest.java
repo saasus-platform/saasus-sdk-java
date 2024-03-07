@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -40,9 +40,9 @@ public class BasicInfoApiTest {
     private final BasicInfoApi api = new BasicInfoApi();
 
     /**
-     * 通知メールテンプレートを取得(Get Notification Email Templates)
+     * Get Notification Email Templates
      *
-     * 各種通知メールテンプレートを取得します。  Get notification email templates. 
+     * Get notification email templates. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -53,9 +53,9 @@ public class BasicInfoApiTest {
     }
 
     /**
-     * 基本設定情報の取得(Get Basic Configurations)
+     * Get Basic Configurations
      *
-     * SaaS ID を元に設定されているドメイン名と CNAME レコードを取得します。 取得した CNAME レコードを DNS に設定することで、ログイン画面を生成します。  Get the domain name and CNAME record based on the SaaS ID. By setting the CNAME record on the DNS the login screen will be generated. 
+     * Get the domain name and CNAME record based on the SaaS ID. By setting the CNAME record on the DNS the login screen will be generated. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -66,9 +66,9 @@ public class BasicInfoApiTest {
     }
 
     /**
-     * 認証認可基本情報取得(Get Authentication Authorization Basic Information)
+     * Get Authentication Authorization Basic Information
      *
-     * 認証認可基本情報を取得します。  Get authentication authorization basic information. 
+     * Get authentication authorization basic information. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -79,9 +79,9 @@ public class BasicInfoApiTest {
     }
 
     /**
-     * 認証系画面設定情報取得(Get Authentication Page Setting)
+     * Get Authentication Page Setting
      *
-     * 認証系画面設定情報（新規登録・ログイン・パスワードリセット等）を取得します。  Get the authentication screen setting information (new registration, login, password reset, etc.). 
+     * Get the authentication screen setting information (new registration, login, password reset, etc.). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -92,9 +92,9 @@ public class BasicInfoApiTest {
     }
 
     /**
-     * 基本設定情報の更新(Update Basic Configurations)
+     * Update Basic Configurations
      *
-     * SaaS ID を元にパラメータとして設定したドメイン名を設定更新します。 CNAME レコードが生成されますので、 DNS に設定して下さい。 既に稼働中の SaaS アプリケーションに設定している場合には、動作に影響があります。  Update the domain name that was set as a parameter based on the SaaS ID. After the CNAME record is generated, set it in your DNS. If it is set on a SaaS application that is already running, it will affect the behavior. 
+     * Update the domain name that was set as a parameter based on the SaaS ID. After the CNAME record is generated, set it in your DNS. If it is set on a SaaS application that is already running, it will affect the behavior. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -106,9 +106,9 @@ public class BasicInfoApiTest {
     }
 
     /**
-     * 認証認可基本情報更新(Update Authentication Authorization Basic Information)
+     * Update Authentication Authorization Basic Information
      *
-     * 認証認可基本情報を更新します。  Update authentication authorization basic information. 
+     * Update authentication authorization basic information. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -120,9 +120,9 @@ public class BasicInfoApiTest {
     }
 
     /**
-     * 認証系画面設定情報設定(Authentication Page Setting)
+     * Authentication Page Setting
      *
-     * 認証系画面設定情報（新規登録・ログイン・パスワードリセット等）を更新します。  Update the authentication page setting information (new registration, login, password reset, etc.). 
+     * Update the authentication page setting information (new registration, login, password reset, etc.). 
      *
      * @throws ApiException if the Api call fails
      */
@@ -134,9 +134,9 @@ public class BasicInfoApiTest {
     }
 
     /**
-     * 通知メールテンプレートを更新(Update Notification Email Template)
+     * Update Notification Email Template
      *
-     * 各種通知メールテンプレート更新します。  Update notification email template. 
+     * Update notification email template. 
      *
      * @throws ApiException if the Api call fails
      */
