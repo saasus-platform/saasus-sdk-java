@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.auth.models.Role;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UserAvailableEnv
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-07T05:45:37.582394909Z[Etc/UTC]")
 public class UserAvailableEnv {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -75,7 +74,6 @@ public class UserAvailableEnv {
   }
 
   public UserAvailableEnv id(Integer id) {
-    
     this.id = id;
     return this;
   }
@@ -89,20 +87,18 @@ public class UserAvailableEnv {
     return id;
   }
 
-
   public void setId(Integer id) {
     this.id = id;
   }
 
 
   public UserAvailableEnv name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * 環境名(env name)
+   * env name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -110,20 +106,18 @@ public class UserAvailableEnv {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public UserAvailableEnv displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
 
    /**
-   * 環境表示名(env display name)
+   * env display name
    * @return displayName
   **/
   @javax.annotation.Nullable
@@ -131,14 +125,12 @@ public class UserAvailableEnv {
     return displayName;
   }
 
-
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
   public UserAvailableEnv roles(List<Role> roles) {
-    
     this.roles = roles;
     return this;
   }
@@ -152,14 +144,13 @@ public class UserAvailableEnv {
   }
 
    /**
-   * 役割(ロール)情報(role info)
+   * role info
    * @return roles
   **/
   @javax.annotation.Nonnull
   public List<Role> getRoles() {
     return roles;
   }
-
 
   public void setRoles(List<Role> roles) {
     this.roles = roles;
@@ -242,9 +233,9 @@ public class UserAvailableEnv {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UserAvailableEnv.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserAvailableEnv` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**secretCode** | **String** | シークレットコード(secret code) |  |
+|**secretCode** | **String** | secret code |  |
 
 
 
