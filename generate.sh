@@ -42,11 +42,12 @@ do
         target="/local/${module}api.yml"
     fi
 
-    docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
+    docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli:v7.2.0 generate \
     -i ${target} \
     -g java \
     --additional-properties=modelPackage=saasus.sdk.${module}.models,apiPackage=saasus.sdk.${module}.api \
-    -o /local/generated/${module}
+    -o /local/generated/${module} \
+    --additional-properties useOneOfDiscriminatorLookup=true
 done
 
 for module in ${MODULES}
