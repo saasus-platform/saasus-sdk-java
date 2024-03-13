@@ -2,7 +2,7 @@
 
 # SelfRegist
 
-セルフサインアップを許可設定(self sign-up permission)
+self sign-up permission
 
 ## Properties
 

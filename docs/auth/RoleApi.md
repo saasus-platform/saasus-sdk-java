@@ -4,18 +4,18 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createRole**](RoleApi.md#createRole) | **POST** /roles | 役割(ロール)を作成(Create Role) |
-| [**deleteRole**](RoleApi.md#deleteRole) | **DELETE** /roles/{role_name} | 役割(ロール)を削除(Delete Role) |
-| [**getRoles**](RoleApi.md#getRoles) | **GET** /roles | 役割(ロール)一覧を取得(Get Roles) |
+| [**createRole**](RoleApi.md#createRole) | **POST** /roles | Create Role |
+| [**deleteRole**](RoleApi.md#deleteRole) | **DELETE** /roles/{role_name} | Delete Role |
+| [**getRoles**](RoleApi.md#getRoles) | **GET** /roles | Get Roles |
 
 
 <a id="createRole"></a>
 # **createRole**
 > Role createRole(body)
 
-役割(ロール)を作成(Create Role)
+Create Role
 
-役割(ロール)を作成します。 ここで作成した役割をユーザーに付与することによって、SaaS側で役割ベースの認可を実装することが用意になります。 また、同じユーザーでも、属するテナント・環境ごとに持っている役割を変えることが可能です。  Create a role. By granting users the roles created here, it becomes easier to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
+Create a role. By granting users the roles created here, it becomes easier to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
 
 ### Example
 ```java
@@ -81,9 +81,9 @@ public class Example {
 # **deleteRole**
 > deleteRole(roleName)
 
-役割(ロール)を削除(Delete Role)
+Delete Role
 
-役割(ロール)を削除します。  Delete role. 
+Delete role. 
 
 ### Example
 ```java
@@ -105,7 +105,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     RoleApi apiInstance = new RoleApi(defaultClient);
-    String roleName = "admin"; // String | 役割(ロール)名(role name)
+    String roleName = "admin"; // String | Role name
     try {
       apiInstance.deleteRole(roleName);
     } catch (ApiException e) {
@@ -123,7 +123,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **roleName** | **String**| 役割(ロール)名(role name) | |
+| **roleName** | **String**| Role name | |
 
 ### Return type
 
@@ -150,9 +150,9 @@ null (empty response body)
 # **getRoles**
 > Roles getRoles()
 
-役割(ロール)一覧を取得(Get Roles)
+Get Roles
 
-登録されている役割(ロール)を一覧として取得します。 ここで定義した役割をユーザーに付与することによって、SaaS側で役割ベースの認可を実装することが用意になります。 また、同じユーザーでも、属するテナント・環境ごとに持っている役割を変えることが可能です。  Get registered roles list. Granting users the roles defined here makes it easy to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
+Get registered roles list. Granting users the roles defined here makes it easy to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
 
 ### Example
 ```java

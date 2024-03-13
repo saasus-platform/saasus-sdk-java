@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**displayName** | **String** | 表示名(display name) |  |
-|**description** | **String** | 説明(description) |  |
+|**displayName** | **String** | Display name |  |
+|**description** | **String** | Description |  |
 
 
 
