@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -143,8 +143,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 通知メールテンプレートを取得(Get Notification Email Templates)
-     * 各種通知メールテンプレートを取得します。  Get notification email templates. 
+     * Get Notification Email Templates
+     * Get notification email templates. 
      * @return NotificationMessages
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -160,8 +160,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 通知メールテンプレートを取得(Get Notification Email Templates)
-     * 各種通知メールテンプレートを取得します。  Get notification email templates. 
+     * Get Notification Email Templates
+     * Get notification email templates. 
      * @return ApiResponse&lt;NotificationMessages&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -178,8 +178,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 通知メールテンプレートを取得(Get Notification Email Templates) (asynchronously)
-     * 各種通知メールテンプレートを取得します。  Get notification email templates. 
+     * Get Notification Email Templates (asynchronously)
+     * Get notification email templates. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -260,8 +260,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 基本設定情報の取得(Get Basic Configurations)
-     * SaaS ID を元に設定されているドメイン名と CNAME レコードを取得します。 取得した CNAME レコードを DNS に設定することで、ログイン画面を生成します。  Get the domain name and CNAME record based on the SaaS ID. By setting the CNAME record on the DNS the login screen will be generated. 
+     * Get Basic Configurations
+     * Get the domain name and CNAME record based on the SaaS ID. By setting the CNAME record on the DNS the login screen will be generated. 
      * @return BasicInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -277,8 +277,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 基本設定情報の取得(Get Basic Configurations)
-     * SaaS ID を元に設定されているドメイン名と CNAME レコードを取得します。 取得した CNAME レコードを DNS に設定することで、ログイン画面を生成します。  Get the domain name and CNAME record based on the SaaS ID. By setting the CNAME record on the DNS the login screen will be generated. 
+     * Get Basic Configurations
+     * Get the domain name and CNAME record based on the SaaS ID. By setting the CNAME record on the DNS the login screen will be generated. 
      * @return ApiResponse&lt;BasicInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -295,8 +295,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 基本設定情報の取得(Get Basic Configurations) (asynchronously)
-     * SaaS ID を元に設定されているドメイン名と CNAME レコードを取得します。 取得した CNAME レコードを DNS に設定することで、ログイン画面を生成します。  Get the domain name and CNAME record based on the SaaS ID. By setting the CNAME record on the DNS the login screen will be generated. 
+     * Get Basic Configurations (asynchronously)
+     * Get the domain name and CNAME record based on the SaaS ID. By setting the CNAME record on the DNS the login screen will be generated. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -377,8 +377,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証認可基本情報取得(Get Authentication Authorization Basic Information)
-     * 認証認可基本情報を取得します。  Get authentication authorization basic information. 
+     * Get Authentication Authorization Basic Information
+     * Get authentication authorization basic information. 
      * @return CustomizePageSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -394,8 +394,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証認可基本情報取得(Get Authentication Authorization Basic Information)
-     * 認証認可基本情報を取得します。  Get authentication authorization basic information. 
+     * Get Authentication Authorization Basic Information
+     * Get authentication authorization basic information. 
      * @return ApiResponse&lt;CustomizePageSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -412,8 +412,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証認可基本情報取得(Get Authentication Authorization Basic Information) (asynchronously)
-     * 認証認可基本情報を取得します。  Get authentication authorization basic information. 
+     * Get Authentication Authorization Basic Information (asynchronously)
+     * Get authentication authorization basic information. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -494,8 +494,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証系画面設定情報取得(Get Authentication Page Setting)
-     * 認証系画面設定情報（新規登録・ログイン・パスワードリセット等）を取得します。  Get the authentication screen setting information (new registration, login, password reset, etc.). 
+     * Get Authentication Page Setting
+     * Get the authentication screen setting information (new registration, login, password reset, etc.). 
      * @return CustomizePages
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -511,8 +511,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証系画面設定情報取得(Get Authentication Page Setting)
-     * 認証系画面設定情報（新規登録・ログイン・パスワードリセット等）を取得します。  Get the authentication screen setting information (new registration, login, password reset, etc.). 
+     * Get Authentication Page Setting
+     * Get the authentication screen setting information (new registration, login, password reset, etc.). 
      * @return ApiResponse&lt;CustomizePages&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -529,8 +529,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証系画面設定情報取得(Get Authentication Page Setting) (asynchronously)
-     * 認証系画面設定情報（新規登録・ログイン・パスワードリセット等）を取得します。  Get the authentication screen setting information (new registration, login, password reset, etc.). 
+     * Get Authentication Page Setting (asynchronously)
+     * Get the authentication screen setting information (new registration, login, password reset, etc.). 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -613,8 +613,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 基本設定情報の更新(Update Basic Configurations)
-     * SaaS ID を元にパラメータとして設定したドメイン名を設定更新します。 CNAME レコードが生成されますので、 DNS に設定して下さい。 既に稼働中の SaaS アプリケーションに設定している場合には、動作に影響があります。  Update the domain name that was set as a parameter based on the SaaS ID. After the CNAME record is generated, set it in your DNS. If it is set on a SaaS application that is already running, it will affect the behavior. 
+     * Update Basic Configurations
+     * Update the domain name that was set as a parameter based on the SaaS ID. After the CNAME record is generated, set it in your DNS. If it is set on a SaaS application that is already running, it will affect the behavior. 
      * @param updateBasicInfoParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -629,8 +629,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 基本設定情報の更新(Update Basic Configurations)
-     * SaaS ID を元にパラメータとして設定したドメイン名を設定更新します。 CNAME レコードが生成されますので、 DNS に設定して下さい。 既に稼働中の SaaS アプリケーションに設定している場合には、動作に影響があります。  Update the domain name that was set as a parameter based on the SaaS ID. After the CNAME record is generated, set it in your DNS. If it is set on a SaaS application that is already running, it will affect the behavior. 
+     * Update Basic Configurations
+     * Update the domain name that was set as a parameter based on the SaaS ID. After the CNAME record is generated, set it in your DNS. If it is set on a SaaS application that is already running, it will affect the behavior. 
      * @param updateBasicInfoParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -647,8 +647,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 基本設定情報の更新(Update Basic Configurations) (asynchronously)
-     * SaaS ID を元にパラメータとして設定したドメイン名を設定更新します。 CNAME レコードが生成されますので、 DNS に設定して下さい。 既に稼働中の SaaS アプリケーションに設定している場合には、動作に影響があります。  Update the domain name that was set as a parameter based on the SaaS ID. After the CNAME record is generated, set it in your DNS. If it is set on a SaaS application that is already running, it will affect the behavior. 
+     * Update Basic Configurations (asynchronously)
+     * Update the domain name that was set as a parameter based on the SaaS ID. After the CNAME record is generated, set it in your DNS. If it is set on a SaaS application that is already running, it will affect the behavior. 
      * @param updateBasicInfoParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -731,8 +731,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証認可基本情報更新(Update Authentication Authorization Basic Information)
-     * 認証認可基本情報を更新します。  Update authentication authorization basic information. 
+     * Update Authentication Authorization Basic Information
+     * Update authentication authorization basic information. 
      * @param updateCustomizePageSettingsParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -747,8 +747,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証認可基本情報更新(Update Authentication Authorization Basic Information)
-     * 認証認可基本情報を更新します。  Update authentication authorization basic information. 
+     * Update Authentication Authorization Basic Information
+     * Update authentication authorization basic information. 
      * @param updateCustomizePageSettingsParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -765,8 +765,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証認可基本情報更新(Update Authentication Authorization Basic Information) (asynchronously)
-     * 認証認可基本情報を更新します。  Update authentication authorization basic information. 
+     * Update Authentication Authorization Basic Information (asynchronously)
+     * Update authentication authorization basic information. 
      * @param updateCustomizePageSettingsParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -849,8 +849,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証系画面設定情報設定(Authentication Page Setting)
-     * 認証系画面設定情報（新規登録・ログイン・パスワードリセット等）を更新します。  Update the authentication page setting information (new registration, login, password reset, etc.). 
+     * Authentication Page Setting
+     * Update the authentication page setting information (new registration, login, password reset, etc.). 
      * @param updateCustomizePagesParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -865,8 +865,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証系画面設定情報設定(Authentication Page Setting)
-     * 認証系画面設定情報（新規登録・ログイン・パスワードリセット等）を更新します。  Update the authentication page setting information (new registration, login, password reset, etc.). 
+     * Authentication Page Setting
+     * Update the authentication page setting information (new registration, login, password reset, etc.). 
      * @param updateCustomizePagesParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -883,8 +883,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 認証系画面設定情報設定(Authentication Page Setting) (asynchronously)
-     * 認証系画面設定情報（新規登録・ログイン・パスワードリセット等）を更新します。  Update the authentication page setting information (new registration, login, password reset, etc.). 
+     * Authentication Page Setting (asynchronously)
+     * Update the authentication page setting information (new registration, login, password reset, etc.). 
      * @param updateCustomizePagesParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -967,8 +967,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 通知メールテンプレートを更新(Update Notification Email Template)
-     * 各種通知メールテンプレート更新します。  Update notification email template. 
+     * Update Notification Email Template
+     * Update notification email template. 
      * @param updateNotificationMessagesParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -983,8 +983,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 通知メールテンプレートを更新(Update Notification Email Template)
-     * 各種通知メールテンプレート更新します。  Update notification email template. 
+     * Update Notification Email Template
+     * Update notification email template. 
      * @param updateNotificationMessagesParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1001,8 +1001,8 @@ public class BasicInfoApi {
     }
 
     /**
-     * 通知メールテンプレートを更新(Update Notification Email Template) (asynchronously)
-     * 各種通知メールテンプレート更新します。  Update notification email template. 
+     * Update Notification Email Template (asynchronously)
+     * Update notification email template. 
      * @param updateNotificationMessagesParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

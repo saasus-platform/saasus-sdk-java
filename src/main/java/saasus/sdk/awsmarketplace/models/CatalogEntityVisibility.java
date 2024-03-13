@@ -14,13 +14,13 @@
 package saasus.sdk.awsmarketplace.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import saasus.sdk.awsmarketplace.models.VisibilityStatus;
 
 import com.google.gson.Gson;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.awsmarketplace.JSON;
@@ -51,7 +50,7 @@ import saasus.sdk.awsmarketplace.JSON;
 /**
  * CatalogEntityVisibility
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:18.753981Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-13T12:39:18.764270523Z[Etc/UTC]")
 public class CatalogEntityVisibility {
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
@@ -61,7 +60,6 @@ public class CatalogEntityVisibility {
   }
 
   public CatalogEntityVisibility visibility(VisibilityStatus visibility) {
-    
     this.visibility = visibility;
     return this;
   }
@@ -74,7 +72,6 @@ public class CatalogEntityVisibility {
   public VisibilityStatus getVisibility() {
     return visibility;
   }
-
 
   public void setVisibility(VisibilityStatus visibility) {
     this.visibility = visibility;
@@ -146,9 +143,9 @@ public class CatalogEntityVisibility {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CatalogEntityVisibility.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CatalogEntityVisibility` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -161,6 +158,8 @@ public class CatalogEntityVisibility {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `visibility`
+      VisibilityStatus.validateJsonElement(jsonObj.get("visibility"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

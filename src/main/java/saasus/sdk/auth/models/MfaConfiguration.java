@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,18 +42,17 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
 
 /**
- * MFAデバイス認証設定(MFA device authentication settings) ※ 未提供の機能のため、変更・保存はできません(This function is not yet provided, so it cannot be changed or saved.) 
+ * MFA device authentication settings ※ This function is not yet provided, so it cannot be changed or saved. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-13T12:39:05.476813935Z[Etc/UTC]")
 public class MfaConfiguration {
   /**
-   * on: 全ユーザーがログイン時に適用(apply when all users log in) optional: MFA要素が有効になっている個別ユーザーに適用(apply to individual users with MFA factor enabled) ※ パラメータは現在optionalで固定となります。(The parameter is currently optional and fixed.) 
+   * on: apply when all users log in optional: apply to individual users with MFA factor enabled ※ The parameter is currently optional and fixed. 
    */
   @JsonAdapter(MfaConfigurationEnum.Adapter.class)
   public enum MfaConfigurationEnum {
@@ -97,6 +96,11 @@ public class MfaConfiguration {
         return MfaConfigurationEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      MfaConfigurationEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_MFA_CONFIGURATION = "mfa_configuration";
@@ -107,20 +111,18 @@ public class MfaConfiguration {
   }
 
   public MfaConfiguration mfaConfiguration(MfaConfigurationEnum mfaConfiguration) {
-    
     this.mfaConfiguration = mfaConfiguration;
     return this;
   }
 
    /**
-   * on: 全ユーザーがログイン時に適用(apply when all users log in) optional: MFA要素が有効になっている個別ユーザーに適用(apply to individual users with MFA factor enabled) ※ パラメータは現在optionalで固定となります。(The parameter is currently optional and fixed.) 
+   * on: apply when all users log in optional: apply to individual users with MFA factor enabled ※ The parameter is currently optional and fixed. 
    * @return mfaConfiguration
   **/
   @javax.annotation.Nonnull
   public MfaConfigurationEnum getMfaConfiguration() {
     return mfaConfiguration;
   }
-
 
   public void setMfaConfiguration(MfaConfigurationEnum mfaConfiguration) {
     this.mfaConfiguration = mfaConfiguration;
@@ -192,9 +194,9 @@ public class MfaConfiguration {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MfaConfiguration.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MfaConfiguration` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -210,6 +212,8 @@ public class MfaConfiguration {
       if (!jsonObj.get("mfa_configuration").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mfa_configuration` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mfa_configuration").toString()));
       }
+      // validate the required field `mfa_configuration`
+      MfaConfigurationEnum.validateJsonElement(jsonObj.get("mfa_configuration"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

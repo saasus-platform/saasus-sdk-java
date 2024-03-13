@@ -30,6 +30,8 @@ import java.io.IOException;
 import saasus.sdk.apilog.models.ApiLog;
 import saasus.sdk.apilog.models.ApiLogs;
 import saasus.sdk.apilog.models.Error;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -76,7 +78,7 @@ public class ApiLogApi {
 
     /**
      * Build call for getLog
-     * @param apiLogId APIログID(API Log ID) (required)
+     * @param apiLogId API Log ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -144,9 +146,9 @@ public class ApiLogApi {
     }
 
     /**
-     * API実行ログ取得
-     * 指定したIDのAPI実行のログ登録を取得します。
-     * @param apiLogId APIログID(API Log ID) (required)
+     * Get API execution log
+     * Retrieve the log of the API execution with the specified ID.
+     * @param apiLogId API Log ID (required)
      * @return ApiLog
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -162,9 +164,9 @@ public class ApiLogApi {
     }
 
     /**
-     * API実行ログ取得
-     * 指定したIDのAPI実行のログ登録を取得します。
-     * @param apiLogId APIログID(API Log ID) (required)
+     * Get API execution log
+     * Retrieve the log of the API execution with the specified ID.
+     * @param apiLogId API Log ID (required)
      * @return ApiResponse&lt;ApiLog&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -181,9 +183,9 @@ public class ApiLogApi {
     }
 
     /**
-     * API実行ログ取得 (asynchronously)
-     * 指定したIDのAPI実行のログ登録を取得します。
-     * @param apiLogId APIログID(API Log ID) (required)
+     * Get API execution log (asynchronously)
+     * Retrieve the log of the API execution with the specified ID.
+     * @param apiLogId API Log ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -203,6 +205,10 @@ public class ApiLogApi {
     }
     /**
      * Build call for getLogs
+     * @param createdDate The date, in format of YYYY-MM-DD, to retrieve the log. (optional)
+     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. (optional)
+     * @param limit Maximum number of logs to retrieve. (optional)
+     * @param cursor Cursor for cursor pagination. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -213,7 +219,7 @@ public class ApiLogApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLogsCall(LocalDate createdDate, OffsetDateTime createdAt, Long limit, String cursor, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -238,6 +244,22 @@ public class ApiLogApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (createdDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("created_date", createdDate));
+        }
+
+        if (createdAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("created_at", createdAt));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -258,14 +280,18 @@ public class ApiLogApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLogsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-        return getLogsCall(_callback);
+    private okhttp3.Call getLogsValidateBeforeCall(LocalDate createdDate, OffsetDateTime createdAt, Long limit, String cursor, final ApiCallback _callback) throws ApiException {
+        return getLogsCall(createdDate, createdAt, limit, cursor, _callback);
 
     }
 
     /**
-     * API実行ログ取得
-     * 全API実行のログ登録を取得します。
+     * Get API execution log list
+     * Retrieve the log of all API executions.
+     * @param createdDate The date, in format of YYYY-MM-DD, to retrieve the log. (optional)
+     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. (optional)
+     * @param limit Maximum number of logs to retrieve. (optional)
+     * @param cursor Cursor for cursor pagination. (optional)
      * @return ApiLogs
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -275,14 +301,18 @@ public class ApiLogApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiLogs getLogs() throws ApiException {
-        ApiResponse<ApiLogs> localVarResp = getLogsWithHttpInfo();
+    public ApiLogs getLogs(LocalDate createdDate, OffsetDateTime createdAt, Long limit, String cursor) throws ApiException {
+        ApiResponse<ApiLogs> localVarResp = getLogsWithHttpInfo(createdDate, createdAt, limit, cursor);
         return localVarResp.getData();
     }
 
     /**
-     * API実行ログ取得
-     * 全API実行のログ登録を取得します。
+     * Get API execution log list
+     * Retrieve the log of all API executions.
+     * @param createdDate The date, in format of YYYY-MM-DD, to retrieve the log. (optional)
+     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. (optional)
+     * @param limit Maximum number of logs to retrieve. (optional)
+     * @param cursor Cursor for cursor pagination. (optional)
      * @return ApiResponse&lt;ApiLogs&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -292,15 +322,19 @@ public class ApiLogApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApiLogs> getLogsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getLogsValidateBeforeCall(null);
+    public ApiResponse<ApiLogs> getLogsWithHttpInfo(LocalDate createdDate, OffsetDateTime createdAt, Long limit, String cursor) throws ApiException {
+        okhttp3.Call localVarCall = getLogsValidateBeforeCall(createdDate, createdAt, limit, cursor, null);
         Type localVarReturnType = new TypeToken<ApiLogs>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * API実行ログ取得 (asynchronously)
-     * 全API実行のログ登録を取得します。
+     * Get API execution log list (asynchronously)
+     * Retrieve the log of all API executions.
+     * @param createdDate The date, in format of YYYY-MM-DD, to retrieve the log. (optional)
+     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. (optional)
+     * @param limit Maximum number of logs to retrieve. (optional)
+     * @param cursor Cursor for cursor pagination. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -311,9 +345,9 @@ public class ApiLogApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogsAsync(final ApiCallback<ApiLogs> _callback) throws ApiException {
+    public okhttp3.Call getLogsAsync(LocalDate createdDate, OffsetDateTime createdAt, Long limit, String cursor, final ApiCallback<ApiLogs> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLogsValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = getLogsValidateBeforeCall(createdDate, createdAt, limit, cursor, _callback);
         Type localVarReturnType = new TypeToken<ApiLogs>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
