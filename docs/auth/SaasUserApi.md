@@ -4,35 +4,35 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**confirmEmailUpdate**](SaasUserApi.md#confirmEmailUpdate) | **POST** /users/{user_id}/email/confirm | ユーザーのメールアドレス変更確認(Confirm User Email Update) |
-| [**confirmExternalUserLink**](SaasUserApi.md#confirmExternalUserLink) | **POST** /external-users/confirm | 外部アカウントのユーザーの連携確認(Confirm External User Account Link) |
-| [**confirmSignUpWithAwsMarketplace**](SaasUserApi.md#confirmSignUpWithAwsMarketplace) | **POST** /aws-marketplace/sign-up-confirm | AWS Marketplaceによるユーザー新規登録の確定(Confirm Sign Up with AWS Marketplace) |
-| [**createSaasUser**](SaasUserApi.md#createSaasUser) | **POST** /users | SaaSにユーザーを作成(Create SaaS User) |
-| [**createSecretCode**](SaasUserApi.md#createSecretCode) | **POST** /users/{user_id}/mfa/software-token/secret-code | 認証アプリケーション登録用のシークレットコードを作成(Creates secret code for authentication application registration) |
-| [**deleteSaasUser**](SaasUserApi.md#deleteSaasUser) | **DELETE** /users/{user_id} | ユーザー情報を削除(Delete User) |
-| [**getSaasUser**](SaasUserApi.md#getSaasUser) | **GET** /users/{user_id} | ユーザー情報を取得(Get User) |
-| [**getSaasUsers**](SaasUserApi.md#getSaasUsers) | **GET** /users | ユーザー一覧を取得(Get Users) |
-| [**getUserMfaPreference**](SaasUserApi.md#getUserMfaPreference) | **GET** /users/{user_id}/mfa/preference | ユーザーのMFA設定を取得(Get User&#39;s MFA Settings) |
-| [**linkAwsMarketplace**](SaasUserApi.md#linkAwsMarketplace) | **PATCH** /aws-marketplace/link | AWS Marketplaceと既存のテナントの連携(Link an existing tenant with AWS Marketplace) |
-| [**requestEmailUpdate**](SaasUserApi.md#requestEmailUpdate) | **POST** /users/{user_id}/email/request | ユーザーのメールアドレス変更要求(Request User Email Update) |
-| [**requestExternalUserLink**](SaasUserApi.md#requestExternalUserLink) | **POST** /external-users/request | 外部アカウントのユーザー連携要求(Request External User Account Link) |
-| [**resendSignUpConfirmationEmail**](SaasUserApi.md#resendSignUpConfirmationEmail) | **POST** /sign-up/resend | 新規登録時の確認メール再送信(Resend Sign Up Confirmation Email) |
-| [**signUp**](SaasUserApi.md#signUp) | **POST** /sign-up | 新規登録(Sign Up) |
-| [**signUpWithAwsMarketplace**](SaasUserApi.md#signUpWithAwsMarketplace) | **POST** /aws-marketplace/sign-up | AWS Marketplaceによるユーザー新規登録(Sign Up with AWS Marketplace) |
-| [**unlinkProvider**](SaasUserApi.md#unlinkProvider) | **DELETE** /users/{user_id}/providers/{provider_name} | 外部IDプロバイダの連携解除(Unlink external identity providers) |
-| [**updateSaasUserEmail**](SaasUserApi.md#updateSaasUserEmail) | **PATCH** /users/{user_id}/email | メールアドレスを変更(Change Email) |
-| [**updateSaasUserPassword**](SaasUserApi.md#updateSaasUserPassword) | **PATCH** /users/{user_id}/password | パスワードを変更(Change Password) |
-| [**updateSoftwareToken**](SaasUserApi.md#updateSoftwareToken) | **PUT** /users/{user_id}/mfa/software-token | 認証アプリケーションを登録(Register Authentication Application) |
-| [**updateUserMfaPreference**](SaasUserApi.md#updateUserMfaPreference) | **PATCH** /users/{user_id}/mfa/preference | ユーザーのMFA設定を更新(Update User&#39;s MFA Settings) |
+| [**confirmEmailUpdate**](SaasUserApi.md#confirmEmailUpdate) | **POST** /users/{user_id}/email/confirm | Confirm User Email Update |
+| [**confirmExternalUserLink**](SaasUserApi.md#confirmExternalUserLink) | **POST** /external-users/confirm | Confirm External User Account Link |
+| [**confirmSignUpWithAwsMarketplace**](SaasUserApi.md#confirmSignUpWithAwsMarketplace) | **POST** /aws-marketplace/sign-up-confirm | Confirm Sign Up with AWS Marketplace |
+| [**createSaasUser**](SaasUserApi.md#createSaasUser) | **POST** /users | Create SaaS User |
+| [**createSecretCode**](SaasUserApi.md#createSecretCode) | **POST** /users/{user_id}/mfa/software-token/secret-code | Create secret code for authentication application registration |
+| [**deleteSaasUser**](SaasUserApi.md#deleteSaasUser) | **DELETE** /users/{user_id} | Delete User |
+| [**getSaasUser**](SaasUserApi.md#getSaasUser) | **GET** /users/{user_id} | Get User |
+| [**getSaasUsers**](SaasUserApi.md#getSaasUsers) | **GET** /users | Get Users |
+| [**getUserMfaPreference**](SaasUserApi.md#getUserMfaPreference) | **GET** /users/{user_id}/mfa/preference | Get User&#39;s MFA Settings |
+| [**linkAwsMarketplace**](SaasUserApi.md#linkAwsMarketplace) | **PATCH** /aws-marketplace/link | Link an existing tenant with AWS Marketplace |
+| [**requestEmailUpdate**](SaasUserApi.md#requestEmailUpdate) | **POST** /users/{user_id}/email/request | Request User Email Update |
+| [**requestExternalUserLink**](SaasUserApi.md#requestExternalUserLink) | **POST** /external-users/request | Request External User Account Link |
+| [**resendSignUpConfirmationEmail**](SaasUserApi.md#resendSignUpConfirmationEmail) | **POST** /sign-up/resend | Resend Sign Up Confirmation Email |
+| [**signUp**](SaasUserApi.md#signUp) | **POST** /sign-up | Sign Up |
+| [**signUpWithAwsMarketplace**](SaasUserApi.md#signUpWithAwsMarketplace) | **POST** /aws-marketplace/sign-up | Sign Up with AWS Marketplace |
+| [**unlinkProvider**](SaasUserApi.md#unlinkProvider) | **DELETE** /users/{user_id}/providers/{provider_name} | Unlink external identity providers |
+| [**updateSaasUserEmail**](SaasUserApi.md#updateSaasUserEmail) | **PATCH** /users/{user_id}/email | Change Email |
+| [**updateSaasUserPassword**](SaasUserApi.md#updateSaasUserPassword) | **PATCH** /users/{user_id}/password | Change Password |
+| [**updateSoftwareToken**](SaasUserApi.md#updateSoftwareToken) | **PUT** /users/{user_id}/mfa/software-token | Register Authentication Application |
+| [**updateUserMfaPreference**](SaasUserApi.md#updateUserMfaPreference) | **PATCH** /users/{user_id}/mfa/preference | Update User&#39;s MFA Settings |
 
 
 <a id="confirmEmailUpdate"></a>
 # **confirmEmailUpdate**
 > confirmEmailUpdate(userId, confirmEmailUpdateParam)
 
-ユーザーのメールアドレス変更確認(Confirm User Email Update)
+Confirm User Email Update
 
-ユーザーのメールアドレス変更確認のためにコードを検証します。 ユーザーのアクセストークンが必要です。  Verify the code to confirm the user&#39;s email address update. Requires the user&#39;s access token. 
+Verify the code to confirm the user&#39;s email address update. Requires the user&#39;s access token. 
 
 ### Example
 ```java
@@ -54,7 +54,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     ConfirmEmailUpdateParam confirmEmailUpdateParam = new ConfirmEmailUpdateParam(); // ConfirmEmailUpdateParam | 
     try {
       apiInstance.confirmEmailUpdate(userId, confirmEmailUpdateParam);
@@ -73,7 +73,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 | **confirmEmailUpdateParam** | [**ConfirmEmailUpdateParam**](ConfirmEmailUpdateParam.md)|  | [optional] |
 
 ### Return type
@@ -99,9 +99,9 @@ null (empty response body)
 # **confirmExternalUserLink**
 > confirmExternalUserLink(confirmExternalUserLinkParam)
 
-外部アカウントのユーザーの連携確認(Confirm External User Account Link)
+Confirm External User Account Link
 
-外部アカウントのユーザー連携確認のためにコードを検証します。  Verify the code for external account user link confirmation. 
+Verify the code for external account user link confirmation. 
 
 ### Example
 ```java
@@ -167,9 +167,9 @@ null (empty response body)
 # **confirmSignUpWithAwsMarketplace**
 > Tenant confirmSignUpWithAwsMarketplace(confirmSignUpWithAwsMarketplaceParam)
 
-AWS Marketplaceによるユーザー新規登録の確定(Confirm Sign Up with AWS Marketplace)
+Confirm Sign Up with AWS Marketplace
 
-AWS Marketplaceと連携したユーザー新規登録を確定します。AWS Marketplaceと連携したテナントを新規作成します。 Registration Tokenが有効でない場合はエラーを返却します。  Confirm a new use registeration linked to AWS Marketplace. Create a new tenant linked to AWS Marketplace. If the Registration Token is not valid, an error is returned. 
+Confirm a new use registeration linked to AWS Marketplace. Create a new tenant linked to AWS Marketplace. If the Registration Token is not valid, an error is returned. 
 
 ### Example
 ```java
@@ -235,9 +235,9 @@ public class Example {
 # **createSaasUser**
 > SaasUser createSaasUser(createSaasUserParam)
 
-SaaSにユーザーを作成(Create SaaS User)
+Create SaaS User
 
-SaaSにユーザーを作成します。  Create SaaS User. 
+Create SaaS User. 
 
 ### Example
 ```java
@@ -304,9 +304,9 @@ public class Example {
 # **createSecretCode**
 > SoftwareTokenSecretCode createSecretCode(userId, createSecretCodeParam)
 
-認証アプリケーション登録用のシークレットコードを作成(Creates secret code for authentication application registration)
+Create secret code for authentication application registration
 
-認証アプリケーション登録用のシークレットコードを作成します。  Create a secret code for authentication application registration. 
+Create a secret code for authentication application registration. 
 
 ### Example
 ```java
@@ -328,7 +328,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     CreateSecretCodeParam createSecretCodeParam = new CreateSecretCodeParam(); // CreateSecretCodeParam | 
     try {
       SoftwareTokenSecretCode result = apiInstance.createSecretCode(userId, createSecretCodeParam);
@@ -348,7 +348,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 | **createSecretCodeParam** | [**CreateSecretCodeParam**](CreateSecretCodeParam.md)|  | [optional] |
 
 ### Return type
@@ -374,9 +374,9 @@ public class Example {
 # **deleteSaasUser**
 > deleteSaasUser(userId)
 
-ユーザー情報を削除(Delete User)
+Delete User
 
-ユーザーIDを元に一致するユーザーをテナントからすべて削除し、SaaSからも削除します。  Delete all users with matching user ID from the tenant and SaaS. 
+Delete all users with matching user ID from the tenant and SaaS. 
 
 ### Example
 ```java
@@ -398,7 +398,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     try {
       apiInstance.deleteSaasUser(userId);
     } catch (ApiException e) {
@@ -416,7 +416,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 
 ### Return type
 
@@ -442,9 +442,9 @@ null (empty response body)
 # **getSaasUser**
 > SaasUser getSaasUser(userId)
 
-ユーザー情報を取得(Get User)
+Get User
 
-ユーザーIDからユーザー情報を取得します。  Get user information based on user ID. 
+Get user information based on user ID. 
 
 ### Example
 ```java
@@ -466,7 +466,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     try {
       SaasUser result = apiInstance.getSaasUser(userId);
       System.out.println(result);
@@ -485,7 +485,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 
 ### Return type
 
@@ -511,9 +511,9 @@ public class Example {
 # **getSaasUsers**
 > SaasUsers getSaasUsers()
 
-ユーザー一覧を取得(Get Users)
+Get Users
 
-SaaSのユーザー全件を取得します。  Get all SaaS users. 
+Get all SaaS users. 
 
 ### Example
 ```java
@@ -575,9 +575,9 @@ This endpoint does not need any parameter.
 # **getUserMfaPreference**
 > MfaPreference getUserMfaPreference(userId)
 
-ユーザーのMFA設定を取得(Get User&#39;s MFA Settings)
+Get User&#39;s MFA Settings
 
-ユーザーのMFA設定を取得します。  Get the user&#39;s MFA settings. 
+Get the user&#39;s MFA settings. 
 
 ### Example
 ```java
@@ -599,7 +599,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     try {
       MfaPreference result = apiInstance.getUserMfaPreference(userId);
       System.out.println(result);
@@ -618,7 +618,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 
 ### Return type
 
@@ -643,9 +643,9 @@ public class Example {
 # **linkAwsMarketplace**
 > linkAwsMarketplace(linkAwsMarketplaceParam)
 
-AWS Marketplaceと既存のテナントの連携(Link an existing tenant with AWS Marketplace)
+Link an existing tenant with AWS Marketplace
 
-AWS Marketplaceと既存のテナントを連携します。 Registration Tokenが有効でない場合はエラーを返却します。  Link an existing tenant with AWS Marketplace. If the Registration Token is not valid, an error is returned. 
+Link an existing tenant with AWS Marketplace. If the Registration Token is not valid, an error is returned. 
 
 ### Example
 ```java
@@ -710,9 +710,9 @@ null (empty response body)
 # **requestEmailUpdate**
 > requestEmailUpdate(userId, requestEmailUpdateParam)
 
-ユーザーのメールアドレス変更要求(Request User Email Update)
+Request User Email Update
 
-ユーザーのメールアドレス変更を要求します。 要求されたメールアドレスに対して検証コードを送信します。 ユーザーのアクセストークンが必要です。 検証コードの有効期限は24時間です。  Request to update the user&#39;s email address. Sends a verification code to the requested email address. Requires the user&#39;s access token. The verification code is valid for 24 hours. 
+Request to update the user&#39;s email address. Sends a verification code to the requested email address. Requires the user&#39;s access token. The verification code is valid for 24 hours. 
 
 ### Example
 ```java
@@ -734,7 +734,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     RequestEmailUpdateParam requestEmailUpdateParam = new RequestEmailUpdateParam(); // RequestEmailUpdateParam | 
     try {
       apiInstance.requestEmailUpdate(userId, requestEmailUpdateParam);
@@ -753,7 +753,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 | **requestEmailUpdateParam** | [**RequestEmailUpdateParam**](RequestEmailUpdateParam.md)|  | [optional] |
 
 ### Return type
@@ -779,9 +779,9 @@ null (empty response body)
 # **requestExternalUserLink**
 > requestExternalUserLink(requestExternalUserLinkParam)
 
-外部アカウントのユーザー連携要求(Request External User Account Link)
+Request External User Account Link
 
-外部アカウントのユーザー連携を要求します。 アクセストークンから連携するユーザーのメールアドレスを取得し、そのメールアドレスに対して検証コードを送信します。 検証コードの有効期限は24時間です。  Request to link an external account user. Get the email address of the user to be linked from the access token and send a verification code to that email address. The verification code is valid for 24 hours. 
+Request to link an external account user. Get the email address of the user to be linked from the access token and send a verification code to that email address. The verification code is valid for 24 hours. 
 
 ### Example
 ```java
@@ -847,9 +847,9 @@ null (empty response body)
 # **resendSignUpConfirmationEmail**
 > resendSignUpConfirmationEmail(resendSignUpConfirmationEmailParam)
 
-新規登録時の確認メール再送信(Resend Sign Up Confirmation Email)
+Resend Sign Up Confirmation Email
 
-新規登録時の仮パスワードを再送信します。  Resend temporary password for the new registered user. 
+Resend temporary password for the new registered user. 
 
 ### Example
 ```java
@@ -914,9 +914,9 @@ null (empty response body)
 # **signUp**
 > SaasUser signUp(signUpParam)
 
-新規登録(Sign Up)
+Sign Up
 
-ユーザーを新規登録します。登録されたメールアドレスに対して仮パスワードを送信します。  Register a new user. A temporary password will be sent to the registered email. 
+Register a new user. A temporary password will be sent to the registered email. 
 
 ### Example
 ```java
@@ -982,9 +982,9 @@ public class Example {
 # **signUpWithAwsMarketplace**
 > SaasUser signUpWithAwsMarketplace(signUpWithAwsMarketplaceParam)
 
-AWS Marketplaceによるユーザー新規登録(Sign Up with AWS Marketplace)
+Sign Up with AWS Marketplace
 
-AWS Marketplaceと連携したユーザーを新規登録します。登録されたメールアドレスに対して仮パスワードを送信します。 Registration Tokenが有効でない場合はエラーを返却します。  Register a new user linked to AWS Marketplace. A temporary password will be sent to the registered email. If the Registration Token is not valid, an error is returned. 
+Register a new user linked to AWS Marketplace. A temporary password will be sent to the registered email. If the Registration Token is not valid, an error is returned. 
 
 ### Example
 ```java
@@ -1050,9 +1050,9 @@ public class Example {
 # **unlinkProvider**
 > unlinkProvider(providerName, userId)
 
-外部IDプロバイダの連携解除(Unlink external identity providers)
+Unlink external identity providers
 
-外部IDプロバイダの連携を解除します。  Unlink external identity providers. 
+Unlink external identity providers. 
 
 ### Example
 ```java
@@ -1075,7 +1075,7 @@ public class Example {
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
     String providerName = "Google"; // String | 
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     try {
       apiInstance.unlinkProvider(providerName, userId);
     } catch (ApiException e) {
@@ -1094,7 +1094,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **providerName** | **String**|  | |
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 
 ### Return type
 
@@ -1107,7 +1107,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1119,9 +1119,9 @@ null (empty response body)
 # **updateSaasUserEmail**
 > updateSaasUserEmail(userId, updateSaasUserEmailParam)
 
-メールアドレスを変更(Change Email)
+Change Email
 
-ユーザーのメールアドレスを変更します。  Change user&#39;s email. 
+Change user&#39;s email. 
 
 ### Example
 ```java
@@ -1143,7 +1143,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     UpdateSaasUserEmailParam updateSaasUserEmailParam = new UpdateSaasUserEmailParam(); // UpdateSaasUserEmailParam | 
     try {
       apiInstance.updateSaasUserEmail(userId, updateSaasUserEmailParam);
@@ -1162,7 +1162,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 | **updateSaasUserEmailParam** | [**UpdateSaasUserEmailParam**](UpdateSaasUserEmailParam.md)|  | [optional] |
 
 ### Return type
@@ -1188,9 +1188,9 @@ null (empty response body)
 # **updateSaasUserPassword**
 > updateSaasUserPassword(userId, updateSaasUserPasswordParam)
 
-パスワードを変更(Change Password)
+Change Password
 
-ユーザーのログインパスワードを変更します。  Change user&#39;s login password. 
+Change user&#39;s login password. 
 
 ### Example
 ```java
@@ -1212,7 +1212,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     UpdateSaasUserPasswordParam updateSaasUserPasswordParam = new UpdateSaasUserPasswordParam(); // UpdateSaasUserPasswordParam | 
     try {
       apiInstance.updateSaasUserPassword(userId, updateSaasUserPasswordParam);
@@ -1231,7 +1231,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 | **updateSaasUserPasswordParam** | [**UpdateSaasUserPasswordParam**](UpdateSaasUserPasswordParam.md)|  | [optional] |
 
 ### Return type
@@ -1257,9 +1257,9 @@ null (empty response body)
 # **updateSoftwareToken**
 > updateSoftwareToken(userId, updateSoftwareTokenParam)
 
-認証アプリケーションを登録(Register Authentication Application)
+Register Authentication Application
 
-認証アプリケーションを登録します。  Register an authentication application. 
+Register an authentication application. 
 
 ### Example
 ```java
@@ -1281,7 +1281,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     UpdateSoftwareTokenParam updateSoftwareTokenParam = new UpdateSoftwareTokenParam(); // UpdateSoftwareTokenParam | 
     try {
       apiInstance.updateSoftwareToken(userId, updateSoftwareTokenParam);
@@ -1300,7 +1300,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 | **updateSoftwareTokenParam** | [**UpdateSoftwareTokenParam**](UpdateSoftwareTokenParam.md)|  | [optional] |
 
 ### Return type
@@ -1326,9 +1326,9 @@ null (empty response body)
 # **updateUserMfaPreference**
 > updateUserMfaPreference(userId, body)
 
-ユーザーのMFA設定を更新(Update User&#39;s MFA Settings)
+Update User&#39;s MFA Settings
 
-ユーザーのMFA設定を更新します。  Update user&#39;s MFA settings. 
+Update user&#39;s MFA settings. 
 
 ### Example
 ```java
@@ -1350,7 +1350,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     MfaPreference body = new MfaPreference(); // MfaPreference | 
     try {
       apiInstance.updateUserMfaPreference(userId, body);
@@ -1369,7 +1369,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 | **body** | **MfaPreference**|  | [optional] |
 
 ### Return type

@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * BillingAddress
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-13T11:42:41.920763687Z[Etc/UTC]")
 public class BillingAddress {
   public static final String SERIALIZED_NAME_STREET = "street";
   @SerializedName(SERIALIZED_NAME_STREET)
@@ -80,13 +79,12 @@ public class BillingAddress {
   }
 
   public BillingAddress street(String street) {
-    
     this.street = street;
     return this;
   }
 
    /**
-   * 住所の通りの名前や番地を含めた部分  Street address, apartment or suite number. 
+   * Street address, apartment or suite number.
    * @return street
   **/
   @javax.annotation.Nonnull
@@ -94,20 +92,18 @@ public class BillingAddress {
     return street;
   }
 
-
   public void setStreet(String street) {
     this.street = street;
   }
 
 
   public BillingAddress city(String city) {
-    
     this.city = city;
     return this;
   }
 
    /**
-   * 住所の市区町村  City, district, suburb, town, or village. 
+   * City, district, suburb, town, or village.
    * @return city
   **/
   @javax.annotation.Nonnull
@@ -115,20 +111,18 @@ public class BillingAddress {
     return city;
   }
 
-
   public void setCity(String city) {
     this.city = city;
   }
 
 
   public BillingAddress state(String state) {
-    
     this.state = state;
     return this;
   }
 
    /**
-   * 住所の都道府県または州  State name or abbreviation. 
+   * State name or abbreviation.
    * @return state
   **/
   @javax.annotation.Nonnull
@@ -136,20 +130,18 @@ public class BillingAddress {
     return state;
   }
 
-
   public void setState(String state) {
     this.state = state;
   }
 
 
   public BillingAddress country(String country) {
-    
     this.country = country;
     return this;
   }
 
    /**
-   * 住所の国を ISO 3166-1 alpha-2 コードで指定します。  Country of the address using ISO 3166-1 alpha-2 code. 
+   * Country of the address using ISO 3166-1 alpha-2 code.
    * @return country
   **/
   @javax.annotation.Nonnull
@@ -157,20 +149,18 @@ public class BillingAddress {
     return country;
   }
 
-
   public void setCountry(String country) {
     this.country = country;
   }
 
 
   public BillingAddress additionalAddressInfo(String additionalAddressInfo) {
-    
     this.additionalAddressInfo = additionalAddressInfo;
     return this;
   }
 
    /**
-   * 建物名・部屋番号などの住所に関する追加情報  Additional information about the address, such as a building name, floor, or department name. 
+   * Additional information about the address, such as a building name, floor, or department name.
    * @return additionalAddressInfo
   **/
   @javax.annotation.Nullable
@@ -178,27 +168,24 @@ public class BillingAddress {
     return additionalAddressInfo;
   }
 
-
   public void setAdditionalAddressInfo(String additionalAddressInfo) {
     this.additionalAddressInfo = additionalAddressInfo;
   }
 
 
   public BillingAddress postalCode(String postalCode) {
-    
     this.postalCode = postalCode;
     return this;
   }
 
    /**
-   * 郵便番号  ZIP or postal code. 
+   * ZIP or postal code.
    * @return postalCode
   **/
   @javax.annotation.Nonnull
   public String getPostalCode() {
     return postalCode;
   }
-
 
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
@@ -289,9 +276,9 @@ public class BillingAddress {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!BillingAddress.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BillingAddress` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
