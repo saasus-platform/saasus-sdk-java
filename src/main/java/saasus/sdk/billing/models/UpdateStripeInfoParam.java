@@ -14,13 +14,13 @@
 package saasus.sdk.billing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.billing.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.billing.JSON;
 /**
  * UpdateStripeInfoParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:14.343504Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-13T12:39:15.993829692Z[Etc/UTC]")
 public class UpdateStripeInfoParam {
   public static final String SERIALIZED_NAME_SECRET_KEY = "secret_key";
   @SerializedName(SERIALIZED_NAME_SECRET_KEY)
@@ -60,20 +59,18 @@ public class UpdateStripeInfoParam {
   }
 
   public UpdateStripeInfoParam secretKey(String secretKey) {
-    
     this.secretKey = secretKey;
     return this;
   }
 
    /**
-   * シークレットキー(secret key)
+   * secret key
    * @return secretKey
   **/
   @javax.annotation.Nonnull
   public String getSecretKey() {
     return secretKey;
   }
-
 
   public void setSecretKey(String secretKey) {
     this.secretKey = secretKey;
@@ -145,9 +142,9 @@ public class UpdateStripeInfoParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateStripeInfoParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateStripeInfoParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

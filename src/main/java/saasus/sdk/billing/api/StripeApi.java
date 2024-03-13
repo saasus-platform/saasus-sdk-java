@@ -137,8 +137,8 @@ public class StripeApi {
     }
 
     /**
-     * Stripe連携情報を削除(Delete Stripe Connection)
-     * 請求業務で使う外部SaaSとの連携情報を削除します。  Delete connection with external billing SaaS 
+     * Delete Stripe Connection
+     * Delete connection with external billing SaaS 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -152,8 +152,8 @@ public class StripeApi {
     }
 
     /**
-     * Stripe連携情報を削除(Delete Stripe Connection)
-     * 請求業務で使う外部SaaSとの連携情報を削除します。  Delete connection with external billing SaaS 
+     * Delete Stripe Connection
+     * Delete connection with external billing SaaS 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -169,8 +169,8 @@ public class StripeApi {
     }
 
     /**
-     * Stripe連携情報を削除(Delete Stripe Connection) (asynchronously)
-     * 請求業務で使う外部SaaSとの連携情報を削除します。  Delete connection with external billing SaaS 
+     * Delete Stripe Connection (asynchronously)
+     * Delete connection with external billing SaaS 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -250,8 +250,8 @@ public class StripeApi {
     }
 
     /**
-     * Stripe連携情報を取得(Get Stripe Connection information)
-     * 請求業務で使う外部SaaSとの連携情報を取得します。 現在は Stripe と連携が可能です。 連携を行わない場合は、 SaaSus SDK/API を利用して請求処理を実装する必要があります。  Get information on connnections with external billing SaaS. Currently possible to integrate with Stripe. Without integration, you will need to implement billing using the SaaSus SDK/API. 
+     * Get Stripe Connection information
+     * Get information on connnections with external billing SaaS. Currently possible to integrate with Stripe. Without integration, you will need to implement billing using the SaaSus SDK/API. 
      * @return StripeInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -267,8 +267,8 @@ public class StripeApi {
     }
 
     /**
-     * Stripe連携情報を取得(Get Stripe Connection information)
-     * 請求業務で使う外部SaaSとの連携情報を取得します。 現在は Stripe と連携が可能です。 連携を行わない場合は、 SaaSus SDK/API を利用して請求処理を実装する必要があります。  Get information on connnections with external billing SaaS. Currently possible to integrate with Stripe. Without integration, you will need to implement billing using the SaaSus SDK/API. 
+     * Get Stripe Connection information
+     * Get information on connnections with external billing SaaS. Currently possible to integrate with Stripe. Without integration, you will need to implement billing using the SaaSus SDK/API. 
      * @return ApiResponse&lt;StripeInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -285,8 +285,8 @@ public class StripeApi {
     }
 
     /**
-     * Stripe連携情報を取得(Get Stripe Connection information) (asynchronously)
-     * 請求業務で使う外部SaaSとの連携情報を取得します。 現在は Stripe と連携が可能です。 連携を行わない場合は、 SaaSus SDK/API を利用して請求処理を実装する必要があります。  Get information on connnections with external billing SaaS. Currently possible to integrate with Stripe. Without integration, you will need to implement billing using the SaaSus SDK/API. 
+     * Get Stripe Connection information (asynchronously)
+     * Get information on connnections with external billing SaaS. Currently possible to integrate with Stripe. Without integration, you will need to implement billing using the SaaSus SDK/API. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -369,8 +369,8 @@ public class StripeApi {
     }
 
     /**
-     * Stripe連携情報を更新(Update Stripe Connection Info)
-     * 請求業務で使う外部SaaSとの連携情報を更新します。 現在は Stripe と連携が可能です。  Updates information on connection with external billing SaaS. Currently possible to connect to Stripe. 
+     * Update Stripe Connection Info
+     * Updates information on connection with external billing SaaS. Currently possible to connect to Stripe. 
      * @param updateStripeInfoParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -385,8 +385,8 @@ public class StripeApi {
     }
 
     /**
-     * Stripe連携情報を更新(Update Stripe Connection Info)
-     * 請求業務で使う外部SaaSとの連携情報を更新します。 現在は Stripe と連携が可能です。  Updates information on connection with external billing SaaS. Currently possible to connect to Stripe. 
+     * Update Stripe Connection Info
+     * Updates information on connection with external billing SaaS. Currently possible to connect to Stripe. 
      * @param updateStripeInfoParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -403,8 +403,8 @@ public class StripeApi {
     }
 
     /**
-     * Stripe連携情報を更新(Update Stripe Connection Info) (asynchronously)
-     * 請求業務で使う外部SaaSとの連携情報を更新します。 現在は Stripe と連携が可能です。  Updates information on connection with external billing SaaS. Currently possible to connect to Stripe. 
+     * Update Stripe Connection Info (asynchronously)
+     * Updates information on connection with external billing SaaS. Currently possible to connect to Stripe. 
      * @param updateStripeInfoParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

@@ -7,14 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | 名前(name) |  |
-|**displayName** | **String** | 表示名(display name) |  |
-|**description** | **String** | 説明(description) |  |
+|**name** | **String** | Name |  |
+|**displayName** | **String** | Display Name |  |
+|**description** | **String** | Description |  |
 |**type** | **UnitType** |  |  |
 |**currency** | **Currency** |  |  |
 |**tiers** | [**List&lt;PricingTier&gt;**](PricingTier.md) |  |  |
-|**upperCount** | **Integer** | 上限値(upper limit) |  |
-|**meteringUnitName** | **String** |  |  |
+|**upperCount** | **Integer** | Upper limit |  |
+|**meteringUnitName** | **String** | Metering unit name |  |
 |**aggregateUsage** | **AggregateUsage** |  |  [optional] |
 
 

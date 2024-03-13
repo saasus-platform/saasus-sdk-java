@@ -14,7 +14,6 @@
 package saasus.sdk.communication.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.communication.models.Comment;
 import saasus.sdk.communication.models.User;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.communication.JSON;
@@ -54,7 +53,7 @@ import saasus.sdk.communication.JSON;
 /**
  * Feedback
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:32.358898Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-03-13T12:39:28.323631979Z[Etc/UTC]")
 public class Feedback {
   public static final String SERIALIZED_NAME_FEEDBACK_TITLE = "feedback_title";
   @SerializedName(SERIALIZED_NAME_FEEDBACK_TITLE)
@@ -96,7 +95,6 @@ public class Feedback {
   }
 
   public Feedback feedbackTitle(String feedbackTitle) {
-    
     this.feedbackTitle = feedbackTitle;
     return this;
   }
@@ -110,14 +108,12 @@ public class Feedback {
     return feedbackTitle;
   }
 
-
   public void setFeedbackTitle(String feedbackTitle) {
     this.feedbackTitle = feedbackTitle;
   }
 
 
   public Feedback feedbackDescription(String feedbackDescription) {
-    
     this.feedbackDescription = feedbackDescription;
     return this;
   }
@@ -131,14 +127,12 @@ public class Feedback {
     return feedbackDescription;
   }
 
-
   public void setFeedbackDescription(String feedbackDescription) {
     this.feedbackDescription = feedbackDescription;
   }
 
 
   public Feedback comments(List<Comment> comments) {
-    
     this.comments = comments;
     return this;
   }
@@ -160,14 +154,12 @@ public class Feedback {
     return comments;
   }
 
-
   public void setComments(List<Comment> comments) {
     this.comments = comments;
   }
 
 
   public Feedback count(Integer count) {
-    
     this.count = count;
     return this;
   }
@@ -181,14 +173,12 @@ public class Feedback {
     return count;
   }
 
-
   public void setCount(Integer count) {
     this.count = count;
   }
 
 
   public Feedback users(List<User> users) {
-    
     this.users = users;
     return this;
   }
@@ -210,14 +200,12 @@ public class Feedback {
     return users;
   }
 
-
   public void setUsers(List<User> users) {
     this.users = users;
   }
 
 
   public Feedback id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -231,14 +219,12 @@ public class Feedback {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
 
 
   public Feedback userId(String userId) {
-    
     this.userId = userId;
     return this;
   }
@@ -252,14 +238,12 @@ public class Feedback {
     return userId;
   }
 
-
   public void setUserId(String userId) {
     this.userId = userId;
   }
 
 
   public Feedback createdAt(Integer createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -273,14 +257,12 @@ public class Feedback {
     return createdAt;
   }
 
-
   public void setCreatedAt(Integer createdAt) {
     this.createdAt = createdAt;
   }
 
 
   public Feedback status(Integer status) {
-    
     this.status = status;
     return this;
   }
@@ -293,7 +275,6 @@ public class Feedback {
   public Integer getStatus() {
     return status;
   }
-
 
   public void setStatus(Integer status) {
     this.status = status;
@@ -397,9 +378,9 @@ public class Feedback {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Feedback.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Feedback` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
