@@ -4,16 +4,16 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**returnInternalServerError**](ErrorApi.md#returnInternalServerError) | **GET** /errors/internal-server-error | ステータスコード500でサーバーエラーを返却(Return Internal Server Error) |
+| [**returnInternalServerError**](ErrorApi.md#returnInternalServerError) | **GET** /errors/internal-server-error | Return Internal Server Error |
 
 
 <a id="returnInternalServerError"></a>
 # **returnInternalServerError**
 > returnInternalServerError()
 
-ステータスコード500でサーバーエラーを返却(Return Internal Server Error)
+Return Internal Server Error
 
-テスト用途で使用するエンドポイントです。ステータスコード500でサーバーエラーを返却します。  This endpoint is used for testing purposes. Returns a server error with status code 500. 
+This endpoint is used for testing purposes. Returns a server error with status code 500. 
 
 ### Example
 ```java
