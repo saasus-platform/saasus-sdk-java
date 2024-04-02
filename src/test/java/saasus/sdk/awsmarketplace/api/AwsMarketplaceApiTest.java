@@ -45,9 +45,9 @@ public class AwsMarketplaceApiTest {
     private final AwsMarketplaceApi api = new AwsMarketplaceApi();
 
     /**
-     * AWS Marketplaceに連携する顧客情報を新規作成(Create customer information to be linked to AWS Marketplace)
+     * Create customer information to be linked to AWS Marketplace
      *
-     * AWS Marketplaceに連携する顧客情報を新規作成します。  Create customer information to be linked to AWS Marketplace. 
+     * Create customer information to be linked to AWS Marketplace. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -59,9 +59,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS Marketplaceから商品の公開状況を取得(Obtain product publication status from AWS Marketplace)
+     * Obtain product publication status from AWS Marketplace
      *
-     * AWS Marketplaceから商品の公開状況を取得します。  Retrieve the product&#39;s publication status from AWS Marketplace. 
+     * Retrieve the product&#39;s publication status from AWS Marketplace. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -72,9 +72,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS CloudFormationのスタック作成リンクを取得(Get the link to create the AWS CloudFormation stack)
+     * Get the link to create the AWS CloudFormation stack
      *
-     * CloudFormationのクイック作成リンクを取得します。  Get the CloudFormation Quick Create link. 
+     * Get the CloudFormation Quick Create link. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -85,9 +85,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報を取得(Get customer information to be linked to AWS Marketplace)
+     * Get customer information to be linked to AWS Marketplace
      *
-     * AWS Marketplaceに連携する顧客情報を取得します。  Get customer information to be linked to AWS Marketplace. 
+     * Get customer information to be linked to AWS Marketplace. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -99,9 +99,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報の一覧を取得(Get a list of customer information to be linked to AWS Marketplace)
+     * Get a list of customer information to be linked to AWS Marketplace
      *
-     * AWS Marketplaceに連携する顧客情報の一覧を取得します。  Get a list of customer information to be linked to AWS Marketplace. 
+     * Get a list of customer information to be linked to AWS Marketplace. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -113,9 +113,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS Marketplaceの出品状況を取得(Get AWS Marketplace Listing Status)
+     * Get AWS Marketplace Listing Status
      *
-     * AWS Marketplaceの出品状況を取得します。  Get AWS Marketplace Listing Status. 
+     * Get AWS Marketplace Listing Status. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -126,9 +126,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWSMarketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace)
+     * Obtain plan information to link to AWS Marketplace
      *
-     * Marketplaceと連携するプラン情報を取得します。  Obtain plan information to link to AWS Marketplace. 
+     * Obtain plan information to link to AWS Marketplace. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -140,9 +140,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS Marketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace)
+     * Obtain plan information to link to AWS Marketplace
      *
-     * Marketplaceと連携するプラン情報を取得します。  Obtain plan information to link to AWS Marketplace. 
+     * Obtain plan information to link to AWS Marketplace. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -153,9 +153,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS Marketplaceの設定を取得(Get AWS Marketplace Settings)
+     * Get AWS Marketplace Settings
      *
-     * AWS Marketplaceの設定を取得します。  Get AWS Marketplace Settings. 
+     * Get AWS Marketplace Settings. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -166,9 +166,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS Marketplaceに連携するプラン情報を登録(Save plan information to be linked to AWSMarketplace)
+     * Save plan information to be linked to AWSMarketplace
      *
-     * AWSMarketplaceに連携するプラン情報を登録します。  Save plan information to be linked to AWSMarketplace. 
+     * Save plan information to be linked to AWSMarketplace. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -180,9 +180,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS Marketplaceの顧客情報をSaaSusに同期します(Sync AWS Marketplace customer information to SaaSus)
+     * Sync AWS Marketplace customer information to SaaSus
      *
-     * AWS Marketplaceの顧客情報をSaaSusに同期します。  Sync AWS Marketplace customer information to SaaSus. 
+     * Sync AWS Marketplace customer information to SaaSus. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -194,9 +194,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS Marketplaceの出品状況を更新(Update AWS Marketplace Listing Status)
+     * Update AWS Marketplace Listing Status
      *
-     * AWS Marketplaceの出品状況を更新します。  Update AWS Marketplace Listing Status. 
+     * Update AWS Marketplace Listing Status. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -208,9 +208,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * AWS Marketplaceの設定を更新(Update AWS Marketplace Settings)
+     * Update AWS Marketplace Settings
      *
-     * AWS Marketplaceの設定を更新します。  Update AWS Marketplace Settings. 
+     * Update AWS Marketplace Settings. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -222,9 +222,9 @@ public class AwsMarketplaceApiTest {
     }
 
     /**
-     * Registration Tokenを検証(Verify Registration Token)
+     * Verify Registration Token
      *
-     * Registration Tokenを検証します。  Verify Registration Token. 
+     * Verify Registration Token. 
      *
      * @throws ApiException if the Api call fails
      */

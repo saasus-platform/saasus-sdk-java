@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +49,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -57,7 +56,7 @@ import saasus.sdk.auth.JSON;
 /**
  * TenantDetail
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T13:58:37.191477637Z[Etc/UTC]")
 public class TenantDetail {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -119,7 +118,6 @@ public class TenantDetail {
   }
 
   public TenantDetail id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -133,14 +131,12 @@ public class TenantDetail {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
 
 
   public TenantDetail planId(String planId) {
-    
     this.planId = planId;
     return this;
   }
@@ -154,14 +150,12 @@ public class TenantDetail {
     return planId;
   }
 
-
   public void setPlanId(String planId) {
     this.planId = planId;
   }
 
 
   public TenantDetail billingInfo(BillingInfo billingInfo) {
-    
     this.billingInfo = billingInfo;
     return this;
   }
@@ -175,20 +169,18 @@ public class TenantDetail {
     return billingInfo;
   }
 
-
   public void setBillingInfo(BillingInfo billingInfo) {
     this.billingInfo = billingInfo;
   }
 
 
   public TenantDetail name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * テナント名(tenant name)
+   * tenant name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -196,14 +188,12 @@ public class TenantDetail {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TenantDetail attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -217,7 +207,7 @@ public class TenantDetail {
   }
 
    /**
-   * 属性情報(attribute info)
+   * attribute info
    * @return attributes
   **/
   @javax.annotation.Nonnull
@@ -225,20 +215,18 @@ public class TenantDetail {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
   public TenantDetail backOfficeStaffEmail(String backOfficeStaffEmail) {
-    
     this.backOfficeStaffEmail = backOfficeStaffEmail;
     return this;
   }
 
    /**
-   * 事務管理部門スタッフメールアドレス(administrative staff email address)
+   * administrative staff email address
    * @return backOfficeStaffEmail
   **/
   @javax.annotation.Nonnull
@@ -246,14 +234,12 @@ public class TenantDetail {
     return backOfficeStaffEmail;
   }
 
-
   public void setBackOfficeStaffEmail(String backOfficeStaffEmail) {
     this.backOfficeStaffEmail = backOfficeStaffEmail;
   }
 
 
   public TenantDetail nextPlanId(String nextPlanId) {
-    
     this.nextPlanId = nextPlanId;
     return this;
   }
@@ -267,20 +253,18 @@ public class TenantDetail {
     return nextPlanId;
   }
 
-
   public void setNextPlanId(String nextPlanId) {
     this.nextPlanId = nextPlanId;
   }
 
 
   public TenantDetail usingNextPlanFrom(Integer usingNextPlanFrom) {
-    
     this.usingNextPlanFrom = usingNextPlanFrom;
     return this;
   }
 
    /**
-   * 次回料金プラン開始日時（stripe連携時、当月月初の0時（UTC）を指定すると当月月初開始のサブスクリプションを作成できます。ex. 2023年1月の場合は、1672531200 ） (Next billing plan start time (When using stripe, you can create a subscription that starts at the beginning of the current month by specifying 00:00 (UTC) at the beginning of the current month. Ex. 1672531200 for January 2023.)) 
+   * Next billing plan start time (When using stripe, you can create a subscription that starts at the beginning of the current month by specifying 00:00 (UTC) at the beginning of the current month. Ex. 1672531200 for January 2023.) 
    * @return usingNextPlanFrom
   **/
   @javax.annotation.Nullable
@@ -288,14 +272,12 @@ public class TenantDetail {
     return usingNextPlanFrom;
   }
 
-
   public void setUsingNextPlanFrom(Integer usingNextPlanFrom) {
     this.usingNextPlanFrom = usingNextPlanFrom;
   }
 
 
   public TenantDetail nextPlanTaxRateId(String nextPlanTaxRateId) {
-    
     this.nextPlanTaxRateId = nextPlanTaxRateId;
     return this;
   }
@@ -309,14 +291,12 @@ public class TenantDetail {
     return nextPlanTaxRateId;
   }
 
-
   public void setNextPlanTaxRateId(String nextPlanTaxRateId) {
     this.nextPlanTaxRateId = nextPlanTaxRateId;
   }
 
 
   public TenantDetail prorationBehavior(ProrationBehavior prorationBehavior) {
-    
     this.prorationBehavior = prorationBehavior;
     return this;
   }
@@ -330,20 +310,18 @@ public class TenantDetail {
     return prorationBehavior;
   }
 
-
   public void setProrationBehavior(ProrationBehavior prorationBehavior) {
     this.prorationBehavior = prorationBehavior;
   }
 
 
   public TenantDetail deleteUsage(Boolean deleteUsage) {
-    
     this.deleteUsage = deleteUsage;
     return this;
   }
 
    /**
-   * stripe連携している場合で、プラン変更時に従量課金アイテムを削除するか設定できます。 プラン変更した場合に、現在のサブスクリプションに含まれる従量課金アイテムを全て削除して、従量課金アイテムに基づく請求の発生を止めることができます。 即時に記録している使用量がクリアされます。それらは復元できないため、delete_usageをtrueにしたプラン変更予約は取り消しできません。  If you have a stripe linkage,  you can set whether to delete pay-as-you-go items when changing plans. When you change plan, you can remove all pay-as-you-go items included in your current subscription to stop being billed based on pay-as-you-go items. The recorded usage is cleared immediately. Since it cannot be restored, please note that plan change reservations with delete_usage set to true cannot be canceled. 
+   * If you have a stripe linkage,  you can set whether to delete pay-as-you-go items when changing plans. When you change plan, you can remove all pay-as-you-go items included in your current subscription to stop being billed based on pay-as-you-go items. The recorded usage is cleared immediately. Since it cannot be restored, please note that plan change reservations with delete_usage set to true cannot be canceled. 
    * @return deleteUsage
   **/
   @javax.annotation.Nullable
@@ -351,14 +329,12 @@ public class TenantDetail {
     return deleteUsage;
   }
 
-
   public void setDeleteUsage(Boolean deleteUsage) {
     this.deleteUsage = deleteUsage;
   }
 
 
   public TenantDetail planHistories(List<PlanHistory> planHistories) {
-    
     this.planHistories = planHistories;
     return this;
   }
@@ -372,7 +348,7 @@ public class TenantDetail {
   }
 
    /**
-   * 料金プラン履歴
+   * Plan History
    * @return planHistories
   **/
   @javax.annotation.Nonnull
@@ -380,20 +356,18 @@ public class TenantDetail {
     return planHistories;
   }
 
-
   public void setPlanHistories(List<PlanHistory> planHistories) {
     this.planHistories = planHistories;
   }
 
 
   public TenantDetail currentPlanPeriodStart(Integer currentPlanPeriodStart) {
-    
     this.currentPlanPeriodStart = currentPlanPeriodStart;
     return this;
   }
 
    /**
-   * 現在のプランの開始日時(current plan period start)
+   * current plan period start
    * @return currentPlanPeriodStart
   **/
   @javax.annotation.Nullable
@@ -401,27 +375,24 @@ public class TenantDetail {
     return currentPlanPeriodStart;
   }
 
-
   public void setCurrentPlanPeriodStart(Integer currentPlanPeriodStart) {
     this.currentPlanPeriodStart = currentPlanPeriodStart;
   }
 
 
   public TenantDetail currentPlanPeriodEnd(Integer currentPlanPeriodEnd) {
-    
     this.currentPlanPeriodEnd = currentPlanPeriodEnd;
     return this;
   }
 
    /**
-   * 現在のプランの終了日時(current plan period end)
+   * current plan period end
    * @return currentPlanPeriodEnd
   **/
   @javax.annotation.Nullable
   public Integer getCurrentPlanPeriodEnd() {
     return currentPlanPeriodEnd;
   }
-
 
   public void setCurrentPlanPeriodEnd(Integer currentPlanPeriodEnd) {
     this.currentPlanPeriodEnd = currentPlanPeriodEnd;
@@ -536,9 +507,9 @@ public class TenantDetail {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TenantDetail.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TenantDetail` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -572,6 +543,10 @@ public class TenantDetail {
       }
       if ((jsonObj.get("next_plan_tax_rate_id") != null && !jsonObj.get("next_plan_tax_rate_id").isJsonNull()) && !jsonObj.get("next_plan_tax_rate_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `next_plan_tax_rate_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("next_plan_tax_rate_id").toString()));
+      }
+      // validate the optional field `proration_behavior`
+      if (jsonObj.get("proration_behavior") != null && !jsonObj.get("proration_behavior").isJsonNull()) {
+        ProrationBehavior.validateJsonElement(jsonObj.get("proration_behavior"));
       }
       // ensure the json data is an array
       if (!jsonObj.get("plan_histories").isJsonArray()) {

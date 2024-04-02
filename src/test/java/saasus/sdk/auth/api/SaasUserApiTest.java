@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -51,9 +51,9 @@ public class SaasUserApiTest {
     private final SaasUserApi api = new SaasUserApi();
 
     /**
-     * ユーザーのメールアドレス変更確認(Confirm User Email Update)
+     * Confirm User Email Update
      *
-     * ユーザーのメールアドレス変更確認のためにコードを検証します。 ユーザーのアクセストークンが必要です。  Verify the code to confirm the user&#39;s email address update. Requires the user&#39;s access token. 
+     * Verify the code to confirm the user&#39;s email address update. Requires the user&#39;s access token. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -66,9 +66,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * 外部アカウントのユーザーの連携確認(Confirm External User Account Link)
+     * Confirm External User Account Link
      *
-     * 外部アカウントのユーザー連携確認のためにコードを検証します。  Verify the code for external account user link confirmation. 
+     * Verify the code for external account user link confirmation. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -80,9 +80,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * AWS Marketplaceによるユーザー新規登録の確定(Confirm Sign Up with AWS Marketplace)
+     * Confirm Sign Up with AWS Marketplace
      *
-     * AWS Marketplaceと連携したユーザー新規登録を確定します。AWS Marketplaceと連携したテナントを新規作成します。 Registration Tokenが有効でない場合はエラーを返却します。  Confirm a new use registeration linked to AWS Marketplace. Create a new tenant linked to AWS Marketplace. If the Registration Token is not valid, an error is returned. 
+     * Confirm a new use registeration linked to AWS Marketplace. Create a new tenant linked to AWS Marketplace. If the Registration Token is not valid, an error is returned. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -94,9 +94,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * SaaSにユーザーを作成(Create SaaS User)
+     * Create SaaS User
      *
-     * SaaSにユーザーを作成します。  Create SaaS User. 
+     * Create SaaS User. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -108,9 +108,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * 認証アプリケーション登録用のシークレットコードを作成(Creates secret code for authentication application registration)
+     * Create secret code for authentication application registration
      *
-     * 認証アプリケーション登録用のシークレットコードを作成します。  Create a secret code for authentication application registration. 
+     * Create a secret code for authentication application registration. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -123,9 +123,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * ユーザー情報を削除(Delete User)
+     * Delete User
      *
-     * ユーザーIDを元に一致するユーザーをテナントからすべて削除し、SaaSからも削除します。  Delete all users with matching user ID from the tenant and SaaS. 
+     * Delete all users with matching user ID from the tenant and SaaS. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -137,9 +137,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * ユーザー情報を取得(Get User)
+     * Get User
      *
-     * ユーザーIDからユーザー情報を取得します。  Get user information based on user ID. 
+     * Get user information based on user ID. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -151,9 +151,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * ユーザー一覧を取得(Get Users)
+     * Get Users
      *
-     * SaaSのユーザー全件を取得します。  Get all SaaS users. 
+     * Get all SaaS users. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -164,9 +164,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * ユーザーのMFA設定を取得(Get User&#39;s MFA Settings)
+     * Get User&#39;s MFA Settings
      *
-     * ユーザーのMFA設定を取得します。  Get the user&#39;s MFA settings. 
+     * Get the user&#39;s MFA settings. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -178,9 +178,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * AWS Marketplaceと既存のテナントの連携(Link an existing tenant with AWS Marketplace)
+     * Link an existing tenant with AWS Marketplace
      *
-     * AWS Marketplaceと既存のテナントを連携します。 Registration Tokenが有効でない場合はエラーを返却します。  Link an existing tenant with AWS Marketplace. If the Registration Token is not valid, an error is returned. 
+     * Link an existing tenant with AWS Marketplace. If the Registration Token is not valid, an error is returned. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -192,9 +192,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * ユーザーのメールアドレス変更要求(Request User Email Update)
+     * Request User Email Update
      *
-     * ユーザーのメールアドレス変更を要求します。 要求されたメールアドレスに対して検証コードを送信します。 ユーザーのアクセストークンが必要です。 検証コードの有効期限は24時間です。  Request to update the user&#39;s email address. Sends a verification code to the requested email address. Requires the user&#39;s access token. The verification code is valid for 24 hours. 
+     * Request to update the user&#39;s email address. Sends a verification code to the requested email address. Requires the user&#39;s access token. The verification code is valid for 24 hours. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -207,9 +207,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * 外部アカウントのユーザー連携要求(Request External User Account Link)
+     * Request External User Account Link
      *
-     * 外部アカウントのユーザー連携を要求します。 アクセストークンから連携するユーザーのメールアドレスを取得し、そのメールアドレスに対して検証コードを送信します。 検証コードの有効期限は24時間です。  Request to link an external account user. Get the email address of the user to be linked from the access token and send a verification code to that email address. The verification code is valid for 24 hours. 
+     * Request to link an external account user. Get the email address of the user to be linked from the access token and send a verification code to that email address. The verification code is valid for 24 hours. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -221,9 +221,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * 新規登録時の確認メール再送信(Resend Sign Up Confirmation Email)
+     * Resend Sign Up Confirmation Email
      *
-     * 新規登録時の仮パスワードを再送信します。  Resend temporary password for the new registered user. 
+     * Resend temporary password for the new registered user. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -235,9 +235,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * 新規登録(Sign Up)
+     * Sign Up
      *
-     * ユーザーを新規登録します。登録されたメールアドレスに対して仮パスワードを送信します。  Register a new user. A temporary password will be sent to the registered email. 
+     * Register a new user. A temporary password will be sent to the registered email. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -249,9 +249,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * AWS Marketplaceによるユーザー新規登録(Sign Up with AWS Marketplace)
+     * Sign Up with AWS Marketplace
      *
-     * AWS Marketplaceと連携したユーザーを新規登録します。登録されたメールアドレスに対して仮パスワードを送信します。 Registration Tokenが有効でない場合はエラーを返却します。  Register a new user linked to AWS Marketplace. A temporary password will be sent to the registered email. If the Registration Token is not valid, an error is returned. 
+     * Register a new user linked to AWS Marketplace. A temporary password will be sent to the registered email. If the Registration Token is not valid, an error is returned. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -263,9 +263,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * 外部IDプロバイダの連携解除(Unlink external identity providers)
+     * Unlink external identity providers
      *
-     * 外部IDプロバイダの連携を解除します。  Unlink external identity providers. 
+     * Unlink external identity providers. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -278,9 +278,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * メールアドレスを変更(Change Email)
+     * Change Email
      *
-     * ユーザーのメールアドレスを変更します。  Change user&#39;s email. 
+     * Change user&#39;s email. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -293,9 +293,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * パスワードを変更(Change Password)
+     * Change Password
      *
-     * ユーザーのログインパスワードを変更します。  Change user&#39;s login password. 
+     * Change user&#39;s login password. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -308,9 +308,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * 認証アプリケーションを登録(Register Authentication Application)
+     * Register Authentication Application
      *
-     * 認証アプリケーションを登録します。  Register an authentication application. 
+     * Register an authentication application. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -323,9 +323,9 @@ public class SaasUserApiTest {
     }
 
     /**
-     * ユーザーのMFA設定を更新(Update User&#39;s MFA Settings)
+     * Update User&#39;s MFA Settings
      *
-     * ユーザーのMFA設定を更新します。  Update user&#39;s MFA settings. 
+     * Update user&#39;s MFA settings. 
      *
      * @throws ApiException if the Api call fails
      */

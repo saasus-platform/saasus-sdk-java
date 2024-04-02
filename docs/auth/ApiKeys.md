@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**apiKeys** | **List&lt;String&gt;** | APIキー(API Key) |  |
+|**apiKeys** | **List&lt;String&gt;** | API Key |  |
 
 
 

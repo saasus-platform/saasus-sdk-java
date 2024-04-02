@@ -4,20 +4,20 @@ All URIs are relative to *https://api.saasus.io/v1/integration*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createEventBridgeEvent**](EventBridgeApi.md#createEventBridgeEvent) | **POST** /eventbridge/event | イベント連携の送信(Send Events) |
-| [**createEventBridgeTestEvent**](EventBridgeApi.md#createEventBridgeTestEvent) | **POST** /eventbridge/test-event | イベント連携のテスト送信(Test EventBridge Connection) |
-| [**deleteEventBridgeSettings**](EventBridgeApi.md#deleteEventBridgeSettings) | **DELETE** /eventbridge/info | イベント連携設定を削除(Delete EventBridge Settings) |
-| [**getEventBridgeSettings**](EventBridgeApi.md#getEventBridgeSettings) | **GET** /eventbridge/info | イベント連携設定を取得(Get EventBridge Settings) |
-| [**saveEventBridgeSettings**](EventBridgeApi.md#saveEventBridgeSettings) | **PUT** /eventbridge/info | イベント連携設定を更新(Update EventBridge Settings) |
+| [**createEventBridgeEvent**](EventBridgeApi.md#createEventBridgeEvent) | **POST** /eventbridge/event | Send Events |
+| [**createEventBridgeTestEvent**](EventBridgeApi.md#createEventBridgeTestEvent) | **POST** /eventbridge/test-event | Test EventBridge Connection |
+| [**deleteEventBridgeSettings**](EventBridgeApi.md#deleteEventBridgeSettings) | **DELETE** /eventbridge/info | Delete EventBridge Settings |
+| [**getEventBridgeSettings**](EventBridgeApi.md#getEventBridgeSettings) | **GET** /eventbridge/info | Get EventBridge Settings |
+| [**saveEventBridgeSettings**](EventBridgeApi.md#saveEventBridgeSettings) | **PUT** /eventbridge/info | Update EventBridge Settings |
 
 
 <a id="createEventBridgeEvent"></a>
 # **createEventBridgeEvent**
 > createEventBridgeEvent(createEventBridgeEventParam)
 
-イベント連携の送信(Send Events)
+Send Events
 
-Amazon EventBridge へイベントを送信します。  Send events to Amazon EventBridge. 
+Send events to Amazon EventBridge. 
 
 ### Example
 ```java
@@ -82,9 +82,9 @@ null (empty response body)
 # **createEventBridgeTestEvent**
 > createEventBridgeTestEvent()
 
-イベント連携のテスト送信(Test EventBridge Connection)
+Test EventBridge Connection
 
-Amazon EventBridge との連携をテストする為のイベントを送信します。  Send events to test the connection with Amazon EventBridge. 
+Send events to test the connection with Amazon EventBridge. 
 
 ### Example
 ```java
@@ -145,9 +145,9 @@ null (empty response body)
 # **deleteEventBridgeSettings**
 > deleteEventBridgeSettings()
 
-イベント連携設定を削除(Delete EventBridge Settings)
+Delete EventBridge Settings
 
-ホストの状態を Amazon EventBridge 経由で提供するための設定を解除します。  Delete settings used to provide host state via Amazon EventBridge. 
+Delete settings used to provide host state via Amazon EventBridge. 
 
 ### Example
 ```java
@@ -208,9 +208,9 @@ null (empty response body)
 # **getEventBridgeSettings**
 > EventBridgeSettings getEventBridgeSettings()
 
-イベント連携設定を取得(Get EventBridge Settings)
+Get EventBridge Settings
 
-監視対象となっている全ホストの状態をリアルタイムにAmazon EventBridge 経由で提供するための設定を取得します。  Gets the settings for providing real-time status of all monitored hosts via Amazon EventBridge. 
+Gets the settings for providing real-time status of all monitored hosts via Amazon EventBridge. 
 
 ### Example
 ```java
@@ -272,9 +272,9 @@ This endpoint does not need any parameter.
 # **saveEventBridgeSettings**
 > saveEventBridgeSettings(body)
 
-イベント連携設定を更新(Update EventBridge Settings)
+Update EventBridge Settings
 
-ホストの状態を Amazon EventBridge 経由で提供するための設定を更新します。  Update configuration used to provide the host state via Amazon EventBridge. 
+Update configuration used to provide the host state via Amazon EventBridge. 
 
 ### Example
 ```java

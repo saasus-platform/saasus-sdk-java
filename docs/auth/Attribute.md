@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**attributeName** | **String** | 属性名(attribute name) |  |
-|**displayName** | **String** | 表示名(display name) |  |
+|**attributeName** | **String** | Attribute Name |  |
+|**displayName** | **String** | Display Name |  |
 |**attributeType** | **AttributeType** |  |  |
 
 

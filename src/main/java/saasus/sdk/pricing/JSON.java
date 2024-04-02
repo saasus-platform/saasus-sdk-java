@@ -58,6 +58,40 @@ public class JSON {
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
+                .registerTypeSelector(saasus.sdk.pricing.models.PricingUnit.class, new TypeSelector<saasus.sdk.pricing.models.PricingUnit>() {
+                    @Override
+                    public Class<? extends saasus.sdk.pricing.models.PricingUnit> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("fixed", saasus.sdk.pricing.models.PricingFixedUnit.class);
+                        classByDiscriminatorValue.put("tiered", saasus.sdk.pricing.models.PricingTieredUnit.class);
+                        classByDiscriminatorValue.put("tiered_usage", saasus.sdk.pricing.models.PricingTieredUsageUnit.class);
+                        classByDiscriminatorValue.put("usage", saasus.sdk.pricing.models.PricingUsageUnit.class);
+                        classByDiscriminatorValue.put("PricingFixedUnit", saasus.sdk.pricing.models.PricingFixedUnit.class);
+                        classByDiscriminatorValue.put("PricingTieredUnit", saasus.sdk.pricing.models.PricingTieredUnit.class);
+                        classByDiscriminatorValue.put("PricingTieredUsageUnit", saasus.sdk.pricing.models.PricingTieredUsageUnit.class);
+                        classByDiscriminatorValue.put("PricingUsageUnit", saasus.sdk.pricing.models.PricingUsageUnit.class);
+                        classByDiscriminatorValue.put("PricingUnit", saasus.sdk.pricing.models.PricingUnit.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
+                .registerTypeSelector(saasus.sdk.pricing.models.PricingUnitForSave.class, new TypeSelector<saasus.sdk.pricing.models.PricingUnitForSave>() {
+                    @Override
+                    public Class<? extends saasus.sdk.pricing.models.PricingUnitForSave> getClassForElement(JsonElement readElement) {
+                        Map<String, Class> classByDiscriminatorValue = new HashMap<String, Class>();
+                        classByDiscriminatorValue.put("fixed", saasus.sdk.pricing.models.PricingFixedUnitForSave.class);
+                        classByDiscriminatorValue.put("tiered", saasus.sdk.pricing.models.PricingTieredUnitForSave.class);
+                        classByDiscriminatorValue.put("tiered_usage", saasus.sdk.pricing.models.PricingTieredUsageUnitForSave.class);
+                        classByDiscriminatorValue.put("usage", saasus.sdk.pricing.models.PricingUsageUnitForSave.class);
+                        classByDiscriminatorValue.put("PricingFixedUnitForSave", saasus.sdk.pricing.models.PricingFixedUnitForSave.class);
+                        classByDiscriminatorValue.put("PricingTieredUnitForSave", saasus.sdk.pricing.models.PricingTieredUnitForSave.class);
+                        classByDiscriminatorValue.put("PricingTieredUsageUnitForSave", saasus.sdk.pricing.models.PricingTieredUsageUnitForSave.class);
+                        classByDiscriminatorValue.put("PricingUsageUnitForSave", saasus.sdk.pricing.models.PricingUsageUnitForSave.class);
+                        classByDiscriminatorValue.put("PricingUnitForSave", saasus.sdk.pricing.models.PricingUnitForSave.class);
+                        return getClassByDiscriminator(classByDiscriminatorValue,
+                                getDiscriminatorValue(readElement, "type"));
+                    }
+          })
         ;
         GsonBuilder builder = fireBuilder.createGsonBuilder();
         return builder;
@@ -94,13 +128,16 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.Error.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.MeteringUnit.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.MeteringUnitCount.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.MeteringUnitDateCount.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.MeteringUnitDateCounts.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.MeteringUnitDatePeriodCounts.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.MeteringUnitMonthCount.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.MeteringUnitMonthCounts.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.MeteringUnitProps.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.MeteringUnitTimestampCount.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.MeteringUnits.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.PricingFixedUnit.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.PricingFixedUnitForSave.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.pricing.models.PricingMenu.CustomTypeAdapterFactory());
