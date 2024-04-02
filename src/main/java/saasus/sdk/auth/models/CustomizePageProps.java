@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * CustomizePageProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T13:19:53.207106119Z[Etc/UTC]")
 public class CustomizePageProps {
   public static final String SERIALIZED_NAME_HTML_CONTENTS = "html_contents";
   @SerializedName(SERIALIZED_NAME_HTML_CONTENTS)
@@ -68,13 +67,12 @@ public class CustomizePageProps {
   }
 
   public CustomizePageProps htmlContents(String htmlContents) {
-    
     this.htmlContents = htmlContents;
     return this;
   }
 
    /**
-   * 画面のHTMLを編集できます ※ 未提供の機能のため、変更・保存はできません  Edit page HTML ※ This function is not yet provided, so it cannot be changed or saved. 
+   * Edit page HTML ※ This function is not yet provided, so it cannot be changed or saved. 
    * @return htmlContents
   **/
   @javax.annotation.Nonnull
@@ -82,20 +80,18 @@ public class CustomizePageProps {
     return htmlContents;
   }
 
-
   public void setHtmlContents(String htmlContents) {
     this.htmlContents = htmlContents;
   }
 
 
   public CustomizePageProps isTermsOfService(Boolean isTermsOfService) {
-    
     this.isTermsOfService = isTermsOfService;
     return this;
   }
 
    /**
-   * 利用規約の同意チェックボックスを表示するが設定されているか(display the terms of use agreement check box)
+   * display the terms of use agreement check box
    * @return isTermsOfService
   **/
   @javax.annotation.Nonnull
@@ -103,27 +99,24 @@ public class CustomizePageProps {
     return isTermsOfService;
   }
 
-
   public void setIsTermsOfService(Boolean isTermsOfService) {
     this.isTermsOfService = isTermsOfService;
   }
 
 
   public CustomizePageProps isPrivacyPolicy(Boolean isPrivacyPolicy) {
-    
     this.isPrivacyPolicy = isPrivacyPolicy;
     return this;
   }
 
    /**
-   * プライバシーポリシーチェックボックスを表示するが設定されているか(show the privacy policy checkbox)
+   * show the privacy policy checkbox
    * @return isPrivacyPolicy
   **/
   @javax.annotation.Nonnull
   public Boolean getIsPrivacyPolicy() {
     return isPrivacyPolicy;
   }
-
 
   public void setIsPrivacyPolicy(Boolean isPrivacyPolicy) {
     this.isPrivacyPolicy = isPrivacyPolicy;
@@ -203,9 +196,9 @@ public class CustomizePageProps {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomizePageProps.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomizePageProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

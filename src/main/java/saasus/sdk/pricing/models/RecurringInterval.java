@@ -14,17 +14,17 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * 繰り返し期間(cycle) month: 月単位(monthly) year: 年単位(yearly) 
+ * Cycle month: Monthly year: Yearly 
  */
 @JsonAdapter(RecurringInterval.Adapter.class)
 public enum RecurringInterval {
@@ -68,6 +68,11 @@ public enum RecurringInterval {
       String value = jsonReader.nextString();
       return RecurringInterval.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    RecurringInterval.fromValue(value);
   }
 }
 
