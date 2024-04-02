@@ -15,12 +15,15 @@ package saasus.sdk.pricing.api;
 
 import saasus.sdk.pricing.ApiException;
 import saasus.sdk.pricing.models.Error;
+import saasus.sdk.pricing.models.MeteringUnit;
 import saasus.sdk.pricing.models.MeteringUnitDateCount;
 import saasus.sdk.pricing.models.MeteringUnitDateCounts;
 import saasus.sdk.pricing.models.MeteringUnitDatePeriodCounts;
 import saasus.sdk.pricing.models.MeteringUnitMonthCount;
 import saasus.sdk.pricing.models.MeteringUnitMonthCounts;
+import saasus.sdk.pricing.models.MeteringUnitProps;
 import saasus.sdk.pricing.models.MeteringUnitTimestampCount;
+import saasus.sdk.pricing.models.MeteringUnits;
 import saasus.sdk.pricing.models.UpdateMeteringUnitTimestampCountNowParam;
 import saasus.sdk.pricing.models.UpdateMeteringUnitTimestampCountParam;
 import org.junit.jupiter.api.Disabled;
@@ -40,9 +43,37 @@ public class MeteringApiTest {
     private final MeteringApi api = new MeteringApi();
 
     /**
-     * 指定したタイムスタンプのメータリングユニットカウントを削除(Delete Metering Uunit Count for Specified Timestamp)
+     * Create Metering Unit
      *
-     * 指定したタイムスタンプのメータリングユニットカウントを削除します。  Deletes metering unit count for the specified timestamp. 
+     * Create a metering unit. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createMeteringUnitTest() throws ApiException {
+        MeteringUnitProps body = null;
+        MeteringUnit response = api.createMeteringUnit(body);
+        // TODO: test validations
+    }
+
+    /**
+     * Delete Metering Unit
+     *
+     * Delete metering unit. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void deleteMeteringUnitByIDTest() throws ApiException {
+        String meteringUnitId = null;
+        api.deleteMeteringUnitByID(meteringUnitId);
+        // TODO: test validations
+    }
+
+    /**
+     * Delete Metering Unit Count for Specified Timestamp
+     *
+     * Deletes metering unit count for the specified timestamp. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -56,9 +87,9 @@ public class MeteringApiTest {
     }
 
     /**
-     * 指定した日付のメータリングユニットカウントを取得(Get Metering Unit Count for Specific Date)
+     * Get Metering Unit Count for Specific Date
      *
-     * 指定した日付のメータリングユニットカウントを取得します。  Gets the metering unit count for specific date. 
+     * Gets the metering unit count for a specific date. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -72,9 +103,9 @@ public class MeteringApiTest {
     }
 
     /**
-     * 指定した日時期間のメータリングユニットカウントを取得(Obtain metering unit counts for a specified date/time period)
+     * Obtain metering unit counts for a specified date/time period
      *
-     * 指定した日時期間のメータリングユニットカウントを取得します。  Obtain metering unit counts for a specified date/time period. 
+     * Obtain metering unit counts for a specified date/time period. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -89,9 +120,9 @@ public class MeteringApiTest {
     }
 
     /**
-     * 当日のメータリングユニットカウントを取得(Get Metering Unit Count for the Current Day)
+     * Get Metering Unit Count for the Current Day
      *
-     * 当日のメータリングユニットカウントを取得します。  Get the metering unit count for the current day. 
+     * Get the metering unit count for the current day. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -104,9 +135,9 @@ public class MeteringApiTest {
     }
 
     /**
-     * 指定日の全メータリングユニットカウントを取得(Get All Metering Unit Counts for a Specified Date)
+     * Get All Metering Unit Counts for a Specified Date
      *
-     * 指定した日の全メータリングユニットカウントを取得します。  Gets the total metering unit count for the specified date. 
+     * Gets the total metering unit count for the specified date. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -119,9 +150,9 @@ public class MeteringApiTest {
     }
 
     /**
-     * 指定月のメータリングユニットカウントを取得(Get the Metering Unit Count for the Specified Month)
+     * Get the Metering Unit Count for the Specified Month
      *
-     * 指定した月のメータリングユニットカウントを取得します。  Gets the metering unit count for the specified month. 
+     * Gets the metering unit count for the specified month. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -135,9 +166,9 @@ public class MeteringApiTest {
     }
 
     /**
-     * 当月のメータリングユニットカウントを取得(Get Metering Unit Count for the Current Month)
+     * Get Metering Unit Count for the Current Month
      *
-     * 当月のメータリングユニットカウントを取得します。  Get the metering unit count for the current month. 
+     * Get the metering unit count for the current month. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -150,9 +181,9 @@ public class MeteringApiTest {
     }
 
     /**
-     * 指定月の全メータリングユニットカウントを取得(Get All Metering Unit Counts for the Specified Month)
+     * Get All Metering Unit Counts for the Specified Month
      *
-     * 指定した月の全メータリングユニットカウントを取得します。  Gets all metering unit counts for the specified month. 
+     * Gets all metering unit counts for the specified month. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -165,9 +196,37 @@ public class MeteringApiTest {
     }
 
     /**
-     * 指定したタイムスタンプのメータリングユニットカウントを更新(Update Metering Unit Count for Specified Timestamp)
+     * Get all metering units
      *
-     * 指定したタイムスタンプのメータリングユニットカウントを更新します。  Update metering unit count for the specified timestamp. 
+     * Get all metering units. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getMeteringUnitsTest() throws ApiException {
+        MeteringUnits response = api.getMeteringUnits();
+        // TODO: test validations
+    }
+
+    /**
+     * Update Metering Unit
+     *
+     * Update metering unit. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateMeteringUnitByIDTest() throws ApiException {
+        String meteringUnitId = null;
+        MeteringUnitProps body = null;
+        api.updateMeteringUnitByID(meteringUnitId, body);
+        // TODO: test validations
+    }
+
+    /**
+     * Update Metering Unit Count for Specified Timestamp
+     *
+     * Update metering unit count for the specified timestamp. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -182,9 +241,9 @@ public class MeteringApiTest {
     }
 
     /**
-     * 現在時刻のメータリングユニットカウントを更新(Update Metering Unit Count for Current Time)
+     * Update Metering Unit Count for Current Time
      *
-     * 現在時刻のメータリングユニットカウントを更新します。  Update the metering unit count for the current time. 
+     * Update the metering unit count for the current time. 
      *
      * @throws ApiException if the Api call fails
      */

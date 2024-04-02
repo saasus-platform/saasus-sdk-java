@@ -13,7 +13,7 @@
 
 package saasus.sdk.awsmarketplace;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:18.753981Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-02T13:20:05.285833600Z[Etc/UTC]")
 public class Pair {
     private String name = "";
     private String value = "";

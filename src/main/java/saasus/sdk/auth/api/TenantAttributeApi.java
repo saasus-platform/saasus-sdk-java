@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -139,8 +139,8 @@ public class TenantAttributeApi {
     }
 
     /**
-     * テナント属性の作成(Create Tenant Attribute)
-     * SaaSus Platform で管理する、テナントの追加属性の登録を行います。 例えばテナントの呼び名やメモなどをを持たせることができ、SaaSからSaaSus SDK/APIを利用して取得することができます。  Register additional tenant attributes to be managed by SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
+     * Create Tenant Attribute
+     * Register additional tenant attributes to be managed by SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
      * @param body  (optional)
      * @return Attribute
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -157,8 +157,8 @@ public class TenantAttributeApi {
     }
 
     /**
-     * テナント属性の作成(Create Tenant Attribute)
-     * SaaSus Platform で管理する、テナントの追加属性の登録を行います。 例えばテナントの呼び名やメモなどをを持たせることができ、SaaSからSaaSus SDK/APIを利用して取得することができます。  Register additional tenant attributes to be managed by SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
+     * Create Tenant Attribute
+     * Register additional tenant attributes to be managed by SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
      * @param body  (optional)
      * @return ApiResponse&lt;Attribute&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -176,8 +176,8 @@ public class TenantAttributeApi {
     }
 
     /**
-     * テナント属性の作成(Create Tenant Attribute) (asynchronously)
-     * SaaSus Platform で管理する、テナントの追加属性の登録を行います。 例えばテナントの呼び名やメモなどをを持たせることができ、SaaSからSaaSus SDK/APIを利用して取得することができます。  Register additional tenant attributes to be managed by SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
+     * Create Tenant Attribute (asynchronously)
+     * Register additional tenant attributes to be managed by SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -198,7 +198,7 @@ public class TenantAttributeApi {
     }
     /**
      * Build call for deleteTenantAttribute
-     * @param attributeName 属性名(Attribute Name) (required)
+     * @param attributeName Attribute Name (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -267,9 +267,9 @@ public class TenantAttributeApi {
     }
 
     /**
-     * テナント属性の削除(Delete Tenant Attribute)
-     * SaaSus Platform で管理する、テナントの追加属性の削除を行います。  Deletes tenant attributes managed by SaaSus Platform. 
-     * @param attributeName 属性名(Attribute Name) (required)
+     * Delete Tenant Attribute
+     * Deletes tenant attributes managed by SaaSus Platform. 
+     * @param attributeName Attribute Name (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -284,9 +284,9 @@ public class TenantAttributeApi {
     }
 
     /**
-     * テナント属性の削除(Delete Tenant Attribute)
-     * SaaSus Platform で管理する、テナントの追加属性の削除を行います。  Deletes tenant attributes managed by SaaSus Platform. 
-     * @param attributeName 属性名(Attribute Name) (required)
+     * Delete Tenant Attribute
+     * Deletes tenant attributes managed by SaaSus Platform. 
+     * @param attributeName Attribute Name (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -303,9 +303,9 @@ public class TenantAttributeApi {
     }
 
     /**
-     * テナント属性の削除(Delete Tenant Attribute) (asynchronously)
-     * SaaSus Platform で管理する、テナントの追加属性の削除を行います。  Deletes tenant attributes managed by SaaSus Platform. 
-     * @param attributeName 属性名(Attribute Name) (required)
+     * Delete Tenant Attribute (asynchronously)
+     * Deletes tenant attributes managed by SaaSus Platform. 
+     * @param attributeName Attribute Name (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -386,8 +386,8 @@ public class TenantAttributeApi {
     }
 
     /**
-     * テナント属性の一覧を取得(Get Tenant Attributes)
-     * SaaSus Platform で管理する、テナントの追加属性の定義を取得します。 例えばテナントの呼び名やメモなどをを持たせることができ、SaaSからSaaSus SDK/APIを利用して取得することができます。  Get definitions for additional tenant attributes managed by the SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
+     * Get Tenant Attributes
+     * Get definitions for additional tenant attributes managed by the SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
      * @return TenantAttributes
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -403,8 +403,8 @@ public class TenantAttributeApi {
     }
 
     /**
-     * テナント属性の一覧を取得(Get Tenant Attributes)
-     * SaaSus Platform で管理する、テナントの追加属性の定義を取得します。 例えばテナントの呼び名やメモなどをを持たせることができ、SaaSからSaaSus SDK/APIを利用して取得することができます。  Get definitions for additional tenant attributes managed by the SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
+     * Get Tenant Attributes
+     * Get definitions for additional tenant attributes managed by the SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
      * @return ApiResponse&lt;TenantAttributes&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -421,8 +421,8 @@ public class TenantAttributeApi {
     }
 
     /**
-     * テナント属性の一覧を取得(Get Tenant Attributes) (asynchronously)
-     * SaaSus Platform で管理する、テナントの追加属性の定義を取得します。 例えばテナントの呼び名やメモなどをを持たせることができ、SaaSからSaaSus SDK/APIを利用して取得することができます。  Get definitions for additional tenant attributes managed by the SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
+     * Get Tenant Attributes (asynchronously)
+     * Get definitions for additional tenant attributes managed by the SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

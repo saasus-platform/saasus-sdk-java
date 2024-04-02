@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | [**TypeEnum**](#TypeEnum) | CNAMEリソースレコード(CNAME Resource Record) |  |
-|**name** | **String** | レコード名(Record Name) |  |
-|**value** | **String** | 値(Value) |  |
+|**type** | [**TypeEnum**](#TypeEnum) | CNAME Resource Record |  |
+|**name** | **String** | Record Name |  |
+|**value** | **String** | Value |  |
 
 
 
