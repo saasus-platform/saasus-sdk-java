@@ -4,18 +4,18 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createTenantAttribute**](TenantAttributeApi.md#createTenantAttribute) | **POST** /tenant-attributes | テナント属性の作成(Create Tenant Attribute) |
-| [**deleteTenantAttribute**](TenantAttributeApi.md#deleteTenantAttribute) | **DELETE** /tenant-attributes/{attribute_name} | テナント属性の削除(Delete Tenant Attribute) |
-| [**getTenantAttributes**](TenantAttributeApi.md#getTenantAttributes) | **GET** /tenant-attributes | テナント属性の一覧を取得(Get Tenant Attributes) |
+| [**createTenantAttribute**](TenantAttributeApi.md#createTenantAttribute) | **POST** /tenant-attributes | Create Tenant Attribute |
+| [**deleteTenantAttribute**](TenantAttributeApi.md#deleteTenantAttribute) | **DELETE** /tenant-attributes/{attribute_name} | Delete Tenant Attribute |
+| [**getTenantAttributes**](TenantAttributeApi.md#getTenantAttributes) | **GET** /tenant-attributes | Get Tenant Attributes |
 
 
 <a id="createTenantAttribute"></a>
 # **createTenantAttribute**
 > Attribute createTenantAttribute(body)
 
-テナント属性の作成(Create Tenant Attribute)
+Create Tenant Attribute
 
-SaaSus Platform で管理する、テナントの追加属性の登録を行います。 例えばテナントの呼び名やメモなどをを持たせることができ、SaaSからSaaSus SDK/APIを利用して取得することができます。  Register additional tenant attributes to be managed by SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
+Register additional tenant attributes to be managed by SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
 
 ### Example
 ```java
@@ -81,9 +81,9 @@ public class Example {
 # **deleteTenantAttribute**
 > deleteTenantAttribute(attributeName)
 
-テナント属性の削除(Delete Tenant Attribute)
+Delete Tenant Attribute
 
-SaaSus Platform で管理する、テナントの追加属性の削除を行います。  Deletes tenant attributes managed by SaaSus Platform. 
+Deletes tenant attributes managed by SaaSus Platform. 
 
 ### Example
 ```java
@@ -105,7 +105,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     TenantAttributeApi apiInstance = new TenantAttributeApi(defaultClient);
-    String attributeName = "birthday"; // String | 属性名(Attribute Name)
+    String attributeName = "birthday"; // String | Attribute Name
     try {
       apiInstance.deleteTenantAttribute(attributeName);
     } catch (ApiException e) {
@@ -123,7 +123,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **attributeName** | **String**| 属性名(Attribute Name) | |
+| **attributeName** | **String**| Attribute Name | |
 
 ### Return type
 
@@ -149,9 +149,9 @@ null (empty response body)
 # **getTenantAttributes**
 > TenantAttributes getTenantAttributes()
 
-テナント属性の一覧を取得(Get Tenant Attributes)
+Get Tenant Attributes
 
-SaaSus Platform で管理する、テナントの追加属性の定義を取得します。 例えばテナントの呼び名やメモなどをを持たせることができ、SaaSからSaaSus SDK/APIを利用して取得することができます。  Get definitions for additional tenant attributes managed by the SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
+Get definitions for additional tenant attributes managed by the SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
 
 ### Example
 ```java

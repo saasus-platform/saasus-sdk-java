@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -145,8 +145,8 @@ public class TenantApi {
     }
 
     /**
-     * テナントを作成(Create Tenant)
-     * SaaSus Platform で管理する、テナント情報を作成します。  Create a tenant managed by the SaaSus Platform. 
+     * Create Tenant
+     * Create a tenant managed by the SaaSus Platform. 
      * @param body  (optional)
      * @return Tenant
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -163,8 +163,8 @@ public class TenantApi {
     }
 
     /**
-     * テナントを作成(Create Tenant)
-     * SaaSus Platform で管理する、テナント情報を作成します。  Create a tenant managed by the SaaSus Platform. 
+     * Create Tenant
+     * Create a tenant managed by the SaaSus Platform. 
      * @param body  (optional)
      * @return ApiResponse&lt;Tenant&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -182,8 +182,8 @@ public class TenantApi {
     }
 
     /**
-     * テナントを作成(Create Tenant) (asynchronously)
-     * SaaSus Platform で管理する、テナント情報を作成します。  Create a tenant managed by the SaaSus Platform. 
+     * Create Tenant (asynchronously)
+     * Create a tenant managed by the SaaSus Platform. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -265,8 +265,8 @@ public class TenantApi {
     }
 
     /**
-     * stripe初期設定(Stripe Initial Setting)
-     * billing経由でstripeへ初期情報を設定  Set Stripe initial information via billing 
+     * Stripe Initial Setting
+     * Set Stripe initial information via billing 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -280,8 +280,8 @@ public class TenantApi {
     }
 
     /**
-     * stripe初期設定(Stripe Initial Setting)
-     * billing経由でstripeへ初期情報を設定  Set Stripe initial information via billing 
+     * Stripe Initial Setting
+     * Set Stripe initial information via billing 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -297,8 +297,8 @@ public class TenantApi {
     }
 
     /**
-     * stripe初期設定(Stripe Initial Setting) (asynchronously)
-     * billing経由でstripeへ初期情報を設定  Set Stripe initial information via billing 
+     * Stripe Initial Setting (asynchronously)
+     * Set Stripe initial information via billing 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -378,8 +378,8 @@ public class TenantApi {
     }
 
     /**
-     * stripe上の顧客情報・商品情報の削除(Delete Customer and Product From Stripe)
-     * stripe上の顧客情報・商品情報を削除します  Delete customer and product from Stripe. 
+     * Delete Customer and Product From Stripe
+     * Delete customer and product from Stripe. 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -393,8 +393,8 @@ public class TenantApi {
     }
 
     /**
-     * stripe上の顧客情報・商品情報の削除(Delete Customer and Product From Stripe)
-     * stripe上の顧客情報・商品情報を削除します  Delete customer and product from Stripe. 
+     * Delete Customer and Product From Stripe
+     * Delete customer and product from Stripe. 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -410,8 +410,8 @@ public class TenantApi {
     }
 
     /**
-     * stripe上の顧客情報・商品情報の削除(Delete Customer and Product From Stripe) (asynchronously)
-     * stripe上の顧客情報・商品情報を削除します  Delete customer and product from Stripe. 
+     * Delete Customer and Product From Stripe (asynchronously)
+     * Delete customer and product from Stripe. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -430,7 +430,7 @@ public class TenantApi {
     }
     /**
      * Build call for deleteTenant
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -498,9 +498,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント情報を削除(Delete Tenant)
-     * SaaSus Platform で管理する、テナントの詳細情報を削除します。  Delete SaaSus Platform tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Delete Tenant
+     * Delete SaaSus Platform tenant. 
+     * @param tenantId Tenant ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -514,9 +514,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント情報を削除(Delete Tenant)
-     * SaaSus Platform で管理する、テナントの詳細情報を削除します。  Delete SaaSus Platform tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Delete Tenant
+     * Delete SaaSus Platform tenant. 
+     * @param tenantId Tenant ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -532,9 +532,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント情報を削除(Delete Tenant) (asynchronously)
-     * SaaSus Platform で管理する、テナントの詳細情報を削除します。  Delete SaaSus Platform tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Delete Tenant (asynchronously)
+     * Delete SaaSus Platform tenant. 
+     * @param tenantId Tenant ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -553,7 +553,7 @@ public class TenantApi {
     }
     /**
      * Build call for getTenant
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -622,9 +622,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント情報を取得(Get Tenant Details)
-     * SaaSus Platform で管理する、テナントの詳細情報を取得します。  Get the details of tenant managed on the SaaSus Platform. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get Tenant Details
+     * Get the details of tenant managed on the SaaSus Platform. 
+     * @param tenantId Tenant ID (required)
      * @return TenantDetail
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -641,9 +641,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント情報を取得(Get Tenant Details)
-     * SaaSus Platform で管理する、テナントの詳細情報を取得します。  Get the details of tenant managed on the SaaSus Platform. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get Tenant Details
+     * Get the details of tenant managed on the SaaSus Platform. 
+     * @param tenantId Tenant ID (required)
      * @return ApiResponse&lt;TenantDetail&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -661,9 +661,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント情報を取得(Get Tenant Details) (asynchronously)
-     * SaaSus Platform で管理する、テナントの詳細情報を取得します。  Get the details of tenant managed on the SaaSus Platform. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get Tenant Details (asynchronously)
+     * Get the details of tenant managed on the SaaSus Platform. 
+     * @param tenantId Tenant ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -684,7 +684,7 @@ public class TenantApi {
     }
     /**
      * Build call for getTenantIdentityProviders
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -752,9 +752,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント毎の外部IDプロバイダ取得(Get identity provider per tenant)
-     * テナント毎の外部IDプロバイダ経由のサインイン情報を取得します。  Get sign-in information via external identity provider per tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get identity provider per tenant
+     * Get sign-in information via external identity provider per tenant. 
+     * @param tenantId Tenant ID (required)
      * @return TenantIdentityProviders
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -770,9 +770,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント毎の外部IDプロバイダ取得(Get identity provider per tenant)
-     * テナント毎の外部IDプロバイダ経由のサインイン情報を取得します。  Get sign-in information via external identity provider per tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get identity provider per tenant
+     * Get sign-in information via external identity provider per tenant. 
+     * @param tenantId Tenant ID (required)
      * @return ApiResponse&lt;TenantIdentityProviders&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -789,9 +789,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント毎の外部IDプロバイダ取得(Get identity provider per tenant) (asynchronously)
-     * テナント毎の外部IDプロバイダ経由のサインイン情報を取得します。  Get sign-in information via external identity provider per tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get identity provider per tenant (asynchronously)
+     * Get sign-in information via external identity provider per tenant. 
+     * @param tenantId Tenant ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -872,8 +872,8 @@ public class TenantApi {
     }
 
     /**
-     * テナント一覧取得(Get Tenants)
-     * SaaSus Platform で管理する、テナント情報の取得を行います。  Get tenants managed by SaaSus Platform. 
+     * Get Tenants
+     * Get tenants managed by SaaSus Platform. 
      * @return Tenants
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -889,8 +889,8 @@ public class TenantApi {
     }
 
     /**
-     * テナント一覧取得(Get Tenants)
-     * SaaSus Platform で管理する、テナント情報の取得を行います。  Get tenants managed by SaaSus Platform. 
+     * Get Tenants
+     * Get tenants managed by SaaSus Platform. 
      * @return ApiResponse&lt;Tenants&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -907,8 +907,8 @@ public class TenantApi {
     }
 
     /**
-     * テナント一覧取得(Get Tenants) (asynchronously)
-     * SaaSus Platform で管理する、テナント情報の取得を行います。  Get tenants managed by SaaSus Platform. 
+     * Get Tenants (asynchronously)
+     * Get tenants managed by SaaSus Platform. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -989,8 +989,8 @@ public class TenantApi {
     }
 
     /**
-     * プランに関わる情報を全削除
-     * 料金プランに関わる情報を全削除します。 テナントに連携されたプランとプラン定義を削除します。 Stripe連携している場合、連携が解除されます。  Delete all information related to rate plans. Delete plans linked to tenants and plan definitions. If you are using the Stripe linkage, the linkage will be removed. 
+     * Delete all information related to rate plans
+     * Delete all information related to rate plans. Delete plans linked to tenants and plan definitions. If you are using the Stripe linkage, the linkage will be removed. 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1004,8 +1004,8 @@ public class TenantApi {
     }
 
     /**
-     * プランに関わる情報を全削除
-     * 料金プランに関わる情報を全削除します。 テナントに連携されたプランとプラン定義を削除します。 Stripe連携している場合、連携が解除されます。  Delete all information related to rate plans. Delete plans linked to tenants and plan definitions. If you are using the Stripe linkage, the linkage will be removed. 
+     * Delete all information related to rate plans
+     * Delete all information related to rate plans. Delete plans linked to tenants and plan definitions. If you are using the Stripe linkage, the linkage will be removed. 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1021,8 +1021,8 @@ public class TenantApi {
     }
 
     /**
-     * プランに関わる情報を全削除 (asynchronously)
-     * 料金プランに関わる情報を全削除します。 テナントに連携されたプランとプラン定義を削除します。 Stripe連携している場合、連携が解除されます。  Delete all information related to rate plans. Delete plans linked to tenants and plan definitions. If you are using the Stripe linkage, the linkage will be removed. 
+     * Delete all information related to rate plans (asynchronously)
+     * Delete all information related to rate plans. Delete plans linked to tenants and plan definitions. If you are using the Stripe linkage, the linkage will be removed. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1041,7 +1041,7 @@ public class TenantApi {
     }
     /**
      * Build call for updateTenant
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1112,9 +1112,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント情報を更新(Update Tenant Details)
-     * SaaSus Platform で管理する、テナントの詳細情報を更新します。  Update SaaSus Platform tenant details. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update Tenant Details
+     * Update SaaSus Platform tenant details. 
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1130,9 +1130,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント情報を更新(Update Tenant Details)
-     * SaaSus Platform で管理する、テナントの詳細情報を更新します。  Update SaaSus Platform tenant details. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update Tenant Details
+     * Update SaaSus Platform tenant details. 
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1150,9 +1150,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント情報を更新(Update Tenant Details) (asynchronously)
-     * SaaSus Platform で管理する、テナントの詳細情報を更新します。  Update SaaSus Platform tenant details. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update Tenant Details (asynchronously)
+     * Update SaaSus Platform tenant details. 
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1173,7 +1173,7 @@ public class TenantApi {
     }
     /**
      * Build call for updateTenantBillingInfo
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1245,9 +1245,9 @@ public class TenantApi {
     }
 
     /**
-     * テナントの請求先情報を更新(Update Tenant Billing Information)
-     * SaaSus Platform で管理しているテナントの請求先情報を更新します。  Update SaaSus Platform tenant billing information. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update Tenant Billing Information
+     * Update SaaSus Platform tenant billing information. 
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1264,9 +1264,9 @@ public class TenantApi {
     }
 
     /**
-     * テナントの請求先情報を更新(Update Tenant Billing Information)
-     * SaaSus Platform で管理しているテナントの請求先情報を更新します。  Update SaaSus Platform tenant billing information. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update Tenant Billing Information
+     * Update SaaSus Platform tenant billing information. 
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1285,9 +1285,9 @@ public class TenantApi {
     }
 
     /**
-     * テナントの請求先情報を更新(Update Tenant Billing Information) (asynchronously)
-     * SaaSus Platform で管理しているテナントの請求先情報を更新します。  Update SaaSus Platform tenant billing information. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update Tenant Billing Information (asynchronously)
+     * Update SaaSus Platform tenant billing information. 
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1309,7 +1309,7 @@ public class TenantApi {
     }
     /**
      * Build call for updateTenantIdentityProvider
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param updateTenantIdentityProviderParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1379,9 +1379,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント毎の外部IDプロバイダ更新(Update identity provider per tenant)
-     * テナント毎の外部IDプロバイダ経由のサインイン情報を更新します。  Update sign-in information via external identity provider per tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update identity provider per tenant
+     * Update sign-in information via external identity provider per tenant. 
+     * @param tenantId Tenant ID (required)
      * @param updateTenantIdentityProviderParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1396,9 +1396,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント毎の外部IDプロバイダ更新(Update identity provider per tenant)
-     * テナント毎の外部IDプロバイダ経由のサインイン情報を更新します。  Update sign-in information via external identity provider per tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update identity provider per tenant
+     * Update sign-in information via external identity provider per tenant. 
+     * @param tenantId Tenant ID (required)
      * @param updateTenantIdentityProviderParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1415,9 +1415,9 @@ public class TenantApi {
     }
 
     /**
-     * テナント毎の外部IDプロバイダ更新(Update identity provider per tenant) (asynchronously)
-     * テナント毎の外部IDプロバイダ経由のサインイン情報を更新します。  Update sign-in information via external identity provider per tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update identity provider per tenant (asynchronously)
+     * Update sign-in information via external identity provider per tenant. 
+     * @param tenantId Tenant ID (required)
      * @param updateTenantIdentityProviderParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1437,7 +1437,7 @@ public class TenantApi {
     }
     /**
      * Build call for updateTenantPlan
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1509,9 +1509,9 @@ public class TenantApi {
     }
 
     /**
-     * テナントのプラン情報を更新(Update Tenant Plan Information)
-     * SaaSus Platform で管理しているテナントのプラン情報を更新します。  Update SaaSus Platform tenant plan information. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update Tenant Plan Information
+     * Update SaaSus Platform tenant plan information. 
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1528,9 +1528,9 @@ public class TenantApi {
     }
 
     /**
-     * テナントのプラン情報を更新(Update Tenant Plan Information)
-     * SaaSus Platform で管理しているテナントのプラン情報を更新します。  Update SaaSus Platform tenant plan information. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update Tenant Plan Information
+     * Update SaaSus Platform tenant plan information. 
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1549,9 +1549,9 @@ public class TenantApi {
     }
 
     /**
-     * テナントのプラン情報を更新(Update Tenant Plan Information) (asynchronously)
-     * SaaSus Platform で管理しているテナントのプラン情報を更新します。  Update SaaSus Platform tenant plan information. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Update Tenant Plan Information (asynchronously)
+     * Update SaaSus Platform tenant plan information. 
+     * @param tenantId Tenant ID (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

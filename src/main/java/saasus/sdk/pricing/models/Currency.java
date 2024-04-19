@@ -14,17 +14,17 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * 計測単位の通貨(unit of currency) 
+ * Unit of currency
  */
 @JsonAdapter(Currency.Adapter.class)
 public enum Currency {
@@ -68,6 +68,11 @@ public enum Currency {
       String value = jsonReader.nextString();
       return Currency.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    Currency.fromValue(value);
   }
 }
 

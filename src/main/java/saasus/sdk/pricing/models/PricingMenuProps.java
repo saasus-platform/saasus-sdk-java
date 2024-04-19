@@ -14,7 +14,6 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.pricing.models.PricingUnit;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingMenuProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-19T13:07:15.365722218Z[Etc/UTC]")
 public class PricingMenuProps {
   public static final String SERIALIZED_NAME_UNITS = "units";
   @SerializedName(SERIALIZED_NAME_UNITS)
@@ -79,7 +78,6 @@ public class PricingMenuProps {
   }
 
   public PricingMenuProps units(List<PricingUnit> units) {
-    
     this.units = units;
     return this;
   }
@@ -101,20 +99,18 @@ public class PricingMenuProps {
     return units;
   }
 
-
   public void setUnits(List<PricingUnit> units) {
     this.units = units;
   }
 
 
   public PricingMenuProps name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * メニュー名(menu name)
+   * Menu name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -122,20 +118,18 @@ public class PricingMenuProps {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public PricingMenuProps displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
 
    /**
-   * メニュー表示名(menu display name)
+   * Menu display name
    * @return displayName
   **/
   @javax.annotation.Nonnull
@@ -143,20 +137,18 @@ public class PricingMenuProps {
     return displayName;
   }
 
-
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
   public PricingMenuProps description(String description) {
-    
     this.description = description;
     return this;
   }
 
    /**
-   * メニュー説明(menu description)
+   * Menu description
    * @return description
   **/
   @javax.annotation.Nonnull
@@ -164,27 +156,24 @@ public class PricingMenuProps {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public PricingMenuProps used(Boolean used) {
-    
     this.used = used;
     return this;
   }
 
    /**
-   * メニューの使用済み設定(menu used settings)
+   * Menu used settings
    * @return used
   **/
   @javax.annotation.Nonnull
   public Boolean getUsed() {
     return used;
   }
-
 
   public void setUsed(Boolean used) {
     this.used = used;
@@ -272,9 +261,9 @@ public class PricingMenuProps {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PricingMenuProps.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PricingMenuProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

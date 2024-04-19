@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**email** | **String** | メールアドレス(Email Address) |  |
+|**email** | **String** | Email Address |  |
 |**accessToken** | **String** |  |  |
 
 
