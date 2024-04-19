@@ -4,29 +4,29 @@ All URIs are relative to *https://api.saasus.io/v1/awsmarketplace*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createCustomer**](AwsMarketplaceApi.md#createCustomer) | **POST** /customers | AWS Marketplaceに連携する顧客情報を新規作成(Create customer information to be linked to AWS Marketplace) |
-| [**getCatalogEntityVisibility**](AwsMarketplaceApi.md#getCatalogEntityVisibility) | **GET** /catalog-entity/visibility | AWS Marketplaceから商品の公開状況を取得(Obtain product publication status from AWS Marketplace) |
-| [**getCloudFormationLaunchStackLink**](AwsMarketplaceApi.md#getCloudFormationLaunchStackLink) | **GET** /cloudformation-launch-stack-link | AWS CloudFormationのスタック作成リンクを取得(Get the link to create the AWS CloudFormation stack) |
-| [**getCustomer**](AwsMarketplaceApi.md#getCustomer) | **GET** /customers/{customer_identifier} | AWS Marketplaceに連携する顧客情報を取得(Get customer information to be linked to AWS Marketplace) |
-| [**getCustomers**](AwsMarketplaceApi.md#getCustomers) | **GET** /customers | AWS Marketplaceに連携する顧客情報の一覧を取得(Get a list of customer information to be linked to AWS Marketplace) |
-| [**getListingStatus**](AwsMarketplaceApi.md#getListingStatus) | **GET** /listing-status | AWS Marketplaceの出品状況を取得(Get AWS Marketplace Listing Status) |
-| [**getPlanByPlanName**](AwsMarketplaceApi.md#getPlanByPlanName) | **GET** /plans/{plan_name} | AWSMarketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace) |
-| [**getPlans**](AwsMarketplaceApi.md#getPlans) | **GET** /plans | AWS Marketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace) |
-| [**getSettings**](AwsMarketplaceApi.md#getSettings) | **GET** /settings | AWS Marketplaceの設定を取得(Get AWS Marketplace Settings) |
-| [**savePlan**](AwsMarketplaceApi.md#savePlan) | **PUT** /plans | AWS Marketplaceに連携するプラン情報を登録(Save plan information to be linked to AWSMarketplace) |
-| [**syncCustomer**](AwsMarketplaceApi.md#syncCustomer) | **POST** /customers/{customer_identifier}/sync | AWS Marketplaceの顧客情報をSaaSusに同期します(Sync AWS Marketplace customer information to SaaSus) |
-| [**updateListingStatus**](AwsMarketplaceApi.md#updateListingStatus) | **PUT** /listing-status | AWS Marketplaceの出品状況を更新(Update AWS Marketplace Listing Status) |
-| [**updateSettings**](AwsMarketplaceApi.md#updateSettings) | **PUT** /settings | AWS Marketplaceの設定を更新(Update AWS Marketplace Settings) |
-| [**verifyRegistrationToken**](AwsMarketplaceApi.md#verifyRegistrationToken) | **POST** /registration-token/verify | Registration Tokenを検証(Verify Registration Token) |
+| [**createCustomer**](AwsMarketplaceApi.md#createCustomer) | **POST** /customers | Create customer information to be linked to AWS Marketplace |
+| [**getCatalogEntityVisibility**](AwsMarketplaceApi.md#getCatalogEntityVisibility) | **GET** /catalog-entity/visibility | Obtain product publication status from AWS Marketplace |
+| [**getCloudFormationLaunchStackLink**](AwsMarketplaceApi.md#getCloudFormationLaunchStackLink) | **GET** /cloudformation-launch-stack-link | Get the link to create the AWS CloudFormation stack |
+| [**getCustomer**](AwsMarketplaceApi.md#getCustomer) | **GET** /customers/{customer_identifier} | Get customer information to be linked to AWS Marketplace |
+| [**getCustomers**](AwsMarketplaceApi.md#getCustomers) | **GET** /customers | Get a list of customer information to be linked to AWS Marketplace |
+| [**getListingStatus**](AwsMarketplaceApi.md#getListingStatus) | **GET** /listing-status | Get AWS Marketplace Listing Status |
+| [**getPlanByPlanName**](AwsMarketplaceApi.md#getPlanByPlanName) | **GET** /plans/{plan_name} | Obtain plan information to link to AWS Marketplace |
+| [**getPlans**](AwsMarketplaceApi.md#getPlans) | **GET** /plans | Obtain plan information to link to AWS Marketplace |
+| [**getSettings**](AwsMarketplaceApi.md#getSettings) | **GET** /settings | Get AWS Marketplace Settings |
+| [**savePlan**](AwsMarketplaceApi.md#savePlan) | **PUT** /plans | Save plan information to be linked to AWSMarketplace |
+| [**syncCustomer**](AwsMarketplaceApi.md#syncCustomer) | **POST** /customers/{customer_identifier}/sync | Sync AWS Marketplace customer information to SaaSus |
+| [**updateListingStatus**](AwsMarketplaceApi.md#updateListingStatus) | **PUT** /listing-status | Update AWS Marketplace Listing Status |
+| [**updateSettings**](AwsMarketplaceApi.md#updateSettings) | **PUT** /settings | Update AWS Marketplace Settings |
+| [**verifyRegistrationToken**](AwsMarketplaceApi.md#verifyRegistrationToken) | **POST** /registration-token/verify | Verify Registration Token |
 
 
 <a id="createCustomer"></a>
 # **createCustomer**
 > Customer createCustomer(createCustomerParam)
 
-AWS Marketplaceに連携する顧客情報を新規作成(Create customer information to be linked to AWS Marketplace)
+Create customer information to be linked to AWS Marketplace
 
-AWS Marketplaceに連携する顧客情報を新規作成します。  Create customer information to be linked to AWS Marketplace. 
+Create customer information to be linked to AWS Marketplace. 
 
 ### Example
 ```java
@@ -92,9 +92,9 @@ public class Example {
 # **getCatalogEntityVisibility**
 > CatalogEntityVisibility getCatalogEntityVisibility()
 
-AWS Marketplaceから商品の公開状況を取得(Obtain product publication status from AWS Marketplace)
+Obtain product publication status from AWS Marketplace
 
-AWS Marketplaceから商品の公開状況を取得します。  Retrieve the product&#39;s publication status from AWS Marketplace. 
+Retrieve the product&#39;s publication status from AWS Marketplace. 
 
 ### Example
 ```java
@@ -156,9 +156,9 @@ This endpoint does not need any parameter.
 # **getCloudFormationLaunchStackLink**
 > CloudFormationLaunchStackLink getCloudFormationLaunchStackLink()
 
-AWS CloudFormationのスタック作成リンクを取得(Get the link to create the AWS CloudFormation stack)
+Get the link to create the AWS CloudFormation stack
 
-CloudFormationのクイック作成リンクを取得します。  Get the CloudFormation Quick Create link. 
+Get the CloudFormation Quick Create link. 
 
 ### Example
 ```java
@@ -220,9 +220,9 @@ This endpoint does not need any parameter.
 # **getCustomer**
 > Customer getCustomer(customerIdentifier)
 
-AWS Marketplaceに連携する顧客情報を取得(Get customer information to be linked to AWS Marketplace)
+Get customer information to be linked to AWS Marketplace
 
-AWS Marketplaceに連携する顧客情報を取得します。  Get customer information to be linked to AWS Marketplace. 
+Get customer information to be linked to AWS Marketplace. 
 
 ### Example
 ```java
@@ -244,7 +244,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     AwsMarketplaceApi apiInstance = new AwsMarketplaceApi(defaultClient);
-    String customerIdentifier = "123456789012"; // String | 顧客ID
+    String customerIdentifier = "123456789012"; // String | Customer ID
     try {
       Customer result = apiInstance.getCustomer(customerIdentifier);
       System.out.println(result);
@@ -263,7 +263,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customerIdentifier** | **String**| 顧客ID | |
+| **customerIdentifier** | **String**| Customer ID | |
 
 ### Return type
 
@@ -288,9 +288,9 @@ public class Example {
 # **getCustomers**
 > Customers getCustomers(tenantIds)
 
-AWS Marketplaceに連携する顧客情報の一覧を取得(Get a list of customer information to be linked to AWS Marketplace)
+Get a list of customer information to be linked to AWS Marketplace
 
-AWS Marketplaceに連携する顧客情報の一覧を取得します。  Get a list of customer information to be linked to AWS Marketplace. 
+Get a list of customer information to be linked to AWS Marketplace. 
 
 ### Example
 ```java
@@ -356,9 +356,9 @@ public class Example {
 # **getListingStatus**
 > GetListingStatusResult getListingStatus()
 
-AWS Marketplaceの出品状況を取得(Get AWS Marketplace Listing Status)
+Get AWS Marketplace Listing Status
 
-AWS Marketplaceの出品状況を取得します。  Get AWS Marketplace Listing Status. 
+Get AWS Marketplace Listing Status. 
 
 ### Example
 ```java
@@ -420,9 +420,9 @@ This endpoint does not need any parameter.
 # **getPlanByPlanName**
 > Plan getPlanByPlanName(planName)
 
-AWSMarketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace)
+Obtain plan information to link to AWS Marketplace
 
-Marketplaceと連携するプラン情報を取得します。  Obtain plan information to link to AWS Marketplace. 
+Obtain plan information to link to AWS Marketplace. 
 
 ### Example
 ```java
@@ -444,7 +444,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     AwsMarketplaceApi apiInstance = new AwsMarketplaceApi(defaultClient);
-    String planName = "normal_plan_name_month"; // String | AWS Marketplace連携プラン名
+    String planName = "normal_plan_name_month"; // String | AWS Marketplace linked plan name
     try {
       Plan result = apiInstance.getPlanByPlanName(planName);
       System.out.println(result);
@@ -463,7 +463,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **planName** | **String**| AWS Marketplace連携プラン名 | |
+| **planName** | **String**| AWS Marketplace linked plan name | |
 
 ### Return type
 
@@ -488,9 +488,9 @@ public class Example {
 # **getPlans**
 > Plans getPlans()
 
-AWS Marketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace)
+Obtain plan information to link to AWS Marketplace
 
-Marketplaceと連携するプラン情報を取得します。  Obtain plan information to link to AWS Marketplace. 
+Obtain plan information to link to AWS Marketplace. 
 
 ### Example
 ```java
@@ -552,9 +552,9 @@ This endpoint does not need any parameter.
 # **getSettings**
 > Settings getSettings()
 
-AWS Marketplaceの設定を取得(Get AWS Marketplace Settings)
+Get AWS Marketplace Settings
 
-AWS Marketplaceの設定を取得します。  Get AWS Marketplace Settings. 
+Get AWS Marketplace Settings. 
 
 ### Example
 ```java
@@ -616,9 +616,9 @@ This endpoint does not need any parameter.
 # **savePlan**
 > savePlan(savePlanParam)
 
-AWS Marketplaceに連携するプラン情報を登録(Save plan information to be linked to AWSMarketplace)
+Save plan information to be linked to AWSMarketplace
 
-AWSMarketplaceに連携するプラン情報を登録します。  Save plan information to be linked to AWSMarketplace. 
+Save plan information to be linked to AWSMarketplace. 
 
 ### Example
 ```java
@@ -683,9 +683,9 @@ null (empty response body)
 # **syncCustomer**
 > syncCustomer(customerIdentifier)
 
-AWS Marketplaceの顧客情報をSaaSusに同期します(Sync AWS Marketplace customer information to SaaSus)
+Sync AWS Marketplace customer information to SaaSus
 
-AWS Marketplaceの顧客情報をSaaSusに同期します。  Sync AWS Marketplace customer information to SaaSus. 
+Sync AWS Marketplace customer information to SaaSus. 
 
 ### Example
 ```java
@@ -707,7 +707,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     AwsMarketplaceApi apiInstance = new AwsMarketplaceApi(defaultClient);
-    String customerIdentifier = "123456789012"; // String | 顧客ID
+    String customerIdentifier = "123456789012"; // String | Customer ID
     try {
       apiInstance.syncCustomer(customerIdentifier);
     } catch (ApiException e) {
@@ -725,7 +725,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **customerIdentifier** | **String**| 顧客ID | |
+| **customerIdentifier** | **String**| Customer ID | |
 
 ### Return type
 
@@ -750,9 +750,9 @@ null (empty response body)
 # **updateListingStatus**
 > updateListingStatus(updateListingStatusParam)
 
-AWS Marketplaceの出品状況を更新(Update AWS Marketplace Listing Status)
+Update AWS Marketplace Listing Status
 
-AWS Marketplaceの出品状況を更新します。  Update AWS Marketplace Listing Status. 
+Update AWS Marketplace Listing Status. 
 
 ### Example
 ```java
@@ -817,9 +817,9 @@ null (empty response body)
 # **updateSettings**
 > updateSettings(updateSettingsParam)
 
-AWS Marketplaceの設定を更新(Update AWS Marketplace Settings)
+Update AWS Marketplace Settings
 
-AWS Marketplaceの設定を更新します。  Update AWS Marketplace Settings. 
+Update AWS Marketplace Settings. 
 
 ### Example
 ```java
@@ -884,9 +884,9 @@ null (empty response body)
 # **verifyRegistrationToken**
 > verifyRegistrationToken(verifyRegistrationTokenParam)
 
-Registration Tokenを検証(Verify Registration Token)
+Verify Registration Token
 
-Registration Tokenを検証します。  Verify Registration Token. 
+Verify Registration Token. 
 
 ### Example
 ```java

@@ -7,17 +7,17 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**upperCount** | **Integer** | 上限値(upper limit) |  |
-|**unitAmount** | **Integer** | 使用量あたりの金額(amount per usage) |  |
-|**meteringUnitName** | **String** |  |  |
+|**upperCount** | **Integer** | Upper limit |  |
+|**unitAmount** | **Integer** | Amount per usage |  |
+|**meteringUnitName** | **String** | Metering unit name |  |
 |**aggregateUsage** | **AggregateUsage** |  |  [optional] |
-|**name** | **String** | 名前(name) |  |
-|**displayName** | **String** | 表示名(display name) |  |
-|**description** | **String** | 説明(description) |  |
+|**name** | **String** | Name |  |
+|**displayName** | **String** | Display Name |  |
+|**description** | **String** | Description |  |
 |**type** | **UnitType** |  |  |
 |**currency** | **Currency** |  |  |
-|**id** | **String** |  |  |
-|**meteringUnitId** | **String** |  |  |
+|**id** | **String** | Universally Unique Identifier |  |
+|**meteringUnitId** | **String** | Universally Unique Identifier |  |
 |**recurringInterval** | **RecurringInterval** |  |  |
 |**used** | **Boolean** |  |  |
 
