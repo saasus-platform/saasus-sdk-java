@@ -14,13 +14,13 @@
 package saasus.sdk.awsmarketplace.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.awsmarketplace.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.awsmarketplace.JSON;
 /**
  * SavePlanParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:18.753981Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:10:22.947509720Z[Etc/UTC]")
 public class SavePlanParam {
   public static final String SERIALIZED_NAME_PLAN_ID = "plan_id";
   @SerializedName(SERIALIZED_NAME_PLAN_ID)
@@ -64,7 +63,6 @@ public class SavePlanParam {
   }
 
   public SavePlanParam planId(String planId) {
-    
     this.planId = planId;
     return this;
   }
@@ -78,14 +76,12 @@ public class SavePlanParam {
     return planId;
   }
 
-
   public void setPlanId(String planId) {
     this.planId = planId;
   }
 
 
   public SavePlanParam planName(String planName) {
-    
     this.planName = planName;
     return this;
   }
@@ -98,7 +94,6 @@ public class SavePlanParam {
   public String getPlanName() {
     return planName;
   }
-
 
   public void setPlanName(String planName) {
     this.planName = planName;
@@ -174,9 +169,9 @@ public class SavePlanParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SavePlanParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SavePlanParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
