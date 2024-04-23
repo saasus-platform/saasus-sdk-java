@@ -4,20 +4,20 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createEnv**](EnvApi.md#createEnv) | **POST** /envs | 環境情報を作成(Create Env Info) |
-| [**deleteEnv**](EnvApi.md#deleteEnv) | **DELETE** /envs/{env_id} | 環境情報を削除(Delete Env Info) |
-| [**getEnv**](EnvApi.md#getEnv) | **GET** /envs/{env_id} | 環境情報を取得(Get Env Details) |
-| [**getEnvs**](EnvApi.md#getEnvs) | **GET** /envs | 環境情報一覧を取得(Get Env Info) |
-| [**updateEnv**](EnvApi.md#updateEnv) | **PATCH** /envs/{env_id} | 環境情報を更新(Update Env Info) |
+| [**createEnv**](EnvApi.md#createEnv) | **POST** /envs | Create Env Info |
+| [**deleteEnv**](EnvApi.md#deleteEnv) | **DELETE** /envs/{env_id} | Delete Env Info |
+| [**getEnv**](EnvApi.md#getEnv) | **GET** /envs/{env_id} | Get Env Details |
+| [**getEnvs**](EnvApi.md#getEnvs) | **GET** /envs | Get Env Info |
+| [**updateEnv**](EnvApi.md#updateEnv) | **PATCH** /envs/{env_id} | Update Env Info |
 
 
 <a id="createEnv"></a>
 # **createEnv**
 > Env createEnv(body)
 
-環境情報を作成(Create Env Info)
+Create Env Info
 
-環境情報を作成します。 連携のテストや開発用環境や実際の運用で利用する環境など複数の環境を定義することができます。  Create environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
+Create environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
 
 ### Example
 ```java
@@ -83,9 +83,9 @@ public class Example {
 # **deleteEnv**
 > deleteEnv(envId)
 
-環境情報を削除(Delete Env Info)
+Delete Env Info
 
-環境情報を削除します。  Delete env info. 
+Delete env info. Env with id 3 cannot be deleted. 
 
 ### Example
 ```java
@@ -107,7 +107,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     EnvApi apiInstance = new EnvApi(defaultClient);
-    Integer envId = 56; // Integer | 環境ID(Env ID)
+    Integer envId = 56; // Integer | Env ID
     try {
       apiInstance.deleteEnv(envId);
     } catch (ApiException e) {
@@ -125,7 +125,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **envId** | **Integer**| 環境ID(Env ID) | |
+| **envId** | **Integer**| Env ID | |
 
 ### Return type
 
@@ -151,9 +151,9 @@ null (empty response body)
 # **getEnv**
 > Env getEnv(envId)
 
-環境情報を取得(Get Env Details)
+Get Env Details
 
-環境情報の詳細を取得します。  Get environment details. 
+Get environment details. 
 
 ### Example
 ```java
@@ -175,7 +175,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     EnvApi apiInstance = new EnvApi(defaultClient);
-    Integer envId = 56; // Integer | 環境ID(Env ID)
+    Integer envId = 56; // Integer | Env ID
     try {
       Env result = apiInstance.getEnv(envId);
       System.out.println(result);
@@ -194,7 +194,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **envId** | **Integer**| 環境ID(Env ID) | |
+| **envId** | **Integer**| Env ID | |
 
 ### Return type
 
@@ -220,9 +220,9 @@ public class Example {
 # **getEnvs**
 > Envs getEnvs()
 
-環境情報一覧を取得(Get Env Info)
+Get Env Info
 
-登録されている環境情報を取得します。 連携のテストや開発用環境や実際の運用で利用する環境など複数の環境を定義することができます。  Get registered environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
+Get registered environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
 
 ### Example
 ```java
@@ -284,9 +284,9 @@ This endpoint does not need any parameter.
 # **updateEnv**
 > updateEnv(envId, updateEnvParam)
 
-環境情報を更新(Update Env Info)
+Update Env Info
 
-環境情報を更新します。  Update env info. 
+Update env info. 
 
 ### Example
 ```java
@@ -308,7 +308,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     EnvApi apiInstance = new EnvApi(defaultClient);
-    Integer envId = 56; // Integer | 環境ID(Env ID)
+    Integer envId = 56; // Integer | Env ID
     UpdateEnvParam updateEnvParam = new UpdateEnvParam(); // UpdateEnvParam | 
     try {
       apiInstance.updateEnv(envId, updateEnvParam);
@@ -327,7 +327,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **envId** | **Integer**| 環境ID(Env ID) | |
+| **envId** | **Integer**| Env ID | |
 | **updateEnvParam** | [**UpdateEnvParam**](UpdateEnvParam.md)|  | [optional] |
 
 ### Return type

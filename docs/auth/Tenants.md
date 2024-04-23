@@ -2,7 +2,7 @@
 
 # Tenants
 
-テナント情報(Tenant Info)
+Tenant Info
 
 ## Properties
 

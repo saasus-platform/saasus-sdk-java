@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**tenantId** | **String** | テナントID(tenant ID) |  |
-|**accessToken** | **String** | アクセストークン(access token) |  |
+|**tenantId** | **String** | Tenant ID |  |
+|**accessToken** | **String** | Access token |  |
 |**registrationToken** | **String** | Registration Token |  |
 
 

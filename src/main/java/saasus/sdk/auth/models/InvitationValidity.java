@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,15 +42,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
 
 /**
- * 招待の有効性(invitation validity)
+ * Invitation validity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T15:17:41.584389553Z[Etc/UTC]")
 public class InvitationValidity {
   public static final String SERIALIZED_NAME_IS_VALID = "is_valid";
   @SerializedName(SERIALIZED_NAME_IS_VALID)
@@ -60,20 +59,18 @@ public class InvitationValidity {
   }
 
   public InvitationValidity isValid(Boolean isValid) {
-    
     this.isValid = isValid;
     return this;
   }
 
    /**
-   * 招待が有効か否か(Whether the validation is valid or not)
+   * Whether the validation is valid or not
    * @return isValid
   **/
   @javax.annotation.Nonnull
   public Boolean getIsValid() {
     return isValid;
   }
-
 
   public void setIsValid(Boolean isValid) {
     this.isValid = isValid;
@@ -145,9 +142,9 @@ public class InvitationValidity {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!InvitationValidity.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InvitationValidity` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

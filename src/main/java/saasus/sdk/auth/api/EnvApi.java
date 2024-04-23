@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -140,8 +140,8 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を作成(Create Env Info)
-     * 環境情報を作成します。 連携のテストや開発用環境や実際の運用で利用する環境など複数の環境を定義することができます。  Create environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
+     * Create Env Info
+     * Create environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
      * @param body  (optional)
      * @return Env
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -158,8 +158,8 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を作成(Create Env Info)
-     * 環境情報を作成します。 連携のテストや開発用環境や実際の運用で利用する環境など複数の環境を定義することができます。  Create environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
+     * Create Env Info
+     * Create environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
      * @param body  (optional)
      * @return ApiResponse&lt;Env&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -177,8 +177,8 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を作成(Create Env Info) (asynchronously)
-     * 環境情報を作成します。 連携のテストや開発用環境や実際の運用で利用する環境など複数の環境を定義することができます。  Create environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
+     * Create Env Info (asynchronously)
+     * Create environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -199,7 +199,7 @@ public class EnvApi {
     }
     /**
      * Build call for deleteEnv
-     * @param envId 環境ID(Env ID) (required)
+     * @param envId Env ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -268,9 +268,9 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を削除(Delete Env Info)
-     * 環境情報を削除します。  Delete env info. 
-     * @param envId 環境ID(Env ID) (required)
+     * Delete Env Info
+     * Delete env info. Env with id 3 cannot be deleted. 
+     * @param envId Env ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -285,9 +285,9 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を削除(Delete Env Info)
-     * 環境情報を削除します。  Delete env info. 
-     * @param envId 環境ID(Env ID) (required)
+     * Delete Env Info
+     * Delete env info. Env with id 3 cannot be deleted. 
+     * @param envId Env ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -304,9 +304,9 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を削除(Delete Env Info) (asynchronously)
-     * 環境情報を削除します。  Delete env info. 
-     * @param envId 環境ID(Env ID) (required)
+     * Delete Env Info (asynchronously)
+     * Delete env info. Env with id 3 cannot be deleted. 
+     * @param envId Env ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -326,7 +326,7 @@ public class EnvApi {
     }
     /**
      * Build call for getEnv
-     * @param envId 環境ID(Env ID) (required)
+     * @param envId Env ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -395,9 +395,9 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を取得(Get Env Details)
-     * 環境情報の詳細を取得します。  Get environment details. 
-     * @param envId 環境ID(Env ID) (required)
+     * Get Env Details
+     * Get environment details. 
+     * @param envId Env ID (required)
      * @return Env
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -414,9 +414,9 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を取得(Get Env Details)
-     * 環境情報の詳細を取得します。  Get environment details. 
-     * @param envId 環境ID(Env ID) (required)
+     * Get Env Details
+     * Get environment details. 
+     * @param envId Env ID (required)
      * @return ApiResponse&lt;Env&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -434,9 +434,9 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を取得(Get Env Details) (asynchronously)
-     * 環境情報の詳細を取得します。  Get environment details. 
-     * @param envId 環境ID(Env ID) (required)
+     * Get Env Details (asynchronously)
+     * Get environment details. 
+     * @param envId Env ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -518,8 +518,8 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報一覧を取得(Get Env Info)
-     * 登録されている環境情報を取得します。 連携のテストや開発用環境や実際の運用で利用する環境など複数の環境を定義することができます。  Get registered environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
+     * Get Env Info
+     * Get registered environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
      * @return Envs
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -535,8 +535,8 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報一覧を取得(Get Env Info)
-     * 登録されている環境情報を取得します。 連携のテストや開発用環境や実際の運用で利用する環境など複数の環境を定義することができます。  Get registered environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
+     * Get Env Info
+     * Get registered environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
      * @return ApiResponse&lt;Envs&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -553,8 +553,8 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報一覧を取得(Get Env Info) (asynchronously)
-     * 登録されている環境情報を取得します。 連携のテストや開発用環境や実際の運用で利用する環境など複数の環境を定義することができます。  Get registered environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
+     * Get Env Info (asynchronously)
+     * Get registered environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -574,7 +574,7 @@ public class EnvApi {
     }
     /**
      * Build call for updateEnv
-     * @param envId 環境ID(Env ID) (required)
+     * @param envId Env ID (required)
      * @param updateEnvParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -645,9 +645,9 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を更新(Update Env Info)
-     * 環境情報を更新します。  Update env info. 
-     * @param envId 環境ID(Env ID) (required)
+     * Update Env Info
+     * Update env info. 
+     * @param envId Env ID (required)
      * @param updateEnvParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -663,9 +663,9 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を更新(Update Env Info)
-     * 環境情報を更新します。  Update env info. 
-     * @param envId 環境ID(Env ID) (required)
+     * Update Env Info
+     * Update env info. 
+     * @param envId Env ID (required)
      * @param updateEnvParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -683,9 +683,9 @@ public class EnvApi {
     }
 
     /**
-     * 環境情報を更新(Update Env Info) (asynchronously)
-     * 環境情報を更新します。  Update env info. 
-     * @param envId 環境ID(Env ID) (required)
+     * Update Env Info (asynchronously)
+     * Update env info. 
+     * @param envId Env ID (required)
      * @param updateEnvParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
