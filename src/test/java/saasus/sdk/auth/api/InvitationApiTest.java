@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -37,9 +37,9 @@ public class InvitationApiTest {
     private final InvitationApi api = new InvitationApi();
 
     /**
-     * テナントへの招待を作成(Create Tenant Invitation)
+     * Create Tenant Invitation
      *
-     * テナントへの招待を作成します。  Create an invitation to the tenant. 
+     * Create an invitation to the tenant. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -52,9 +52,9 @@ public class InvitationApiTest {
     }
 
     /**
-     * テナントへの招待を削除(Delete Tenant Invitation)
+     * Delete Tenant Invitation
      *
-     * テナントへの招待を削除します。  Delete an invitation to the tenant. 
+     * Delete an invitation for the tenant. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -67,9 +67,9 @@ public class InvitationApiTest {
     }
 
     /**
-     * テナントへの招待の有効性を取得(Get Invitation Validity)
+     * Get Invitation Validity
      *
-     * テナントへの招待の有効性を取得します。  Get the validity of an invitation to the tenant. 
+     * Get the validity of an invitation to the tenant. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -81,9 +81,9 @@ public class InvitationApiTest {
     }
 
     /**
-     * テナントの招待情報を取得(Get Tenant Invitation)
+     * Get Tenant Invitation
      *
-     * テナントへの招待情報を取得します。  Get invitation information to the tenant. 
+     * Get invitation information for the tenant. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -96,9 +96,9 @@ public class InvitationApiTest {
     }
 
     /**
-     * テナントの招待一覧を取得(Get Tenant Invitations)
+     * Get Tenant Invitations
      *
-     * テナントへの招待一覧を取得します。  Get a list of invitations to the tenant. 
+     * Get a list of invitations to the tenant. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -110,9 +110,9 @@ public class InvitationApiTest {
     }
 
     /**
-     * テナントへの招待を検証(Validate Invitation)
+     * Validate Invitation
      *
-     * テナントへの招待を検証します。  Validate an invitation to the tenant. 
+     * Validate an invitation to the tenant. 
      *
      * @throws ApiException if the Api call fails
      */

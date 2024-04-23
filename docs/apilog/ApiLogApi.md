@@ -4,17 +4,17 @@ All URIs are relative to *https://api.saasus.io/v1/apilog*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getLog**](ApiLogApi.md#getLog) | **GET** /logs/{api_log_id} | API実行ログ取得 |
-| [**getLogs**](ApiLogApi.md#getLogs) | **GET** /logs | API実行ログ取得 |
+| [**getLog**](ApiLogApi.md#getLog) | **GET** /logs/{api_log_id} | Get API execution log |
+| [**getLogs**](ApiLogApi.md#getLogs) | **GET** /logs | Get API execution log list |
 
 
 <a id="getLog"></a>
 # **getLog**
 > ApiLog getLog(apiLogId)
 
-API実行ログ取得
+Get API execution log
 
-指定したIDのAPI実行のログ登録を取得します。
+Retrieve the log of the API execution with the specified ID.
 
 ### Example
 ```java
@@ -36,7 +36,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     ApiLogApi apiInstance = new ApiLogApi(defaultClient);
-    String apiLogId = "apiLogId_example"; // String | APIログID(API Log ID)
+    String apiLogId = "apiLogId_example"; // String | API Log ID
     try {
       ApiLog result = apiInstance.getLog(apiLogId);
       System.out.println(result);
@@ -55,7 +55,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **apiLogId** | **String**| APIログID(API Log ID) | |
+| **apiLogId** | **String**| API Log ID | |
 
 ### Return type
 
@@ -78,11 +78,11 @@ public class Example {
 
 <a id="getLogs"></a>
 # **getLogs**
-> ApiLogs getLogs()
+> ApiLogs getLogs(createdDate, createdAt, limit, cursor)
 
-API実行ログ取得
+Get API execution log list
 
-全API実行のログ登録を取得します。
+Retrieve the log of all API executions.
 
 ### Example
 ```java
@@ -104,8 +104,12 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     ApiLogApi apiInstance = new ApiLogApi(defaultClient);
+    LocalDate createdDate = LocalDate.now(); // LocalDate | The date, in format of YYYY-MM-DD, to retrieve the log.
+    OffsetDateTime createdAt = OffsetDateTime.now(); // OffsetDateTime | The datetime, in ISO 8601 format, to retrieve the log.
+    Long limit = 56L; // Long | Maximum number of logs to retrieve.
+    String cursor = "cursor_example"; // String | Cursor for cursor pagination.
     try {
-      ApiLogs result = apiInstance.getLogs();
+      ApiLogs result = apiInstance.getLogs(createdDate, createdAt, limit, cursor);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApiLogApi#getLogs");
@@ -119,7 +123,13 @@ public class Example {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **createdDate** | **LocalDate**| The date, in format of YYYY-MM-DD, to retrieve the log. | [optional] |
+| **createdAt** | **OffsetDateTime**| The datetime, in ISO 8601 format, to retrieve the log. | [optional] |
+| **limit** | **Long**| Maximum number of logs to retrieve. | [optional] |
+| **cursor** | **String**| Cursor for cursor pagination. | [optional] |
 
 ### Return type
 

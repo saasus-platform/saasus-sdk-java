@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -93,7 +93,7 @@ public class SaasUserApi {
 
     /**
      * Build call for confirmEmailUpdate
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param confirmEmailUpdateParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -163,9 +163,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのメールアドレス変更確認(Confirm User Email Update)
-     * ユーザーのメールアドレス変更確認のためにコードを検証します。 ユーザーのアクセストークンが必要です。  Verify the code to confirm the user&#39;s email address update. Requires the user&#39;s access token. 
-     * @param userId ユーザーID(User ID) (required)
+     * Confirm User Email Update
+     * Verify the code to confirm the user&#39;s email address update. Requires the user&#39;s access token. 
+     * @param userId User ID (required)
      * @param confirmEmailUpdateParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -180,9 +180,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのメールアドレス変更確認(Confirm User Email Update)
-     * ユーザーのメールアドレス変更確認のためにコードを検証します。 ユーザーのアクセストークンが必要です。  Verify the code to confirm the user&#39;s email address update. Requires the user&#39;s access token. 
-     * @param userId ユーザーID(User ID) (required)
+     * Confirm User Email Update
+     * Verify the code to confirm the user&#39;s email address update. Requires the user&#39;s access token. 
+     * @param userId User ID (required)
      * @param confirmEmailUpdateParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -199,9 +199,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのメールアドレス変更確認(Confirm User Email Update) (asynchronously)
-     * ユーザーのメールアドレス変更確認のためにコードを検証します。 ユーザーのアクセストークンが必要です。  Verify the code to confirm the user&#39;s email address update. Requires the user&#39;s access token. 
-     * @param userId ユーザーID(User ID) (required)
+     * Confirm User Email Update (asynchronously)
+     * Verify the code to confirm the user&#39;s email address update. Requires the user&#39;s access token. 
+     * @param userId User ID (required)
      * @param confirmEmailUpdateParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -285,8 +285,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 外部アカウントのユーザーの連携確認(Confirm External User Account Link)
-     * 外部アカウントのユーザー連携確認のためにコードを検証します。  Verify the code for external account user link confirmation. 
+     * Confirm External User Account Link
+     * Verify the code for external account user link confirmation. 
      * @param confirmExternalUserLinkParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -302,8 +302,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 外部アカウントのユーザーの連携確認(Confirm External User Account Link)
-     * 外部アカウントのユーザー連携確認のためにコードを検証します。  Verify the code for external account user link confirmation. 
+     * Confirm External User Account Link
+     * Verify the code for external account user link confirmation. 
      * @param confirmExternalUserLinkParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -321,8 +321,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 外部アカウントのユーザーの連携確認(Confirm External User Account Link) (asynchronously)
-     * 外部アカウントのユーザー連携確認のためにコードを検証します。  Verify the code for external account user link confirmation. 
+     * Confirm External User Account Link (asynchronously)
+     * Verify the code for external account user link confirmation. 
      * @param confirmExternalUserLinkParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -406,8 +406,8 @@ public class SaasUserApi {
     }
 
     /**
-     * AWS Marketplaceによるユーザー新規登録の確定(Confirm Sign Up with AWS Marketplace)
-     * AWS Marketplaceと連携したユーザー新規登録を確定します。AWS Marketplaceと連携したテナントを新規作成します。 Registration Tokenが有効でない場合はエラーを返却します。  Confirm a new use registeration linked to AWS Marketplace. Create a new tenant linked to AWS Marketplace. If the Registration Token is not valid, an error is returned. 
+     * Confirm Sign Up with AWS Marketplace
+     * Confirm a new use registeration linked to AWS Marketplace. Create a new tenant linked to AWS Marketplace. If the Registration Token is not valid, an error is returned. 
      * @param confirmSignUpWithAwsMarketplaceParam  (optional)
      * @return Tenant
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -424,8 +424,8 @@ public class SaasUserApi {
     }
 
     /**
-     * AWS Marketplaceによるユーザー新規登録の確定(Confirm Sign Up with AWS Marketplace)
-     * AWS Marketplaceと連携したユーザー新規登録を確定します。AWS Marketplaceと連携したテナントを新規作成します。 Registration Tokenが有効でない場合はエラーを返却します。  Confirm a new use registeration linked to AWS Marketplace. Create a new tenant linked to AWS Marketplace. If the Registration Token is not valid, an error is returned. 
+     * Confirm Sign Up with AWS Marketplace
+     * Confirm a new use registeration linked to AWS Marketplace. Create a new tenant linked to AWS Marketplace. If the Registration Token is not valid, an error is returned. 
      * @param confirmSignUpWithAwsMarketplaceParam  (optional)
      * @return ApiResponse&lt;Tenant&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -443,8 +443,8 @@ public class SaasUserApi {
     }
 
     /**
-     * AWS Marketplaceによるユーザー新規登録の確定(Confirm Sign Up with AWS Marketplace) (asynchronously)
-     * AWS Marketplaceと連携したユーザー新規登録を確定します。AWS Marketplaceと連携したテナントを新規作成します。 Registration Tokenが有効でない場合はエラーを返却します。  Confirm a new use registeration linked to AWS Marketplace. Create a new tenant linked to AWS Marketplace. If the Registration Token is not valid, an error is returned. 
+     * Confirm Sign Up with AWS Marketplace (asynchronously)
+     * Confirm a new use registeration linked to AWS Marketplace. Create a new tenant linked to AWS Marketplace. If the Registration Token is not valid, an error is returned. 
      * @param confirmSignUpWithAwsMarketplaceParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -529,8 +529,8 @@ public class SaasUserApi {
     }
 
     /**
-     * SaaSにユーザーを作成(Create SaaS User)
-     * SaaSにユーザーを作成します。  Create SaaS User. 
+     * Create SaaS User
+     * Create SaaS User. 
      * @param createSaasUserParam  (optional)
      * @return SaasUser
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -548,8 +548,8 @@ public class SaasUserApi {
     }
 
     /**
-     * SaaSにユーザーを作成(Create SaaS User)
-     * SaaSにユーザーを作成します。  Create SaaS User. 
+     * Create SaaS User
+     * Create SaaS User. 
      * @param createSaasUserParam  (optional)
      * @return ApiResponse&lt;SaasUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -568,8 +568,8 @@ public class SaasUserApi {
     }
 
     /**
-     * SaaSにユーザーを作成(Create SaaS User) (asynchronously)
-     * SaaSにユーザーを作成します。  Create SaaS User. 
+     * Create SaaS User (asynchronously)
+     * Create SaaS User. 
      * @param createSaasUserParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -591,7 +591,7 @@ public class SaasUserApi {
     }
     /**
      * Build call for createSecretCode
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param createSecretCodeParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -661,9 +661,9 @@ public class SaasUserApi {
     }
 
     /**
-     * 認証アプリケーション登録用のシークレットコードを作成(Creates secret code for authentication application registration)
-     * 認証アプリケーション登録用のシークレットコードを作成します。  Create a secret code for authentication application registration. 
-     * @param userId ユーザーID(User ID) (required)
+     * Create secret code for authentication application registration
+     * Create a secret code for authentication application registration. 
+     * @param userId User ID (required)
      * @param createSecretCodeParam  (optional)
      * @return SoftwareTokenSecretCode
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -680,9 +680,9 @@ public class SaasUserApi {
     }
 
     /**
-     * 認証アプリケーション登録用のシークレットコードを作成(Creates secret code for authentication application registration)
-     * 認証アプリケーション登録用のシークレットコードを作成します。  Create a secret code for authentication application registration. 
-     * @param userId ユーザーID(User ID) (required)
+     * Create secret code for authentication application registration
+     * Create a secret code for authentication application registration. 
+     * @param userId User ID (required)
      * @param createSecretCodeParam  (optional)
      * @return ApiResponse&lt;SoftwareTokenSecretCode&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -700,9 +700,9 @@ public class SaasUserApi {
     }
 
     /**
-     * 認証アプリケーション登録用のシークレットコードを作成(Creates secret code for authentication application registration) (asynchronously)
-     * 認証アプリケーション登録用のシークレットコードを作成します。  Create a secret code for authentication application registration. 
-     * @param userId ユーザーID(User ID) (required)
+     * Create secret code for authentication application registration (asynchronously)
+     * Create a secret code for authentication application registration. 
+     * @param userId User ID (required)
      * @param createSecretCodeParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -723,7 +723,7 @@ public class SaasUserApi {
     }
     /**
      * Build call for deleteSaasUser
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -792,9 +792,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザー情報を削除(Delete User)
-     * ユーザーIDを元に一致するユーザーをテナントからすべて削除し、SaaSからも削除します。  Delete all users with matching user ID from the tenant and SaaS. 
-     * @param userId ユーザーID(User ID) (required)
+     * Delete User
+     * Delete all users with matching user ID from the tenant and SaaS. 
+     * @param userId User ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -809,9 +809,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザー情報を削除(Delete User)
-     * ユーザーIDを元に一致するユーザーをテナントからすべて削除し、SaaSからも削除します。  Delete all users with matching user ID from the tenant and SaaS. 
-     * @param userId ユーザーID(User ID) (required)
+     * Delete User
+     * Delete all users with matching user ID from the tenant and SaaS. 
+     * @param userId User ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -828,9 +828,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザー情報を削除(Delete User) (asynchronously)
-     * ユーザーIDを元に一致するユーザーをテナントからすべて削除し、SaaSからも削除します。  Delete all users with matching user ID from the tenant and SaaS. 
-     * @param userId ユーザーID(User ID) (required)
+     * Delete User (asynchronously)
+     * Delete all users with matching user ID from the tenant and SaaS. 
+     * @param userId User ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -850,7 +850,7 @@ public class SaasUserApi {
     }
     /**
      * Build call for getSaasUser
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -919,9 +919,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザー情報を取得(Get User)
-     * ユーザーIDからユーザー情報を取得します。  Get user information based on user ID. 
-     * @param userId ユーザーID(User ID) (required)
+     * Get User
+     * Get user information based on user ID. 
+     * @param userId User ID (required)
      * @return SaasUser
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -938,9 +938,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザー情報を取得(Get User)
-     * ユーザーIDからユーザー情報を取得します。  Get user information based on user ID. 
-     * @param userId ユーザーID(User ID) (required)
+     * Get User
+     * Get user information based on user ID. 
+     * @param userId User ID (required)
      * @return ApiResponse&lt;SaasUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -958,9 +958,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザー情報を取得(Get User) (asynchronously)
-     * ユーザーIDからユーザー情報を取得します。  Get user information based on user ID. 
-     * @param userId ユーザーID(User ID) (required)
+     * Get User (asynchronously)
+     * Get user information based on user ID. 
+     * @param userId User ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1042,8 +1042,8 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザー一覧を取得(Get Users)
-     * SaaSのユーザー全件を取得します。  Get all SaaS users. 
+     * Get Users
+     * Get all SaaS users. 
      * @return SaasUsers
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1059,8 +1059,8 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザー一覧を取得(Get Users)
-     * SaaSのユーザー全件を取得します。  Get all SaaS users. 
+     * Get Users
+     * Get all SaaS users. 
      * @return ApiResponse&lt;SaasUsers&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1077,8 +1077,8 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザー一覧を取得(Get Users) (asynchronously)
-     * SaaSのユーザー全件を取得します。  Get all SaaS users. 
+     * Get Users (asynchronously)
+     * Get all SaaS users. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1098,7 +1098,7 @@ public class SaasUserApi {
     }
     /**
      * Build call for getUserMfaPreference
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1166,9 +1166,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのMFA設定を取得(Get User&#39;s MFA Settings)
-     * ユーザーのMFA設定を取得します。  Get the user&#39;s MFA settings. 
-     * @param userId ユーザーID(User ID) (required)
+     * Get User&#39;s MFA Settings
+     * Get the user&#39;s MFA settings. 
+     * @param userId User ID (required)
      * @return MfaPreference
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1184,9 +1184,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのMFA設定を取得(Get User&#39;s MFA Settings)
-     * ユーザーのMFA設定を取得します。  Get the user&#39;s MFA settings. 
-     * @param userId ユーザーID(User ID) (required)
+     * Get User&#39;s MFA Settings
+     * Get the user&#39;s MFA settings. 
+     * @param userId User ID (required)
      * @return ApiResponse&lt;MfaPreference&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1203,9 +1203,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのMFA設定を取得(Get User&#39;s MFA Settings) (asynchronously)
-     * ユーザーのMFA設定を取得します。  Get the user&#39;s MFA settings. 
-     * @param userId ユーザーID(User ID) (required)
+     * Get User&#39;s MFA Settings (asynchronously)
+     * Get the user&#39;s MFA settings. 
+     * @param userId User ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1288,8 +1288,8 @@ public class SaasUserApi {
     }
 
     /**
-     * AWS Marketplaceと既存のテナントの連携(Link an existing tenant with AWS Marketplace)
-     * AWS Marketplaceと既存のテナントを連携します。 Registration Tokenが有効でない場合はエラーを返却します。  Link an existing tenant with AWS Marketplace. If the Registration Token is not valid, an error is returned. 
+     * Link an existing tenant with AWS Marketplace
+     * Link an existing tenant with AWS Marketplace. If the Registration Token is not valid, an error is returned. 
      * @param linkAwsMarketplaceParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1304,8 +1304,8 @@ public class SaasUserApi {
     }
 
     /**
-     * AWS Marketplaceと既存のテナントの連携(Link an existing tenant with AWS Marketplace)
-     * AWS Marketplaceと既存のテナントを連携します。 Registration Tokenが有効でない場合はエラーを返却します。  Link an existing tenant with AWS Marketplace. If the Registration Token is not valid, an error is returned. 
+     * Link an existing tenant with AWS Marketplace
+     * Link an existing tenant with AWS Marketplace. If the Registration Token is not valid, an error is returned. 
      * @param linkAwsMarketplaceParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1322,8 +1322,8 @@ public class SaasUserApi {
     }
 
     /**
-     * AWS Marketplaceと既存のテナントの連携(Link an existing tenant with AWS Marketplace) (asynchronously)
-     * AWS Marketplaceと既存のテナントを連携します。 Registration Tokenが有効でない場合はエラーを返却します。  Link an existing tenant with AWS Marketplace. If the Registration Token is not valid, an error is returned. 
+     * Link an existing tenant with AWS Marketplace (asynchronously)
+     * Link an existing tenant with AWS Marketplace. If the Registration Token is not valid, an error is returned. 
      * @param linkAwsMarketplaceParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1343,7 +1343,7 @@ public class SaasUserApi {
     }
     /**
      * Build call for requestEmailUpdate
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param requestEmailUpdateParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1413,9 +1413,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのメールアドレス変更要求(Request User Email Update)
-     * ユーザーのメールアドレス変更を要求します。 要求されたメールアドレスに対して検証コードを送信します。 ユーザーのアクセストークンが必要です。 検証コードの有効期限は24時間です。  Request to update the user&#39;s email address. Sends a verification code to the requested email address. Requires the user&#39;s access token. The verification code is valid for 24 hours. 
-     * @param userId ユーザーID(User ID) (required)
+     * Request User Email Update
+     * Request to update the user&#39;s email address. Sends a verification code to the requested email address. Requires the user&#39;s access token. The verification code is valid for 24 hours. 
+     * @param userId User ID (required)
      * @param requestEmailUpdateParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1430,9 +1430,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのメールアドレス変更要求(Request User Email Update)
-     * ユーザーのメールアドレス変更を要求します。 要求されたメールアドレスに対して検証コードを送信します。 ユーザーのアクセストークンが必要です。 検証コードの有効期限は24時間です。  Request to update the user&#39;s email address. Sends a verification code to the requested email address. Requires the user&#39;s access token. The verification code is valid for 24 hours. 
-     * @param userId ユーザーID(User ID) (required)
+     * Request User Email Update
+     * Request to update the user&#39;s email address. Sends a verification code to the requested email address. Requires the user&#39;s access token. The verification code is valid for 24 hours. 
+     * @param userId User ID (required)
      * @param requestEmailUpdateParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1449,9 +1449,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのメールアドレス変更要求(Request User Email Update) (asynchronously)
-     * ユーザーのメールアドレス変更を要求します。 要求されたメールアドレスに対して検証コードを送信します。 ユーザーのアクセストークンが必要です。 検証コードの有効期限は24時間です。  Request to update the user&#39;s email address. Sends a verification code to the requested email address. Requires the user&#39;s access token. The verification code is valid for 24 hours. 
-     * @param userId ユーザーID(User ID) (required)
+     * Request User Email Update (asynchronously)
+     * Request to update the user&#39;s email address. Sends a verification code to the requested email address. Requires the user&#39;s access token. The verification code is valid for 24 hours. 
+     * @param userId User ID (required)
      * @param requestEmailUpdateParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1535,8 +1535,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 外部アカウントのユーザー連携要求(Request External User Account Link)
-     * 外部アカウントのユーザー連携を要求します。 アクセストークンから連携するユーザーのメールアドレスを取得し、そのメールアドレスに対して検証コードを送信します。 検証コードの有効期限は24時間です。  Request to link an external account user. Get the email address of the user to be linked from the access token and send a verification code to that email address. The verification code is valid for 24 hours. 
+     * Request External User Account Link
+     * Request to link an external account user. Get the email address of the user to be linked from the access token and send a verification code to that email address. The verification code is valid for 24 hours. 
      * @param requestExternalUserLinkParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1552,8 +1552,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 外部アカウントのユーザー連携要求(Request External User Account Link)
-     * 外部アカウントのユーザー連携を要求します。 アクセストークンから連携するユーザーのメールアドレスを取得し、そのメールアドレスに対して検証コードを送信します。 検証コードの有効期限は24時間です。  Request to link an external account user. Get the email address of the user to be linked from the access token and send a verification code to that email address. The verification code is valid for 24 hours. 
+     * Request External User Account Link
+     * Request to link an external account user. Get the email address of the user to be linked from the access token and send a verification code to that email address. The verification code is valid for 24 hours. 
      * @param requestExternalUserLinkParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1571,8 +1571,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 外部アカウントのユーザー連携要求(Request External User Account Link) (asynchronously)
-     * 外部アカウントのユーザー連携を要求します。 アクセストークンから連携するユーザーのメールアドレスを取得し、そのメールアドレスに対して検証コードを送信します。 検証コードの有効期限は24時間です。  Request to link an external account user. Get the email address of the user to be linked from the access token and send a verification code to that email address. The verification code is valid for 24 hours. 
+     * Request External User Account Link (asynchronously)
+     * Request to link an external account user. Get the email address of the user to be linked from the access token and send a verification code to that email address. The verification code is valid for 24 hours. 
      * @param requestExternalUserLinkParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1656,8 +1656,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 新規登録時の確認メール再送信(Resend Sign Up Confirmation Email)
-     * 新規登録時の仮パスワードを再送信します。  Resend temporary password for the new registered user. 
+     * Resend Sign Up Confirmation Email
+     * Resend temporary password for the new registered user. 
      * @param resendSignUpConfirmationEmailParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1672,8 +1672,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 新規登録時の確認メール再送信(Resend Sign Up Confirmation Email)
-     * 新規登録時の仮パスワードを再送信します。  Resend temporary password for the new registered user. 
+     * Resend Sign Up Confirmation Email
+     * Resend temporary password for the new registered user. 
      * @param resendSignUpConfirmationEmailParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1690,8 +1690,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 新規登録時の確認メール再送信(Resend Sign Up Confirmation Email) (asynchronously)
-     * 新規登録時の仮パスワードを再送信します。  Resend temporary password for the new registered user. 
+     * Resend Sign Up Confirmation Email (asynchronously)
+     * Resend temporary password for the new registered user. 
      * @param resendSignUpConfirmationEmailParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1774,8 +1774,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 新規登録(Sign Up)
-     * ユーザーを新規登録します。登録されたメールアドレスに対して仮パスワードを送信します。  Register a new user. A temporary password will be sent to the registered email. 
+     * Sign Up
+     * Register a new user. A temporary password will be sent to the registered email. 
      * @param signUpParam  (optional)
      * @return SaasUser
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1792,8 +1792,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 新規登録(Sign Up)
-     * ユーザーを新規登録します。登録されたメールアドレスに対して仮パスワードを送信します。  Register a new user. A temporary password will be sent to the registered email. 
+     * Sign Up
+     * Register a new user. A temporary password will be sent to the registered email. 
      * @param signUpParam  (optional)
      * @return ApiResponse&lt;SaasUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1811,8 +1811,8 @@ public class SaasUserApi {
     }
 
     /**
-     * 新規登録(Sign Up) (asynchronously)
-     * ユーザーを新規登録します。登録されたメールアドレスに対して仮パスワードを送信します。  Register a new user. A temporary password will be sent to the registered email. 
+     * Sign Up (asynchronously)
+     * Register a new user. A temporary password will be sent to the registered email. 
      * @param signUpParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1896,8 +1896,8 @@ public class SaasUserApi {
     }
 
     /**
-     * AWS Marketplaceによるユーザー新規登録(Sign Up with AWS Marketplace)
-     * AWS Marketplaceと連携したユーザーを新規登録します。登録されたメールアドレスに対して仮パスワードを送信します。 Registration Tokenが有効でない場合はエラーを返却します。  Register a new user linked to AWS Marketplace. A temporary password will be sent to the registered email. If the Registration Token is not valid, an error is returned. 
+     * Sign Up with AWS Marketplace
+     * Register a new user linked to AWS Marketplace. A temporary password will be sent to the registered email. If the Registration Token is not valid, an error is returned. 
      * @param signUpWithAwsMarketplaceParam  (optional)
      * @return SaasUser
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1914,8 +1914,8 @@ public class SaasUserApi {
     }
 
     /**
-     * AWS Marketplaceによるユーザー新規登録(Sign Up with AWS Marketplace)
-     * AWS Marketplaceと連携したユーザーを新規登録します。登録されたメールアドレスに対して仮パスワードを送信します。 Registration Tokenが有効でない場合はエラーを返却します。  Register a new user linked to AWS Marketplace. A temporary password will be sent to the registered email. If the Registration Token is not valid, an error is returned. 
+     * Sign Up with AWS Marketplace
+     * Register a new user linked to AWS Marketplace. A temporary password will be sent to the registered email. If the Registration Token is not valid, an error is returned. 
      * @param signUpWithAwsMarketplaceParam  (optional)
      * @return ApiResponse&lt;SaasUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1933,8 +1933,8 @@ public class SaasUserApi {
     }
 
     /**
-     * AWS Marketplaceによるユーザー新規登録(Sign Up with AWS Marketplace) (asynchronously)
-     * AWS Marketplaceと連携したユーザーを新規登録します。登録されたメールアドレスに対して仮パスワードを送信します。 Registration Tokenが有効でない場合はエラーを返却します。  Register a new user linked to AWS Marketplace. A temporary password will be sent to the registered email. If the Registration Token is not valid, an error is returned. 
+     * Sign Up with AWS Marketplace (asynchronously)
+     * Register a new user linked to AWS Marketplace. A temporary password will be sent to the registered email. If the Registration Token is not valid, an error is returned. 
      * @param signUpWithAwsMarketplaceParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1956,7 +1956,7 @@ public class SaasUserApi {
     /**
      * Build call for unlinkProvider
      * @param providerName  (required)
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1995,6 +1995,7 @@ public class SaasUserApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
+            "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2029,10 +2030,10 @@ public class SaasUserApi {
     }
 
     /**
-     * 外部IDプロバイダの連携解除(Unlink external identity providers)
-     * 外部IDプロバイダの連携を解除します。  Unlink external identity providers. 
+     * Unlink external identity providers
+     * Unlink external identity providers. 
      * @param providerName  (required)
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2046,10 +2047,10 @@ public class SaasUserApi {
     }
 
     /**
-     * 外部IDプロバイダの連携解除(Unlink external identity providers)
-     * 外部IDプロバイダの連携を解除します。  Unlink external identity providers. 
+     * Unlink external identity providers
+     * Unlink external identity providers. 
      * @param providerName  (required)
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2065,10 +2066,10 @@ public class SaasUserApi {
     }
 
     /**
-     * 外部IDプロバイダの連携解除(Unlink external identity providers) (asynchronously)
-     * 外部IDプロバイダの連携を解除します。  Unlink external identity providers. 
+     * Unlink external identity providers (asynchronously)
+     * Unlink external identity providers. 
      * @param providerName  (required)
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2087,7 +2088,7 @@ public class SaasUserApi {
     }
     /**
      * Build call for updateSaasUserEmail
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param updateSaasUserEmailParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2157,9 +2158,9 @@ public class SaasUserApi {
     }
 
     /**
-     * メールアドレスを変更(Change Email)
-     * ユーザーのメールアドレスを変更します。  Change user&#39;s email. 
-     * @param userId ユーザーID(User ID) (required)
+     * Change Email
+     * Change user&#39;s email. 
+     * @param userId User ID (required)
      * @param updateSaasUserEmailParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2174,9 +2175,9 @@ public class SaasUserApi {
     }
 
     /**
-     * メールアドレスを変更(Change Email)
-     * ユーザーのメールアドレスを変更します。  Change user&#39;s email. 
-     * @param userId ユーザーID(User ID) (required)
+     * Change Email
+     * Change user&#39;s email. 
+     * @param userId User ID (required)
      * @param updateSaasUserEmailParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2193,9 +2194,9 @@ public class SaasUserApi {
     }
 
     /**
-     * メールアドレスを変更(Change Email) (asynchronously)
-     * ユーザーのメールアドレスを変更します。  Change user&#39;s email. 
-     * @param userId ユーザーID(User ID) (required)
+     * Change Email (asynchronously)
+     * Change user&#39;s email. 
+     * @param userId User ID (required)
      * @param updateSaasUserEmailParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2215,7 +2216,7 @@ public class SaasUserApi {
     }
     /**
      * Build call for updateSaasUserPassword
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param updateSaasUserPasswordParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2285,9 +2286,9 @@ public class SaasUserApi {
     }
 
     /**
-     * パスワードを変更(Change Password)
-     * ユーザーのログインパスワードを変更します。  Change user&#39;s login password. 
-     * @param userId ユーザーID(User ID) (required)
+     * Change Password
+     * Change user&#39;s login password. 
+     * @param userId User ID (required)
      * @param updateSaasUserPasswordParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2302,9 +2303,9 @@ public class SaasUserApi {
     }
 
     /**
-     * パスワードを変更(Change Password)
-     * ユーザーのログインパスワードを変更します。  Change user&#39;s login password. 
-     * @param userId ユーザーID(User ID) (required)
+     * Change Password
+     * Change user&#39;s login password. 
+     * @param userId User ID (required)
      * @param updateSaasUserPasswordParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2321,9 +2322,9 @@ public class SaasUserApi {
     }
 
     /**
-     * パスワードを変更(Change Password) (asynchronously)
-     * ユーザーのログインパスワードを変更します。  Change user&#39;s login password. 
-     * @param userId ユーザーID(User ID) (required)
+     * Change Password (asynchronously)
+     * Change user&#39;s login password. 
+     * @param userId User ID (required)
      * @param updateSaasUserPasswordParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2343,7 +2344,7 @@ public class SaasUserApi {
     }
     /**
      * Build call for updateSoftwareToken
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param updateSoftwareTokenParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2413,9 +2414,9 @@ public class SaasUserApi {
     }
 
     /**
-     * 認証アプリケーションを登録(Register Authentication Application)
-     * 認証アプリケーションを登録します。  Register an authentication application. 
-     * @param userId ユーザーID(User ID) (required)
+     * Register Authentication Application
+     * Register an authentication application. 
+     * @param userId User ID (required)
      * @param updateSoftwareTokenParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2430,9 +2431,9 @@ public class SaasUserApi {
     }
 
     /**
-     * 認証アプリケーションを登録(Register Authentication Application)
-     * 認証アプリケーションを登録します。  Register an authentication application. 
-     * @param userId ユーザーID(User ID) (required)
+     * Register Authentication Application
+     * Register an authentication application. 
+     * @param userId User ID (required)
      * @param updateSoftwareTokenParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2449,9 +2450,9 @@ public class SaasUserApi {
     }
 
     /**
-     * 認証アプリケーションを登録(Register Authentication Application) (asynchronously)
-     * 認証アプリケーションを登録します。  Register an authentication application. 
-     * @param userId ユーザーID(User ID) (required)
+     * Register Authentication Application (asynchronously)
+     * Register an authentication application. 
+     * @param userId User ID (required)
      * @param updateSoftwareTokenParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2471,7 +2472,7 @@ public class SaasUserApi {
     }
     /**
      * Build call for updateUserMfaPreference
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2541,9 +2542,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのMFA設定を更新(Update User&#39;s MFA Settings)
-     * ユーザーのMFA設定を更新します。  Update user&#39;s MFA settings. 
-     * @param userId ユーザーID(User ID) (required)
+     * Update User&#39;s MFA Settings
+     * Update user&#39;s MFA settings. 
+     * @param userId User ID (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2558,9 +2559,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのMFA設定を更新(Update User&#39;s MFA Settings)
-     * ユーザーのMFA設定を更新します。  Update user&#39;s MFA settings. 
-     * @param userId ユーザーID(User ID) (required)
+     * Update User&#39;s MFA Settings
+     * Update user&#39;s MFA settings. 
+     * @param userId User ID (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2577,9 +2578,9 @@ public class SaasUserApi {
     }
 
     /**
-     * ユーザーのMFA設定を更新(Update User&#39;s MFA Settings) (asynchronously)
-     * ユーザーのMFA設定を更新します。  Update user&#39;s MFA settings. 
-     * @param userId ユーザーID(User ID) (required)
+     * Update User&#39;s MFA Settings (asynchronously)
+     * Update user&#39;s MFA settings. 
+     * @param userId User ID (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

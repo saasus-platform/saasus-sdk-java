@@ -14,7 +14,6 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.pricing.models.PricingMenu;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingMenus
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:10:15.623044641Z[Etc/UTC]")
 public class PricingMenus {
   public static final String SERIALIZED_NAME_PRICING_MENUS = "pricing_menus";
   @SerializedName(SERIALIZED_NAME_PRICING_MENUS)
@@ -63,7 +62,6 @@ public class PricingMenus {
   }
 
   public PricingMenus pricingMenus(List<PricingMenu> pricingMenus) {
-    
     this.pricingMenus = pricingMenus;
     return this;
   }
@@ -84,7 +82,6 @@ public class PricingMenus {
   public List<PricingMenu> getPricingMenus() {
     return pricingMenus;
   }
-
 
   public void setPricingMenus(List<PricingMenu> pricingMenus) {
     this.pricingMenus = pricingMenus;
@@ -156,9 +153,9 @@ public class PricingMenus {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PricingMenus.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PricingMenus` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

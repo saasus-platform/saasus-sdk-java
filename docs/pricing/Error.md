@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**type** | **String** | permission_denied |  |
+|**type** | **String** | Error type |  |
 |**message** | **String** | Error message |  |
 
 

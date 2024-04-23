@@ -14,7 +14,6 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -51,7 +50,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * TaxRate
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:10:15.623044641Z[Etc/UTC]")
 public class TaxRate {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -85,13 +84,12 @@ public class TaxRate {
   }
 
   public TaxRate name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * 税率の名前(name of tax rate)
+   * Name of tax rate
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -99,20 +97,18 @@ public class TaxRate {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public TaxRate displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
 
    /**
-   * 表示名(display name)
+   * Display name
    * @return displayName
   **/
   @javax.annotation.Nonnull
@@ -120,20 +116,18 @@ public class TaxRate {
     return displayName;
   }
 
-
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
   public TaxRate percentage(BigDecimal percentage) {
-    
     this.percentage = percentage;
     return this;
   }
 
    /**
-   * 税率(percentage)
+   * Percentage
    * @return percentage
   **/
   @javax.annotation.Nonnull
@@ -141,20 +135,18 @@ public class TaxRate {
     return percentage;
   }
 
-
   public void setPercentage(BigDecimal percentage) {
     this.percentage = percentage;
   }
 
 
   public TaxRate inclusive(Boolean inclusive) {
-    
     this.inclusive = inclusive;
     return this;
   }
 
    /**
-   * 内税かどうか(inclusive or not)
+   * Inclusive or not
    * @return inclusive
   **/
   @javax.annotation.Nonnull
@@ -162,20 +154,18 @@ public class TaxRate {
     return inclusive;
   }
 
-
   public void setInclusive(Boolean inclusive) {
     this.inclusive = inclusive;
   }
 
 
   public TaxRate country(String country) {
-    
     this.country = country;
     return this;
   }
 
    /**
-   * ISO 3166-1 alpha-2 の国コード(Country code of ISO 3166-1 alpha-2)
+   * Country code of ISO 3166-1 alpha-2
    * @return country
   **/
   @javax.annotation.Nonnull
@@ -183,20 +173,18 @@ public class TaxRate {
     return country;
   }
 
-
   public void setCountry(String country) {
     this.country = country;
   }
 
 
   public TaxRate description(String description) {
-    
     this.description = description;
     return this;
   }
 
    /**
-   * 説明(description)
+   * Description
    * @return description
   **/
   @javax.annotation.Nonnull
@@ -204,27 +192,24 @@ public class TaxRate {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public TaxRate id(String id) {
-    
     this.id = id;
     return this;
   }
 
    /**
-   * Get id
+   * Universally Unique Identifier
    * @return id
   **/
   @javax.annotation.Nonnull
   public String getId() {
     return id;
   }
-
 
   public void setId(String id) {
     this.id = id;
@@ -320,9 +305,9 @@ public class TaxRate {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TaxRate.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TaxRate` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
