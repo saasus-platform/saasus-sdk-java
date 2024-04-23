@@ -142,8 +142,8 @@ public class TaxRateApi {
     }
 
     /**
-     * 税率の作成(Create Tax Rate)
-     * 税率を作成します。  Creates a tax rate. 
+     * Create Tax Rate
+     * Creates a tax rate. 
      * @param body  (optional)
      * @return TaxRate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -161,8 +161,8 @@ public class TaxRateApi {
     }
 
     /**
-     * 税率の作成(Create Tax Rate)
-     * 税率を作成します。  Creates a tax rate. 
+     * Create Tax Rate
+     * Creates a tax rate. 
      * @param body  (optional)
      * @return ApiResponse&lt;TaxRate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -181,8 +181,8 @@ public class TaxRateApi {
     }
 
     /**
-     * 税率の作成(Create Tax Rate) (asynchronously)
-     * 税率を作成します。  Creates a tax rate. 
+     * Create Tax Rate (asynchronously)
+     * Creates a tax rate. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -265,8 +265,8 @@ public class TaxRateApi {
     }
 
     /**
-     * 税率を取得します(Get Tax Rates)
-     * 税率を取得します。  Get all Tax Rates 
+     * Get Tax Rates
+     * Get all Tax Rates 
      * @return TaxRates
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -282,8 +282,8 @@ public class TaxRateApi {
     }
 
     /**
-     * 税率を取得します(Get Tax Rates)
-     * 税率を取得します。  Get all Tax Rates 
+     * Get Tax Rates
+     * Get all Tax Rates 
      * @return ApiResponse&lt;TaxRates&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -300,8 +300,8 @@ public class TaxRateApi {
     }
 
     /**
-     * 税率を取得します(Get Tax Rates) (asynchronously)
-     * 税率を取得します。  Get all Tax Rates 
+     * Get Tax Rates (asynchronously)
+     * Get all Tax Rates 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -321,7 +321,7 @@ public class TaxRateApi {
     }
     /**
      * Build call for updateTaxRate
-     * @param taxRateId 税率ID(tax rate ID) (required)
+     * @param taxRateId Tax Rate ID (required)
      * @param updateTaxRateParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -392,9 +392,9 @@ public class TaxRateApi {
     }
 
     /**
-     * 税率を更新(Update Tax Rate)
-     * 税率を更新します。  Update tax rate. 
-     * @param taxRateId 税率ID(tax rate ID) (required)
+     * Update Tax Rate
+     * Update tax rate. 
+     * @param taxRateId Tax Rate ID (required)
      * @param updateTaxRateParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -410,9 +410,9 @@ public class TaxRateApi {
     }
 
     /**
-     * 税率を更新(Update Tax Rate)
-     * 税率を更新します。  Update tax rate. 
-     * @param taxRateId 税率ID(tax rate ID) (required)
+     * Update Tax Rate
+     * Update tax rate. 
+     * @param taxRateId Tax Rate ID (required)
      * @param updateTaxRateParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -430,9 +430,9 @@ public class TaxRateApi {
     }
 
     /**
-     * 税率を更新(Update Tax Rate) (asynchronously)
-     * 税率を更新します。  Update tax rate. 
-     * @param taxRateId 税率ID(tax rate ID) (required)
+     * Update Tax Rate (asynchronously)
+     * Update tax rate. 
+     * @param taxRateId Tax Rate ID (required)
      * @param updateTaxRateParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

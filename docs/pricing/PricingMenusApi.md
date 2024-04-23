@@ -4,20 +4,20 @@ All URIs are relative to *https://api.saasus.io/v1/pricing*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createPricingMenu**](PricingMenusApi.md#createPricingMenu) | **POST** /menus | プライシング機能メニューを作成(Create a Pricing Feature Menu) |
-| [**deletePricingMenu**](PricingMenusApi.md#deletePricingMenu) | **DELETE** /menus/{menu_id} | プライシング機能メニューを削除(Delete Pricing Feature Menu) |
-| [**getPricingMenu**](PricingMenusApi.md#getPricingMenu) | **GET** /menus/{menu_id} | プライシング機能メニューを取得(Get Pricing Feature Menu) |
-| [**getPricingMenus**](PricingMenusApi.md#getPricingMenus) | **GET** /menus | プライシング機能メニュー一覧を取得(Get Pricing Feature Menus) |
-| [**updatePricingMenu**](PricingMenusApi.md#updatePricingMenu) | **PATCH** /menus/{menu_id} | プライシング機能メニューを更新(Updated pricing feature menu) |
+| [**createPricingMenu**](PricingMenusApi.md#createPricingMenu) | **POST** /menus | Create a Pricing Feature Menu |
+| [**deletePricingMenu**](PricingMenusApi.md#deletePricingMenu) | **DELETE** /menus/{menu_id} | Delete Pricing Feature Menu |
+| [**getPricingMenu**](PricingMenusApi.md#getPricingMenu) | **GET** /menus/{menu_id} | Get Pricing Feature Menu |
+| [**getPricingMenus**](PricingMenusApi.md#getPricingMenus) | **GET** /menus | Get Pricing Feature Menus |
+| [**updatePricingMenu**](PricingMenusApi.md#updatePricingMenu) | **PATCH** /menus/{menu_id} | Update Pricing Feature Menu |
 
 
 <a id="createPricingMenu"></a>
 # **createPricingMenu**
 > PricingMenu createPricingMenu(body)
 
-プライシング機能メニューを作成(Create a Pricing Feature Menu)
+Create a Pricing Feature Menu
 
-プライシング機能メニューを作成します。  Create a pricing feature menu. 
+Create a pricing feature menu. 
 
 ### Example
 ```java
@@ -83,9 +83,9 @@ public class Example {
 # **deletePricingMenu**
 > deletePricingMenu(menuId)
 
-プライシング機能メニューを削除(Delete Pricing Feature Menu)
+Delete Pricing Feature Menu
 
-プライシング機能メニューを削除します。  Delete pricing feature menu. 
+Delete pricing feature menu. 
 
 ### Example
 ```java
@@ -107,7 +107,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     PricingMenusApi apiInstance = new PricingMenusApi(defaultClient);
-    String menuId = "menuId_example"; // String | メニューID(menu ID)
+    String menuId = "menuId_example"; // String | Menu ID
     try {
       apiInstance.deletePricingMenu(menuId);
     } catch (ApiException e) {
@@ -125,7 +125,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **menuId** | **String**| メニューID(menu ID) | |
+| **menuId** | **String**| Menu ID | |
 
 ### Return type
 
@@ -151,9 +151,9 @@ null (empty response body)
 # **getPricingMenu**
 > PricingMenu getPricingMenu(menuId)
 
-プライシング機能メニューを取得(Get Pricing Feature Menu)
+Get Pricing Feature Menu
 
-プライシング機能メニューを取得します。  Get a pricing feature menu. 
+Get a pricing feature menu. 
 
 ### Example
 ```java
@@ -175,7 +175,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     PricingMenusApi apiInstance = new PricingMenusApi(defaultClient);
-    String menuId = "menuId_example"; // String | メニューID(menu ID)
+    String menuId = "menuId_example"; // String | Menu ID
     try {
       PricingMenu result = apiInstance.getPricingMenu(menuId);
       System.out.println(result);
@@ -194,7 +194,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **menuId** | **String**| メニューID(menu ID) | |
+| **menuId** | **String**| Menu ID | |
 
 ### Return type
 
@@ -219,9 +219,9 @@ public class Example {
 # **getPricingMenus**
 > PricingMenus getPricingMenus()
 
-プライシング機能メニュー一覧を取得(Get Pricing Feature Menus)
+Get Pricing Feature Menus
 
-機能メニュー一覧を取得します。 計測単位を複数まとめて、１つの機能メニューとして定義します。 ここで定義した機能メニューを複数合わせ１つの料金プランとします。  Get the feature menu list. Multiple measurement units are grouped together and defined as one feature menu. Multiple feature menus defined here are combined into one billing plan. 
+Get the feature menu list. Multiple measurement units are grouped together and defined as one feature menu. Multiple feature menus defined here are combined into one billing plan. 
 
 ### Example
 ```java
@@ -283,9 +283,9 @@ This endpoint does not need any parameter.
 # **updatePricingMenu**
 > updatePricingMenu(menuId, body)
 
-プライシング機能メニューを更新(Updated pricing feature menu)
+Update Pricing Feature Menu
 
-プライシング機能メニューを更新します。  Update pricing feature menu. 
+Update pricing feature menu. 
 
 ### Example
 ```java
@@ -307,7 +307,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     PricingMenusApi apiInstance = new PricingMenusApi(defaultClient);
-    String menuId = "menuId_example"; // String | メニューID(menu ID)
+    String menuId = "menuId_example"; // String | Menu ID
     SavePricingMenuParam body = new SavePricingMenuParam(); // SavePricingMenuParam | 
     try {
       apiInstance.updatePricingMenu(menuId, body);
@@ -326,7 +326,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **menuId** | **String**| メニューID(menu ID) | |
+| **menuId** | **String**| Menu ID | |
 | **body** | **SavePricingMenuParam**|  | [optional] |
 
 ### Return type
