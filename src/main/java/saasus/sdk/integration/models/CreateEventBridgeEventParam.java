@@ -14,7 +14,6 @@
 package saasus.sdk.integration.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.integration.models.EventMessage;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.integration.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.integration.JSON;
 /**
  * CreateEventBridgeEventParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:23.586706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-16T09:17:44.335095441Z[Etc/UTC]")
 public class CreateEventBridgeEventParam {
   public static final String SERIALIZED_NAME_EVENT_MESSAGES = "event_messages";
   @SerializedName(SERIALIZED_NAME_EVENT_MESSAGES)
@@ -63,7 +62,6 @@ public class CreateEventBridgeEventParam {
   }
 
   public CreateEventBridgeEventParam eventMessages(List<EventMessage> eventMessages) {
-    
     this.eventMessages = eventMessages;
     return this;
   }
@@ -77,14 +75,13 @@ public class CreateEventBridgeEventParam {
   }
 
    /**
-   * イベントメッセージ(event message)
+   * event message
    * @return eventMessages
   **/
   @javax.annotation.Nonnull
   public List<EventMessage> getEventMessages() {
     return eventMessages;
   }
-
 
   public void setEventMessages(List<EventMessage> eventMessages) {
     this.eventMessages = eventMessages;
@@ -156,9 +153,9 @@ public class CreateEventBridgeEventParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateEventBridgeEventParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateEventBridgeEventParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

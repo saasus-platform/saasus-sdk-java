@@ -7,9 +7,9 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**idToken** | **String** | IDトークン(ID token) |  |
-|**accessToken** | **String** | アクセストークン(access token) |  |
-|**refreshToken** | **String** | リフレッシュトークン(refresh token) |  [optional] |
+|**idToken** | **String** | ID token |  |
+|**accessToken** | **String** | Access token |  |
+|**refreshToken** | **String** | Refresh token |  [optional] |
 
 
 
