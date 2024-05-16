@@ -28,12 +28,15 @@ import java.io.IOException;
 
 
 import saasus.sdk.pricing.models.Error;
+import saasus.sdk.pricing.models.MeteringUnit;
 import saasus.sdk.pricing.models.MeteringUnitDateCount;
 import saasus.sdk.pricing.models.MeteringUnitDateCounts;
 import saasus.sdk.pricing.models.MeteringUnitDatePeriodCounts;
 import saasus.sdk.pricing.models.MeteringUnitMonthCount;
 import saasus.sdk.pricing.models.MeteringUnitMonthCounts;
+import saasus.sdk.pricing.models.MeteringUnitProps;
 import saasus.sdk.pricing.models.MeteringUnitTimestampCount;
+import saasus.sdk.pricing.models.MeteringUnits;
 import saasus.sdk.pricing.models.UpdateMeteringUnitTimestampCountNowParam;
 import saasus.sdk.pricing.models.UpdateMeteringUnitTimestampCountParam;
 
@@ -81,10 +84,263 @@ public class MeteringApi {
     }
 
     /**
+     * Build call for createMeteringUnit
+     * @param body  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createMeteringUnitCall(MeteringUnitProps body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/metering/units";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createMeteringUnitValidateBeforeCall(MeteringUnitProps body, final ApiCallback _callback) throws ApiException {
+        return createMeteringUnitCall(body, _callback);
+
+    }
+
+    /**
+     * Create Metering Unit
+     * Create a metering unit. 
+     * @param body  (optional)
+     * @return MeteringUnit
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public MeteringUnit createMeteringUnit(MeteringUnitProps body) throws ApiException {
+        ApiResponse<MeteringUnit> localVarResp = createMeteringUnitWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create Metering Unit
+     * Create a metering unit. 
+     * @param body  (optional)
+     * @return ApiResponse&lt;MeteringUnit&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MeteringUnit> createMeteringUnitWithHttpInfo(MeteringUnitProps body) throws ApiException {
+        okhttp3.Call localVarCall = createMeteringUnitValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<MeteringUnit>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create Metering Unit (asynchronously)
+     * Create a metering unit. 
+     * @param body  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createMeteringUnitAsync(MeteringUnitProps body, final ApiCallback<MeteringUnit> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createMeteringUnitValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<MeteringUnit>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteMeteringUnitByID
+     * @param meteringUnitId Metering Unit ID (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteMeteringUnitByIDCall(String meteringUnitId, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metering/units/{metering_unit_id}"
+            .replace("{" + "metering_unit_id" + "}", localVarApiClient.escapeString(meteringUnitId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteMeteringUnitByIDValidateBeforeCall(String meteringUnitId, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'meteringUnitId' is set
+        if (meteringUnitId == null) {
+            throw new ApiException("Missing the required parameter 'meteringUnitId' when calling deleteMeteringUnitByID(Async)");
+        }
+
+        return deleteMeteringUnitByIDCall(meteringUnitId, _callback);
+
+    }
+
+    /**
+     * Delete Metering Unit
+     * Delete metering unit. 
+     * @param meteringUnitId Metering Unit ID (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteMeteringUnitByID(String meteringUnitId) throws ApiException {
+        deleteMeteringUnitByIDWithHttpInfo(meteringUnitId);
+    }
+
+    /**
+     * Delete Metering Unit
+     * Delete metering unit. 
+     * @param meteringUnitId Metering Unit ID (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteMeteringUnitByIDWithHttpInfo(String meteringUnitId) throws ApiException {
+        okhttp3.Call localVarCall = deleteMeteringUnitByIDValidateBeforeCall(meteringUnitId, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete Metering Unit (asynchronously)
+     * Delete metering unit. 
+     * @param meteringUnitId Metering Unit ID (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteMeteringUnitByIDAsync(String meteringUnitId, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteMeteringUnitByIDValidateBeforeCall(meteringUnitId, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for deleteMeteringUnitTimestampCount
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param timestamp タイムスタンプ(timestamp) (required)
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param timestamp Timestamp (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -164,11 +420,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定したタイムスタンプのメータリングユニットカウントを削除(Delete Metering Uunit Count for Specified Timestamp)
-     * 指定したタイムスタンプのメータリングユニットカウントを削除します。  Deletes metering unit count for the specified timestamp. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param timestamp タイムスタンプ(timestamp) (required)
+     * Delete Metering Unit Count for Specified Timestamp
+     * Deletes metering unit count for the specified timestamp. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param timestamp Timestamp (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -182,11 +438,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定したタイムスタンプのメータリングユニットカウントを削除(Delete Metering Uunit Count for Specified Timestamp)
-     * 指定したタイムスタンプのメータリングユニットカウントを削除します。  Deletes metering unit count for the specified timestamp. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param timestamp タイムスタンプ(timestamp) (required)
+     * Delete Metering Unit Count for Specified Timestamp
+     * Deletes metering unit count for the specified timestamp. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param timestamp Timestamp (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -202,11 +458,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定したタイムスタンプのメータリングユニットカウントを削除(Delete Metering Uunit Count for Specified Timestamp) (asynchronously)
-     * 指定したタイムスタンプのメータリングユニットカウントを削除します。  Deletes metering unit count for the specified timestamp. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param timestamp タイムスタンプ(timestamp) (required)
+     * Delete Metering Unit Count for Specified Timestamp (asynchronously)
+     * Deletes metering unit count for the specified timestamp. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param timestamp Timestamp (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -225,9 +481,9 @@ public class MeteringApi {
     }
     /**
      * Build call for getMeteringUnitDateCountByTenantIdAndUnitNameAndDate
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param date 日(date) (required)
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param date Date (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -307,11 +563,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定した日付のメータリングユニットカウントを取得(Get Metering Unit Count for Specific Date)
-     * 指定した日付のメータリングユニットカウントを取得します。  Gets the metering unit count for specific date. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param date 日(date) (required)
+     * Get Metering Unit Count for Specific Date
+     * Gets the metering unit count for a specific date. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param date Date (required)
      * @return MeteringUnitDateCount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -327,11 +583,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定した日付のメータリングユニットカウントを取得(Get Metering Unit Count for Specific Date)
-     * 指定した日付のメータリングユニットカウントを取得します。  Gets the metering unit count for specific date. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param date 日(date) (required)
+     * Get Metering Unit Count for Specific Date
+     * Gets the metering unit count for a specific date. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param date Date (required)
      * @return ApiResponse&lt;MeteringUnitDateCount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -348,11 +604,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定した日付のメータリングユニットカウントを取得(Get Metering Unit Count for Specific Date) (asynchronously)
-     * 指定した日付のメータリングユニットカウントを取得します。  Gets the metering unit count for specific date. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param date 日(date) (required)
+     * Get Metering Unit Count for Specific Date (asynchronously)
+     * Gets the metering unit count for a specific date. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param date Date (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -372,10 +628,10 @@ public class MeteringApi {
     }
     /**
      * Build call for getMeteringUnitDateCountByTenantIdAndUnitNameAndDatePeriod
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param startTimestamp 開始日時(timestamp) (optional)
-     * @param endTimestamp 終了日時(timestamp) (optional)
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param startTimestamp Start Date-Time (optional)
+     * @param endTimestamp End Date-Time (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -457,12 +713,12 @@ public class MeteringApi {
     }
 
     /**
-     * 指定した日時期間のメータリングユニットカウントを取得(Obtain metering unit counts for a specified date/time period)
-     * 指定した日時期間のメータリングユニットカウントを取得します。  Obtain metering unit counts for a specified date/time period. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param startTimestamp 開始日時(timestamp) (optional)
-     * @param endTimestamp 終了日時(timestamp) (optional)
+     * Obtain metering unit counts for a specified date/time period
+     * Obtain metering unit counts for a specified date/time period. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param startTimestamp Start Date-Time (optional)
+     * @param endTimestamp End Date-Time (optional)
      * @return MeteringUnitDatePeriodCounts
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -478,12 +734,12 @@ public class MeteringApi {
     }
 
     /**
-     * 指定した日時期間のメータリングユニットカウントを取得(Obtain metering unit counts for a specified date/time period)
-     * 指定した日時期間のメータリングユニットカウントを取得します。  Obtain metering unit counts for a specified date/time period. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param startTimestamp 開始日時(timestamp) (optional)
-     * @param endTimestamp 終了日時(timestamp) (optional)
+     * Obtain metering unit counts for a specified date/time period
+     * Obtain metering unit counts for a specified date/time period. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param startTimestamp Start Date-Time (optional)
+     * @param endTimestamp End Date-Time (optional)
      * @return ApiResponse&lt;MeteringUnitDatePeriodCounts&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -500,12 +756,12 @@ public class MeteringApi {
     }
 
     /**
-     * 指定した日時期間のメータリングユニットカウントを取得(Obtain metering unit counts for a specified date/time period) (asynchronously)
-     * 指定した日時期間のメータリングユニットカウントを取得します。  Obtain metering unit counts for a specified date/time period. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param startTimestamp 開始日時(timestamp) (optional)
-     * @param endTimestamp 終了日時(timestamp) (optional)
+     * Obtain metering unit counts for a specified date/time period (asynchronously)
+     * Obtain metering unit counts for a specified date/time period. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param startTimestamp Start Date-Time (optional)
+     * @param endTimestamp End Date-Time (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -525,8 +781,8 @@ public class MeteringApi {
     }
     /**
      * Build call for getMeteringUnitDateCountByTenantIdAndUnitNameToday
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -600,10 +856,10 @@ public class MeteringApi {
     }
 
     /**
-     * 当日のメータリングユニットカウントを取得(Get Metering Unit Count for the Current Day)
-     * 当日のメータリングユニットカウントを取得します。  Get the metering unit count for the current day. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * Get Metering Unit Count for the Current Day
+     * Get the metering unit count for the current day. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @return MeteringUnitDateCount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -619,10 +875,10 @@ public class MeteringApi {
     }
 
     /**
-     * 当日のメータリングユニットカウントを取得(Get Metering Unit Count for the Current Day)
-     * 当日のメータリングユニットカウントを取得します。  Get the metering unit count for the current day. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * Get Metering Unit Count for the Current Day
+     * Get the metering unit count for the current day. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @return ApiResponse&lt;MeteringUnitDateCount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -639,10 +895,10 @@ public class MeteringApi {
     }
 
     /**
-     * 当日のメータリングユニットカウントを取得(Get Metering Unit Count for the Current Day) (asynchronously)
-     * 当日のメータリングユニットカウントを取得します。  Get the metering unit count for the current day. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * Get Metering Unit Count for the Current Day (asynchronously)
+     * Get the metering unit count for the current day. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -662,8 +918,8 @@ public class MeteringApi {
     }
     /**
      * Build call for getMeteringUnitDateCountsByTenantIdAndDate
-     * @param tenantId テナントID(tenant id) (required)
-     * @param date 日(date) (required)
+     * @param tenantId Tenant ID (required)
+     * @param date Date (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -737,10 +993,10 @@ public class MeteringApi {
     }
 
     /**
-     * 指定日の全メータリングユニットカウントを取得(Get All Metering Unit Counts for a Specified Date)
-     * 指定した日の全メータリングユニットカウントを取得します。  Gets the total metering unit count for the specified date. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param date 日(date) (required)
+     * Get All Metering Unit Counts for a Specified Date
+     * Gets the total metering unit count for the specified date. 
+     * @param tenantId Tenant ID (required)
+     * @param date Date (required)
      * @return MeteringUnitDateCounts
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -756,10 +1012,10 @@ public class MeteringApi {
     }
 
     /**
-     * 指定日の全メータリングユニットカウントを取得(Get All Metering Unit Counts for a Specified Date)
-     * 指定した日の全メータリングユニットカウントを取得します。  Gets the total metering unit count for the specified date. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param date 日(date) (required)
+     * Get All Metering Unit Counts for a Specified Date
+     * Gets the total metering unit count for the specified date. 
+     * @param tenantId Tenant ID (required)
+     * @param date Date (required)
      * @return ApiResponse&lt;MeteringUnitDateCounts&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -776,10 +1032,10 @@ public class MeteringApi {
     }
 
     /**
-     * 指定日の全メータリングユニットカウントを取得(Get All Metering Unit Counts for a Specified Date) (asynchronously)
-     * 指定した日の全メータリングユニットカウントを取得します。  Gets the total metering unit count for the specified date. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param date 日(date) (required)
+     * Get All Metering Unit Counts for a Specified Date (asynchronously)
+     * Gets the total metering unit count for the specified date. 
+     * @param tenantId Tenant ID (required)
+     * @param date Date (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -799,9 +1055,9 @@ public class MeteringApi {
     }
     /**
      * Build call for getMeteringUnitMonthCountByTenantIdAndUnitNameAndMonth
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param month 月(month) (required)
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param month Month (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -881,11 +1137,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定月のメータリングユニットカウントを取得(Get the Metering Unit Count for the Specified Month)
-     * 指定した月のメータリングユニットカウントを取得します。  Gets the metering unit count for the specified month. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param month 月(month) (required)
+     * Get the Metering Unit Count for the Specified Month
+     * Gets the metering unit count for the specified month. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param month Month (required)
      * @return MeteringUnitMonthCount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -901,11 +1157,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定月のメータリングユニットカウントを取得(Get the Metering Unit Count for the Specified Month)
-     * 指定した月のメータリングユニットカウントを取得します。  Gets the metering unit count for the specified month. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param month 月(month) (required)
+     * Get the Metering Unit Count for the Specified Month
+     * Gets the metering unit count for the specified month. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param month Month (required)
      * @return ApiResponse&lt;MeteringUnitMonthCount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -922,11 +1178,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定月のメータリングユニットカウントを取得(Get the Metering Unit Count for the Specified Month) (asynchronously)
-     * 指定した月のメータリングユニットカウントを取得します。  Gets the metering unit count for the specified month. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param month 月(month) (required)
+     * Get the Metering Unit Count for the Specified Month (asynchronously)
+     * Gets the metering unit count for the specified month. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param month Month (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -946,8 +1202,8 @@ public class MeteringApi {
     }
     /**
      * Build call for getMeteringUnitMonthCountByTenantIdAndUnitNameThisMonth
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1021,10 +1277,10 @@ public class MeteringApi {
     }
 
     /**
-     * 当月のメータリングユニットカウントを取得(Get Metering Unit Count for the Current Month)
-     * 当月のメータリングユニットカウントを取得します。  Get the metering unit count for the current month. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * Get Metering Unit Count for the Current Month
+     * Get the metering unit count for the current month. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @return MeteringUnitMonthCount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1040,10 +1296,10 @@ public class MeteringApi {
     }
 
     /**
-     * 当月のメータリングユニットカウントを取得(Get Metering Unit Count for the Current Month)
-     * 当月のメータリングユニットカウントを取得します。  Get the metering unit count for the current month. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * Get Metering Unit Count for the Current Month
+     * Get the metering unit count for the current month. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @return ApiResponse&lt;MeteringUnitMonthCount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1060,10 +1316,10 @@ public class MeteringApi {
     }
 
     /**
-     * 当月のメータリングユニットカウントを取得(Get Metering Unit Count for the Current Month) (asynchronously)
-     * 当月のメータリングユニットカウントを取得します。  Get the metering unit count for the current month. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * Get Metering Unit Count for the Current Month (asynchronously)
+     * Get the metering unit count for the current month. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1083,8 +1339,8 @@ public class MeteringApi {
     }
     /**
      * Build call for getMeteringUnitMonthCountsByTenantIdAndMonth
-     * @param tenantId テナントID(tenant id) (required)
-     * @param month 月(month) (required)
+     * @param tenantId Tenant ID (required)
+     * @param month Month (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1158,10 +1414,10 @@ public class MeteringApi {
     }
 
     /**
-     * 指定月の全メータリングユニットカウントを取得(Get All Metering Unit Counts for the Specified Month)
-     * 指定した月の全メータリングユニットカウントを取得します。  Gets all metering unit counts for the specified month. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param month 月(month) (required)
+     * Get All Metering Unit Counts for the Specified Month
+     * Gets all metering unit counts for the specified month. 
+     * @param tenantId Tenant ID (required)
+     * @param month Month (required)
      * @return MeteringUnitMonthCounts
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1177,10 +1433,10 @@ public class MeteringApi {
     }
 
     /**
-     * 指定月の全メータリングユニットカウントを取得(Get All Metering Unit Counts for the Specified Month)
-     * 指定した月の全メータリングユニットカウントを取得します。  Gets all metering unit counts for the specified month. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param month 月(month) (required)
+     * Get All Metering Unit Counts for the Specified Month
+     * Gets all metering unit counts for the specified month. 
+     * @param tenantId Tenant ID (required)
+     * @param month Month (required)
      * @return ApiResponse&lt;MeteringUnitMonthCounts&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1197,10 +1453,10 @@ public class MeteringApi {
     }
 
     /**
-     * 指定月の全メータリングユニットカウントを取得(Get All Metering Unit Counts for the Specified Month) (asynchronously)
-     * 指定した月の全メータリングユニットカウントを取得します。  Gets all metering unit counts for the specified month. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param month 月(month) (required)
+     * Get All Metering Unit Counts for the Specified Month (asynchronously)
+     * Gets all metering unit counts for the specified month. 
+     * @param tenantId Tenant ID (required)
+     * @param month Month (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1219,10 +1475,259 @@ public class MeteringApi {
         return localVarCall;
     }
     /**
+     * Build call for getMeteringUnits
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getMeteringUnitsCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/metering/units";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getMeteringUnitsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return getMeteringUnitsCall(_callback);
+
+    }
+
+    /**
+     * Get all metering units
+     * Get all metering units. 
+     * @return MeteringUnits
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public MeteringUnits getMeteringUnits() throws ApiException {
+        ApiResponse<MeteringUnits> localVarResp = getMeteringUnitsWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get all metering units
+     * Get all metering units. 
+     * @return ApiResponse&lt;MeteringUnits&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MeteringUnits> getMeteringUnitsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getMeteringUnitsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<MeteringUnits>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get all metering units (asynchronously)
+     * Get all metering units. 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getMeteringUnitsAsync(final ApiCallback<MeteringUnits> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getMeteringUnitsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<MeteringUnits>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateMeteringUnitByID
+     * @param meteringUnitId Metering Unit ID (required)
+     * @param body  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMeteringUnitByIDCall(String meteringUnitId, MeteringUnitProps body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/metering/units/{metering_unit_id}"
+            .replace("{" + "metering_unit_id" + "}", localVarApiClient.escapeString(meteringUnitId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateMeteringUnitByIDValidateBeforeCall(String meteringUnitId, MeteringUnitProps body, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'meteringUnitId' is set
+        if (meteringUnitId == null) {
+            throw new ApiException("Missing the required parameter 'meteringUnitId' when calling updateMeteringUnitByID(Async)");
+        }
+
+        return updateMeteringUnitByIDCall(meteringUnitId, body, _callback);
+
+    }
+
+    /**
+     * Update Metering Unit
+     * Update metering unit. 
+     * @param meteringUnitId Metering Unit ID (required)
+     * @param body  (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void updateMeteringUnitByID(String meteringUnitId, MeteringUnitProps body) throws ApiException {
+        updateMeteringUnitByIDWithHttpInfo(meteringUnitId, body);
+    }
+
+    /**
+     * Update Metering Unit
+     * Update metering unit. 
+     * @param meteringUnitId Metering Unit ID (required)
+     * @param body  (optional)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> updateMeteringUnitByIDWithHttpInfo(String meteringUnitId, MeteringUnitProps body) throws ApiException {
+        okhttp3.Call localVarCall = updateMeteringUnitByIDValidateBeforeCall(meteringUnitId, body, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Update Metering Unit (asynchronously)
+     * Update metering unit. 
+     * @param meteringUnitId Metering Unit ID (required)
+     * @param body  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateMeteringUnitByIDAsync(String meteringUnitId, MeteringUnitProps body, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateMeteringUnitByIDValidateBeforeCall(meteringUnitId, body, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for updateMeteringUnitTimestampCount
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param timestamp タイムスタンプ(timestamp) (required)
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param timestamp Timestamp (required)
      * @param updateMeteringUnitTimestampCountParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1304,11 +1809,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定したタイムスタンプのメータリングユニットカウントを更新(Update Metering Unit Count for Specified Timestamp)
-     * 指定したタイムスタンプのメータリングユニットカウントを更新します。  Update metering unit count for the specified timestamp. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param timestamp タイムスタンプ(timestamp) (required)
+     * Update Metering Unit Count for Specified Timestamp
+     * Update metering unit count for the specified timestamp. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param timestamp Timestamp (required)
      * @param updateMeteringUnitTimestampCountParam  (optional)
      * @return MeteringUnitTimestampCount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1325,11 +1830,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定したタイムスタンプのメータリングユニットカウントを更新(Update Metering Unit Count for Specified Timestamp)
-     * 指定したタイムスタンプのメータリングユニットカウントを更新します。  Update metering unit count for the specified timestamp. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param timestamp タイムスタンプ(timestamp) (required)
+     * Update Metering Unit Count for Specified Timestamp
+     * Update metering unit count for the specified timestamp. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param timestamp Timestamp (required)
      * @param updateMeteringUnitTimestampCountParam  (optional)
      * @return ApiResponse&lt;MeteringUnitTimestampCount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1347,11 +1852,11 @@ public class MeteringApi {
     }
 
     /**
-     * 指定したタイムスタンプのメータリングユニットカウントを更新(Update Metering Unit Count for Specified Timestamp) (asynchronously)
-     * 指定したタイムスタンプのメータリングユニットカウントを更新します。  Update metering unit count for the specified timestamp. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
-     * @param timestamp タイムスタンプ(timestamp) (required)
+     * Update Metering Unit Count for Specified Timestamp (asynchronously)
+     * Update metering unit count for the specified timestamp. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
+     * @param timestamp Timestamp (required)
      * @param updateMeteringUnitTimestampCountParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1372,8 +1877,8 @@ public class MeteringApi {
     }
     /**
      * Build call for updateMeteringUnitTimestampCountNow
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @param updateMeteringUnitTimestampCountNowParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1449,10 +1954,10 @@ public class MeteringApi {
     }
 
     /**
-     * 現在時刻のメータリングユニットカウントを更新(Update Metering Unit Count for Current Time)
-     * 現在時刻のメータリングユニットカウントを更新します。  Update the metering unit count for the current time. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * Update Metering Unit Count for Current Time
+     * Update the metering unit count for the current time. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @param updateMeteringUnitTimestampCountNowParam  (optional)
      * @return MeteringUnitTimestampCount
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1469,10 +1974,10 @@ public class MeteringApi {
     }
 
     /**
-     * 現在時刻のメータリングユニットカウントを更新(Update Metering Unit Count for Current Time)
-     * 現在時刻のメータリングユニットカウントを更新します。  Update the metering unit count for the current time. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * Update Metering Unit Count for Current Time
+     * Update the metering unit count for the current time. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @param updateMeteringUnitTimestampCountNowParam  (optional)
      * @return ApiResponse&lt;MeteringUnitTimestampCount&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1490,10 +1995,10 @@ public class MeteringApi {
     }
 
     /**
-     * 現在時刻のメータリングユニットカウントを更新(Update Metering Unit Count for Current Time) (asynchronously)
-     * 現在時刻のメータリングユニットカウントを更新します。  Update the metering unit count for the current time. 
-     * @param tenantId テナントID(tenant id) (required)
-     * @param meteringUnitName 計測ユニット名(metering unit name) (required)
+     * Update Metering Unit Count for Current Time (asynchronously)
+     * Update the metering unit count for the current time. 
+     * @param tenantId Tenant ID (required)
+     * @param meteringUnitName Metering Unit Name (required)
      * @param updateMeteringUnitTimestampCountNowParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

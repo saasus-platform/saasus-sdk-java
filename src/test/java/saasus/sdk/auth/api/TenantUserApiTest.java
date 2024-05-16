@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -37,9 +37,9 @@ public class TenantUserApiTest {
     private final TenantUserApi api = new TenantUserApi();
 
     /**
-     * テナントにユーザーを作成(Create Tenant User)
+     * Create Tenant User
      *
-     * テナントにユーザーを作成します。 attributesを空のオブジェクトにした場合、追加属性は空で作成されます。  Create a tenant user. If attributes is empty, the additional attributes will be created empty. 
+     * Create a tenant user. If attributes is empty, the additional attributes will be created empty. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -52,9 +52,9 @@ public class TenantUserApiTest {
     }
 
     /**
-     * テナントのユーザー情報に役割(ロール)を作成(Create Tenant User Role)
+     * Create Tenant User Role
      *
-     * テナントのユーザーに役割(ロール)を作成します。  Create roles on tenant users. 
+     * Create roles on tenant users. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -69,9 +69,9 @@ public class TenantUserApiTest {
     }
 
     /**
-     * テナントのユーザー情報を削除(Delete Tenant User)
+     * Delete Tenant User
      *
-     * テナントからユーザーを削除します。  Delete a user from your tenant. 
+     * Delete a user from the tenant. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -84,9 +84,9 @@ public class TenantUserApiTest {
     }
 
     /**
-     * テナントのユーザーから役割(ロール)を削除(Remove Role From Tenant User)
+     * Remove Role From Tenant User
      *
-     * テナントのユーザーから役割(ロール)を削除します。  Remove a role from a tenant user. 
+     * Remove a role from a tenant user. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -101,9 +101,9 @@ public class TenantUserApiTest {
     }
 
     /**
-     * ユーザー情報を取得(Get User Info)
+     * Get User Info
      *
-     * ユーザーIDからテナントに所属しているユーザー情報を取得します。 複数テナントに所属している場合は別のオブジェクトとして返却されます。  Get information on user belonging to the tenant from the user ID. If the user belongs to multiple tenants, it will be returned as another object. 
+     * Get information on user belonging to the tenant from the user ID. If the user belongs to multiple tenants, it will be returned as another object. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -115,9 +115,9 @@ public class TenantUserApiTest {
     }
 
     /**
-     * ユーザー一覧を取得(Get Users)
+     * Get Users
      *
-     * テナントに所属しているユーザー全件を取得します。 複数テナントに所属する同一ユーザーは別のオブジェクトとして返却されます。 idは一意ではありません。  Get all users belonging to the tenant. The same user belonging to multiple tenants will be returned as a different object. Id is not unique. 
+     * Get all users belonging to the tenant. The same user belonging to multiple tenants will be returned as a different object. Id is not unique. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -128,9 +128,9 @@ public class TenantUserApiTest {
     }
 
     /**
-     * テナントのユーザー情報を取得(Get Tenant User)
+     * Get Tenant User
      *
-     * テナントのユーザーをIDから一件取得します。  Get one tenant user by specific ID. 
+     * Get one tenant user by specific ID. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -143,9 +143,9 @@ public class TenantUserApiTest {
     }
 
     /**
-     * テナントのユーザー一覧を取得(Get Tenant Users)
+     * Get Tenant Users
      *
-     * テナントに所属するユーザーを全件取得します。 idは一意です。  Get all the users belonging to the tenant. Id is unique. 
+     * Get all the users belonging to the tenant. Id is unique. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -157,9 +157,9 @@ public class TenantUserApiTest {
     }
 
     /**
-     * テナントのユーザー属性情報を更新(Update Tenant User Attribute)
+     * Update Tenant User Attribute
      *
-     * テナントのユーザー属性情報を更新します。  Update tenant user attributes. 
+     * Update tenant user attributes. 
      *
      * @throws ApiException if the Api call fails
      */

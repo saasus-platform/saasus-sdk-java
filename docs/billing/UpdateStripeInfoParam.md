@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**secretKey** | **String** | シークレットキー(secret key) |  |
+|**secretKey** | **String** | secret key |  |
 
 
 
