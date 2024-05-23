@@ -14,13 +14,13 @@
 package saasus.sdk.awsmarketplace.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.awsmarketplace.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.awsmarketplace.JSON;
 /**
  * Settings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:18.753981Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-23T14:26:14.536277230Z[Etc/UTC]")
 public class Settings {
   public static final String SERIALIZED_NAME_PRODUCT_CODE = "product_code";
   @SerializedName(SERIALIZED_NAME_PRODUCT_CODE)
@@ -92,7 +91,6 @@ public class Settings {
   }
 
   public Settings productCode(String productCode) {
-    
     this.productCode = productCode;
     return this;
   }
@@ -106,14 +104,12 @@ public class Settings {
     return productCode;
   }
 
-
   public void setProductCode(String productCode) {
     this.productCode = productCode;
   }
 
 
   public Settings roleArn(String roleArn) {
-    
     this.roleArn = roleArn;
     return this;
   }
@@ -127,14 +123,12 @@ public class Settings {
     return roleArn;
   }
 
-
   public void setRoleArn(String roleArn) {
     this.roleArn = roleArn;
   }
 
 
   public Settings roleExternalId(String roleExternalId) {
-    
     this.roleExternalId = roleExternalId;
     return this;
   }
@@ -148,14 +142,12 @@ public class Settings {
     return roleExternalId;
   }
 
-
   public void setRoleExternalId(String roleExternalId) {
     this.roleExternalId = roleExternalId;
   }
 
 
   public Settings snsTopicArn(String snsTopicArn) {
-    
     this.snsTopicArn = snsTopicArn;
     return this;
   }
@@ -169,14 +161,12 @@ public class Settings {
     return snsTopicArn;
   }
 
-
   public void setSnsTopicArn(String snsTopicArn) {
     this.snsTopicArn = snsTopicArn;
   }
 
 
   public Settings casBucketName(String casBucketName) {
-    
     this.casBucketName = casBucketName;
     return this;
   }
@@ -190,14 +180,12 @@ public class Settings {
     return casBucketName;
   }
 
-
   public void setCasBucketName(String casBucketName) {
     this.casBucketName = casBucketName;
   }
 
 
   public Settings casSnsTopicArn(String casSnsTopicArn) {
-    
     this.casSnsTopicArn = casSnsTopicArn;
     return this;
   }
@@ -211,14 +199,12 @@ public class Settings {
     return casSnsTopicArn;
   }
 
-
   public void setCasSnsTopicArn(String casSnsTopicArn) {
     this.casSnsTopicArn = casSnsTopicArn;
   }
 
 
   public Settings sellerSnsTopicArn(String sellerSnsTopicArn) {
-    
     this.sellerSnsTopicArn = sellerSnsTopicArn;
     return this;
   }
@@ -232,14 +218,12 @@ public class Settings {
     return sellerSnsTopicArn;
   }
 
-
   public void setSellerSnsTopicArn(String sellerSnsTopicArn) {
     this.sellerSnsTopicArn = sellerSnsTopicArn;
   }
 
 
   public Settings redirectSignUpPageFunctionUrl(String redirectSignUpPageFunctionUrl) {
-    
     this.redirectSignUpPageFunctionUrl = redirectSignUpPageFunctionUrl;
     return this;
   }
@@ -253,14 +237,12 @@ public class Settings {
     return redirectSignUpPageFunctionUrl;
   }
 
-
   public void setRedirectSignUpPageFunctionUrl(String redirectSignUpPageFunctionUrl) {
     this.redirectSignUpPageFunctionUrl = redirectSignUpPageFunctionUrl;
   }
 
 
   public Settings sqsArn(String sqsArn) {
-    
     this.sqsArn = sqsArn;
     return this;
   }
@@ -273,7 +255,6 @@ public class Settings {
   public String getSqsArn() {
     return sqsArn;
   }
-
 
   public void setSqsArn(String sqsArn) {
     this.sqsArn = sqsArn;
@@ -377,9 +358,9 @@ public class Settings {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Settings.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Settings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
