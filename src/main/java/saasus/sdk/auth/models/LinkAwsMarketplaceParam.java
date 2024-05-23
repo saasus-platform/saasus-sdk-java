@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * LinkAwsMarketplaceParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-23T12:17:13.780770927Z[Etc/UTC]")
 public class LinkAwsMarketplaceParam {
   public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
@@ -68,13 +67,12 @@ public class LinkAwsMarketplaceParam {
   }
 
   public LinkAwsMarketplaceParam tenantId(String tenantId) {
-    
     this.tenantId = tenantId;
     return this;
   }
 
    /**
-   * テナントID(tenant ID)
+   * Tenant ID
    * @return tenantId
   **/
   @javax.annotation.Nonnull
@@ -82,20 +80,18 @@ public class LinkAwsMarketplaceParam {
     return tenantId;
   }
 
-
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
 
 
   public LinkAwsMarketplaceParam accessToken(String accessToken) {
-    
     this.accessToken = accessToken;
     return this;
   }
 
    /**
-   * アクセストークン(access token)
+   * Access token
    * @return accessToken
   **/
   @javax.annotation.Nonnull
@@ -103,14 +99,12 @@ public class LinkAwsMarketplaceParam {
     return accessToken;
   }
 
-
   public void setAccessToken(String accessToken) {
     this.accessToken = accessToken;
   }
 
 
   public LinkAwsMarketplaceParam registrationToken(String registrationToken) {
-    
     this.registrationToken = registrationToken;
     return this;
   }
@@ -123,7 +117,6 @@ public class LinkAwsMarketplaceParam {
   public String getRegistrationToken() {
     return registrationToken;
   }
-
 
   public void setRegistrationToken(String registrationToken) {
     this.registrationToken = registrationToken;
@@ -203,9 +196,9 @@ public class LinkAwsMarketplaceParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!LinkAwsMarketplaceParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LinkAwsMarketplaceParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

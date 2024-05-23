@@ -139,8 +139,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携の送信(Send Events)
-     * Amazon EventBridge へイベントを送信します。  Send events to Amazon EventBridge. 
+     * Send Events
+     * Send events to Amazon EventBridge. 
      * @param createEventBridgeEventParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -155,8 +155,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携の送信(Send Events)
-     * Amazon EventBridge へイベントを送信します。  Send events to Amazon EventBridge. 
+     * Send Events
+     * Send events to Amazon EventBridge. 
      * @param createEventBridgeEventParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -173,8 +173,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携の送信(Send Events) (asynchronously)
-     * Amazon EventBridge へイベントを送信します。  Send events to Amazon EventBridge. 
+     * Send Events (asynchronously)
+     * Send events to Amazon EventBridge. 
      * @param createEventBridgeEventParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -255,8 +255,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携のテスト送信(Test EventBridge Connection)
-     * Amazon EventBridge との連携をテストする為のイベントを送信します。  Send events to test the connection with Amazon EventBridge. 
+     * Test EventBridge Connection
+     * Send events to test the connection with Amazon EventBridge. 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -270,8 +270,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携のテスト送信(Test EventBridge Connection)
-     * Amazon EventBridge との連携をテストする為のイベントを送信します。  Send events to test the connection with Amazon EventBridge. 
+     * Test EventBridge Connection
+     * Send events to test the connection with Amazon EventBridge. 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -287,8 +287,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携のテスト送信(Test EventBridge Connection) (asynchronously)
-     * Amazon EventBridge との連携をテストする為のイベントを送信します。  Send events to test the connection with Amazon EventBridge. 
+     * Test EventBridge Connection (asynchronously)
+     * Send events to test the connection with Amazon EventBridge. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -368,8 +368,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携設定を削除(Delete EventBridge Settings)
-     * ホストの状態を Amazon EventBridge 経由で提供するための設定を解除します。  Delete settings used to provide host state via Amazon EventBridge. 
+     * Delete EventBridge Settings
+     * Delete settings used to provide host state via Amazon EventBridge. 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -383,8 +383,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携設定を削除(Delete EventBridge Settings)
-     * ホストの状態を Amazon EventBridge 経由で提供するための設定を解除します。  Delete settings used to provide host state via Amazon EventBridge. 
+     * Delete EventBridge Settings
+     * Delete settings used to provide host state via Amazon EventBridge. 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -400,8 +400,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携設定を削除(Delete EventBridge Settings) (asynchronously)
-     * ホストの状態を Amazon EventBridge 経由で提供するための設定を解除します。  Delete settings used to provide host state via Amazon EventBridge. 
+     * Delete EventBridge Settings (asynchronously)
+     * Delete settings used to provide host state via Amazon EventBridge. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -481,8 +481,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携設定を取得(Get EventBridge Settings)
-     * 監視対象となっている全ホストの状態をリアルタイムにAmazon EventBridge 経由で提供するための設定を取得します。  Gets the settings for providing real-time status of all monitored hosts via Amazon EventBridge. 
+     * Get EventBridge Settings
+     * Gets the settings for providing real-time status of all monitored hosts via Amazon EventBridge. 
      * @return EventBridgeSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -498,8 +498,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携設定を取得(Get EventBridge Settings)
-     * 監視対象となっている全ホストの状態をリアルタイムにAmazon EventBridge 経由で提供するための設定を取得します。  Gets the settings for providing real-time status of all monitored hosts via Amazon EventBridge. 
+     * Get EventBridge Settings
+     * Gets the settings for providing real-time status of all monitored hosts via Amazon EventBridge. 
      * @return ApiResponse&lt;EventBridgeSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -516,8 +516,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携設定を取得(Get EventBridge Settings) (asynchronously)
-     * 監視対象となっている全ホストの状態をリアルタイムにAmazon EventBridge 経由で提供するための設定を取得します。  Gets the settings for providing real-time status of all monitored hosts via Amazon EventBridge. 
+     * Get EventBridge Settings (asynchronously)
+     * Gets the settings for providing real-time status of all monitored hosts via Amazon EventBridge. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -600,8 +600,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携設定を更新(Update EventBridge Settings)
-     * ホストの状態を Amazon EventBridge 経由で提供するための設定を更新します。  Update configuration used to provide the host state via Amazon EventBridge. 
+     * Update EventBridge Settings
+     * Update configuration used to provide the host state via Amazon EventBridge. 
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -616,8 +616,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携設定を更新(Update EventBridge Settings)
-     * ホストの状態を Amazon EventBridge 経由で提供するための設定を更新します。  Update configuration used to provide the host state via Amazon EventBridge. 
+     * Update EventBridge Settings
+     * Update configuration used to provide the host state via Amazon EventBridge. 
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -634,8 +634,8 @@ public class EventBridgeApi {
     }
 
     /**
-     * イベント連携設定を更新(Update EventBridge Settings) (asynchronously)
-     * ホストの状態を Amazon EventBridge 経由で提供するための設定を更新します。  Update configuration used to provide the host state via Amazon EventBridge. 
+     * Update EventBridge Settings (asynchronously)
+     * Update configuration used to provide the host state via Amazon EventBridge. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

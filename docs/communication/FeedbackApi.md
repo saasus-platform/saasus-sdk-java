@@ -4,27 +4,27 @@ All URIs are relative to *https://api.saasus.io/v1/communication*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createFeedback**](FeedbackApi.md#createFeedback) | **POST** /feedbacks |  |
-| [**createFeedbackComment**](FeedbackApi.md#createFeedbackComment) | **POST** /feedbacks/{feedback_id}/comments |  |
-| [**createVoteUser**](FeedbackApi.md#createVoteUser) | **POST** /feedbacks/{feedback_id}/votes/users |  |
-| [**deleteFeedback**](FeedbackApi.md#deleteFeedback) | **DELETE** /feedbacks/{feedback_id} |  |
-| [**deleteFeedbackComment**](FeedbackApi.md#deleteFeedbackComment) | **DELETE** /feedbacks/{feedback_id}/comments/{comment_id} |  |
-| [**deleteVoteForFeedback**](FeedbackApi.md#deleteVoteForFeedback) | **DELETE** /feedbacks/{feedback_id}/votes/users/{user_id} |  |
-| [**getFeedback**](FeedbackApi.md#getFeedback) | **GET** /feedbacks/{feedback_id} |  |
-| [**getFeedbackComment**](FeedbackApi.md#getFeedbackComment) | **GET** /feedbacks/{feedback_id}/comments/{comment_id} |  |
-| [**getFeedbacks**](FeedbackApi.md#getFeedbacks) | **GET** /feedbacks |  |
-| [**updateFeedback**](FeedbackApi.md#updateFeedback) | **PATCH** /feedbacks/{feedback_id} |  |
-| [**updateFeedbackComment**](FeedbackApi.md#updateFeedbackComment) | **PATCH** /feedbacks/{feedback_id}/comments/{comment_id} |  |
-| [**updateFeedbackStatus**](FeedbackApi.md#updateFeedbackStatus) | **PATCH** /feedbacks/{feedback_id}/status |  |
+| [**createFeedback**](FeedbackApi.md#createFeedback) | **POST** /feedbacks | Create Feedback |
+| [**createFeedbackComment**](FeedbackApi.md#createFeedbackComment) | **POST** /feedbacks/{feedback_id}/comments | Create Feedback Comment |
+| [**createVoteUser**](FeedbackApi.md#createVoteUser) | **POST** /feedbacks/{feedback_id}/votes/users | Create Vote User |
+| [**deleteFeedback**](FeedbackApi.md#deleteFeedback) | **DELETE** /feedbacks/{feedback_id} | Delete Feedback |
+| [**deleteFeedbackComment**](FeedbackApi.md#deleteFeedbackComment) | **DELETE** /feedbacks/{feedback_id}/comments/{comment_id} | Delete Feedback Comment |
+| [**deleteVoteForFeedback**](FeedbackApi.md#deleteVoteForFeedback) | **DELETE** /feedbacks/{feedback_id}/votes/users/{user_id} | Delete Vote For Feedback |
+| [**getFeedback**](FeedbackApi.md#getFeedback) | **GET** /feedbacks/{feedback_id} | Get Feedback |
+| [**getFeedbackComment**](FeedbackApi.md#getFeedbackComment) | **GET** /feedbacks/{feedback_id}/comments/{comment_id} | Get Feedback Comment |
+| [**getFeedbacks**](FeedbackApi.md#getFeedbacks) | **GET** /feedbacks | Get Feedbacks |
+| [**updateFeedback**](FeedbackApi.md#updateFeedback) | **PATCH** /feedbacks/{feedback_id} | Update Feedback |
+| [**updateFeedbackComment**](FeedbackApi.md#updateFeedbackComment) | **PATCH** /feedbacks/{feedback_id}/comments/{comment_id} | Update Feedback Comment |
+| [**updateFeedbackStatus**](FeedbackApi.md#updateFeedbackStatus) | **PATCH** /feedbacks/{feedback_id}/status | Update Feedback Status |
 
 
 <a id="createFeedback"></a>
 # **createFeedback**
 > Feedback createFeedback(createFeedbackParam)
 
+Create Feedback
 
-
-フィードバックを起票
+Create Feedback.
 
 ### Example
 ```java
@@ -90,9 +90,9 @@ public class Example {
 # **createFeedbackComment**
 > Comment createFeedbackComment(feedbackId, createFeedbackCommentParam)
 
+Create Feedback Comment
 
-
-フィードバックへのコメント
+Post comment to feedback.
 
 ### Example
 ```java
@@ -161,9 +161,9 @@ public class Example {
 # **createVoteUser**
 > Votes createVoteUser(feedbackId, createVoteUserParam)
 
+Create Vote User
 
-
-フィードバックへの投票
+Vote for feedback.
 
 ### Example
 ```java
@@ -232,9 +232,9 @@ public class Example {
 # **deleteFeedback**
 > deleteFeedback(feedbackId)
 
+Delete Feedback
 
-
-フィードバックの削除
+Delete Feedback.
 
 ### Example
 ```java
@@ -300,9 +300,9 @@ null (empty response body)
 # **deleteFeedbackComment**
 > deleteFeedbackComment(feedbackId, commentId)
 
+Delete Feedback Comment
 
-
-フィードバックへのコメント削除
+Delete comment for feedback.
 
 ### Example
 ```java
@@ -370,9 +370,9 @@ null (empty response body)
 # **deleteVoteForFeedback**
 > deleteVoteForFeedback(feedbackId, userId)
 
+Delete Vote For Feedback
 
-
-フィードバックへの投票の取消
+Cancel vote for feedback.
 
 ### Example
 ```java
@@ -440,9 +440,9 @@ null (empty response body)
 # **getFeedback**
 > Feedback getFeedback(feedbackId)
 
+Get Feedback
 
-
-フィードバックの取得
+Retrieve feedback.
 
 ### Example
 ```java
@@ -509,9 +509,9 @@ public class Example {
 # **getFeedbackComment**
 > Comment getFeedbackComment(feedbackId, commentId)
 
+Get Feedback Comment
 
-
-フィードバックへのコメント取得
+Retrieve comment from feedback.
 
 ### Example
 ```java
@@ -580,9 +580,9 @@ public class Example {
 # **getFeedbacks**
 > Feedbacks getFeedbacks()
 
+Get Feedbacks
 
-
-フィードバックの一覧を取得
+Get the list of feedbacks.
 
 ### Example
 ```java
@@ -644,9 +644,9 @@ This endpoint does not need any parameter.
 # **updateFeedback**
 > updateFeedback(feedbackId, updateFeedbackParam)
 
+Update Feedback
 
-
-フィードバックの編集
+Edit feedback.
 
 ### Example
 ```java
@@ -714,9 +714,9 @@ null (empty response body)
 # **updateFeedbackComment**
 > updateFeedbackComment(feedbackId, commentId, updateFeedbackCommentParam)
 
+Update Feedback Comment
 
-
-フィードバックへのコメント編集
+Edit comment for feedback.
 
 ### Example
 ```java
@@ -786,9 +786,9 @@ null (empty response body)
 # **updateFeedbackStatus**
 > updateFeedbackStatus(feedbackId, updateFeedbackStatusParam)
 
+Update Feedback Status
 
-
-フィードバックのステータス更新
+Update Feedback Status.
 
 ### Example
 ```java

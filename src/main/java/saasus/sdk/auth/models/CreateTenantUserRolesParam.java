@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -52,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * CreateTenantUserRolesParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-23T12:17:13.780770927Z[Etc/UTC]")
 public class CreateTenantUserRolesParam {
   public static final String SERIALIZED_NAME_ROLE_NAMES = "role_names";
   @SerializedName(SERIALIZED_NAME_ROLE_NAMES)
@@ -62,7 +61,6 @@ public class CreateTenantUserRolesParam {
   }
 
   public CreateTenantUserRolesParam roleNames(List<String> roleNames) {
-    
     this.roleNames = roleNames;
     return this;
   }
@@ -76,14 +74,13 @@ public class CreateTenantUserRolesParam {
   }
 
    /**
-   * 役割(ロール)情報(Role Info)
+   * Role Info
    * @return roleNames
   **/
   @javax.annotation.Nonnull
   public List<String> getRoleNames() {
     return roleNames;
   }
-
 
   public void setRoleNames(List<String> roleNames) {
     this.roleNames = roleNames;
@@ -155,9 +152,9 @@ public class CreateTenantUserRolesParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateTenantUserRolesParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateTenantUserRolesParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

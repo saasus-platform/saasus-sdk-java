@@ -14,13 +14,13 @@
 package saasus.sdk.apilog.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.apilog.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.apilog.JSON;
 /**
  * ApiLog
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:28.055350Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-23T12:17:32.862294212Z[Etc/UTC]")
 public class ApiLog {
   public static final String SERIALIZED_NAME_TRACE_ID = "trace_id";
   @SerializedName(SERIALIZED_NAME_TRACE_ID)
@@ -112,13 +111,12 @@ public class ApiLog {
   }
 
   public ApiLog traceId(String traceId) {
-    
     this.traceId = traceId;
     return this;
   }
 
    /**
-   * トレースID
+   * Trace ID
    * @return traceId
   **/
   @javax.annotation.Nonnull
@@ -126,14 +124,12 @@ public class ApiLog {
     return traceId;
   }
 
-
   public void setTraceId(String traceId) {
     this.traceId = traceId;
   }
 
 
   public ApiLog apiLogId(String apiLogId) {
-    
     this.apiLogId = apiLogId;
     return this;
   }
@@ -147,20 +143,18 @@ public class ApiLog {
     return apiLogId;
   }
 
-
   public void setApiLogId(String apiLogId) {
     this.apiLogId = apiLogId;
   }
 
 
   public ApiLog createdAt(Integer createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
 
    /**
-   * APIログ登録日時のエポック秒
+   * Epoch second of API log registration timestamp
    * @return createdAt
   **/
   @javax.annotation.Nonnull
@@ -168,20 +162,18 @@ public class ApiLog {
     return createdAt;
   }
 
-
   public void setCreatedAt(Integer createdAt) {
     this.createdAt = createdAt;
   }
 
 
   public ApiLog createdDate(String createdDate) {
-    
     this.createdDate = createdDate;
     return this;
   }
 
    /**
-   * APIログ登録日
+   * API log registration date
    * @return createdDate
   **/
   @javax.annotation.Nonnull
@@ -189,20 +181,18 @@ public class ApiLog {
     return createdDate;
   }
 
-
   public void setCreatedDate(String createdDate) {
     this.createdDate = createdDate;
   }
 
 
   public ApiLog ttl(Integer ttl) {
-    
     this.ttl = ttl;
     return this;
   }
 
    /**
-   * APIログ削除予定エポック秒
+   * Epoch second of planned API log deletion
    * @return ttl
   **/
   @javax.annotation.Nonnull
@@ -210,20 +200,18 @@ public class ApiLog {
     return ttl;
   }
 
-
   public void setTtl(Integer ttl) {
     this.ttl = ttl;
   }
 
 
   public ApiLog requestMethod(String requestMethod) {
-    
     this.requestMethod = requestMethod;
     return this;
   }
 
    /**
-   * リクエストメソッド
+   * Request method
    * @return requestMethod
   **/
   @javax.annotation.Nonnull
@@ -231,14 +219,12 @@ public class ApiLog {
     return requestMethod;
   }
 
-
   public void setRequestMethod(String requestMethod) {
     this.requestMethod = requestMethod;
   }
 
 
   public ApiLog saasId(String saasId) {
-    
     this.saasId = saasId;
     return this;
   }
@@ -252,20 +238,18 @@ public class ApiLog {
     return saasId;
   }
 
-
   public void setSaasId(String saasId) {
     this.saasId = saasId;
   }
 
 
   public ApiLog apiKey(String apiKey) {
-    
     this.apiKey = apiKey;
     return this;
   }
 
    /**
-   * APIキー
+   * API Key
    * @return apiKey
   **/
   @javax.annotation.Nonnull
@@ -273,20 +257,18 @@ public class ApiLog {
     return apiKey;
   }
 
-
   public void setApiKey(String apiKey) {
     this.apiKey = apiKey;
   }
 
 
   public ApiLog responseStatus(String responseStatus) {
-    
     this.responseStatus = responseStatus;
     return this;
   }
 
    /**
-   * レスポンスステータス
+   * Response status
    * @return responseStatus
   **/
   @javax.annotation.Nonnull
@@ -294,20 +276,18 @@ public class ApiLog {
     return responseStatus;
   }
 
-
   public void setResponseStatus(String responseStatus) {
     this.responseStatus = responseStatus;
   }
 
 
   public ApiLog requestUri(String requestUri) {
-    
     this.requestUri = requestUri;
     return this;
   }
 
    /**
-   * リクエストURI
+   * Request URI
    * @return requestUri
   **/
   @javax.annotation.Nonnull
@@ -315,20 +295,18 @@ public class ApiLog {
     return requestUri;
   }
 
-
   public void setRequestUri(String requestUri) {
     this.requestUri = requestUri;
   }
 
 
   public ApiLog remoteAddress(String remoteAddress) {
-    
     this.remoteAddress = remoteAddress;
     return this;
   }
 
    /**
-   * クライアントIPアドレス
+   * Client IP Address
    * @return remoteAddress
   **/
   @javax.annotation.Nonnull
@@ -336,20 +314,18 @@ public class ApiLog {
     return remoteAddress;
   }
 
-
   public void setRemoteAddress(String remoteAddress) {
     this.remoteAddress = remoteAddress;
   }
 
 
   public ApiLog referer(String referer) {
-    
     this.referer = referer;
     return this;
   }
 
    /**
-   * リクエストリファラー
+   * The referrer of the request
    * @return referer
   **/
   @javax.annotation.Nonnull
@@ -357,20 +333,18 @@ public class ApiLog {
     return referer;
   }
 
-
   public void setReferer(String referer) {
     this.referer = referer;
   }
 
 
   public ApiLog requestBody(String requestBody) {
-    
     this.requestBody = requestBody;
     return this;
   }
 
    /**
-   * リクエストボディー
+   * The body of the request
    * @return requestBody
   **/
   @javax.annotation.Nonnull
@@ -378,27 +352,24 @@ public class ApiLog {
     return requestBody;
   }
 
-
   public void setRequestBody(String requestBody) {
     this.requestBody = requestBody;
   }
 
 
   public ApiLog responseBody(String responseBody) {
-    
     this.responseBody = responseBody;
     return this;
   }
 
    /**
-   * レスポンスボディー
+   * The body of the response
    * @return responseBody
   **/
   @javax.annotation.Nonnull
   public String getResponseBody() {
     return responseBody;
   }
-
 
   public void setResponseBody(String responseBody) {
     this.responseBody = responseBody;
@@ -522,9 +493,9 @@ public class ApiLog {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ApiLog.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiLog` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

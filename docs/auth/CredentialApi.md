@@ -4,17 +4,17 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createAuthCredentials**](CredentialApi.md#createAuthCredentials) | **POST** /credentials | 認証・認可情報の保存(Save Authentication/Authorization Information) |
-| [**getAuthCredentials**](CredentialApi.md#getAuthCredentials) | **GET** /credentials | 認証・認可情報の取得(Get Authentication/Authorization Information) |
+| [**createAuthCredentials**](CredentialApi.md#createAuthCredentials) | **POST** /credentials | Save Authentication/Authorization Information |
+| [**getAuthCredentials**](CredentialApi.md#getAuthCredentials) | **GET** /credentials | Get Authentication/Authorization Information |
 
 
 <a id="createAuthCredentials"></a>
 # **createAuthCredentials**
 > AuthorizationTempCode createAuthCredentials(body)
 
-認証・認可情報の保存(Save Authentication/Authorization Information)
+Save Authentication/Authorization Information
 
-引数のIDトークン・アクセストークン・リフレッシュトークンを一時保存し取得用の一時コードを返却する。 一時コードの有効期間は発行から10秒です。  Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
+Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
 
 ### Example
 ```java
@@ -82,9 +82,9 @@ public class Example {
 # **getAuthCredentials**
 > Credentials getAuthCredentials(code, authFlow, refreshToken)
 
-認証・認可情報の取得(Get Authentication/Authorization Information)
+Get Authentication/Authorization Information
 
-一時コードまたはリフレッシュトークンを利用してIDトークン・アクセストークン・リフレッシュトークンを取得する。  Get ID token, access token, and refresh token using a temporary code or a refresh token. 
+Get ID token, access token, and refresh token using a temporary code or a refresh token. 
 
 ### Example
 ```java
@@ -106,9 +106,9 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     CredentialApi apiInstance = new CredentialApi(defaultClient);
-    String code = "code_example"; // String | 一時コード(Temp Code)
-    String authFlow = "tempCodeAuth"; // String | 認証フロー（Authentication Flow） tempCodeAuth: 一時コードを利用した認証情報の取得 refreshTokenAuth: リフレッシュトークンを利用した認証情報の取得 指定されていない場合は tempCodeAuth になります 
-    String refreshToken = "refreshToken_example"; // String | リフレッシュトークン(Refresh Token)
+    String code = "code_example"; // String | Temp Code
+    String authFlow = "tempCodeAuth"; // String | Authentication Flow tempCodeAuth: Getting authentication information using a temporary code refreshTokenAuth: Getting authentication information using a refresh token If not specified, it will be tempCodeAuth 
+    String refreshToken = "refreshToken_example"; // String | Refresh Token
     try {
       Credentials result = apiInstance.getAuthCredentials(code, authFlow, refreshToken);
       System.out.println(result);
@@ -127,9 +127,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **code** | **String**| 一時コード(Temp Code) | [optional] |
-| **authFlow** | **String**| 認証フロー（Authentication Flow） tempCodeAuth: 一時コードを利用した認証情報の取得 refreshTokenAuth: リフレッシュトークンを利用した認証情報の取得 指定されていない場合は tempCodeAuth になります  | [optional] [enum: tempCodeAuth, refreshTokenAuth] |
-| **refreshToken** | **String**| リフレッシュトークン(Refresh Token) | [optional] |
+| **code** | **String**| Temp Code | [optional] |
+| **authFlow** | **String**| Authentication Flow tempCodeAuth: Getting authentication information using a temporary code refreshTokenAuth: Getting authentication information using a refresh token If not specified, it will be tempCodeAuth  | [optional] [enum: tempCodeAuth, refreshTokenAuth] |
+| **refreshToken** | **String**| Refresh Token | [optional] |
 
 ### Return type
 

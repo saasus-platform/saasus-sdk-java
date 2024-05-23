@@ -141,8 +141,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを作成(Create Pricing Plan)
-     * 料金プランを作成します。  Create pricing plan. 
+     * Create Pricing Plan
+     * Create a pricing plan. 
      * @param body  (optional)
      * @return PricingPlan
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -159,8 +159,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを作成(Create Pricing Plan)
-     * 料金プランを作成します。  Create pricing plan. 
+     * Create Pricing Plan
+     * Create a pricing plan. 
      * @param body  (optional)
      * @return ApiResponse&lt;PricingPlan&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -178,8 +178,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを作成(Create Pricing Plan) (asynchronously)
-     * 料金プランを作成します。  Create pricing plan. 
+     * Create Pricing Plan (asynchronously)
+     * Create a pricing plan. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -261,8 +261,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 全てのPlans,Menus,Units,Metersの削除(Delete all Plans, Menus, Units, Meters and Tax Rates)
-     * 無条件に全料金プラン、メニュー、ユニット、メーター、税率を削除します。  Unconditionally remove all rate plans, menus, units, meters and tax rates. 
+     * Delete all Plans, Menus, Units, Meters and Tax Rates
+     * Unconditionally remove all rate plans, menus, units, meters and tax rates. 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -276,8 +276,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 全てのPlans,Menus,Units,Metersの削除(Delete all Plans, Menus, Units, Meters and Tax Rates)
-     * 無条件に全料金プラン、メニュー、ユニット、メーター、税率を削除します。  Unconditionally remove all rate plans, menus, units, meters and tax rates. 
+     * Delete all Plans, Menus, Units, Meters and Tax Rates
+     * Unconditionally remove all rate plans, menus, units, meters and tax rates. 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -293,8 +293,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 全てのPlans,Menus,Units,Metersの削除(Delete all Plans, Menus, Units, Meters and Tax Rates) (asynchronously)
-     * 無条件に全料金プラン、メニュー、ユニット、メーター、税率を削除します。  Unconditionally remove all rate plans, menus, units, meters and tax rates. 
+     * Delete all Plans, Menus, Units, Meters and Tax Rates (asynchronously)
+     * Unconditionally remove all rate plans, menus, units, meters and tax rates. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -313,7 +313,7 @@ public class PricingPlansApi {
     }
     /**
      * Build call for deletePricingPlan
-     * @param planId 料金プランID(price plan ID) (required)
+     * @param planId Pricing Plan ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -382,9 +382,9 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを削除(Delete Pricing Plan)
-     * 料金プランを削除します。  Delete pricing plan. 
-     * @param planId 料金プランID(price plan ID) (required)
+     * Delete Pricing Plan
+     * Delete a pricing plan. 
+     * @param planId Pricing Plan ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -399,9 +399,9 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを削除(Delete Pricing Plan)
-     * 料金プランを削除します。  Delete pricing plan. 
-     * @param planId 料金プランID(price plan ID) (required)
+     * Delete Pricing Plan
+     * Delete a pricing plan. 
+     * @param planId Pricing Plan ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -418,9 +418,9 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを削除(Delete Pricing Plan) (asynchronously)
-     * 料金プランを削除します。  Delete pricing plan. 
-     * @param planId 料金プランID(price plan ID) (required)
+     * Delete Pricing Plan (asynchronously)
+     * Delete a pricing plan. 
+     * @param planId Pricing Plan ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -501,8 +501,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * stripe上の商品情報を削除(Delete Product Data from Stripe)
-     * stripe上の商品情報を削除します。  Delete product data from Stripe. 
+     * Delete Product Data from Stripe
+     * Delete product data from Stripe. 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -516,8 +516,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * stripe上の商品情報を削除(Delete Product Data from Stripe)
-     * stripe上の商品情報を削除します。  Delete product data from Stripe. 
+     * Delete Product Data from Stripe
+     * Delete product data from Stripe. 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -533,8 +533,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * stripe上の商品情報を削除(Delete Product Data from Stripe) (asynchronously)
-     * stripe上の商品情報を削除します。  Delete product data from Stripe. 
+     * Delete Product Data from Stripe (asynchronously)
+     * Delete product data from Stripe. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -553,7 +553,7 @@ public class PricingPlansApi {
     }
     /**
      * Build call for getPricingPlan
-     * @param planId 料金プランID(price plan ID) (required)
+     * @param planId Pricing Plan ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -621,9 +621,9 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを取得(Get Pricing Plan)
-     * 料金プランを取得します。  Get pricing plan. 
-     * @param planId 料金プランID(price plan ID) (required)
+     * Get Pricing Plan
+     * Get a pricing plan. 
+     * @param planId Pricing Plan ID (required)
      * @return PricingPlan
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -639,9 +639,9 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを取得(Get Pricing Plan)
-     * 料金プランを取得します。  Get pricing plan. 
-     * @param planId 料金プランID(price plan ID) (required)
+     * Get Pricing Plan
+     * Get a pricing plan. 
+     * @param planId Pricing Plan ID (required)
      * @return ApiResponse&lt;PricingPlan&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -658,9 +658,9 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを取得(Get Pricing Plan) (asynchronously)
-     * 料金プランを取得します。  Get pricing plan. 
-     * @param planId 料金プランID(price plan ID) (required)
+     * Get Pricing Plan (asynchronously)
+     * Get a pricing plan. 
+     * @param planId Pricing Plan ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -741,8 +741,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プラン一覧を取得(Get pricing plan list)
-     * 料金プラン一覧を取得します。 機能メニューを複数まとめて、１つの料金プランとして定義します。 ここで定義した料金プランを各テナントは選ぶことができます。 もし特定テナント特有の料金（プライベートプライシング）がある場合は、そのテナント専用の料金プランを作成して結びつけます。  Get pricing plans. Multiple feature menus are grouped together and defined as one pricing plan. Each tenant can choose a pricing plan defined here. If you have a specific tenant-specific rate (private pricing), create and connect the pricing plan specifically for that tenant. 
+     * Get Pricing Plans
+     * Get pricing plans. Multiple feature menus are grouped together and defined as one pricing plan. Each tenant can choose a pricing plan defined here. If you have a specific tenant-specific rate (private pricing), create and connect the pricing plan specifically for that tenant. 
      * @return PricingPlans
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -758,8 +758,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プラン一覧を取得(Get pricing plan list)
-     * 料金プラン一覧を取得します。 機能メニューを複数まとめて、１つの料金プランとして定義します。 ここで定義した料金プランを各テナントは選ぶことができます。 もし特定テナント特有の料金（プライベートプライシング）がある場合は、そのテナント専用の料金プランを作成して結びつけます。  Get pricing plans. Multiple feature menus are grouped together and defined as one pricing plan. Each tenant can choose a pricing plan defined here. If you have a specific tenant-specific rate (private pricing), create and connect the pricing plan specifically for that tenant. 
+     * Get Pricing Plans
+     * Get pricing plans. Multiple feature menus are grouped together and defined as one pricing plan. Each tenant can choose a pricing plan defined here. If you have a specific tenant-specific rate (private pricing), create and connect the pricing plan specifically for that tenant. 
      * @return ApiResponse&lt;PricingPlans&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -776,8 +776,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プラン一覧を取得(Get pricing plan list) (asynchronously)
-     * 料金プラン一覧を取得します。 機能メニューを複数まとめて、１つの料金プランとして定義します。 ここで定義した料金プランを各テナントは選ぶことができます。 もし特定テナント特有の料金（プライベートプライシング）がある場合は、そのテナント専用の料金プランを作成して結びつけます。  Get pricing plans. Multiple feature menus are grouped together and defined as one pricing plan. Each tenant can choose a pricing plan defined here. If you have a specific tenant-specific rate (private pricing), create and connect the pricing plan specifically for that tenant. 
+     * Get Pricing Plans (asynchronously)
+     * Get pricing plans. Multiple feature menus are grouped together and defined as one pricing plan. Each tenant can choose a pricing plan defined here. If you have a specific tenant-specific rate (private pricing), create and connect the pricing plan specifically for that tenant. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -858,8 +858,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * stripe連携(Connect to Stripe)
-     * stripeへ情報を連携します。  Connect information to Stripe. 
+     * Connect to Stripe
+     * Connect information to Stripe. 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -873,8 +873,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * stripe連携(Connect to Stripe)
-     * stripeへ情報を連携します。  Connect information to Stripe. 
+     * Connect to Stripe
+     * Connect information to Stripe. 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -890,8 +890,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * stripe連携(Connect to Stripe) (asynchronously)
-     * stripeへ情報を連携します。  Connect information to Stripe. 
+     * Connect to Stripe (asynchronously)
+     * Connect information to Stripe. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -910,7 +910,7 @@ public class PricingPlansApi {
     }
     /**
      * Build call for updatePricingPlan
-     * @param planId 料金プランID(price plan ID) (required)
+     * @param planId Pricing Plan ID (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -980,9 +980,9 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを更新(Update Pricing Plan)
-     * 料金プランを更新します。  Update pricing plan. 
-     * @param planId 料金プランID(price plan ID) (required)
+     * Update Pricing Plan
+     * Update a pricing plan. 
+     * @param planId Pricing Plan ID (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -997,9 +997,9 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを更新(Update Pricing Plan)
-     * 料金プランを更新します。  Update pricing plan. 
-     * @param planId 料金プランID(price plan ID) (required)
+     * Update Pricing Plan
+     * Update a pricing plan. 
+     * @param planId Pricing Plan ID (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1016,9 +1016,9 @@ public class PricingPlansApi {
     }
 
     /**
-     * 料金プランを更新(Update Pricing Plan) (asynchronously)
-     * 料金プランを更新します。  Update pricing plan. 
-     * @param planId 料金プランID(price plan ID) (required)
+     * Update Pricing Plan (asynchronously)
+     * Update a pricing plan. 
+     * @param planId Pricing Plan ID (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1101,8 +1101,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 使用済みフラグ更新(Update Used Flag)
-     * 料金プランと配下のメニュー・ユニットを使用済みに更新します。  Update price plan and feature menu/pricing unit to used. 
+     * Update Used Flag
+     * Update price plan and feature menu/pricing unit to used. 
      * @param updatePricingPlansUsedParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1117,8 +1117,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 使用済みフラグ更新(Update Used Flag)
-     * 料金プランと配下のメニュー・ユニットを使用済みに更新します。  Update price plan and feature menu/pricing unit to used. 
+     * Update Used Flag
+     * Update price plan and feature menu/pricing unit to used. 
      * @param updatePricingPlansUsedParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1135,8 +1135,8 @@ public class PricingPlansApi {
     }
 
     /**
-     * 使用済みフラグ更新(Update Used Flag) (asynchronously)
-     * 料金プランと配下のメニュー・ユニットを使用済みに更新します。  Update price plan and feature menu/pricing unit to used. 
+     * Update Used Flag (asynchronously)
+     * Update price plan and feature menu/pricing unit to used. 
      * @param updatePricingPlansUsedParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

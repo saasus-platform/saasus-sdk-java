@@ -4,24 +4,24 @@ All URIs are relative to *https://api.saasus.io/v1/pricing*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createPricingPlan**](PricingPlansApi.md#createPricingPlan) | **POST** /plans | 料金プランを作成(Create Pricing Plan) |
-| [**deleteAllPlansAndMenusAndUnitsAndMetersAndTaxRates**](PricingPlansApi.md#deleteAllPlansAndMenusAndUnitsAndMetersAndTaxRates) | **DELETE** /plans-initialization | 全てのPlans,Menus,Units,Metersの削除(Delete all Plans, Menus, Units, Meters and Tax Rates) |
-| [**deletePricingPlan**](PricingPlansApi.md#deletePricingPlan) | **DELETE** /plans/{plan_id} | 料金プランを削除(Delete Pricing Plan) |
-| [**deleteStripePlan**](PricingPlansApi.md#deleteStripePlan) | **DELETE** /stripe | stripe上の商品情報を削除(Delete Product Data from Stripe) |
-| [**getPricingPlan**](PricingPlansApi.md#getPricingPlan) | **GET** /plans/{plan_id} | 料金プランを取得(Get Pricing Plan) |
-| [**getPricingPlans**](PricingPlansApi.md#getPricingPlans) | **GET** /plans | 料金プラン一覧を取得(Get pricing plan list) |
-| [**linkPlanToStripe**](PricingPlansApi.md#linkPlanToStripe) | **PATCH** /stripe/init | stripe連携(Connect to Stripe) |
-| [**updatePricingPlan**](PricingPlansApi.md#updatePricingPlan) | **PATCH** /plans/{plan_id} | 料金プランを更新(Update Pricing Plan) |
-| [**updatePricingPlansUsed**](PricingPlansApi.md#updatePricingPlansUsed) | **PATCH** /plans/used | 使用済みフラグ更新(Update Used Flag) |
+| [**createPricingPlan**](PricingPlansApi.md#createPricingPlan) | **POST** /plans | Create Pricing Plan |
+| [**deleteAllPlansAndMenusAndUnitsAndMetersAndTaxRates**](PricingPlansApi.md#deleteAllPlansAndMenusAndUnitsAndMetersAndTaxRates) | **DELETE** /plans-initialization | Delete all Plans, Menus, Units, Meters and Tax Rates |
+| [**deletePricingPlan**](PricingPlansApi.md#deletePricingPlan) | **DELETE** /plans/{plan_id} | Delete Pricing Plan |
+| [**deleteStripePlan**](PricingPlansApi.md#deleteStripePlan) | **DELETE** /stripe | Delete Product Data from Stripe |
+| [**getPricingPlan**](PricingPlansApi.md#getPricingPlan) | **GET** /plans/{plan_id} | Get Pricing Plan |
+| [**getPricingPlans**](PricingPlansApi.md#getPricingPlans) | **GET** /plans | Get Pricing Plans |
+| [**linkPlanToStripe**](PricingPlansApi.md#linkPlanToStripe) | **PATCH** /stripe/init | Connect to Stripe |
+| [**updatePricingPlan**](PricingPlansApi.md#updatePricingPlan) | **PATCH** /plans/{plan_id} | Update Pricing Plan |
+| [**updatePricingPlansUsed**](PricingPlansApi.md#updatePricingPlansUsed) | **PATCH** /plans/used | Update Used Flag |
 
 
 <a id="createPricingPlan"></a>
 # **createPricingPlan**
 > PricingPlan createPricingPlan(body)
 
-料金プランを作成(Create Pricing Plan)
+Create Pricing Plan
 
-料金プランを作成します。  Create pricing plan. 
+Create a pricing plan. 
 
 ### Example
 ```java
@@ -87,9 +87,9 @@ public class Example {
 # **deleteAllPlansAndMenusAndUnitsAndMetersAndTaxRates**
 > deleteAllPlansAndMenusAndUnitsAndMetersAndTaxRates()
 
-全てのPlans,Menus,Units,Metersの削除(Delete all Plans, Menus, Units, Meters and Tax Rates)
+Delete all Plans, Menus, Units, Meters and Tax Rates
 
-無条件に全料金プラン、メニュー、ユニット、メーター、税率を削除します。  Unconditionally remove all rate plans, menus, units, meters and tax rates. 
+Unconditionally remove all rate plans, menus, units, meters and tax rates. 
 
 ### Example
 ```java
@@ -150,9 +150,9 @@ null (empty response body)
 # **deletePricingPlan**
 > deletePricingPlan(planId)
 
-料金プランを削除(Delete Pricing Plan)
+Delete Pricing Plan
 
-料金プランを削除します。  Delete pricing plan. 
+Delete a pricing plan. 
 
 ### Example
 ```java
@@ -174,7 +174,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     PricingPlansApi apiInstance = new PricingPlansApi(defaultClient);
-    String planId = "planId_example"; // String | 料金プランID(price plan ID)
+    String planId = "planId_example"; // String | Pricing Plan ID
     try {
       apiInstance.deletePricingPlan(planId);
     } catch (ApiException e) {
@@ -192,7 +192,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **planId** | **String**| 料金プランID(price plan ID) | |
+| **planId** | **String**| Pricing Plan ID | |
 
 ### Return type
 
@@ -218,9 +218,9 @@ null (empty response body)
 # **deleteStripePlan**
 > deleteStripePlan()
 
-stripe上の商品情報を削除(Delete Product Data from Stripe)
+Delete Product Data from Stripe
 
-stripe上の商品情報を削除します。  Delete product data from Stripe. 
+Delete product data from Stripe. 
 
 ### Example
 ```java
@@ -281,9 +281,9 @@ null (empty response body)
 # **getPricingPlan**
 > PricingPlan getPricingPlan(planId)
 
-料金プランを取得(Get Pricing Plan)
+Get Pricing Plan
 
-料金プランを取得します。  Get pricing plan. 
+Get a pricing plan. 
 
 ### Example
 ```java
@@ -305,7 +305,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     PricingPlansApi apiInstance = new PricingPlansApi(defaultClient);
-    String planId = "planId_example"; // String | 料金プランID(price plan ID)
+    String planId = "planId_example"; // String | Pricing Plan ID
     try {
       PricingPlan result = apiInstance.getPricingPlan(planId);
       System.out.println(result);
@@ -324,7 +324,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **planId** | **String**| 料金プランID(price plan ID) | |
+| **planId** | **String**| Pricing Plan ID | |
 
 ### Return type
 
@@ -349,9 +349,9 @@ public class Example {
 # **getPricingPlans**
 > PricingPlans getPricingPlans()
 
-料金プラン一覧を取得(Get pricing plan list)
+Get Pricing Plans
 
-料金プラン一覧を取得します。 機能メニューを複数まとめて、１つの料金プランとして定義します。 ここで定義した料金プランを各テナントは選ぶことができます。 もし特定テナント特有の料金（プライベートプライシング）がある場合は、そのテナント専用の料金プランを作成して結びつけます。  Get pricing plans. Multiple feature menus are grouped together and defined as one pricing plan. Each tenant can choose a pricing plan defined here. If you have a specific tenant-specific rate (private pricing), create and connect the pricing plan specifically for that tenant. 
+Get pricing plans. Multiple feature menus are grouped together and defined as one pricing plan. Each tenant can choose a pricing plan defined here. If you have a specific tenant-specific rate (private pricing), create and connect the pricing plan specifically for that tenant. 
 
 ### Example
 ```java
@@ -413,9 +413,9 @@ This endpoint does not need any parameter.
 # **linkPlanToStripe**
 > linkPlanToStripe()
 
-stripe連携(Connect to Stripe)
+Connect to Stripe
 
-stripeへ情報を連携します。  Connect information to Stripe. 
+Connect information to Stripe. 
 
 ### Example
 ```java
@@ -476,9 +476,9 @@ null (empty response body)
 # **updatePricingPlan**
 > updatePricingPlan(planId, body)
 
-料金プランを更新(Update Pricing Plan)
+Update Pricing Plan
 
-料金プランを更新します。  Update pricing plan. 
+Update a pricing plan. 
 
 ### Example
 ```java
@@ -500,7 +500,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     PricingPlansApi apiInstance = new PricingPlansApi(defaultClient);
-    String planId = "planId_example"; // String | 料金プランID(price plan ID)
+    String planId = "planId_example"; // String | Pricing Plan ID
     SavePricingPlanParam body = new SavePricingPlanParam(); // SavePricingPlanParam | 
     try {
       apiInstance.updatePricingPlan(planId, body);
@@ -519,7 +519,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **planId** | **String**| 料金プランID(price plan ID) | |
+| **planId** | **String**| Pricing Plan ID | |
 | **body** | **SavePricingPlanParam**|  | [optional] |
 
 ### Return type
@@ -545,9 +545,9 @@ null (empty response body)
 # **updatePricingPlansUsed**
 > updatePricingPlansUsed(updatePricingPlansUsedParam)
 
-使用済みフラグ更新(Update Used Flag)
+Update Used Flag
 
-料金プランと配下のメニュー・ユニットを使用済みに更新します。  Update price plan and feature menu/pricing unit to used. 
+Update price plan and feature menu/pricing unit to used. 
 
 ### Example
 ```java
