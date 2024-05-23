@@ -140,8 +140,8 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを作成(Create a Pricing Feature Menu)
-     * プライシング機能メニューを作成します。  Create a pricing feature menu. 
+     * Create a Pricing Feature Menu
+     * Create a pricing feature menu. 
      * @param body  (optional)
      * @return PricingMenu
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -158,8 +158,8 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを作成(Create a Pricing Feature Menu)
-     * プライシング機能メニューを作成します。  Create a pricing feature menu. 
+     * Create a Pricing Feature Menu
+     * Create a pricing feature menu. 
      * @param body  (optional)
      * @return ApiResponse&lt;PricingMenu&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -177,8 +177,8 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを作成(Create a Pricing Feature Menu) (asynchronously)
-     * プライシング機能メニューを作成します。  Create a pricing feature menu. 
+     * Create a Pricing Feature Menu (asynchronously)
+     * Create a pricing feature menu. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -199,7 +199,7 @@ public class PricingMenusApi {
     }
     /**
      * Build call for deletePricingMenu
-     * @param menuId メニューID(menu ID) (required)
+     * @param menuId Menu ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -268,9 +268,9 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを削除(Delete Pricing Feature Menu)
-     * プライシング機能メニューを削除します。  Delete pricing feature menu. 
-     * @param menuId メニューID(menu ID) (required)
+     * Delete Pricing Feature Menu
+     * Delete pricing feature menu. 
+     * @param menuId Menu ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -285,9 +285,9 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを削除(Delete Pricing Feature Menu)
-     * プライシング機能メニューを削除します。  Delete pricing feature menu. 
-     * @param menuId メニューID(menu ID) (required)
+     * Delete Pricing Feature Menu
+     * Delete pricing feature menu. 
+     * @param menuId Menu ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -304,9 +304,9 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを削除(Delete Pricing Feature Menu) (asynchronously)
-     * プライシング機能メニューを削除します。  Delete pricing feature menu. 
-     * @param menuId メニューID(menu ID) (required)
+     * Delete Pricing Feature Menu (asynchronously)
+     * Delete pricing feature menu. 
+     * @param menuId Menu ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -326,7 +326,7 @@ public class PricingMenusApi {
     }
     /**
      * Build call for getPricingMenu
-     * @param menuId メニューID(menu ID) (required)
+     * @param menuId Menu ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -394,9 +394,9 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを取得(Get Pricing Feature Menu)
-     * プライシング機能メニューを取得します。  Get a pricing feature menu. 
-     * @param menuId メニューID(menu ID) (required)
+     * Get Pricing Feature Menu
+     * Get a pricing feature menu. 
+     * @param menuId Menu ID (required)
      * @return PricingMenu
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -412,9 +412,9 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを取得(Get Pricing Feature Menu)
-     * プライシング機能メニューを取得します。  Get a pricing feature menu. 
-     * @param menuId メニューID(menu ID) (required)
+     * Get Pricing Feature Menu
+     * Get a pricing feature menu. 
+     * @param menuId Menu ID (required)
      * @return ApiResponse&lt;PricingMenu&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -431,9 +431,9 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを取得(Get Pricing Feature Menu) (asynchronously)
-     * プライシング機能メニューを取得します。  Get a pricing feature menu. 
-     * @param menuId メニューID(menu ID) (required)
+     * Get Pricing Feature Menu (asynchronously)
+     * Get a pricing feature menu. 
+     * @param menuId Menu ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -514,8 +514,8 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニュー一覧を取得(Get Pricing Feature Menus)
-     * 機能メニュー一覧を取得します。 計測単位を複数まとめて、１つの機能メニューとして定義します。 ここで定義した機能メニューを複数合わせ１つの料金プランとします。  Get the feature menu list. Multiple measurement units are grouped together and defined as one feature menu. Multiple feature menus defined here are combined into one billing plan. 
+     * Get Pricing Feature Menus
+     * Get the feature menu list. Multiple measurement units are grouped together and defined as one feature menu. Multiple feature menus defined here are combined into one billing plan. 
      * @return PricingMenus
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -531,8 +531,8 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニュー一覧を取得(Get Pricing Feature Menus)
-     * 機能メニュー一覧を取得します。 計測単位を複数まとめて、１つの機能メニューとして定義します。 ここで定義した機能メニューを複数合わせ１つの料金プランとします。  Get the feature menu list. Multiple measurement units are grouped together and defined as one feature menu. Multiple feature menus defined here are combined into one billing plan. 
+     * Get Pricing Feature Menus
+     * Get the feature menu list. Multiple measurement units are grouped together and defined as one feature menu. Multiple feature menus defined here are combined into one billing plan. 
      * @return ApiResponse&lt;PricingMenus&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -549,8 +549,8 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニュー一覧を取得(Get Pricing Feature Menus) (asynchronously)
-     * 機能メニュー一覧を取得します。 計測単位を複数まとめて、１つの機能メニューとして定義します。 ここで定義した機能メニューを複数合わせ１つの料金プランとします。  Get the feature menu list. Multiple measurement units are grouped together and defined as one feature menu. Multiple feature menus defined here are combined into one billing plan. 
+     * Get Pricing Feature Menus (asynchronously)
+     * Get the feature menu list. Multiple measurement units are grouped together and defined as one feature menu. Multiple feature menus defined here are combined into one billing plan. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -570,7 +570,7 @@ public class PricingMenusApi {
     }
     /**
      * Build call for updatePricingMenu
-     * @param menuId メニューID(menu ID) (required)
+     * @param menuId Menu ID (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -640,9 +640,9 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを更新(Updated pricing feature menu)
-     * プライシング機能メニューを更新します。  Update pricing feature menu. 
-     * @param menuId メニューID(menu ID) (required)
+     * Update Pricing Feature Menu
+     * Update pricing feature menu. 
+     * @param menuId Menu ID (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -657,9 +657,9 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを更新(Updated pricing feature menu)
-     * プライシング機能メニューを更新します。  Update pricing feature menu. 
-     * @param menuId メニューID(menu ID) (required)
+     * Update Pricing Feature Menu
+     * Update pricing feature menu. 
+     * @param menuId Menu ID (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -676,9 +676,9 @@ public class PricingMenusApi {
     }
 
     /**
-     * プライシング機能メニューを更新(Updated pricing feature menu) (asynchronously)
-     * プライシング機能メニューを更新します。  Update pricing feature menu. 
-     * @param menuId メニューID(menu ID) (required)
+     * Update Pricing Feature Menu (asynchronously)
+     * Update pricing feature menu. 
+     * @param menuId Menu ID (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
