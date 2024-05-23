@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,15 +42,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
 
 /**
- * 外部IDプロバイダを利用したサインインの設定をするために必要な情報です。(This information is required to set up sign-in using an external identity provider.) 変更はできません。(It cannot be changed.) 
+ * This information is required to set up sign-in using an external identity provider. It cannot be changed. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-23T12:17:13.780770927Z[Etc/UTC]")
 public class IdentityProviderConfiguration {
   public static final String SERIALIZED_NAME_DOMAIN = "domain";
   @SerializedName(SERIALIZED_NAME_DOMAIN)
@@ -72,13 +71,12 @@ public class IdentityProviderConfiguration {
   }
 
   public IdentityProviderConfiguration domain(String domain) {
-    
     this.domain = domain;
     return this;
   }
 
    /**
-   * ドメイン(domain)
+   * domain
    * @return domain
   **/
   @javax.annotation.Nonnull
@@ -86,20 +84,18 @@ public class IdentityProviderConfiguration {
     return domain;
   }
 
-
   public void setDomain(String domain) {
     this.domain = domain;
   }
 
 
   public IdentityProviderConfiguration redirectUrl(String redirectUrl) {
-    
     this.redirectUrl = redirectUrl;
     return this;
   }
 
    /**
-   * リダイレクトURL(redirect URL)
+   * redirect URL
    * @return redirectUrl
   **/
   @javax.annotation.Nonnull
@@ -107,20 +103,18 @@ public class IdentityProviderConfiguration {
     return redirectUrl;
   }
 
-
   public void setRedirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
   }
 
 
   public IdentityProviderConfiguration entityId(String entityId) {
-    
     this.entityId = entityId;
     return this;
   }
 
    /**
-   * 識別子(entity ID)
+   * entity ID
    * @return entityId
   **/
   @javax.annotation.Nonnull
@@ -128,27 +122,24 @@ public class IdentityProviderConfiguration {
     return entityId;
   }
 
-
   public void setEntityId(String entityId) {
     this.entityId = entityId;
   }
 
 
   public IdentityProviderConfiguration replyUrl(String replyUrl) {
-    
     this.replyUrl = replyUrl;
     return this;
   }
 
    /**
-   * 応答URL(reply URL)
+   * reply URL
    * @return replyUrl
   **/
   @javax.annotation.Nonnull
   public String getReplyUrl() {
     return replyUrl;
   }
-
 
   public void setReplyUrl(String replyUrl) {
     this.replyUrl = replyUrl;
@@ -232,9 +223,9 @@ public class IdentityProviderConfiguration {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!IdentityProviderConfiguration.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IdentityProviderConfiguration` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

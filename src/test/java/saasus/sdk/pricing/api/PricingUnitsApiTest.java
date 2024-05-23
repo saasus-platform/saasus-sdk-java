@@ -35,9 +35,9 @@ public class PricingUnitsApiTest {
     private final PricingUnitsApi api = new PricingUnitsApi();
 
     /**
-     * プライシングユニットを作成(Create Pricing Unit)
+     * Create Pricing Unit
      *
-     * プライシングユニットを作成します。  Create a pricing unit. 
+     * Create a pricing unit. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -49,9 +49,9 @@ public class PricingUnitsApiTest {
     }
 
     /**
-     * プライシングユニットを削除(Delete Pricing Unit)
+     * Delete Pricing Unit
      *
-     * プライシングユニットを削除します。  Delete a pricing unit. 
+     * Delete a pricing unit. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -63,9 +63,9 @@ public class PricingUnitsApiTest {
     }
 
     /**
-     * プライシングユニットを取得(Get Pricing Unit)
+     * Get Pricing Unit
      *
-     * プライシングユニットを取得します。  Get a pricing unit. 
+     * Get a pricing unit. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -77,9 +77,9 @@ public class PricingUnitsApiTest {
     }
 
     /**
-     * プライシングユニットの一覧を取得(Get Pricing Units)
+     * Get Pricing Units
      *
-     * 料金のベースとなる最小の計測単位を取得します。 「固定ユニット」(type&#x3D;fixed)は基本料金などの月額固定料金の単位、 「使用量ユニット」(type&#x3D;usage)はユーザ数課金などの１単位あたりごとに料金が発生する単位、 「段階ユニット」(type&#x3D;tiered)は携帯電話の段階的パケット料金のように利用量の段階ごとに一定の料金の単位、 「段階的使用量ユニット」(type&#x3D;tiered_usage)はボリュームディスカウントのように利用量に応じて１単位あたりの料金が変化していく単位、となります。  Gets the smallest unit of measure on which the charges are based. \&quot;Fixed Unit\&quot; (type&#x3D;fixed) is a unit of a monthly fixed charge such as a basic charge, \&quot;Usage Unit\&quot; (type&#x3D;usage) is a unit in which a charge is generated per unit such as billing for the number of users, \&quot;Tiered Unit\&quot; (type &#x3D; tiered) is a fixed charge unit for each tier of usage, such as the tiered packet charge for mobile phones, \&quot;Tiered Usage Unit\&quot; (type&#x3D;tiered_usage) is a unit where the charge per unit changes according to the usage amount, such as a volume discount. 
+     * Gets the smallest unit of measure on which the charges are based. \&quot;Fixed Unit\&quot; (type&#x3D;fixed) is a unit of a monthly fixed charge such as a basic charge, \&quot;Usage Unit\&quot; (type&#x3D;usage) is a unit in which a charge is generated per unit such as billing for the number of users, \&quot;Tiered Unit\&quot; (type&#x3D;tiered) is a fixed charge unit for each tier of usage, such as the tiered packet charge for mobile phones, \&quot;Tiered Usage Unit\&quot; (type&#x3D;tiered_usage) is a unit where the charge per unit changes according to the usage amount, such as a volume discount. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -90,9 +90,9 @@ public class PricingUnitsApiTest {
     }
 
     /**
-     * プライシングユニットを更新(Update Pricing Unit)
+     * Update Pricing Unit
      *
-     * プライシングユニット情報を更新します。  Update pricing unit. 
+     * Update pricing unit. 
      *
      * @throws ApiException if the Api call fails
      */
