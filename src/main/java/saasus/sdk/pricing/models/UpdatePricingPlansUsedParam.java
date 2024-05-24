@@ -14,7 +14,6 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -52,7 +51,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * UpdatePricingPlansUsedParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-24T07:15:25.630426804Z[Etc/UTC]")
 public class UpdatePricingPlansUsedParam {
   public static final String SERIALIZED_NAME_PLAN_IDS = "plan_ids";
   @SerializedName(SERIALIZED_NAME_PLAN_IDS)
@@ -62,7 +61,6 @@ public class UpdatePricingPlansUsedParam {
   }
 
   public UpdatePricingPlansUsedParam planIds(List<String> planIds) {
-    
     this.planIds = planIds;
     return this;
   }
@@ -83,7 +81,6 @@ public class UpdatePricingPlansUsedParam {
   public List<String> getPlanIds() {
     return planIds;
   }
-
 
   public void setPlanIds(List<String> planIds) {
     this.planIds = planIds;
@@ -155,9 +152,9 @@ public class UpdatePricingPlansUsedParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdatePricingPlansUsedParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdatePricingPlansUsedParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

@@ -14,17 +14,17 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * 使用量の集計方法(aggregate usage) sum: 期間内の使用量の合計(total usage during the period) max: 期間内の使用量の最大値(maximum usage during the period) 
+ * Aggregate usage sum: Total usage during the period max: Maximum usage during the period 
  */
 @JsonAdapter(AggregateUsage.Adapter.class)
 public enum AggregateUsage {
@@ -68,6 +68,11 @@ public enum AggregateUsage {
       String value = jsonReader.nextString();
       return AggregateUsage.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    AggregateUsage.fromValue(value);
   }
 }
 

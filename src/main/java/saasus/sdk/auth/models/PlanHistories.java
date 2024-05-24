@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.auth.models.PlanHistory;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * PlanHistories
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-24T07:15:19.968356519Z[Etc/UTC]")
 public class PlanHistories {
   public static final String SERIALIZED_NAME_PLAN_HISTORIES = "plan_histories";
   @SerializedName(SERIALIZED_NAME_PLAN_HISTORIES)
@@ -63,7 +62,6 @@ public class PlanHistories {
   }
 
   public PlanHistories planHistories(List<PlanHistory> planHistories) {
-    
     this.planHistories = planHistories;
     return this;
   }
@@ -77,14 +75,13 @@ public class PlanHistories {
   }
 
    /**
-   * 料金プラン履歴
+   * Plan History
    * @return planHistories
   **/
   @javax.annotation.Nonnull
   public List<PlanHistory> getPlanHistories() {
     return planHistories;
   }
-
 
   public void setPlanHistories(List<PlanHistory> planHistories) {
     this.planHistories = planHistories;
@@ -156,9 +153,9 @@ public class PlanHistories {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PlanHistories.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PlanHistories` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
