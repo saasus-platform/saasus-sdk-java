@@ -14,13 +14,13 @@
 package saasus.sdk.communication.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.communication.JSON;
@@ -50,12 +49,8 @@ import saasus.sdk.communication.JSON;
 /**
  * CreateFeedbackCommentParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:32.358898Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-24T07:15:41.534687590Z[Etc/UTC]")
 public class CreateFeedbackCommentParam {
-  public static final String SERIALIZED_NAME_USER_ID = "user_id";
-  @SerializedName(SERIALIZED_NAME_USER_ID)
-  private String userId;
-
   public static final String SERIALIZED_NAME_BODY = "body";
   @SerializedName(SERIALIZED_NAME_BODY)
   private String body;
@@ -63,29 +58,7 @@ public class CreateFeedbackCommentParam {
   public CreateFeedbackCommentParam() {
   }
 
-  public CreateFeedbackCommentParam userId(String userId) {
-    
-    this.userId = userId;
-    return this;
-  }
-
-   /**
-   * Get userId
-   * @return userId
-  **/
-  @javax.annotation.Nonnull
-  public String getUserId() {
-    return userId;
-  }
-
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-
   public CreateFeedbackCommentParam body(String body) {
-    
     this.body = body;
     return this;
   }
@@ -98,7 +71,6 @@ public class CreateFeedbackCommentParam {
   public String getBody() {
     return body;
   }
-
 
   public void setBody(String body) {
     this.body = body;
@@ -115,20 +87,18 @@ public class CreateFeedbackCommentParam {
       return false;
     }
     CreateFeedbackCommentParam createFeedbackCommentParam = (CreateFeedbackCommentParam) o;
-    return Objects.equals(this.userId, createFeedbackCommentParam.userId) &&
-        Objects.equals(this.body, createFeedbackCommentParam.body);
+    return Objects.equals(this.body, createFeedbackCommentParam.body);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, body);
+    return Objects.hash(body);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateFeedbackCommentParam {\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -152,12 +122,10 @@ public class CreateFeedbackCommentParam {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("user_id");
     openapiFields.add("body");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("user_id");
     openapiRequiredFields.add("body");
   }
 
@@ -174,9 +142,9 @@ public class CreateFeedbackCommentParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateFeedbackCommentParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateFeedbackCommentParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -189,9 +157,6 @@ public class CreateFeedbackCommentParam {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("user_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
-      }
       if (!jsonObj.get("body").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("body").toString()));
       }

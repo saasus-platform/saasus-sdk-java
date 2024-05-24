@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,18 +42,17 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
 
 /**
- * アカウント認証設定(account authentication settings) ※ 未提供の機能のため、変更・保存はできません(This function is not yet provided, so it cannot be changed or saved.) 
+ * Account authentication settings ※ This function is not yet provided, so it cannot be changed or saved. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-24T07:15:19.968356519Z[Etc/UTC]")
 public class AccountVerification {
   /**
-   * code: 検証コード(verification code) link: 検証リンク(verification link) ※ 未提供の機能のため、変更・保存はできません(This function is not yet provided, so it cannot be changed or saved.) 
+   * code: verification code link: verification link ※ This function is not yet provided, so it cannot be changed or saved. 
    */
   @JsonAdapter(VerificationMethodEnum.Adapter.class)
   public enum VerificationMethodEnum {
@@ -97,6 +96,11 @@ public class AccountVerification {
         return VerificationMethodEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      VerificationMethodEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_VERIFICATION_METHOD = "verification_method";
@@ -104,7 +108,7 @@ public class AccountVerification {
   private VerificationMethodEnum verificationMethod;
 
   /**
-   * email: Eメール(e-mail) sms: SMS smsOrEmail: SMS不可の場合にEメール(email if SMS is not possible) 
+   * email: e-mail sms: SMS smsOrEmail: email if SMS is not possible 
    */
   @JsonAdapter(SendingToEnum.Adapter.class)
   public enum SendingToEnum {
@@ -150,6 +154,11 @@ public class AccountVerification {
         return SendingToEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      SendingToEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_SENDING_TO = "sending_to";
@@ -160,13 +169,12 @@ public class AccountVerification {
   }
 
   public AccountVerification verificationMethod(VerificationMethodEnum verificationMethod) {
-    
     this.verificationMethod = verificationMethod;
     return this;
   }
 
    /**
-   * code: 検証コード(verification code) link: 検証リンク(verification link) ※ 未提供の機能のため、変更・保存はできません(This function is not yet provided, so it cannot be changed or saved.) 
+   * code: verification code link: verification link ※ This function is not yet provided, so it cannot be changed or saved. 
    * @return verificationMethod
   **/
   @javax.annotation.Nonnull
@@ -174,27 +182,24 @@ public class AccountVerification {
     return verificationMethod;
   }
 
-
   public void setVerificationMethod(VerificationMethodEnum verificationMethod) {
     this.verificationMethod = verificationMethod;
   }
 
 
   public AccountVerification sendingTo(SendingToEnum sendingTo) {
-    
     this.sendingTo = sendingTo;
     return this;
   }
 
    /**
-   * email: Eメール(e-mail) sms: SMS smsOrEmail: SMS不可の場合にEメール(email if SMS is not possible) 
+   * email: e-mail sms: SMS smsOrEmail: email if SMS is not possible 
    * @return sendingTo
   **/
   @javax.annotation.Nonnull
   public SendingToEnum getSendingTo() {
     return sendingTo;
   }
-
 
   public void setSendingTo(SendingToEnum sendingTo) {
     this.sendingTo = sendingTo;
@@ -270,9 +275,9 @@ public class AccountVerification {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AccountVerification.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountVerification` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -288,9 +293,13 @@ public class AccountVerification {
       if (!jsonObj.get("verification_method").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `verification_method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verification_method").toString()));
       }
+      // validate the required field `verification_method`
+      VerificationMethodEnum.validateJsonElement(jsonObj.get("verification_method"));
       if (!jsonObj.get("sending_to").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sending_to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sending_to").toString()));
       }
+      // validate the required field `sending_to`
+      SendingToEnum.validateJsonElement(jsonObj.get("sending_to"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

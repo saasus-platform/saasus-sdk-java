@@ -14,13 +14,13 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * MeteringUnitMonthCount
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-24T07:15:25.630426804Z[Etc/UTC]")
 public class MeteringUnitMonthCount {
   public static final String SERIALIZED_NAME_METERING_UNIT_NAME = "metering_unit_name";
   @SerializedName(SERIALIZED_NAME_METERING_UNIT_NAME)
@@ -68,13 +67,12 @@ public class MeteringUnitMonthCount {
   }
 
   public MeteringUnitMonthCount meteringUnitName(String meteringUnitName) {
-    
     this.meteringUnitName = meteringUnitName;
     return this;
   }
 
    /**
-   * 計測ユニット名(metering unit name)
+   * Metering unit name
    * @return meteringUnitName
   **/
   @javax.annotation.Nonnull
@@ -82,20 +80,18 @@ public class MeteringUnitMonthCount {
     return meteringUnitName;
   }
 
-
   public void setMeteringUnitName(String meteringUnitName) {
     this.meteringUnitName = meteringUnitName;
   }
 
 
   public MeteringUnitMonthCount month(String month) {
-    
     this.month = month;
     return this;
   }
 
    /**
-   * 月(month)
+   * Month
    * @return month
   **/
   @javax.annotation.Nonnull
@@ -103,27 +99,24 @@ public class MeteringUnitMonthCount {
     return month;
   }
 
-
   public void setMonth(String month) {
     this.month = month;
   }
 
 
   public MeteringUnitMonthCount count(Integer count) {
-    
     this.count = count;
     return this;
   }
 
    /**
-   * 件数(count)
+   * Count
    * @return count
   **/
   @javax.annotation.Nonnull
   public Integer getCount() {
     return count;
   }
-
 
   public void setCount(Integer count) {
     this.count = count;
@@ -203,9 +196,9 @@ public class MeteringUnitMonthCount {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MeteringUnitMonthCount.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MeteringUnitMonthCount` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

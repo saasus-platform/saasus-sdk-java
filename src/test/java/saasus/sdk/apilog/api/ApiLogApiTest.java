@@ -17,6 +17,8 @@ import saasus.sdk.apilog.ApiException;
 import saasus.sdk.apilog.models.ApiLog;
 import saasus.sdk.apilog.models.ApiLogs;
 import saasus.sdk.apilog.models.Error;
+import java.time.LocalDate;
+import java.time.OffsetDateTime;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -34,9 +36,9 @@ public class ApiLogApiTest {
     private final ApiLogApi api = new ApiLogApi();
 
     /**
-     * API実行ログ取得
+     * Get API execution log
      *
-     * 指定したIDのAPI実行のログ登録を取得します。
+     * Retrieve the log of the API execution with the specified ID.
      *
      * @throws ApiException if the Api call fails
      */
@@ -48,15 +50,19 @@ public class ApiLogApiTest {
     }
 
     /**
-     * API実行ログ取得
+     * Get API execution log list
      *
-     * 全API実行のログ登録を取得します。
+     * Retrieve the log of all API executions.
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void getLogsTest() throws ApiException {
-        ApiLogs response = api.getLogs();
+        LocalDate createdDate = null;
+        OffsetDateTime createdAt = null;
+        Long limit = null;
+        String cursor = null;
+        ApiLogs response = api.getLogs(createdDate, createdAt, limit, cursor);
         // TODO: test validations
     }
 

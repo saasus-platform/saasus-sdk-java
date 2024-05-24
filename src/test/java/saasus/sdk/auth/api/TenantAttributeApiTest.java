@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -34,9 +34,9 @@ public class TenantAttributeApiTest {
     private final TenantAttributeApi api = new TenantAttributeApi();
 
     /**
-     * テナント属性の作成(Create Tenant Attribute)
+     * Create Tenant Attribute
      *
-     * SaaSus Platform で管理する、テナントの追加属性の登録を行います。 例えばテナントの呼び名やメモなどをを持たせることができ、SaaSからSaaSus SDK/APIを利用して取得することができます。  Register additional tenant attributes to be managed by SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
+     * Register additional tenant attributes to be managed by SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -48,9 +48,9 @@ public class TenantAttributeApiTest {
     }
 
     /**
-     * テナント属性の削除(Delete Tenant Attribute)
+     * Delete Tenant Attribute
      *
-     * SaaSus Platform で管理する、テナントの追加属性の削除を行います。  Deletes tenant attributes managed by SaaSus Platform. 
+     * Deletes tenant attributes managed by SaaSus Platform. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -62,9 +62,9 @@ public class TenantAttributeApiTest {
     }
 
     /**
-     * テナント属性の一覧を取得(Get Tenant Attributes)
+     * Get Tenant Attributes
      *
-     * SaaSus Platform で管理する、テナントの追加属性の定義を取得します。 例えばテナントの呼び名やメモなどをを持たせることができ、SaaSからSaaSus SDK/APIを利用して取得することができます。  Get definitions for additional tenant attributes managed by the SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
+     * Get definitions for additional tenant attributes managed by the SaaSus Platform. For example, tenant name, memo, etc., then get the attributes from SaaS using the SaaSus SDK/API. 
      *
      * @throws ApiException if the Api call fails
      */

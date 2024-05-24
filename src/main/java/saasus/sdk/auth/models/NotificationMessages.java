@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import saasus.sdk.auth.models.MessageTemplate;
 
 import com.google.gson.Gson;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -51,7 +50,7 @@ import saasus.sdk.auth.JSON;
 /**
  * NotificationMessages
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-24T07:15:19.968356519Z[Etc/UTC]")
 public class NotificationMessages {
   public static final String SERIALIZED_NAME_SIGN_UP = "sign_up";
   @SerializedName(SERIALIZED_NAME_SIGN_UP)
@@ -93,7 +92,6 @@ public class NotificationMessages {
   }
 
   public NotificationMessages signUp(MessageTemplate signUp) {
-    
     this.signUp = signUp;
     return this;
   }
@@ -107,14 +105,12 @@ public class NotificationMessages {
     return signUp;
   }
 
-
   public void setSignUp(MessageTemplate signUp) {
     this.signUp = signUp;
   }
 
 
   public NotificationMessages createUser(MessageTemplate createUser) {
-    
     this.createUser = createUser;
     return this;
   }
@@ -128,14 +124,12 @@ public class NotificationMessages {
     return createUser;
   }
 
-
   public void setCreateUser(MessageTemplate createUser) {
     this.createUser = createUser;
   }
 
 
   public NotificationMessages resendCode(MessageTemplate resendCode) {
-    
     this.resendCode = resendCode;
     return this;
   }
@@ -149,14 +143,12 @@ public class NotificationMessages {
     return resendCode;
   }
 
-
   public void setResendCode(MessageTemplate resendCode) {
     this.resendCode = resendCode;
   }
 
 
   public NotificationMessages forgotPassword(MessageTemplate forgotPassword) {
-    
     this.forgotPassword = forgotPassword;
     return this;
   }
@@ -170,14 +162,12 @@ public class NotificationMessages {
     return forgotPassword;
   }
 
-
   public void setForgotPassword(MessageTemplate forgotPassword) {
     this.forgotPassword = forgotPassword;
   }
 
 
   public NotificationMessages updateUserAttribute(MessageTemplate updateUserAttribute) {
-    
     this.updateUserAttribute = updateUserAttribute;
     return this;
   }
@@ -191,14 +181,12 @@ public class NotificationMessages {
     return updateUserAttribute;
   }
 
-
   public void setUpdateUserAttribute(MessageTemplate updateUserAttribute) {
     this.updateUserAttribute = updateUserAttribute;
   }
 
 
   public NotificationMessages verifyUserAttribute(MessageTemplate verifyUserAttribute) {
-    
     this.verifyUserAttribute = verifyUserAttribute;
     return this;
   }
@@ -212,14 +200,12 @@ public class NotificationMessages {
     return verifyUserAttribute;
   }
 
-
   public void setVerifyUserAttribute(MessageTemplate verifyUserAttribute) {
     this.verifyUserAttribute = verifyUserAttribute;
   }
 
 
   public NotificationMessages authenticationMfa(MessageTemplate authenticationMfa) {
-    
     this.authenticationMfa = authenticationMfa;
     return this;
   }
@@ -233,14 +219,12 @@ public class NotificationMessages {
     return authenticationMfa;
   }
 
-
   public void setAuthenticationMfa(MessageTemplate authenticationMfa) {
     this.authenticationMfa = authenticationMfa;
   }
 
 
   public NotificationMessages inviteTenantUser(MessageTemplate inviteTenantUser) {
-    
     this.inviteTenantUser = inviteTenantUser;
     return this;
   }
@@ -254,14 +238,12 @@ public class NotificationMessages {
     return inviteTenantUser;
   }
 
-
   public void setInviteTenantUser(MessageTemplate inviteTenantUser) {
     this.inviteTenantUser = inviteTenantUser;
   }
 
 
   public NotificationMessages verifyExternalUser(MessageTemplate verifyExternalUser) {
-    
     this.verifyExternalUser = verifyExternalUser;
     return this;
   }
@@ -274,7 +256,6 @@ public class NotificationMessages {
   public MessageTemplate getVerifyExternalUser() {
     return verifyExternalUser;
   }
-
 
   public void setVerifyExternalUser(MessageTemplate verifyExternalUser) {
     this.verifyExternalUser = verifyExternalUser;
@@ -378,9 +359,9 @@ public class NotificationMessages {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!NotificationMessages.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `NotificationMessages` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

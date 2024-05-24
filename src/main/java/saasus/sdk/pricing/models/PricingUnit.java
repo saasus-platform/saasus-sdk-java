@@ -14,7 +14,6 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.pricing.models.AggregateUsage;
 import saasus.sdk.pricing.models.Currency;
@@ -68,7 +68,7 @@ import com.google.gson.JsonParseException;
 
 import saasus.sdk.pricing.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-05-24T07:15:25.630426804Z[Etc/UTC]")
 public class PricingUnit extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PricingUnit.class.getName());
 
@@ -124,6 +124,52 @@ public class PricingUnit extends AbstractOpenApiSchema {
                 public PricingUnit read(JsonReader in) throws IOException {
                     Object deserialized = null;
                     JsonElement jsonElement = elementAdapter.read(in);
+
+                    JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+                    // use discriminator value for faster oneOf lookup
+                    PricingUnit newPricingUnit = new PricingUnit();
+                    if (jsonObject.get("type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for PricingUnit as `type` was not found in the payload or the payload is empty.");
+                    } else  {
+                        // look up the discriminator value in the field `type`
+                        switch (jsonObject.get("type").getAsString()) {
+                            case "fixed":
+                                deserialized = adapterPricingFixedUnit.fromJsonTree(jsonObject);
+                                newPricingUnit.setActualInstance(deserialized);
+                                return newPricingUnit;
+                            case "tiered":
+                                deserialized = adapterPricingTieredUnit.fromJsonTree(jsonObject);
+                                newPricingUnit.setActualInstance(deserialized);
+                                return newPricingUnit;
+                            case "tiered_usage":
+                                deserialized = adapterPricingTieredUsageUnit.fromJsonTree(jsonObject);
+                                newPricingUnit.setActualInstance(deserialized);
+                                return newPricingUnit;
+                            case "usage":
+                                deserialized = adapterPricingUsageUnit.fromJsonTree(jsonObject);
+                                newPricingUnit.setActualInstance(deserialized);
+                                return newPricingUnit;
+                            case "PricingFixedUnit":
+                                deserialized = adapterPricingFixedUnit.fromJsonTree(jsonObject);
+                                newPricingUnit.setActualInstance(deserialized);
+                                return newPricingUnit;
+                            case "PricingTieredUnit":
+                                deserialized = adapterPricingTieredUnit.fromJsonTree(jsonObject);
+                                newPricingUnit.setActualInstance(deserialized);
+                                return newPricingUnit;
+                            case "PricingTieredUsageUnit":
+                                deserialized = adapterPricingTieredUsageUnit.fromJsonTree(jsonObject);
+                                newPricingUnit.setActualInstance(deserialized);
+                                return newPricingUnit;
+                            case "PricingUsageUnit":
+                                deserialized = adapterPricingUsageUnit.fromJsonTree(jsonObject);
+                                newPricingUnit.setActualInstance(deserialized);
+                                return newPricingUnit;
+                            default:
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for PricingUnit. Possible values: fixed tiered tiered_usage usage PricingFixedUnit PricingTieredUnit PricingTieredUsageUnit PricingUsageUnit", jsonObject.get("type").getAsString()));
+                        }
+                    }
 
                     int match = 0;
                     ArrayList<String> errorMessages = new ArrayList<>();

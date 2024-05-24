@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -141,8 +141,8 @@ public class CredentialApi {
     }
 
     /**
-     * 認証・認可情報の保存(Save Authentication/Authorization Information)
-     * 引数のIDトークン・アクセストークン・リフレッシュトークンを一時保存し取得用の一時コードを返却する。 一時コードの有効期間は発行から10秒です。  Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
+     * Save Authentication/Authorization Information
+     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
      * @param body  (optional)
      * @return AuthorizationTempCode
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -161,8 +161,8 @@ public class CredentialApi {
     }
 
     /**
-     * 認証・認可情報の保存(Save Authentication/Authorization Information)
-     * 引数のIDトークン・アクセストークン・リフレッシュトークンを一時保存し取得用の一時コードを返却する。 一時コードの有効期間は発行から10秒です。  Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
+     * Save Authentication/Authorization Information
+     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
      * @param body  (optional)
      * @return ApiResponse&lt;AuthorizationTempCode&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -182,8 +182,8 @@ public class CredentialApi {
     }
 
     /**
-     * 認証・認可情報の保存(Save Authentication/Authorization Information) (asynchronously)
-     * 引数のIDトークン・アクセストークン・リフレッシュトークンを一時保存し取得用の一時コードを返却する。 一時コードの有効期間は発行から10秒です。  Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
+     * Save Authentication/Authorization Information (asynchronously)
+     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -206,9 +206,9 @@ public class CredentialApi {
     }
     /**
      * Build call for getAuthCredentials
-     * @param code 一時コード(Temp Code) (optional)
-     * @param authFlow 認証フロー（Authentication Flow） tempCodeAuth: 一時コードを利用した認証情報の取得 refreshTokenAuth: リフレッシュトークンを利用した認証情報の取得 指定されていない場合は tempCodeAuth になります  (optional)
-     * @param refreshToken リフレッシュトークン(Refresh Token) (optional)
+     * @param code Temp Code (optional)
+     * @param authFlow Authentication Flow tempCodeAuth: Getting authentication information using a temporary code refreshTokenAuth: Getting authentication information using a refresh token If not specified, it will be tempCodeAuth  (optional)
+     * @param refreshToken Refresh Token (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -283,11 +283,11 @@ public class CredentialApi {
     }
 
     /**
-     * 認証・認可情報の取得(Get Authentication/Authorization Information)
-     * 一時コードまたはリフレッシュトークンを利用してIDトークン・アクセストークン・リフレッシュトークンを取得する。  Get ID token, access token, and refresh token using a temporary code or a refresh token. 
-     * @param code 一時コード(Temp Code) (optional)
-     * @param authFlow 認証フロー（Authentication Flow） tempCodeAuth: 一時コードを利用した認証情報の取得 refreshTokenAuth: リフレッシュトークンを利用した認証情報の取得 指定されていない場合は tempCodeAuth になります  (optional)
-     * @param refreshToken リフレッシュトークン(Refresh Token) (optional)
+     * Get Authentication/Authorization Information
+     * Get ID token, access token, and refresh token using a temporary code or a refresh token. 
+     * @param code Temp Code (optional)
+     * @param authFlow Authentication Flow tempCodeAuth: Getting authentication information using a temporary code refreshTokenAuth: Getting authentication information using a refresh token If not specified, it will be tempCodeAuth  (optional)
+     * @param refreshToken Refresh Token (optional)
      * @return Credentials
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -304,11 +304,11 @@ public class CredentialApi {
     }
 
     /**
-     * 認証・認可情報の取得(Get Authentication/Authorization Information)
-     * 一時コードまたはリフレッシュトークンを利用してIDトークン・アクセストークン・リフレッシュトークンを取得する。  Get ID token, access token, and refresh token using a temporary code or a refresh token. 
-     * @param code 一時コード(Temp Code) (optional)
-     * @param authFlow 認証フロー（Authentication Flow） tempCodeAuth: 一時コードを利用した認証情報の取得 refreshTokenAuth: リフレッシュトークンを利用した認証情報の取得 指定されていない場合は tempCodeAuth になります  (optional)
-     * @param refreshToken リフレッシュトークン(Refresh Token) (optional)
+     * Get Authentication/Authorization Information
+     * Get ID token, access token, and refresh token using a temporary code or a refresh token. 
+     * @param code Temp Code (optional)
+     * @param authFlow Authentication Flow tempCodeAuth: Getting authentication information using a temporary code refreshTokenAuth: Getting authentication information using a refresh token If not specified, it will be tempCodeAuth  (optional)
+     * @param refreshToken Refresh Token (optional)
      * @return ApiResponse&lt;Credentials&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -326,11 +326,11 @@ public class CredentialApi {
     }
 
     /**
-     * 認証・認可情報の取得(Get Authentication/Authorization Information) (asynchronously)
-     * 一時コードまたはリフレッシュトークンを利用してIDトークン・アクセストークン・リフレッシュトークンを取得する。  Get ID token, access token, and refresh token using a temporary code or a refresh token. 
-     * @param code 一時コード(Temp Code) (optional)
-     * @param authFlow 認証フロー（Authentication Flow） tempCodeAuth: 一時コードを利用した認証情報の取得 refreshTokenAuth: リフレッシュトークンを利用した認証情報の取得 指定されていない場合は tempCodeAuth になります  (optional)
-     * @param refreshToken リフレッシュトークン(Refresh Token) (optional)
+     * Get Authentication/Authorization Information (asynchronously)
+     * Get ID token, access token, and refresh token using a temporary code or a refresh token. 
+     * @param code Temp Code (optional)
+     * @param authFlow Authentication Flow tempCodeAuth: Getting authentication information using a temporary code refreshTokenAuth: Getting authentication information using a refresh token If not specified, it will be tempCodeAuth  (optional)
+     * @param refreshToken Refresh Token (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
