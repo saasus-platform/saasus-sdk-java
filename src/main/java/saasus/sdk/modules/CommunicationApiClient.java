@@ -12,6 +12,7 @@ import java.lang.reflect.Type;
 public class CommunicationApiClient extends ApiClient {
     
     private String referer;
+    private String xSaasusReferer;
 
     @Override
     public <T> ApiResponse<T> execute(Call call, Type returnType) throws ApiException {        
@@ -25,7 +26,18 @@ public class CommunicationApiClient extends ApiClient {
 
         OkHttpClient httpClient = getHttpClient();
         Request request = call.request();
-        Request newRequest = request.newBuilder().header("Authorization", signature).header("Referer", this.getReferer()).build();
+        Request.Builder requestBuilder = request.newBuilder()
+                .header("Authorization", signature);
+
+        if (this.referer != null) {
+            requestBuilder.header("Referer", this.referer);
+        }
+
+        if (this.xSaasusReferer != null) {
+            requestBuilder.header("X-SaaSus-Referer", this.xSaasusReferer);
+        }
+
+        Request newRequest = requestBuilder.build();
         Call newCall = httpClient.newCall(newRequest);
         return super.execute(newCall, returnType);
     }
@@ -39,5 +51,16 @@ public class CommunicationApiClient extends ApiClient {
 
     public void setReferer(String referer) {
         this.referer = referer;
+    }
+
+    private String getXSaasusReferer() {
+        if (xSaasusReferer == null) {
+            return "";
+        }
+        return xSaasusReferer;
+    }
+
+    public void setXSaasusReferer(String xSaasusReferer) {
+        this.xSaasusReferer = xSaasusReferer;
     }
 }
