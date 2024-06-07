@@ -14,7 +14,6 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.pricing.models.AggregateUsage;
 import saasus.sdk.pricing.models.Currency;
@@ -48,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -56,7 +55,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingTieredUsageUnitForSave
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-07T10:06:29.421993530Z[Etc/UTC]")
 public class PricingTieredUsageUnitForSave {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -98,13 +97,12 @@ public class PricingTieredUsageUnitForSave {
   }
 
   public PricingTieredUsageUnitForSave name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * 名前(name)
+   * Name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -112,20 +110,18 @@ public class PricingTieredUsageUnitForSave {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public PricingTieredUsageUnitForSave displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
 
    /**
-   * 表示名(display name)
+   * Display Name
    * @return displayName
   **/
   @javax.annotation.Nonnull
@@ -133,20 +129,18 @@ public class PricingTieredUsageUnitForSave {
     return displayName;
   }
 
-
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
   public PricingTieredUsageUnitForSave description(String description) {
-    
     this.description = description;
     return this;
   }
 
    /**
-   * 説明(description)
+   * Description
    * @return description
   **/
   @javax.annotation.Nonnull
@@ -154,14 +148,12 @@ public class PricingTieredUsageUnitForSave {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public PricingTieredUsageUnitForSave type(UnitType type) {
-    
     this.type = type;
     return this;
   }
@@ -175,14 +167,12 @@ public class PricingTieredUsageUnitForSave {
     return type;
   }
 
-
   public void setType(UnitType type) {
     this.type = type;
   }
 
 
   public PricingTieredUsageUnitForSave currency(Currency currency) {
-    
     this.currency = currency;
     return this;
   }
@@ -196,14 +186,12 @@ public class PricingTieredUsageUnitForSave {
     return currency;
   }
 
-
   public void setCurrency(Currency currency) {
     this.currency = currency;
   }
 
 
   public PricingTieredUsageUnitForSave tiers(List<PricingTier> tiers) {
-    
     this.tiers = tiers;
     return this;
   }
@@ -225,20 +213,18 @@ public class PricingTieredUsageUnitForSave {
     return tiers;
   }
 
-
   public void setTiers(List<PricingTier> tiers) {
     this.tiers = tiers;
   }
 
 
   public PricingTieredUsageUnitForSave upperCount(Integer upperCount) {
-    
     this.upperCount = upperCount;
     return this;
   }
 
    /**
-   * 上限値(upper limit)
+   * Upper limit
    * @return upperCount
   **/
   @javax.annotation.Nonnull
@@ -246,20 +232,18 @@ public class PricingTieredUsageUnitForSave {
     return upperCount;
   }
 
-
   public void setUpperCount(Integer upperCount) {
     this.upperCount = upperCount;
   }
 
 
   public PricingTieredUsageUnitForSave meteringUnitName(String meteringUnitName) {
-    
     this.meteringUnitName = meteringUnitName;
     return this;
   }
 
    /**
-   * 計測ユニット名(metering unit name)
+   * Metering unit name
    * @return meteringUnitName
   **/
   @javax.annotation.Nonnull
@@ -267,14 +251,12 @@ public class PricingTieredUsageUnitForSave {
     return meteringUnitName;
   }
 
-
   public void setMeteringUnitName(String meteringUnitName) {
     this.meteringUnitName = meteringUnitName;
   }
 
 
   public PricingTieredUsageUnitForSave aggregateUsage(AggregateUsage aggregateUsage) {
-    
     this.aggregateUsage = aggregateUsage;
     return this;
   }
@@ -287,7 +269,6 @@ public class PricingTieredUsageUnitForSave {
   public AggregateUsage getAggregateUsage() {
     return aggregateUsage;
   }
-
 
   public void setAggregateUsage(AggregateUsage aggregateUsage) {
     this.aggregateUsage = aggregateUsage;
@@ -390,9 +371,9 @@ public class PricingTieredUsageUnitForSave {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PricingTieredUsageUnitForSave.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PricingTieredUsageUnitForSave` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -414,6 +395,10 @@ public class PricingTieredUsageUnitForSave {
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      // validate the required field `type`
+      UnitType.validateJsonElement(jsonObj.get("type"));
+      // validate the required field `currency`
+      Currency.validateJsonElement(jsonObj.get("currency"));
       // ensure the json data is an array
       if (!jsonObj.get("tiers").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tiers` to be an array in the JSON string but got `%s`", jsonObj.get("tiers").toString()));
@@ -426,6 +411,10 @@ public class PricingTieredUsageUnitForSave {
       };
       if (!jsonObj.get("metering_unit_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metering_unit_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metering_unit_name").toString()));
+      }
+      // validate the optional field `aggregate_usage`
+      if (jsonObj.get("aggregate_usage") != null && !jsonObj.get("aggregate_usage").isJsonNull()) {
+        AggregateUsage.validateJsonElement(jsonObj.get("aggregate_usage"));
       }
   }
 
