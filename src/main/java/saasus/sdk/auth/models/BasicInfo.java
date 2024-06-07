@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.auth.models.DnsRecord;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * BasicInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-07T09:59:39.102185733Z[Etc/UTC]")
 public class BasicInfo {
   public static final String SERIALIZED_NAME_DOMAIN_NAME = "domain_name";
   @SerializedName(SERIALIZED_NAME_DOMAIN_NAME)
@@ -95,13 +94,12 @@ public class BasicInfo {
   }
 
   public BasicInfo domainName(String domainName) {
-    
     this.domainName = domainName;
     return this;
   }
 
    /**
-   * ドメイン名(Domain Name)
+   * Domain Name
    * @return domainName
   **/
   @javax.annotation.Nonnull
@@ -109,20 +107,18 @@ public class BasicInfo {
     return domainName;
   }
 
-
   public void setDomainName(String domainName) {
     this.domainName = domainName;
   }
 
 
   public BasicInfo isDnsValidated(Boolean isDnsValidated) {
-    
     this.isDnsValidated = isDnsValidated;
     return this;
   }
 
    /**
-   * DNSレコードの検証結果(DNS Record Verification Results)
+   * DNS Record Verification Results
    * @return isDnsValidated
   **/
   @javax.annotation.Nonnull
@@ -130,14 +126,12 @@ public class BasicInfo {
     return isDnsValidated;
   }
 
-
   public void setIsDnsValidated(Boolean isDnsValidated) {
     this.isDnsValidated = isDnsValidated;
   }
 
 
   public BasicInfo certificateDnsRecord(DnsRecord certificateDnsRecord) {
-    
     this.certificateDnsRecord = certificateDnsRecord;
     return this;
   }
@@ -151,14 +145,12 @@ public class BasicInfo {
     return certificateDnsRecord;
   }
 
-
   public void setCertificateDnsRecord(DnsRecord certificateDnsRecord) {
     this.certificateDnsRecord = certificateDnsRecord;
   }
 
 
   public BasicInfo cloudFrontDnsRecord(DnsRecord cloudFrontDnsRecord) {
-    
     this.cloudFrontDnsRecord = cloudFrontDnsRecord;
     return this;
   }
@@ -172,14 +164,12 @@ public class BasicInfo {
     return cloudFrontDnsRecord;
   }
 
-
   public void setCloudFrontDnsRecord(DnsRecord cloudFrontDnsRecord) {
     this.cloudFrontDnsRecord = cloudFrontDnsRecord;
   }
 
 
   public BasicInfo dkimDnsRecords(List<DnsRecord> dkimDnsRecords) {
-    
     this.dkimDnsRecords = dkimDnsRecords;
     return this;
   }
@@ -193,7 +183,7 @@ public class BasicInfo {
   }
 
    /**
-   * DKIM DNS レコード(DKIM DNS Records)
+   * DKIM DNS Records
    * @return dkimDnsRecords
   **/
   @javax.annotation.Nonnull
@@ -201,20 +191,18 @@ public class BasicInfo {
     return dkimDnsRecords;
   }
 
-
   public void setDkimDnsRecords(List<DnsRecord> dkimDnsRecords) {
     this.dkimDnsRecords = dkimDnsRecords;
   }
 
 
   public BasicInfo defaultDomainName(String defaultDomainName) {
-    
     this.defaultDomainName = defaultDomainName;
     return this;
   }
 
    /**
-   * デフォルトドメイン名(Default Domain Name)
+   * Default Domain Name
    * @return defaultDomainName
   **/
   @javax.annotation.Nonnull
@@ -222,20 +210,18 @@ public class BasicInfo {
     return defaultDomainName;
   }
 
-
   public void setDefaultDomainName(String defaultDomainName) {
     this.defaultDomainName = defaultDomainName;
   }
 
 
   public BasicInfo fromEmailAddress(String fromEmailAddress) {
-    
     this.fromEmailAddress = fromEmailAddress;
     return this;
   }
 
    /**
-   * 認証メールの送信元メールアドレス(Sender Email for Authentication Email)
+   * Sender Email for Authentication Email
    * @return fromEmailAddress
   **/
   @javax.annotation.Nonnull
@@ -243,20 +229,18 @@ public class BasicInfo {
     return fromEmailAddress;
   }
 
-
   public void setFromEmailAddress(String fromEmailAddress) {
     this.fromEmailAddress = fromEmailAddress;
   }
 
 
   public BasicInfo replyEmailAddress(String replyEmailAddress) {
-    
     this.replyEmailAddress = replyEmailAddress;
     return this;
   }
 
    /**
-   * 認証メールの返信元メールアドレス(Reply-from email address of authentication email)
+   * Reply-from email address of authentication email
    * @return replyEmailAddress
   **/
   @javax.annotation.Nonnull
@@ -264,27 +248,24 @@ public class BasicInfo {
     return replyEmailAddress;
   }
 
-
   public void setReplyEmailAddress(String replyEmailAddress) {
     this.replyEmailAddress = replyEmailAddress;
   }
 
 
   public BasicInfo isSesSandboxGranted(Boolean isSesSandboxGranted) {
-    
     this.isSesSandboxGranted = isSesSandboxGranted;
     return this;
   }
 
    /**
-   * SESのサンドボックス解除及びCognitoのSES設定結果(SES sandbox release and Cognito SES configuration results)
+   * SES sandbox release and Cognito SES configuration results
    * @return isSesSandboxGranted
   **/
   @javax.annotation.Nonnull
   public Boolean getIsSesSandboxGranted() {
     return isSesSandboxGranted;
   }
-
 
   public void setIsSesSandboxGranted(Boolean isSesSandboxGranted) {
     this.isSesSandboxGranted = isSesSandboxGranted;
@@ -388,9 +369,9 @@ public class BasicInfo {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!BasicInfo.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `BasicInfo` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
