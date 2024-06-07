@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -50,14 +49,14 @@ import saasus.sdk.auth.JSON;
 /**
  * MfaPreference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-07T09:59:39.102185733Z[Etc/UTC]")
 public class MfaPreference {
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
   private Boolean enabled;
 
   /**
-   * MFAの方法(enabledがtrueの場合は必須)(MFA method (required if enabled is true))
+   * MFA method (required if enabled is true)
    */
   @JsonAdapter(MethodEnum.Adapter.class)
   public enum MethodEnum {
@@ -99,6 +98,11 @@ public class MfaPreference {
         return MethodEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      MethodEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_METHOD = "method";
@@ -109,13 +113,12 @@ public class MfaPreference {
   }
 
   public MfaPreference enabled(Boolean enabled) {
-    
     this.enabled = enabled;
     return this;
   }
 
    /**
-   * MFAを有効にするか否か(enable MFA)
+   * enable MFA
    * @return enabled
   **/
   @javax.annotation.Nonnull
@@ -123,27 +126,24 @@ public class MfaPreference {
     return enabled;
   }
 
-
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
 
   public MfaPreference method(MethodEnum method) {
-    
     this.method = method;
     return this;
   }
 
    /**
-   * MFAの方法(enabledがtrueの場合は必須)(MFA method (required if enabled is true))
+   * MFA method (required if enabled is true)
    * @return method
   **/
   @javax.annotation.Nullable
   public MethodEnum getMethod() {
     return method;
   }
-
 
   public void setMethod(MethodEnum method) {
     this.method = method;
@@ -218,9 +218,9 @@ public class MfaPreference {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!MfaPreference.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MfaPreference` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -235,6 +235,10 @@ public class MfaPreference {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("method") != null && !jsonObj.get("method").isJsonNull()) && !jsonObj.get("method").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method").toString()));
+      }
+      // validate the optional field `method`
+      if (jsonObj.get("method") != null && !jsonObj.get("method").isJsonNull()) {
+        MethodEnum.validateJsonElement(jsonObj.get("method"));
       }
   }
 

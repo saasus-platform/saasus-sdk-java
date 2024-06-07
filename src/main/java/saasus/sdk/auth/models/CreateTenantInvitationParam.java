@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.auth.models.InvitedUserEnvironmentInformationInner;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * CreateTenantInvitationParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-07T09:59:39.102185733Z[Etc/UTC]")
 public class CreateTenantInvitationParam {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -71,13 +70,12 @@ public class CreateTenantInvitationParam {
   }
 
   public CreateTenantInvitationParam email(String email) {
-    
     this.email = email;
     return this;
   }
 
    /**
-   * 招待するユーザーのメールアドレス(email address of the user to be invited)
+   * Email address of the user to be invited
    * @return email
   **/
   @javax.annotation.Nonnull
@@ -85,20 +83,18 @@ public class CreateTenantInvitationParam {
     return email;
   }
 
-
   public void setEmail(String email) {
     this.email = email;
   }
 
 
   public CreateTenantInvitationParam accessToken(String accessToken) {
-    
     this.accessToken = accessToken;
     return this;
   }
 
    /**
-   * 招待を作成するユーザーのアクセストークン(access token of the user who creates an invitation)
+   * Access token of the user who creates an invitation
    * @return accessToken
   **/
   @javax.annotation.Nonnull
@@ -106,14 +102,12 @@ public class CreateTenantInvitationParam {
     return accessToken;
   }
 
-
   public void setAccessToken(String accessToken) {
     this.accessToken = accessToken;
   }
 
 
   public CreateTenantInvitationParam envs(List<InvitedUserEnvironmentInformationInner> envs) {
-    
     this.envs = envs;
     return this;
   }
@@ -134,7 +128,6 @@ public class CreateTenantInvitationParam {
   public List<InvitedUserEnvironmentInformationInner> getEnvs() {
     return envs;
   }
-
 
   public void setEnvs(List<InvitedUserEnvironmentInformationInner> envs) {
     this.envs = envs;
@@ -214,9 +207,9 @@ public class CreateTenantInvitationParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CreateTenantInvitationParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateTenantInvitationParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

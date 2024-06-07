@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateCustomizePageSettingsParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-07T09:59:39.102185733Z[Etc/UTC]")
 public class UpdateCustomizePageSettingsParam {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -80,13 +79,12 @@ public class UpdateCustomizePageSettingsParam {
   }
 
   public UpdateCustomizePageSettingsParam title(String title) {
-    
     this.title = title;
     return this;
   }
 
    /**
-   * サービス名(service name)
+   * service name
    * @return title
   **/
   @javax.annotation.Nonnull
@@ -94,20 +92,18 @@ public class UpdateCustomizePageSettingsParam {
     return title;
   }
 
-
   public void setTitle(String title) {
     this.title = title;
   }
 
 
   public UpdateCustomizePageSettingsParam termsOfServiceUrl(String termsOfServiceUrl) {
-    
     this.termsOfServiceUrl = termsOfServiceUrl;
     return this;
   }
 
    /**
-   * 利用規約URL(terms of service URL)
+   * terms of service URL
    * @return termsOfServiceUrl
   **/
   @javax.annotation.Nonnull
@@ -115,20 +111,18 @@ public class UpdateCustomizePageSettingsParam {
     return termsOfServiceUrl;
   }
 
-
   public void setTermsOfServiceUrl(String termsOfServiceUrl) {
     this.termsOfServiceUrl = termsOfServiceUrl;
   }
 
 
   public UpdateCustomizePageSettingsParam privacyPolicyUrl(String privacyPolicyUrl) {
-    
     this.privacyPolicyUrl = privacyPolicyUrl;
     return this;
   }
 
    /**
-   * プライバシーポリシーURL(privacy policy URL)
+   * privacy policy URL
    * @return privacyPolicyUrl
   **/
   @javax.annotation.Nonnull
@@ -136,20 +130,18 @@ public class UpdateCustomizePageSettingsParam {
     return privacyPolicyUrl;
   }
 
-
   public void setPrivacyPolicyUrl(String privacyPolicyUrl) {
     this.privacyPolicyUrl = privacyPolicyUrl;
   }
 
 
   public UpdateCustomizePageSettingsParam googleTagManagerContainerId(String googleTagManagerContainerId) {
-    
     this.googleTagManagerContainerId = googleTagManagerContainerId;
     return this;
   }
 
    /**
-   * Google Tag Manager コンテナ ID(Google Tag Manager container ID)
+   * Google Tag Manager container ID
    * @return googleTagManagerContainerId
   **/
   @javax.annotation.Nonnull
@@ -157,20 +149,18 @@ public class UpdateCustomizePageSettingsParam {
     return googleTagManagerContainerId;
   }
 
-
   public void setGoogleTagManagerContainerId(String googleTagManagerContainerId) {
     this.googleTagManagerContainerId = googleTagManagerContainerId;
   }
 
 
   public UpdateCustomizePageSettingsParam icon(String icon) {
-    
     this.icon = icon;
     return this;
   }
 
    /**
-   * サービスアイコン(service icon)
+   * service icon
    * @return icon
   **/
   @javax.annotation.Nonnull
@@ -178,27 +168,24 @@ public class UpdateCustomizePageSettingsParam {
     return icon;
   }
 
-
   public void setIcon(String icon) {
     this.icon = icon;
   }
 
 
   public UpdateCustomizePageSettingsParam favicon(String favicon) {
-    
     this.favicon = favicon;
     return this;
   }
 
    /**
-   * ファビコン(favicon)
+   * favicon
    * @return favicon
   **/
   @javax.annotation.Nonnull
   public String getFavicon() {
     return favicon;
   }
-
 
   public void setFavicon(String favicon) {
     this.favicon = favicon;
@@ -290,9 +277,9 @@ public class UpdateCustomizePageSettingsParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateCustomizePageSettingsParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateCustomizePageSettingsParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
