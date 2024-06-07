@@ -4,21 +4,21 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createTenantInvitation**](InvitationApi.md#createTenantInvitation) | **POST** /tenants/{tenant_id}/invitations | テナントへの招待を作成(Create Tenant Invitation) |
-| [**deleteTenantInvitation**](InvitationApi.md#deleteTenantInvitation) | **DELETE** /tenants/{tenant_id}/invitations/{invitation_id} | テナントへの招待を削除(Delete Tenant Invitation) |
-| [**getInvitationValidity**](InvitationApi.md#getInvitationValidity) | **GET** /invitations/{invitation_id}/validity | テナントへの招待の有効性を取得(Get Invitation Validity) |
-| [**getTenantInvitation**](InvitationApi.md#getTenantInvitation) | **GET** /tenants/{tenant_id}/invitations/{invitation_id} | テナントの招待情報を取得(Get Tenant Invitation) |
-| [**getTenantInvitations**](InvitationApi.md#getTenantInvitations) | **GET** /tenants/{tenant_id}/invitations | テナントの招待一覧を取得(Get Tenant Invitations) |
-| [**validateInvitation**](InvitationApi.md#validateInvitation) | **PATCH** /invitations/{invitation_id}/validate | テナントへの招待を検証(Validate Invitation) |
+| [**createTenantInvitation**](InvitationApi.md#createTenantInvitation) | **POST** /tenants/{tenant_id}/invitations | Create Tenant Invitation |
+| [**deleteTenantInvitation**](InvitationApi.md#deleteTenantInvitation) | **DELETE** /tenants/{tenant_id}/invitations/{invitation_id} | Delete Tenant Invitation |
+| [**getInvitationValidity**](InvitationApi.md#getInvitationValidity) | **GET** /invitations/{invitation_id}/validity | Get Invitation Validity |
+| [**getTenantInvitation**](InvitationApi.md#getTenantInvitation) | **GET** /tenants/{tenant_id}/invitations/{invitation_id} | Get Tenant Invitation |
+| [**getTenantInvitations**](InvitationApi.md#getTenantInvitations) | **GET** /tenants/{tenant_id}/invitations | Get Tenant Invitations |
+| [**validateInvitation**](InvitationApi.md#validateInvitation) | **PATCH** /invitations/{invitation_id}/validate | Validate Invitation |
 
 
 <a id="createTenantInvitation"></a>
 # **createTenantInvitation**
 > Invitation createTenantInvitation(tenantId, createTenantInvitationParam)
 
-テナントへの招待を作成(Create Tenant Invitation)
+Create Tenant Invitation
 
-テナントへの招待を作成します。  Create an invitation to the tenant. 
+Create an invitation to the tenant. 
 
 ### Example
 ```java
@@ -40,7 +40,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     InvitationApi apiInstance = new InvitationApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
+    String tenantId = "tenantId_example"; // String | Tenant ID
     CreateTenantInvitationParam createTenantInvitationParam = new CreateTenantInvitationParam(); // CreateTenantInvitationParam | 
     try {
       Invitation result = apiInstance.createTenantInvitation(tenantId, createTenantInvitationParam);
@@ -60,7 +60,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
+| **tenantId** | **String**| Tenant ID | |
 | **createTenantInvitationParam** | [**CreateTenantInvitationParam**](CreateTenantInvitationParam.md)|  | [optional] |
 
 ### Return type
@@ -87,9 +87,9 @@ public class Example {
 # **deleteTenantInvitation**
 > deleteTenantInvitation(tenantId, invitationId)
 
-テナントへの招待を削除(Delete Tenant Invitation)
+Delete Tenant Invitation
 
-テナントへの招待を削除します。  Delete an invitation to the tenant. 
+Delete an invitation for the tenant. 
 
 ### Example
 ```java
@@ -111,8 +111,8 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     InvitationApi apiInstance = new InvitationApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
-    String invitationId = "invitationId_example"; // String | 招待ID(Invitation ID)
+    String tenantId = "tenantId_example"; // String | Tenant ID
+    String invitationId = "invitationId_example"; // String | Invitation ID
     try {
       apiInstance.deleteTenantInvitation(tenantId, invitationId);
     } catch (ApiException e) {
@@ -130,8 +130,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
-| **invitationId** | **String**| 招待ID(Invitation ID) | |
+| **tenantId** | **String**| Tenant ID | |
+| **invitationId** | **String**| Invitation ID | |
 
 ### Return type
 
@@ -157,9 +157,9 @@ null (empty response body)
 # **getInvitationValidity**
 > InvitationValidity getInvitationValidity(invitationId)
 
-テナントへの招待の有効性を取得(Get Invitation Validity)
+Get Invitation Validity
 
-テナントへの招待の有効性を取得します。  Get the validity of an invitation to the tenant. 
+Get the validity of an invitation to the tenant. 
 
 ### Example
 ```java
@@ -181,7 +181,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     InvitationApi apiInstance = new InvitationApi(defaultClient);
-    String invitationId = "invitationId_example"; // String | 招待ID(Invitation ID)
+    String invitationId = "invitationId_example"; // String | Invitation ID
     try {
       InvitationValidity result = apiInstance.getInvitationValidity(invitationId);
       System.out.println(result);
@@ -200,7 +200,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **invitationId** | **String**| 招待ID(Invitation ID) | |
+| **invitationId** | **String**| Invitation ID | |
 
 ### Return type
 
@@ -226,9 +226,9 @@ public class Example {
 # **getTenantInvitation**
 > Invitation getTenantInvitation(tenantId, invitationId)
 
-テナントの招待情報を取得(Get Tenant Invitation)
+Get Tenant Invitation
 
-テナントへの招待情報を取得します。  Get invitation information to the tenant. 
+Get invitation information for the tenant. 
 
 ### Example
 ```java
@@ -250,8 +250,8 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     InvitationApi apiInstance = new InvitationApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
-    String invitationId = "invitationId_example"; // String | 招待ID(Invitation ID)
+    String tenantId = "tenantId_example"; // String | Tenant ID
+    String invitationId = "invitationId_example"; // String | Invitation ID
     try {
       Invitation result = apiInstance.getTenantInvitation(tenantId, invitationId);
       System.out.println(result);
@@ -270,8 +270,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
-| **invitationId** | **String**| 招待ID(Invitation ID) | |
+| **tenantId** | **String**| Tenant ID | |
+| **invitationId** | **String**| Invitation ID | |
 
 ### Return type
 
@@ -297,9 +297,9 @@ public class Example {
 # **getTenantInvitations**
 > Invitations getTenantInvitations(tenantId)
 
-テナントの招待一覧を取得(Get Tenant Invitations)
+Get Tenant Invitations
 
-テナントへの招待一覧を取得します。  Get a list of invitations to the tenant. 
+Get a list of invitations to the tenant. 
 
 ### Example
 ```java
@@ -321,7 +321,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     InvitationApi apiInstance = new InvitationApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
+    String tenantId = "tenantId_example"; // String | Tenant ID
     try {
       Invitations result = apiInstance.getTenantInvitations(tenantId);
       System.out.println(result);
@@ -340,7 +340,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
+| **tenantId** | **String**| Tenant ID | |
 
 ### Return type
 
@@ -365,9 +365,9 @@ public class Example {
 # **validateInvitation**
 > validateInvitation(invitationId, validateInvitationParam)
 
-テナントへの招待を検証(Validate Invitation)
+Validate Invitation
 
-テナントへの招待を検証します。  Validate an invitation to the tenant. 
+Validate an invitation to the tenant. 
 
 ### Example
 ```java
@@ -389,7 +389,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     InvitationApi apiInstance = new InvitationApi(defaultClient);
-    String invitationId = "invitationId_example"; // String | 招待ID(Invitation ID)
+    String invitationId = "invitationId_example"; // String | Invitation ID
     ValidateInvitationParam validateInvitationParam = new ValidateInvitationParam(); // ValidateInvitationParam | 
     try {
       apiInstance.validateInvitation(invitationId, validateInvitationParam);
@@ -408,7 +408,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **invitationId** | **String**| 招待ID(Invitation ID) | |
+| **invitationId** | **String**| Invitation ID | |
 | **validateInvitationParam** | [**ValidateInvitationParam**](ValidateInvitationParam.md)|  | [optional] |
 
 ### Return type

@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**title** | **String** | サービス名(service name) |  |
-|**termsOfServiceUrl** | **String** | 利用規約URL(terms of service URL) |  |
-|**privacyPolicyUrl** | **String** | プライバシーポリシーURL(privacy policy URL) |  |
-|**googleTagManagerContainerId** | **String** | Google Tag Manager コンテナ ID(Google Tag Manager container ID) |  |
+|**title** | **String** | service name |  |
+|**termsOfServiceUrl** | **String** | terms of service URL |  |
+|**privacyPolicyUrl** | **String** | privacy policy URL |  |
+|**googleTagManagerContainerId** | **String** | Google Tag Manager container ID |  |
 
 
 
