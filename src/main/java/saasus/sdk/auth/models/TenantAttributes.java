@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.auth.models.Attribute;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * TenantAttributes
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-14T16:56:09.227959148Z[Etc/UTC]")
 public class TenantAttributes {
   public static final String SERIALIZED_NAME_TENANT_ATTRIBUTES = "tenant_attributes";
   @SerializedName(SERIALIZED_NAME_TENANT_ATTRIBUTES)
@@ -63,7 +62,6 @@ public class TenantAttributes {
   }
 
   public TenantAttributes tenantAttributes(List<Attribute> tenantAttributes) {
-    
     this.tenantAttributes = tenantAttributes;
     return this;
   }
@@ -77,14 +75,13 @@ public class TenantAttributes {
   }
 
    /**
-   * テナント属性定義(Tenant Attribute Definition)
+   * Tenant Attribute Definition
    * @return tenantAttributes
   **/
   @javax.annotation.Nonnull
   public List<Attribute> getTenantAttributes() {
     return tenantAttributes;
   }
-
 
   public void setTenantAttributes(List<Attribute> tenantAttributes) {
     this.tenantAttributes = tenantAttributes;
@@ -156,9 +153,9 @@ public class TenantAttributes {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TenantAttributes.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TenantAttributes` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

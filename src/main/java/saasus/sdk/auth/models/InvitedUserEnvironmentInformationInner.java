@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -52,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * InvitedUserEnvironmentInformationInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-14T16:56:09.227959148Z[Etc/UTC]")
 public class InvitedUserEnvironmentInformationInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -66,7 +65,6 @@ public class InvitedUserEnvironmentInformationInner {
   }
 
   public InvitedUserEnvironmentInformationInner id(Integer id) {
-    
     this.id = id;
     return this;
   }
@@ -80,14 +78,12 @@ public class InvitedUserEnvironmentInformationInner {
     return id;
   }
 
-
   public void setId(Integer id) {
     this.id = id;
   }
 
 
   public InvitedUserEnvironmentInformationInner roleNames(List<String> roleNames) {
-    
     this.roleNames = roleNames;
     return this;
   }
@@ -101,14 +97,13 @@ public class InvitedUserEnvironmentInformationInner {
   }
 
    /**
-   * 役割名(role name)
+   * Role name
    * @return roleNames
   **/
   @javax.annotation.Nonnull
   public List<String> getRoleNames() {
     return roleNames;
   }
-
 
   public void setRoleNames(List<String> roleNames) {
     this.roleNames = roleNames;
@@ -184,9 +179,9 @@ public class InvitedUserEnvironmentInformationInner {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!InvitedUserEnvironmentInformationInner.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `InvitedUserEnvironmentInformationInner` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

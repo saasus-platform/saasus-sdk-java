@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,15 +42,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
 
 /**
- * パスワードポリシー(password policy)
+ * Password Policy
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-14T16:56:09.227959148Z[Etc/UTC]")
 public class PasswordPolicy {
   public static final String SERIALIZED_NAME_MINIMUM_LENGTH = "minimum_length";
   @SerializedName(SERIALIZED_NAME_MINIMUM_LENGTH)
@@ -80,13 +79,12 @@ public class PasswordPolicy {
   }
 
   public PasswordPolicy minimumLength(Integer minimumLength) {
-    
     this.minimumLength = minimumLength;
     return this;
   }
 
    /**
-   * 最小文字数(minimum number of characters)
+   * Minimum number of characters
    * @return minimumLength
   **/
   @javax.annotation.Nonnull
@@ -94,20 +92,18 @@ public class PasswordPolicy {
     return minimumLength;
   }
 
-
   public void setMinimumLength(Integer minimumLength) {
     this.minimumLength = minimumLength;
   }
 
 
   public PasswordPolicy isRequireLowercase(Boolean isRequireLowercase) {
-    
     this.isRequireLowercase = isRequireLowercase;
     return this;
   }
 
    /**
-   * 一文字以上の小文字を含むが設定されているか(contains one or more lowercase characters)
+   * Contains one or more lowercase characters
    * @return isRequireLowercase
   **/
   @javax.annotation.Nonnull
@@ -115,20 +111,18 @@ public class PasswordPolicy {
     return isRequireLowercase;
   }
 
-
   public void setIsRequireLowercase(Boolean isRequireLowercase) {
     this.isRequireLowercase = isRequireLowercase;
   }
 
 
   public PasswordPolicy isRequireNumbers(Boolean isRequireNumbers) {
-    
     this.isRequireNumbers = isRequireNumbers;
     return this;
   }
 
    /**
-   * 一文字以上の数字を含むが設定されているか(contains one or more numeric characters)
+   * Contains one or more numeric characters
    * @return isRequireNumbers
   **/
   @javax.annotation.Nonnull
@@ -136,20 +130,18 @@ public class PasswordPolicy {
     return isRequireNumbers;
   }
 
-
   public void setIsRequireNumbers(Boolean isRequireNumbers) {
     this.isRequireNumbers = isRequireNumbers;
   }
 
 
   public PasswordPolicy isRequireSymbols(Boolean isRequireSymbols) {
-    
     this.isRequireSymbols = isRequireSymbols;
     return this;
   }
 
    /**
-   * 一文字以上の特殊文字を含むが設定されているか(contains one or more special characters)
+   * Contains one or more special characters
    * @return isRequireSymbols
   **/
   @javax.annotation.Nonnull
@@ -157,20 +149,18 @@ public class PasswordPolicy {
     return isRequireSymbols;
   }
 
-
   public void setIsRequireSymbols(Boolean isRequireSymbols) {
     this.isRequireSymbols = isRequireSymbols;
   }
 
 
   public PasswordPolicy isRequireUppercase(Boolean isRequireUppercase) {
-    
     this.isRequireUppercase = isRequireUppercase;
     return this;
   }
 
    /**
-   * 一文字以上の大文字を含むが設定されているか(contains one or more uppercase letters)
+   * Contains one or more uppercase letters
    * @return isRequireUppercase
   **/
   @javax.annotation.Nonnull
@@ -178,27 +168,24 @@ public class PasswordPolicy {
     return isRequireUppercase;
   }
 
-
   public void setIsRequireUppercase(Boolean isRequireUppercase) {
     this.isRequireUppercase = isRequireUppercase;
   }
 
 
   public PasswordPolicy temporaryPasswordValidityDays(Integer temporaryPasswordValidityDays) {
-    
     this.temporaryPasswordValidityDays = temporaryPasswordValidityDays;
     return this;
   }
 
    /**
-   * 仮パスワードの有効期限(temporary password expiration date)
+   * Temporary password expiration date
    * @return temporaryPasswordValidityDays
   **/
   @javax.annotation.Nonnull
   public Integer getTemporaryPasswordValidityDays() {
     return temporaryPasswordValidityDays;
   }
-
 
   public void setTemporaryPasswordValidityDays(Integer temporaryPasswordValidityDays) {
     this.temporaryPasswordValidityDays = temporaryPasswordValidityDays;
@@ -290,9 +277,9 @@ public class PasswordPolicy {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PasswordPolicy.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PasswordPolicy` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
