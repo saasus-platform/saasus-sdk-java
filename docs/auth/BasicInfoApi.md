@@ -4,23 +4,23 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**findNotificationMessages**](BasicInfoApi.md#findNotificationMessages) | **GET** /notification-messages | 通知メールテンプレートを取得(Get Notification Email Templates) |
-| [**getBasicInfo**](BasicInfoApi.md#getBasicInfo) | **GET** /basic-info | 基本設定情報の取得(Get Basic Configurations) |
-| [**getCustomizePageSettings**](BasicInfoApi.md#getCustomizePageSettings) | **GET** /customize-page-settings | 認証認可基本情報取得(Get Authentication Authorization Basic Information) |
-| [**getCustomizePages**](BasicInfoApi.md#getCustomizePages) | **GET** /customize-pages | 認証系画面設定情報取得(Get Authentication Page Setting) |
-| [**updateBasicInfo**](BasicInfoApi.md#updateBasicInfo) | **PUT** /basic-info | 基本設定情報の更新(Update Basic Configurations) |
-| [**updateCustomizePageSettings**](BasicInfoApi.md#updateCustomizePageSettings) | **PATCH** /customize-page-settings | 認証認可基本情報更新(Update Authentication Authorization Basic Information) |
-| [**updateCustomizePages**](BasicInfoApi.md#updateCustomizePages) | **PATCH** /customize-pages | 認証系画面設定情報設定(Authentication Page Setting) |
-| [**updateNotificationMessages**](BasicInfoApi.md#updateNotificationMessages) | **PUT** /notification-messages | 通知メールテンプレートを更新(Update Notification Email Template) |
+| [**findNotificationMessages**](BasicInfoApi.md#findNotificationMessages) | **GET** /notification-messages | Get Notification Email Templates |
+| [**getBasicInfo**](BasicInfoApi.md#getBasicInfo) | **GET** /basic-info | Get Basic Configurations |
+| [**getCustomizePageSettings**](BasicInfoApi.md#getCustomizePageSettings) | **GET** /customize-page-settings | Get Authentication Authorization Basic Information |
+| [**getCustomizePages**](BasicInfoApi.md#getCustomizePages) | **GET** /customize-pages | Get Authentication Page Setting |
+| [**updateBasicInfo**](BasicInfoApi.md#updateBasicInfo) | **PUT** /basic-info | Update Basic Configurations |
+| [**updateCustomizePageSettings**](BasicInfoApi.md#updateCustomizePageSettings) | **PATCH** /customize-page-settings | Update Authentication Authorization Basic Information |
+| [**updateCustomizePages**](BasicInfoApi.md#updateCustomizePages) | **PATCH** /customize-pages | Authentication Page Setting |
+| [**updateNotificationMessages**](BasicInfoApi.md#updateNotificationMessages) | **PUT** /notification-messages | Update Notification Email Template |
 
 
 <a id="findNotificationMessages"></a>
 # **findNotificationMessages**
 > NotificationMessages findNotificationMessages()
 
-通知メールテンプレートを取得(Get Notification Email Templates)
+Get Notification Email Templates
 
-各種通知メールテンプレートを取得します。  Get notification email templates. 
+Get notification email templates. 
 
 ### Example
 ```java
@@ -82,9 +82,9 @@ This endpoint does not need any parameter.
 # **getBasicInfo**
 > BasicInfo getBasicInfo()
 
-基本設定情報の取得(Get Basic Configurations)
+Get Basic Configurations
 
-SaaS ID を元に設定されているドメイン名と CNAME レコードを取得します。 取得した CNAME レコードを DNS に設定することで、ログイン画面を生成します。  Get the domain name and CNAME record based on the SaaS ID. By setting the CNAME record on the DNS the login screen will be generated. 
+Get the domain name and CNAME record based on the SaaS ID. By setting the CNAME record on the DNS the login screen will be generated. 
 
 ### Example
 ```java
@@ -146,9 +146,9 @@ This endpoint does not need any parameter.
 # **getCustomizePageSettings**
 > CustomizePageSettings getCustomizePageSettings()
 
-認証認可基本情報取得(Get Authentication Authorization Basic Information)
+Get Authentication Authorization Basic Information
 
-認証認可基本情報を取得します。  Get authentication authorization basic information. 
+Get authentication authorization basic information. 
 
 ### Example
 ```java
@@ -210,9 +210,9 @@ This endpoint does not need any parameter.
 # **getCustomizePages**
 > CustomizePages getCustomizePages()
 
-認証系画面設定情報取得(Get Authentication Page Setting)
+Get Authentication Page Setting
 
-認証系画面設定情報（新規登録・ログイン・パスワードリセット等）を取得します。  Get the authentication screen setting information (new registration, login, password reset, etc.). 
+Get the authentication screen setting information (new registration, login, password reset, etc.). 
 
 ### Example
 ```java
@@ -274,9 +274,9 @@ This endpoint does not need any parameter.
 # **updateBasicInfo**
 > updateBasicInfo(updateBasicInfoParam)
 
-基本設定情報の更新(Update Basic Configurations)
+Update Basic Configurations
 
-SaaS ID を元にパラメータとして設定したドメイン名を設定更新します。 CNAME レコードが生成されますので、 DNS に設定して下さい。 既に稼働中の SaaS アプリケーションに設定している場合には、動作に影響があります。  Update the domain name that was set as a parameter based on the SaaS ID. After the CNAME record is generated, set it in your DNS. If it is set on a SaaS application that is already running, it will affect the behavior. 
+Update the domain name that was set as a parameter based on the SaaS ID. After the CNAME record is generated, set it in your DNS. If it is set on a SaaS application that is already running, it will affect the behavior. 
 
 ### Example
 ```java
@@ -341,9 +341,9 @@ null (empty response body)
 # **updateCustomizePageSettings**
 > updateCustomizePageSettings(updateCustomizePageSettingsParam)
 
-認証認可基本情報更新(Update Authentication Authorization Basic Information)
+Update Authentication Authorization Basic Information
 
-認証認可基本情報を更新します。  Update authentication authorization basic information. 
+Update authentication authorization basic information. 
 
 ### Example
 ```java
@@ -408,9 +408,9 @@ null (empty response body)
 # **updateCustomizePages**
 > updateCustomizePages(updateCustomizePagesParam)
 
-認証系画面設定情報設定(Authentication Page Setting)
+Authentication Page Setting
 
-認証系画面設定情報（新規登録・ログイン・パスワードリセット等）を更新します。  Update the authentication page setting information (new registration, login, password reset, etc.). 
+Update the authentication page setting information (new registration, login, password reset, etc.). 
 
 ### Example
 ```java
@@ -475,9 +475,9 @@ null (empty response body)
 # **updateNotificationMessages**
 > updateNotificationMessages(updateNotificationMessagesParam)
 
-通知メールテンプレートを更新(Update Notification Email Template)
+Update Notification Email Template
 
-各種通知メールテンプレート更新します。  Update notification email template. 
+Update notification email template. 
 
 ### Example
 ```java

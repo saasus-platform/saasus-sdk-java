@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -40,9 +40,9 @@ public class TenantApiTest {
     private final TenantApi api = new TenantApi();
 
     /**
-     * テナントを作成(Create Tenant)
+     * Create Tenant
      *
-     * SaaSus Platform で管理する、テナント情報を作成します。  Create a tenant managed by the SaaSus Platform. 
+     * Create a tenant managed by the SaaSus Platform. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -54,9 +54,9 @@ public class TenantApiTest {
     }
 
     /**
-     * stripe初期設定(Stripe Initial Setting)
+     * Stripe Initial Setting
      *
-     * billing経由でstripeへ初期情報を設定  Set Stripe initial information via billing 
+     * Set Stripe initial information via billing 
      *
      * @throws ApiException if the Api call fails
      */
@@ -67,9 +67,9 @@ public class TenantApiTest {
     }
 
     /**
-     * stripe上の顧客情報・商品情報の削除(Delete Customer and Product From Stripe)
+     * Delete Customer and Product From Stripe
      *
-     * stripe上の顧客情報・商品情報を削除します  Delete customer and product from Stripe. 
+     * Delete customer and product from Stripe. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -80,9 +80,9 @@ public class TenantApiTest {
     }
 
     /**
-     * テナント情報を削除(Delete Tenant)
+     * Delete Tenant
      *
-     * SaaSus Platform で管理する、テナントの詳細情報を削除します。  Delete SaaSus Platform tenant. 
+     * Delete SaaSus Platform tenant. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -94,9 +94,9 @@ public class TenantApiTest {
     }
 
     /**
-     * テナント情報を取得(Get Tenant Details)
+     * Get Tenant Details
      *
-     * SaaSus Platform で管理する、テナントの詳細情報を取得します。  Get the details of tenant managed on the SaaSus Platform. 
+     * Get the details of tenant managed on the SaaSus Platform. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -108,9 +108,9 @@ public class TenantApiTest {
     }
 
     /**
-     * テナント毎の外部IDプロバイダ取得(Get identity provider per tenant)
+     * Get identity provider per tenant
      *
-     * テナント毎の外部IDプロバイダ経由のサインイン情報を取得します。  Get sign-in information via external identity provider per tenant. 
+     * Get sign-in information via external identity provider per tenant. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -122,9 +122,9 @@ public class TenantApiTest {
     }
 
     /**
-     * テナント一覧取得(Get Tenants)
+     * Get Tenants
      *
-     * SaaSus Platform で管理する、テナント情報の取得を行います。  Get tenants managed by SaaSus Platform. 
+     * Get tenants managed by SaaSus Platform. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -135,9 +135,9 @@ public class TenantApiTest {
     }
 
     /**
-     * プランに関わる情報を全削除
+     * Delete all information related to rate plans
      *
-     * 料金プランに関わる情報を全削除します。 テナントに連携されたプランとプラン定義を削除します。 Stripe連携している場合、連携が解除されます。  Delete all information related to rate plans. Delete plans linked to tenants and plan definitions. If you are using the Stripe linkage, the linkage will be removed. 
+     * Delete all information related to rate plans. Delete plans linked to tenants and plan definitions. If you are using the Stripe linkage, the linkage will be removed. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -148,9 +148,9 @@ public class TenantApiTest {
     }
 
     /**
-     * テナント情報を更新(Update Tenant Details)
+     * Update Tenant Details
      *
-     * SaaSus Platform で管理する、テナントの詳細情報を更新します。  Update SaaSus Platform tenant details. 
+     * Update SaaSus Platform tenant details. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -163,9 +163,9 @@ public class TenantApiTest {
     }
 
     /**
-     * テナントの請求先情報を更新(Update Tenant Billing Information)
+     * Update Tenant Billing Information
      *
-     * SaaSus Platform で管理しているテナントの請求先情報を更新します。  Update SaaSus Platform tenant billing information. 
+     * Update SaaSus Platform tenant billing information. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -178,9 +178,9 @@ public class TenantApiTest {
     }
 
     /**
-     * テナント毎の外部IDプロバイダ更新(Update identity provider per tenant)
+     * Update identity provider per tenant
      *
-     * テナント毎の外部IDプロバイダ経由のサインイン情報を更新します。  Update sign-in information via external identity provider per tenant. 
+     * Update sign-in information via external identity provider per tenant. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -193,9 +193,9 @@ public class TenantApiTest {
     }
 
     /**
-     * テナントのプラン情報を更新(Update Tenant Plan Information)
+     * Update Tenant Plan Information
      *
-     * SaaSus Platform で管理しているテナントのプラン情報を更新します。  Update SaaSus Platform tenant plan information. 
+     * Update SaaSus Platform tenant plan information. 
      *
      * @throws ApiException if the Api call fails
      */

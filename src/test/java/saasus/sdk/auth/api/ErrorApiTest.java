@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -32,9 +32,9 @@ public class ErrorApiTest {
     private final ErrorApi api = new ErrorApi();
 
     /**
-     * ステータスコード500でサーバーエラーを返却(Return Internal Server Error)
+     * Return Internal Server Error
      *
-     * テスト用途で使用するエンドポイントです。ステータスコード500でサーバーエラーを返却します。  This endpoint is used for testing purposes. Returns a server error with status code 500. 
+     * This endpoint is used for testing purposes. Returns a server error with status code 500. 
      *
      * @throws ApiException if the Api call fails
      */

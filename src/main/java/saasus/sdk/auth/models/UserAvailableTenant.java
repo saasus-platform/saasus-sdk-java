@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -55,7 +54,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UserAvailableTenant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-14T16:56:09.227959148Z[Etc/UTC]")
 public class UserAvailableTenant {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -93,7 +92,6 @@ public class UserAvailableTenant {
   }
 
   public UserAvailableTenant id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -107,20 +105,18 @@ public class UserAvailableTenant {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
 
 
   public UserAvailableTenant name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * テナント名(tenant name)
+   * Tenant Name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -128,14 +124,12 @@ public class UserAvailableTenant {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public UserAvailableTenant completedSignUp(Boolean completedSignUp) {
-    
     this.completedSignUp = completedSignUp;
     return this;
   }
@@ -149,14 +143,12 @@ public class UserAvailableTenant {
     return completedSignUp;
   }
 
-
   public void setCompletedSignUp(Boolean completedSignUp) {
     this.completedSignUp = completedSignUp;
   }
 
 
   public UserAvailableTenant envs(List<UserAvailableEnv> envs) {
-    
     this.envs = envs;
     return this;
   }
@@ -170,7 +162,7 @@ public class UserAvailableTenant {
   }
 
    /**
-   * 環境情報、役割(ロール)情報(environmental info, role info)
+   * environmental info, role info
    * @return envs
   **/
   @javax.annotation.Nonnull
@@ -178,14 +170,12 @@ public class UserAvailableTenant {
     return envs;
   }
 
-
   public void setEnvs(List<UserAvailableEnv> envs) {
     this.envs = envs;
   }
 
 
   public UserAvailableTenant userAttribute(Map<String, Object> userAttribute) {
-    
     this.userAttribute = userAttribute;
     return this;
   }
@@ -199,7 +189,7 @@ public class UserAvailableTenant {
   }
 
    /**
-   * ユーザー追加属性(user additional attributes)
+   * user additional attributes
    * @return userAttribute
   **/
   @javax.annotation.Nonnull
@@ -207,20 +197,18 @@ public class UserAvailableTenant {
     return userAttribute;
   }
 
-
   public void setUserAttribute(Map<String, Object> userAttribute) {
     this.userAttribute = userAttribute;
   }
 
 
   public UserAvailableTenant backOfficeStaffEmail(String backOfficeStaffEmail) {
-    
     this.backOfficeStaffEmail = backOfficeStaffEmail;
     return this;
   }
 
    /**
-   * バックオフィス担当者のメール(back office contact email)
+   * back office contact email
    * @return backOfficeStaffEmail
   **/
   @javax.annotation.Nonnull
@@ -228,14 +216,12 @@ public class UserAvailableTenant {
     return backOfficeStaffEmail;
   }
 
-
   public void setBackOfficeStaffEmail(String backOfficeStaffEmail) {
     this.backOfficeStaffEmail = backOfficeStaffEmail;
   }
 
 
   public UserAvailableTenant planId(String planId) {
-    
     this.planId = planId;
     return this;
   }
@@ -249,27 +235,24 @@ public class UserAvailableTenant {
     return planId;
   }
 
-
   public void setPlanId(String planId) {
     this.planId = planId;
   }
 
 
   public UserAvailableTenant isPaid(Boolean isPaid) {
-    
     this.isPaid = isPaid;
     return this;
   }
 
    /**
-   * テナントの支払い状況(tenant payment status)  ※ 現在はストライプ連携時のみ返却されます。Currently, it is returned only when stripe is linked. 
+   * tenant payment status ※ Currently, it is returned only when stripe is linked. 
    * @return isPaid
   **/
   @javax.annotation.Nullable
   public Boolean getIsPaid() {
     return isPaid;
   }
-
 
   public void setIsPaid(Boolean isPaid) {
     this.isPaid = isPaid;
@@ -367,9 +350,9 @@ public class UserAvailableTenant {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UserAvailableTenant.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UserAvailableTenant` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
