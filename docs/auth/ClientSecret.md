@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**clientSecret** | **String** | クライアントシークレット(client secret) |  |
+|**clientSecret** | **String** | Client Secret |  |
 
 
 

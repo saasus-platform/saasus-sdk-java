@@ -14,17 +14,17 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * 更新方法(update method) add: 加算(addition) sub: 減算(subtraction) direct: 上書き(overwrite) 
+ * Update method add: Addition sub: Subtraction direct: Overwrite 
  */
 @JsonAdapter(UpdateMeteringUnitTimestampCountMethod.Adapter.class)
 public enum UpdateMeteringUnitTimestampCountMethod {
@@ -70,6 +70,11 @@ public enum UpdateMeteringUnitTimestampCountMethod {
       String value = jsonReader.nextString();
       return UpdateMeteringUnitTimestampCountMethod.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    UpdateMeteringUnitTimestampCountMethod.fromValue(value);
   }
 }
 
