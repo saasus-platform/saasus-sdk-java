@@ -14,7 +14,6 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.pricing.models.PricingMenu;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingPlan
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-15T14:12:00.074724122Z[Etc/UTC]")
 public class PricingPlan {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -83,13 +82,12 @@ public class PricingPlan {
   }
 
   public PricingPlan name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * 料金プラン名(pricing plan name)
+   * Pricing plan name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -97,20 +95,18 @@ public class PricingPlan {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public PricingPlan displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
 
    /**
-   * 料金プラン表示名(pricing plan display name)
+   * Pricing plan display name
    * @return displayName
   **/
   @javax.annotation.Nonnull
@@ -118,20 +114,18 @@ public class PricingPlan {
     return displayName;
   }
 
-
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
   public PricingPlan description(String description) {
-    
     this.description = description;
     return this;
   }
 
    /**
-   * 料金プラン説明(pricing plan description)
+   * Pricing plan description
    * @return description
   **/
   @javax.annotation.Nonnull
@@ -139,20 +133,18 @@ public class PricingPlan {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public PricingPlan used(Boolean used) {
-    
     this.used = used;
     return this;
   }
 
    /**
-   * 料金プランの使用済み設定(pricing plan used settings)
+   * Pricing plan used settings
    * @return used
   **/
   @javax.annotation.Nonnull
@@ -160,14 +152,12 @@ public class PricingPlan {
     return used;
   }
 
-
   public void setUsed(Boolean used) {
     this.used = used;
   }
 
 
   public PricingPlan pricingMenus(List<PricingMenu> pricingMenus) {
-    
     this.pricingMenus = pricingMenus;
     return this;
   }
@@ -189,27 +179,24 @@ public class PricingPlan {
     return pricingMenus;
   }
 
-
   public void setPricingMenus(List<PricingMenu> pricingMenus) {
     this.pricingMenus = pricingMenus;
   }
 
 
   public PricingPlan id(String id) {
-    
     this.id = id;
     return this;
   }
 
    /**
-   * Get id
+   * Universally Unique Identifier
    * @return id
   **/
   @javax.annotation.Nonnull
   public String getId() {
     return id;
   }
-
 
   public void setId(String id) {
     this.id = id;
@@ -301,9 +288,9 @@ public class PricingPlan {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PricingPlan.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PricingPlan` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
