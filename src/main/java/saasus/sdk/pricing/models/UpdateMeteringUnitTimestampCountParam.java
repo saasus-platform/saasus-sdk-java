@@ -14,13 +14,13 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import saasus.sdk.pricing.models.UpdateMeteringUnitTimestampCountMethod;
 
 import com.google.gson.Gson;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -51,7 +50,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * UpdateMeteringUnitTimestampCountParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-15T13:42:18.753207487Z[Etc/UTC]")
 public class UpdateMeteringUnitTimestampCountParam {
   public static final String SERIALIZED_NAME_METHOD = "method";
   @SerializedName(SERIALIZED_NAME_METHOD)
@@ -65,7 +64,6 @@ public class UpdateMeteringUnitTimestampCountParam {
   }
 
   public UpdateMeteringUnitTimestampCountParam method(UpdateMeteringUnitTimestampCountMethod method) {
-    
     this.method = method;
     return this;
   }
@@ -79,27 +77,24 @@ public class UpdateMeteringUnitTimestampCountParam {
     return method;
   }
 
-
   public void setMethod(UpdateMeteringUnitTimestampCountMethod method) {
     this.method = method;
   }
 
 
   public UpdateMeteringUnitTimestampCountParam count(Integer count) {
-    
     this.count = count;
     return this;
   }
 
    /**
-   * 件数(count)
+   * Count
    * @return count
   **/
   @javax.annotation.Nonnull
   public Integer getCount() {
     return count;
   }
-
 
   public void setCount(Integer count) {
     this.count = count;
@@ -175,9 +170,9 @@ public class UpdateMeteringUnitTimestampCountParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateMeteringUnitTimestampCountParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateMeteringUnitTimestampCountParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -190,6 +185,8 @@ public class UpdateMeteringUnitTimestampCountParam {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `method`
+      UpdateMeteringUnitTimestampCountMethod.validateJsonElement(jsonObj.get("method"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

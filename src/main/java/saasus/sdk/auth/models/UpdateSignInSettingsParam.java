@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import saasus.sdk.auth.models.AccountVerification;
 import saasus.sdk.auth.models.DeviceConfiguration;
 import saasus.sdk.auth.models.MfaConfiguration;
@@ -48,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -56,7 +55,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateSignInSettingsParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-15T13:42:12.890801135Z[Etc/UTC]")
 public class UpdateSignInSettingsParam {
   public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
   @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
@@ -86,7 +85,6 @@ public class UpdateSignInSettingsParam {
   }
 
   public UpdateSignInSettingsParam passwordPolicy(PasswordPolicy passwordPolicy) {
-    
     this.passwordPolicy = passwordPolicy;
     return this;
   }
@@ -100,14 +98,12 @@ public class UpdateSignInSettingsParam {
     return passwordPolicy;
   }
 
-
   public void setPasswordPolicy(PasswordPolicy passwordPolicy) {
     this.passwordPolicy = passwordPolicy;
   }
 
 
   public UpdateSignInSettingsParam deviceConfiguration(DeviceConfiguration deviceConfiguration) {
-    
     this.deviceConfiguration = deviceConfiguration;
     return this;
   }
@@ -121,14 +117,12 @@ public class UpdateSignInSettingsParam {
     return deviceConfiguration;
   }
 
-
   public void setDeviceConfiguration(DeviceConfiguration deviceConfiguration) {
     this.deviceConfiguration = deviceConfiguration;
   }
 
 
   public UpdateSignInSettingsParam mfaConfiguration(MfaConfiguration mfaConfiguration) {
-    
     this.mfaConfiguration = mfaConfiguration;
     return this;
   }
@@ -142,14 +136,12 @@ public class UpdateSignInSettingsParam {
     return mfaConfiguration;
   }
 
-
   public void setMfaConfiguration(MfaConfiguration mfaConfiguration) {
     this.mfaConfiguration = mfaConfiguration;
   }
 
 
   public UpdateSignInSettingsParam recaptchaProps(RecaptchaProps recaptchaProps) {
-    
     this.recaptchaProps = recaptchaProps;
     return this;
   }
@@ -163,14 +155,12 @@ public class UpdateSignInSettingsParam {
     return recaptchaProps;
   }
 
-
   public void setRecaptchaProps(RecaptchaProps recaptchaProps) {
     this.recaptchaProps = recaptchaProps;
   }
 
 
   public UpdateSignInSettingsParam accountVerification(AccountVerification accountVerification) {
-    
     this.accountVerification = accountVerification;
     return this;
   }
@@ -184,14 +174,12 @@ public class UpdateSignInSettingsParam {
     return accountVerification;
   }
 
-
   public void setAccountVerification(AccountVerification accountVerification) {
     this.accountVerification = accountVerification;
   }
 
 
   public UpdateSignInSettingsParam selfRegist(SelfRegist selfRegist) {
-    
     this.selfRegist = selfRegist;
     return this;
   }
@@ -204,7 +192,6 @@ public class UpdateSignInSettingsParam {
   public SelfRegist getSelfRegist() {
     return selfRegist;
   }
-
 
   public void setSelfRegist(SelfRegist selfRegist) {
     this.selfRegist = selfRegist;
@@ -290,9 +277,9 @@ public class UpdateSignInSettingsParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateSignInSettingsParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateSignInSettingsParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

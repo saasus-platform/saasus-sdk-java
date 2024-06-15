@@ -34,9 +34,9 @@ public class StripeApiTest {
     private final StripeApi api = new StripeApi();
 
     /**
-     * Stripe連携情報を削除(Delete Stripe Connection)
+     * Delete Stripe Connection
      *
-     * 請求業務で使う外部SaaSとの連携情報を削除します。  Delete connection with external billing SaaS 
+     * Delete connection with external billing SaaS 
      *
      * @throws ApiException if the Api call fails
      */
@@ -47,9 +47,9 @@ public class StripeApiTest {
     }
 
     /**
-     * Stripe連携情報を取得(Get Stripe Connection information)
+     * Get Stripe Connection information
      *
-     * 請求業務で使う外部SaaSとの連携情報を取得します。 現在は Stripe と連携が可能です。 連携を行わない場合は、 SaaSus SDK/API を利用して請求処理を実装する必要があります。  Get information on connnections with external billing SaaS. Currently possible to integrate with Stripe. Without integration, you will need to implement billing using the SaaSus SDK/API. 
+     * Get information on connnections with external billing SaaS. Currently possible to integrate with Stripe. Without integration, you will need to implement billing using the SaaSus SDK/API. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -60,9 +60,9 @@ public class StripeApiTest {
     }
 
     /**
-     * Stripe連携情報を更新(Update Stripe Connection Info)
+     * Update Stripe Connection Info
      *
-     * 請求業務で使う外部SaaSとの連携情報を更新します。 現在は Stripe と連携が可能です。  Updates information on connection with external billing SaaS. Currently possible to connect to Stripe. 
+     * Updates information on connection with external billing SaaS. Currently possible to connect to Stripe. 
      *
      * @throws ApiException if the Api call fails
      */

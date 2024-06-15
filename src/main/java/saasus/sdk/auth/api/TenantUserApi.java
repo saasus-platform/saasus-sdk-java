@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -79,7 +79,7 @@ public class TenantUserApi {
 
     /**
      * Build call for createTenantUser
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param createTenantUserParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -149,9 +149,9 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントにユーザーを作成(Create Tenant User)
-     * テナントにユーザーを作成します。 attributesを空のオブジェクトにした場合、追加属性は空で作成されます。  Create a tenant user. If attributes is empty, the additional attributes will be created empty. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Create Tenant User
+     * Create a tenant user. If attributes is empty, the additional attributes will be created empty. 
+     * @param tenantId Tenant ID (required)
      * @param createTenantUserParam  (optional)
      * @return User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -168,9 +168,9 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントにユーザーを作成(Create Tenant User)
-     * テナントにユーザーを作成します。 attributesを空のオブジェクトにした場合、追加属性は空で作成されます。  Create a tenant user. If attributes is empty, the additional attributes will be created empty. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Create Tenant User
+     * Create a tenant user. If attributes is empty, the additional attributes will be created empty. 
+     * @param tenantId Tenant ID (required)
      * @param createTenantUserParam  (optional)
      * @return ApiResponse&lt;User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -188,9 +188,9 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントにユーザーを作成(Create Tenant User) (asynchronously)
-     * テナントにユーザーを作成します。 attributesを空のオブジェクトにした場合、追加属性は空で作成されます。  Create a tenant user. If attributes is empty, the additional attributes will be created empty. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Create Tenant User (asynchronously)
+     * Create a tenant user. If attributes is empty, the additional attributes will be created empty. 
+     * @param tenantId Tenant ID (required)
      * @param createTenantUserParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -211,9 +211,9 @@ public class TenantUserApi {
     }
     /**
      * Build call for createTenantUserRoles
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
-     * @param envId 環境ID(Env ID) (required)
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
+     * @param envId Env ID (required)
      * @param createTenantUserRolesParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -295,11 +295,11 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー情報に役割(ロール)を作成(Create Tenant User Role)
-     * テナントのユーザーに役割(ロール)を作成します。  Create roles on tenant users. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
-     * @param envId 環境ID(Env ID) (required)
+     * Create Tenant User Role
+     * Create roles on tenant users. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
+     * @param envId Env ID (required)
      * @param createTenantUserRolesParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -314,11 +314,11 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー情報に役割(ロール)を作成(Create Tenant User Role)
-     * テナントのユーザーに役割(ロール)を作成します。  Create roles on tenant users. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
-     * @param envId 環境ID(Env ID) (required)
+     * Create Tenant User Role
+     * Create roles on tenant users. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
+     * @param envId Env ID (required)
      * @param createTenantUserRolesParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -335,11 +335,11 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー情報に役割(ロール)を作成(Create Tenant User Role) (asynchronously)
-     * テナントのユーザーに役割(ロール)を作成します。  Create roles on tenant users. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
-     * @param envId 環境ID(Env ID) (required)
+     * Create Tenant User Role (asynchronously)
+     * Create roles on tenant users. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
+     * @param envId Env ID (required)
      * @param createTenantUserRolesParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -359,8 +359,8 @@ public class TenantUserApi {
     }
     /**
      * Build call for deleteTenantUser
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -435,10 +435,10 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー情報を削除(Delete Tenant User)
-     * テナントからユーザーを削除します。  Delete a user from your tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * Delete Tenant User
+     * Delete a user from the tenant. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -453,10 +453,10 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー情報を削除(Delete Tenant User)
-     * テナントからユーザーを削除します。  Delete a user from your tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * Delete Tenant User
+     * Delete a user from the tenant. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -473,10 +473,10 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー情報を削除(Delete Tenant User) (asynchronously)
-     * テナントからユーザーを削除します。  Delete a user from your tenant. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * Delete Tenant User (asynchronously)
+     * Delete a user from the tenant. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -496,10 +496,10 @@ public class TenantUserApi {
     }
     /**
      * Build call for deleteTenantUserRole
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
-     * @param envId 環境ID(Env ID) (required)
-     * @param roleName 役割(ロール)名(role name) (required)
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
+     * @param envId Env ID (required)
+     * @param roleName Role name (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -586,12 +586,12 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザーから役割(ロール)を削除(Remove Role From Tenant User)
-     * テナントのユーザーから役割(ロール)を削除します。  Remove a role from a tenant user. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
-     * @param envId 環境ID(Env ID) (required)
-     * @param roleName 役割(ロール)名(role name) (required)
+     * Remove Role From Tenant User
+     * Remove a role from a tenant user. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
+     * @param envId Env ID (required)
+     * @param roleName Role name (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -606,12 +606,12 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザーから役割(ロール)を削除(Remove Role From Tenant User)
-     * テナントのユーザーから役割(ロール)を削除します。  Remove a role from a tenant user. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
-     * @param envId 環境ID(Env ID) (required)
-     * @param roleName 役割(ロール)名(role name) (required)
+     * Remove Role From Tenant User
+     * Remove a role from a tenant user. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
+     * @param envId Env ID (required)
+     * @param roleName Role name (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -628,12 +628,12 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザーから役割(ロール)を削除(Remove Role From Tenant User) (asynchronously)
-     * テナントのユーザーから役割(ロール)を削除します。  Remove a role from a tenant user. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
-     * @param envId 環境ID(Env ID) (required)
-     * @param roleName 役割(ロール)名(role name) (required)
+     * Remove Role From Tenant User (asynchronously)
+     * Remove a role from a tenant user. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
+     * @param envId Env ID (required)
+     * @param roleName Role name (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -653,7 +653,7 @@ public class TenantUserApi {
     }
     /**
      * Build call for getAllTenantUser
-     * @param userId ユーザーID(User ID) (required)
+     * @param userId User ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -722,9 +722,9 @@ public class TenantUserApi {
     }
 
     /**
-     * ユーザー情報を取得(Get User Info)
-     * ユーザーIDからテナントに所属しているユーザー情報を取得します。 複数テナントに所属している場合は別のオブジェクトとして返却されます。  Get information on user belonging to the tenant from the user ID. If the user belongs to multiple tenants, it will be returned as another object. 
-     * @param userId ユーザーID(User ID) (required)
+     * Get User Info
+     * Get information on user belonging to the tenant from the user ID. If the user belongs to multiple tenants, it will be returned as another object. 
+     * @param userId User ID (required)
      * @return Users
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -741,9 +741,9 @@ public class TenantUserApi {
     }
 
     /**
-     * ユーザー情報を取得(Get User Info)
-     * ユーザーIDからテナントに所属しているユーザー情報を取得します。 複数テナントに所属している場合は別のオブジェクトとして返却されます。  Get information on user belonging to the tenant from the user ID. If the user belongs to multiple tenants, it will be returned as another object. 
-     * @param userId ユーザーID(User ID) (required)
+     * Get User Info
+     * Get information on user belonging to the tenant from the user ID. If the user belongs to multiple tenants, it will be returned as another object. 
+     * @param userId User ID (required)
      * @return ApiResponse&lt;Users&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -761,9 +761,9 @@ public class TenantUserApi {
     }
 
     /**
-     * ユーザー情報を取得(Get User Info) (asynchronously)
-     * ユーザーIDからテナントに所属しているユーザー情報を取得します。 複数テナントに所属している場合は別のオブジェクトとして返却されます。  Get information on user belonging to the tenant from the user ID. If the user belongs to multiple tenants, it will be returned as another object. 
-     * @param userId ユーザーID(User ID) (required)
+     * Get User Info (asynchronously)
+     * Get information on user belonging to the tenant from the user ID. If the user belongs to multiple tenants, it will be returned as another object. 
+     * @param userId User ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -845,8 +845,8 @@ public class TenantUserApi {
     }
 
     /**
-     * ユーザー一覧を取得(Get Users)
-     * テナントに所属しているユーザー全件を取得します。 複数テナントに所属する同一ユーザーは別のオブジェクトとして返却されます。 idは一意ではありません。  Get all users belonging to the tenant. The same user belonging to multiple tenants will be returned as a different object. Id is not unique. 
+     * Get Users
+     * Get all users belonging to the tenant. The same user belonging to multiple tenants will be returned as a different object. Id is not unique. 
      * @return Users
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -862,8 +862,8 @@ public class TenantUserApi {
     }
 
     /**
-     * ユーザー一覧を取得(Get Users)
-     * テナントに所属しているユーザー全件を取得します。 複数テナントに所属する同一ユーザーは別のオブジェクトとして返却されます。 idは一意ではありません。  Get all users belonging to the tenant. The same user belonging to multiple tenants will be returned as a different object. Id is not unique. 
+     * Get Users
+     * Get all users belonging to the tenant. The same user belonging to multiple tenants will be returned as a different object. Id is not unique. 
      * @return ApiResponse&lt;Users&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -880,8 +880,8 @@ public class TenantUserApi {
     }
 
     /**
-     * ユーザー一覧を取得(Get Users) (asynchronously)
-     * テナントに所属しているユーザー全件を取得します。 複数テナントに所属する同一ユーザーは別のオブジェクトとして返却されます。 idは一意ではありません。  Get all users belonging to the tenant. The same user belonging to multiple tenants will be returned as a different object. Id is not unique. 
+     * Get Users (asynchronously)
+     * Get all users belonging to the tenant. The same user belonging to multiple tenants will be returned as a different object. Id is not unique. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -901,8 +901,8 @@ public class TenantUserApi {
     }
     /**
      * Build call for getTenantUser
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -977,10 +977,10 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー情報を取得(Get Tenant User)
-     * テナントのユーザーをIDから一件取得します。  Get one tenant user by specific ID. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * Get Tenant User
+     * Get one tenant user by specific ID. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @return User
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -997,10 +997,10 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー情報を取得(Get Tenant User)
-     * テナントのユーザーをIDから一件取得します。  Get one tenant user by specific ID. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * Get Tenant User
+     * Get one tenant user by specific ID. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @return ApiResponse&lt;User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1018,10 +1018,10 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー情報を取得(Get Tenant User) (asynchronously)
-     * テナントのユーザーをIDから一件取得します。  Get one tenant user by specific ID. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * Get Tenant User (asynchronously)
+     * Get one tenant user by specific ID. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1042,7 +1042,7 @@ public class TenantUserApi {
     }
     /**
      * Build call for getTenantUsers
-     * @param tenantId テナントID(Tenant ID) (required)
+     * @param tenantId Tenant ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1110,9 +1110,9 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー一覧を取得(Get Tenant Users)
-     * テナントに所属するユーザーを全件取得します。 idは一意です。  Get all the users belonging to the tenant. Id is unique. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get Tenant Users
+     * Get all the users belonging to the tenant. Id is unique. 
+     * @param tenantId Tenant ID (required)
      * @return Users
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1128,9 +1128,9 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー一覧を取得(Get Tenant Users)
-     * テナントに所属するユーザーを全件取得します。 idは一意です。  Get all the users belonging to the tenant. Id is unique. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get Tenant Users
+     * Get all the users belonging to the tenant. Id is unique. 
+     * @param tenantId Tenant ID (required)
      * @return ApiResponse&lt;Users&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1147,9 +1147,9 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー一覧を取得(Get Tenant Users) (asynchronously)
-     * テナントに所属するユーザーを全件取得します。 idは一意です。  Get all the users belonging to the tenant. Id is unique. 
-     * @param tenantId テナントID(Tenant ID) (required)
+     * Get Tenant Users (asynchronously)
+     * Get all the users belonging to the tenant. Id is unique. 
+     * @param tenantId Tenant ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1169,8 +1169,8 @@ public class TenantUserApi {
     }
     /**
      * Build call for updateTenantUser
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @param updateTenantUserParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1247,10 +1247,10 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー属性情報を更新(Update Tenant User Attribute)
-     * テナントのユーザー属性情報を更新します。  Update tenant user attributes. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * Update Tenant User Attribute
+     * Update tenant user attributes. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @param updateTenantUserParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1266,10 +1266,10 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー属性情報を更新(Update Tenant User Attribute)
-     * テナントのユーザー属性情報を更新します。  Update tenant user attributes. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * Update Tenant User Attribute
+     * Update tenant user attributes. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @param updateTenantUserParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1287,10 +1287,10 @@ public class TenantUserApi {
     }
 
     /**
-     * テナントのユーザー属性情報を更新(Update Tenant User Attribute) (asynchronously)
-     * テナントのユーザー属性情報を更新します。  Update tenant user attributes. 
-     * @param tenantId テナントID(Tenant ID) (required)
-     * @param userId ユーザーID(User ID) (required)
+     * Update Tenant User Attribute (asynchronously)
+     * Update tenant user attributes. 
+     * @param tenantId Tenant ID (required)
+     * @param userId User ID (required)
      * @param updateTenantUserParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
