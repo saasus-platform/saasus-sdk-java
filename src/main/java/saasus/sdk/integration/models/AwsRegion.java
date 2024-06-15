@@ -14,17 +14,17 @@
 package saasus.sdk.integration.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * 中国の寧夏、北京を除く全てのAWSリージョンが選択可能です。  All AWS regions except Ningxia and Beijing in China can be selected. 
+ * All AWS regions except Ningxia and Beijing in China can be selected. 
  */
 @JsonAdapter(AwsRegion.Adapter.class)
 public enum AwsRegion {
@@ -108,6 +108,11 @@ public enum AwsRegion {
       String value = jsonReader.nextString();
       return AwsRegion.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    AwsRegion.fromValue(value);
   }
 }
 

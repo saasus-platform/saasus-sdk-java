@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import saasus.sdk.auth.models.CustomizePageProps;
 
 import com.google.gson.Gson;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -51,7 +50,7 @@ import saasus.sdk.auth.JSON;
 /**
  * CustomizePages
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-15T13:42:12.890801135Z[Etc/UTC]")
 public class CustomizePages {
   public static final String SERIALIZED_NAME_SIGN_UP_PAGE = "sign_up_page";
   @SerializedName(SERIALIZED_NAME_SIGN_UP_PAGE)
@@ -69,7 +68,6 @@ public class CustomizePages {
   }
 
   public CustomizePages signUpPage(CustomizePageProps signUpPage) {
-    
     this.signUpPage = signUpPage;
     return this;
   }
@@ -83,14 +81,12 @@ public class CustomizePages {
     return signUpPage;
   }
 
-
   public void setSignUpPage(CustomizePageProps signUpPage) {
     this.signUpPage = signUpPage;
   }
 
 
   public CustomizePages signInPage(CustomizePageProps signInPage) {
-    
     this.signInPage = signInPage;
     return this;
   }
@@ -104,14 +100,12 @@ public class CustomizePages {
     return signInPage;
   }
 
-
   public void setSignInPage(CustomizePageProps signInPage) {
     this.signInPage = signInPage;
   }
 
 
   public CustomizePages passwordResetPage(CustomizePageProps passwordResetPage) {
-    
     this.passwordResetPage = passwordResetPage;
     return this;
   }
@@ -124,7 +118,6 @@ public class CustomizePages {
   public CustomizePageProps getPasswordResetPage() {
     return passwordResetPage;
   }
-
 
   public void setPasswordResetPage(CustomizePageProps passwordResetPage) {
     this.passwordResetPage = passwordResetPage;
@@ -204,9 +197,9 @@ public class CustomizePages {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!CustomizePages.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomizePages` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
