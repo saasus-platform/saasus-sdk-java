@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * ConfirmExternalUserLinkParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-15T14:11:53.917148020Z[Etc/UTC]")
 public class ConfirmExternalUserLinkParam {
   public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
   @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
@@ -64,7 +63,6 @@ public class ConfirmExternalUserLinkParam {
   }
 
   public ConfirmExternalUserLinkParam accessToken(String accessToken) {
-    
     this.accessToken = accessToken;
     return this;
   }
@@ -78,14 +76,12 @@ public class ConfirmExternalUserLinkParam {
     return accessToken;
   }
 
-
   public void setAccessToken(String accessToken) {
     this.accessToken = accessToken;
   }
 
 
   public ConfirmExternalUserLinkParam code(String code) {
-    
     this.code = code;
     return this;
   }
@@ -98,7 +94,6 @@ public class ConfirmExternalUserLinkParam {
   public String getCode() {
     return code;
   }
-
 
   public void setCode(String code) {
     this.code = code;
@@ -174,9 +169,9 @@ public class ConfirmExternalUserLinkParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ConfirmExternalUserLinkParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfirmExternalUserLinkParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
