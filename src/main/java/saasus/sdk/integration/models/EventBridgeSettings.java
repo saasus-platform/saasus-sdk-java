@@ -14,13 +14,13 @@
 package saasus.sdk.integration.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import saasus.sdk.integration.models.AwsRegion;
 
 import com.google.gson.Gson;
@@ -43,7 +43,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.integration.JSON;
@@ -51,7 +50,7 @@ import saasus.sdk.integration.JSON;
 /**
  * EventBridgeSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:23.586706Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-27T08:48:43.357732582Z[Etc/UTC]")
 public class EventBridgeSettings {
   public static final String SERIALIZED_NAME_AWS_ACCOUNT_ID = "aws_account_id";
   @SerializedName(SERIALIZED_NAME_AWS_ACCOUNT_ID)
@@ -65,13 +64,12 @@ public class EventBridgeSettings {
   }
 
   public EventBridgeSettings awsAccountId(String awsAccountId) {
-    
     this.awsAccountId = awsAccountId;
     return this;
   }
 
    /**
-   * AWSアカウントID(AWS Account ID)
+   * AWS Account ID
    * @return awsAccountId
   **/
   @javax.annotation.Nonnull
@@ -79,14 +77,12 @@ public class EventBridgeSettings {
     return awsAccountId;
   }
 
-
   public void setAwsAccountId(String awsAccountId) {
     this.awsAccountId = awsAccountId;
   }
 
 
   public EventBridgeSettings awsRegion(AwsRegion awsRegion) {
-    
     this.awsRegion = awsRegion;
     return this;
   }
@@ -99,7 +95,6 @@ public class EventBridgeSettings {
   public AwsRegion getAwsRegion() {
     return awsRegion;
   }
-
 
   public void setAwsRegion(AwsRegion awsRegion) {
     this.awsRegion = awsRegion;
@@ -175,9 +170,9 @@ public class EventBridgeSettings {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!EventBridgeSettings.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EventBridgeSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -193,6 +188,8 @@ public class EventBridgeSettings {
       if (!jsonObj.get("aws_account_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `aws_account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aws_account_id").toString()));
       }
+      // validate the required field `aws_region`
+      AwsRegion.validateJsonElement(jsonObj.get("aws_region"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

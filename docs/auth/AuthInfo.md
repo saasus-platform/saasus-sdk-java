@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**callbackUrl** | **String** | 認証後遷移先(Redirect After Authentication) |  |
+|**callbackUrl** | **String** | Redirect After Authentication |  |
 
 
 
