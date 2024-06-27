@@ -14,17 +14,17 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.IOException;
 import com.google.gson.TypeAdapter;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
 /**
- * 計測単位の種別(unit of measurement type) fixed: 固定ユニット(fixed unit) usage: 使用量ユニット(usage unit) tiered: 段階ユニット(tiered unit) tiered_usage: 段階的使用量ユニット(tiered usage unit) 
+ * Unit of measurement type fixed: Fixed unit usage: Usage unit tiered: Tiered unit tiered_usage: Tiered usage unit 
  */
 @JsonAdapter(UnitType.Adapter.class)
 public enum UnitType {
@@ -72,6 +72,11 @@ public enum UnitType {
       String value = jsonReader.nextString();
       return UnitType.fromValue(value);
     }
+  }
+
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    String value = jsonElement.getAsString();
+    UnitType.fromValue(value);
   }
 }
 

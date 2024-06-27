@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -37,9 +37,9 @@ public class AuthInfoApiTest {
     private final AuthInfoApi api = new AuthInfoApi();
 
     /**
-     * 認証情報を取得(Get Authentication Info)
+     * Get Authentication Info
      *
-     * ログイン後に認証情報を渡す SaaS の URL を取得します。 ここで取得した URL へ認証情報を渡し、SaaSus SDK を利用してこの Callback の実装をすることが可能となります。  Get the post-login SaaS URL that contains authentication information. You can pass authentication information to the URL obtained here and implement this Callback using the SaaSus SDK. 
+     * Get the post-login SaaS URL that contains authentication information. You can pass authentication information to the URL obtained here and implement this Callback using the SaaSus SDK. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -50,7 +50,9 @@ public class AuthInfoApiTest {
     }
 
     /**
-     * cognitoに設定している外部プロバイダ経由のサインイン情報取得  Get sign-in information via external provider set in cognito 
+     * Get Sign-In Information Via External Provider
+     *
+     * Get sign-in information via external provider set in cognito. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -61,9 +63,9 @@ public class AuthInfoApiTest {
     }
 
     /**
-     * パスワード要件を取得(Get Password Requirements)
+     * Get Password Requirements
      *
-     * ユーザーパスワードの要件設定を取得します。 アルファベット、数字、記号の組み合わせで、桁数を長くすれば解読されづらい安全なパスワードを設定することが可能となります。  Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -74,9 +76,9 @@ public class AuthInfoApiTest {
     }
 
     /**
-     * 認証情報を更新(Update Authentication Info)
+     * Update Authentication Info
      *
-     * ログイン後に認証情報を渡す SaaS の URL を登録します。 ここで登録した URL に認証情報を渡し、SaaSus SDK を利用してこの Callback の実装をすることが可能となります。  Register post-login SaaS URL for authentication information. It is possible to pass authentication information to the URL registered here and implement this Callback using the SaaSus SDK. 
+     * Register post-login SaaS URL for authentication information. It is possible to pass authentication information to the URL registered here and implement this Callback using the SaaSus SDK. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -88,7 +90,9 @@ public class AuthInfoApiTest {
     }
 
     /**
-     * 外部IDプロバイダのサインイン情報更新
+     * Update Sign-In Information
+     *
+     * Update the sign-in information for the external ID provider
      *
      * @throws ApiException if the Api call fails
      */
@@ -100,9 +104,9 @@ public class AuthInfoApiTest {
     }
 
     /**
-     * パスワード要件を更新(Update Password Requirements)
+     * Update Password Requirements
      *
-     * ユーザーパスワードの要件設定を更新します。 アルファベット、数字、記号の組み合わせで、桁数を長くすれば解読されづらい安全なパスワードを設定することが可能となります。  Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
      *
      * @throws ApiException if the Api call fails
      */
