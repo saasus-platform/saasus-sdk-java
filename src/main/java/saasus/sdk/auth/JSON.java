@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -102,6 +102,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.BillingAddress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.BillingInfo.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.ClientSecret.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.CloudFormationLaunchStackLink.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.ConfirmEmailUpdateParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.ConfirmExternalUserLinkParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.ConfirmSignUpWithAwsMarketplaceParam.CustomTypeAdapterFactory());
@@ -150,6 +151,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.SignInSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.SignUpParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.SignUpWithAwsMarketplaceParam.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.SingleTenantSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.SoftwareTokenSecretCode.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.Tenant.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.TenantAttributes.CustomTypeAdapterFactory());
@@ -168,6 +170,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateSaasUserEmailParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateSaasUserPasswordParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateSignInSettingsParam.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateSingleTenantSettingsParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateSoftwareTokenParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateTenantIdentityProviderParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateTenantUserParam.CustomTypeAdapterFactory());

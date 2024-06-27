@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,15 +42,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
 
 /**
- * reCAPTCHA認証設定(reCAPTCHA authentication settings) ※ 未提供の機能のため、変更・保存はできません(This function is not yet provided, so it cannot be changed or saved.) 
+ * reCAPTCHA authentication settings ※ This function is not yet provided, so it cannot be changed or saved. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-27T08:48:27.914948228Z[Etc/UTC]")
 public class RecaptchaProps {
   public static final String SERIALIZED_NAME_SITE_KEY = "site_key";
   @SerializedName(SERIALIZED_NAME_SITE_KEY)
@@ -64,13 +63,12 @@ public class RecaptchaProps {
   }
 
   public RecaptchaProps siteKey(String siteKey) {
-    
     this.siteKey = siteKey;
     return this;
   }
 
    /**
-   * サイトキー(site key)
+   * site key
    * @return siteKey
   **/
   @javax.annotation.Nonnull
@@ -78,27 +76,24 @@ public class RecaptchaProps {
     return siteKey;
   }
 
-
   public void setSiteKey(String siteKey) {
     this.siteKey = siteKey;
   }
 
 
   public RecaptchaProps secretKey(String secretKey) {
-    
     this.secretKey = secretKey;
     return this;
   }
 
    /**
-   * シークレットキー(secret key)
+   * secret key
    * @return secretKey
   **/
   @javax.annotation.Nonnull
   public String getSecretKey() {
     return secretKey;
   }
-
 
   public void setSecretKey(String secretKey) {
     this.secretKey = secretKey;
@@ -174,9 +169,9 @@ public class RecaptchaProps {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!RecaptchaProps.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `RecaptchaProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
