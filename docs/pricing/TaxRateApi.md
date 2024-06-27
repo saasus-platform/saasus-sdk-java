@@ -4,18 +4,18 @@ All URIs are relative to *https://api.saasus.io/v1/pricing*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createTaxRate**](TaxRateApi.md#createTaxRate) | **POST** /tax-rates | 税率の作成(Create Tax Rate) |
-| [**getTaxRates**](TaxRateApi.md#getTaxRates) | **GET** /tax-rates | 税率を取得します(Get Tax Rates) |
-| [**updateTaxRate**](TaxRateApi.md#updateTaxRate) | **PATCH** /tax-rates/{tax_rate_id} | 税率を更新(Update Tax Rate) |
+| [**createTaxRate**](TaxRateApi.md#createTaxRate) | **POST** /tax-rates | Create Tax Rate |
+| [**getTaxRates**](TaxRateApi.md#getTaxRates) | **GET** /tax-rates | Get Tax Rates |
+| [**updateTaxRate**](TaxRateApi.md#updateTaxRate) | **PATCH** /tax-rates/{tax_rate_id} | Update Tax Rate |
 
 
 <a id="createTaxRate"></a>
 # **createTaxRate**
 > TaxRate createTaxRate(body)
 
-税率の作成(Create Tax Rate)
+Create Tax Rate
 
-税率を作成します。  Creates a tax rate. 
+Creates a tax rate. 
 
 ### Example
 ```java
@@ -82,9 +82,9 @@ public class Example {
 # **getTaxRates**
 > TaxRates getTaxRates()
 
-税率を取得します(Get Tax Rates)
+Get Tax Rates
 
-税率を取得します。  Get all Tax Rates 
+Get all Tax Rates 
 
 ### Example
 ```java
@@ -146,9 +146,9 @@ This endpoint does not need any parameter.
 # **updateTaxRate**
 > updateTaxRate(taxRateId, updateTaxRateParam)
 
-税率を更新(Update Tax Rate)
+Update Tax Rate
 
-税率を更新します。  Update tax rate. 
+Update tax rate. 
 
 ### Example
 ```java
@@ -170,7 +170,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     TaxRateApi apiInstance = new TaxRateApi(defaultClient);
-    String taxRateId = "taxRateId_example"; // String | 税率ID(tax rate ID)
+    String taxRateId = "taxRateId_example"; // String | Tax Rate ID
     UpdateTaxRateParam updateTaxRateParam = new UpdateTaxRateParam(); // UpdateTaxRateParam | 
     try {
       apiInstance.updateTaxRate(taxRateId, updateTaxRateParam);
@@ -189,7 +189,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **taxRateId** | **String**| 税率ID(tax rate ID) | |
+| **taxRateId** | **String**| Tax Rate ID | |
 | **updateTaxRateParam** | [**UpdateTaxRateParam**](UpdateTaxRateParam.md)|  | [optional] |
 
 ### Return type

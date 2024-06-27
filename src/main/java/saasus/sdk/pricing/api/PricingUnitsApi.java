@@ -140,8 +140,8 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを作成(Create Pricing Unit)
-     * プライシングユニットを作成します。  Create a pricing unit. 
+     * Create Pricing Unit
+     * Create a pricing unit. 
      * @param body  (optional)
      * @return PricingUnit
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -158,8 +158,8 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを作成(Create Pricing Unit)
-     * プライシングユニットを作成します。  Create a pricing unit. 
+     * Create Pricing Unit
+     * Create a pricing unit. 
      * @param body  (optional)
      * @return ApiResponse&lt;PricingUnit&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -177,8 +177,8 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを作成(Create Pricing Unit) (asynchronously)
-     * プライシングユニットを作成します。  Create a pricing unit. 
+     * Create Pricing Unit (asynchronously)
+     * Create a pricing unit. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -199,7 +199,7 @@ public class PricingUnitsApi {
     }
     /**
      * Build call for deletePricingUnit
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * @param pricingUnitId Unit ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -267,9 +267,9 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを削除(Delete Pricing Unit)
-     * プライシングユニットを削除します。  Delete a pricing unit. 
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * Delete Pricing Unit
+     * Delete a pricing unit. 
+     * @param pricingUnitId Unit ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -283,9 +283,9 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを削除(Delete Pricing Unit)
-     * プライシングユニットを削除します。  Delete a pricing unit. 
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * Delete Pricing Unit
+     * Delete a pricing unit. 
+     * @param pricingUnitId Unit ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -301,9 +301,9 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを削除(Delete Pricing Unit) (asynchronously)
-     * プライシングユニットを削除します。  Delete a pricing unit. 
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * Delete Pricing Unit (asynchronously)
+     * Delete a pricing unit. 
+     * @param pricingUnitId Unit ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -322,7 +322,7 @@ public class PricingUnitsApi {
     }
     /**
      * Build call for getPricingUnit
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * @param pricingUnitId Unit ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -390,9 +390,9 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを取得(Get Pricing Unit)
-     * プライシングユニットを取得します。  Get a pricing unit. 
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * Get Pricing Unit
+     * Get a pricing unit. 
+     * @param pricingUnitId Unit ID (required)
      * @return PricingUnit
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -408,9 +408,9 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを取得(Get Pricing Unit)
-     * プライシングユニットを取得します。  Get a pricing unit. 
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * Get Pricing Unit
+     * Get a pricing unit. 
+     * @param pricingUnitId Unit ID (required)
      * @return ApiResponse&lt;PricingUnit&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -427,9 +427,9 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを取得(Get Pricing Unit) (asynchronously)
-     * プライシングユニットを取得します。  Get a pricing unit. 
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * Get Pricing Unit (asynchronously)
+     * Get a pricing unit. 
+     * @param pricingUnitId Unit ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -510,8 +510,8 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットの一覧を取得(Get Pricing Units)
-     * 料金のベースとなる最小の計測単位を取得します。 「固定ユニット」(type&#x3D;fixed)は基本料金などの月額固定料金の単位、 「使用量ユニット」(type&#x3D;usage)はユーザ数課金などの１単位あたりごとに料金が発生する単位、 「段階ユニット」(type&#x3D;tiered)は携帯電話の段階的パケット料金のように利用量の段階ごとに一定の料金の単位、 「段階的使用量ユニット」(type&#x3D;tiered_usage)はボリュームディスカウントのように利用量に応じて１単位あたりの料金が変化していく単位、となります。  Gets the smallest unit of measure on which the charges are based. \&quot;Fixed Unit\&quot; (type&#x3D;fixed) is a unit of a monthly fixed charge such as a basic charge, \&quot;Usage Unit\&quot; (type&#x3D;usage) is a unit in which a charge is generated per unit such as billing for the number of users, \&quot;Tiered Unit\&quot; (type &#x3D; tiered) is a fixed charge unit for each tier of usage, such as the tiered packet charge for mobile phones, \&quot;Tiered Usage Unit\&quot; (type&#x3D;tiered_usage) is a unit where the charge per unit changes according to the usage amount, such as a volume discount. 
+     * Get Pricing Units
+     * Gets the smallest unit of measure on which the charges are based. \&quot;Fixed Unit\&quot; (type&#x3D;fixed) is a unit of a monthly fixed charge such as a basic charge, \&quot;Usage Unit\&quot; (type&#x3D;usage) is a unit in which a charge is generated per unit such as billing for the number of users, \&quot;Tiered Unit\&quot; (type&#x3D;tiered) is a fixed charge unit for each tier of usage, such as the tiered packet charge for mobile phones, \&quot;Tiered Usage Unit\&quot; (type&#x3D;tiered_usage) is a unit where the charge per unit changes according to the usage amount, such as a volume discount. 
      * @return PricingUnits
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -527,8 +527,8 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットの一覧を取得(Get Pricing Units)
-     * 料金のベースとなる最小の計測単位を取得します。 「固定ユニット」(type&#x3D;fixed)は基本料金などの月額固定料金の単位、 「使用量ユニット」(type&#x3D;usage)はユーザ数課金などの１単位あたりごとに料金が発生する単位、 「段階ユニット」(type&#x3D;tiered)は携帯電話の段階的パケット料金のように利用量の段階ごとに一定の料金の単位、 「段階的使用量ユニット」(type&#x3D;tiered_usage)はボリュームディスカウントのように利用量に応じて１単位あたりの料金が変化していく単位、となります。  Gets the smallest unit of measure on which the charges are based. \&quot;Fixed Unit\&quot; (type&#x3D;fixed) is a unit of a monthly fixed charge such as a basic charge, \&quot;Usage Unit\&quot; (type&#x3D;usage) is a unit in which a charge is generated per unit such as billing for the number of users, \&quot;Tiered Unit\&quot; (type &#x3D; tiered) is a fixed charge unit for each tier of usage, such as the tiered packet charge for mobile phones, \&quot;Tiered Usage Unit\&quot; (type&#x3D;tiered_usage) is a unit where the charge per unit changes according to the usage amount, such as a volume discount. 
+     * Get Pricing Units
+     * Gets the smallest unit of measure on which the charges are based. \&quot;Fixed Unit\&quot; (type&#x3D;fixed) is a unit of a monthly fixed charge such as a basic charge, \&quot;Usage Unit\&quot; (type&#x3D;usage) is a unit in which a charge is generated per unit such as billing for the number of users, \&quot;Tiered Unit\&quot; (type&#x3D;tiered) is a fixed charge unit for each tier of usage, such as the tiered packet charge for mobile phones, \&quot;Tiered Usage Unit\&quot; (type&#x3D;tiered_usage) is a unit where the charge per unit changes according to the usage amount, such as a volume discount. 
      * @return ApiResponse&lt;PricingUnits&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -545,8 +545,8 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットの一覧を取得(Get Pricing Units) (asynchronously)
-     * 料金のベースとなる最小の計測単位を取得します。 「固定ユニット」(type&#x3D;fixed)は基本料金などの月額固定料金の単位、 「使用量ユニット」(type&#x3D;usage)はユーザ数課金などの１単位あたりごとに料金が発生する単位、 「段階ユニット」(type&#x3D;tiered)は携帯電話の段階的パケット料金のように利用量の段階ごとに一定の料金の単位、 「段階的使用量ユニット」(type&#x3D;tiered_usage)はボリュームディスカウントのように利用量に応じて１単位あたりの料金が変化していく単位、となります。  Gets the smallest unit of measure on which the charges are based. \&quot;Fixed Unit\&quot; (type&#x3D;fixed) is a unit of a monthly fixed charge such as a basic charge, \&quot;Usage Unit\&quot; (type&#x3D;usage) is a unit in which a charge is generated per unit such as billing for the number of users, \&quot;Tiered Unit\&quot; (type &#x3D; tiered) is a fixed charge unit for each tier of usage, such as the tiered packet charge for mobile phones, \&quot;Tiered Usage Unit\&quot; (type&#x3D;tiered_usage) is a unit where the charge per unit changes according to the usage amount, such as a volume discount. 
+     * Get Pricing Units (asynchronously)
+     * Gets the smallest unit of measure on which the charges are based. \&quot;Fixed Unit\&quot; (type&#x3D;fixed) is a unit of a monthly fixed charge such as a basic charge, \&quot;Usage Unit\&quot; (type&#x3D;usage) is a unit in which a charge is generated per unit such as billing for the number of users, \&quot;Tiered Unit\&quot; (type&#x3D;tiered) is a fixed charge unit for each tier of usage, such as the tiered packet charge for mobile phones, \&quot;Tiered Usage Unit\&quot; (type&#x3D;tiered_usage) is a unit where the charge per unit changes according to the usage amount, such as a volume discount. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -566,7 +566,7 @@ public class PricingUnitsApi {
     }
     /**
      * Build call for updatePricingUnit
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * @param pricingUnitId Unit ID (required)
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -636,9 +636,9 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを更新(Update Pricing Unit)
-     * プライシングユニット情報を更新します。  Update pricing unit. 
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * Update Pricing Unit
+     * Update pricing unit. 
+     * @param pricingUnitId Unit ID (required)
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -653,9 +653,9 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを更新(Update Pricing Unit)
-     * プライシングユニット情報を更新します。  Update pricing unit. 
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * Update Pricing Unit
+     * Update pricing unit. 
+     * @param pricingUnitId Unit ID (required)
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -672,9 +672,9 @@ public class PricingUnitsApi {
     }
 
     /**
-     * プライシングユニットを更新(Update Pricing Unit) (asynchronously)
-     * プライシングユニット情報を更新します。  Update pricing unit. 
-     * @param pricingUnitId ユニットID(unit id) (required)
+     * Update Pricing Unit (asynchronously)
+     * Update pricing unit. 
+     * @param pricingUnitId Unit ID (required)
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

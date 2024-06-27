@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,15 +42,14 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
 
 /**
- * 環境情報(env info)
+ * env info
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-27T08:20:37.222119495Z[Etc/UTC]")
 public class Env {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -68,7 +67,6 @@ public class Env {
   }
 
   public Env id(Integer id) {
-    
     this.id = id;
     return this;
   }
@@ -82,20 +80,18 @@ public class Env {
     return id;
   }
 
-
   public void setId(Integer id) {
     this.id = id;
   }
 
 
   public Env name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * 環境名(env name)
+   * env name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -103,27 +99,24 @@ public class Env {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public Env displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
 
    /**
-   * 環境表示名(env display name)
+   * env display name
    * @return displayName
   **/
   @javax.annotation.Nullable
   public String getDisplayName() {
     return displayName;
   }
-
 
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
@@ -202,9 +195,9 @@ public class Env {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Env.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Env` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

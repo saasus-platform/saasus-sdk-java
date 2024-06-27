@@ -2,7 +2,7 @@
 
 # Envs
 
-env一覧(env list)
+env list
 
 ## Properties
 
