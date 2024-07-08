@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * ResendSignUpConfirmationEmailParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-08T02:48:55.881140815Z[Etc/UTC]")
 public class ResendSignUpConfirmationEmailParam {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -60,20 +59,18 @@ public class ResendSignUpConfirmationEmailParam {
   }
 
   public ResendSignUpConfirmationEmailParam email(String email) {
-    
     this.email = email;
     return this;
   }
 
    /**
-   * メールアドレス(Email Address)
+   * Email Address
    * @return email
   **/
   @javax.annotation.Nonnull
   public String getEmail() {
     return email;
   }
-
 
   public void setEmail(String email) {
     this.email = email;
@@ -145,9 +142,9 @@ public class ResendSignUpConfirmationEmailParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ResendSignUpConfirmationEmailParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ResendSignUpConfirmationEmailParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
