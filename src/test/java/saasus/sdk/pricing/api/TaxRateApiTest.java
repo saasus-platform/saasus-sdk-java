@@ -36,9 +36,9 @@ public class TaxRateApiTest {
     private final TaxRateApi api = new TaxRateApi();
 
     /**
-     * 税率の作成(Create Tax Rate)
+     * Create Tax Rate
      *
-     * 税率を作成します。  Creates a tax rate. 
+     * Creates a tax rate. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -50,9 +50,9 @@ public class TaxRateApiTest {
     }
 
     /**
-     * 税率を取得します(Get Tax Rates)
+     * Get Tax Rates
      *
-     * 税率を取得します。  Get all Tax Rates 
+     * Get all Tax Rates 
      *
      * @throws ApiException if the Api call fails
      */
@@ -63,9 +63,9 @@ public class TaxRateApiTest {
     }
 
     /**
-     * 税率を更新(Update Tax Rate)
+     * Update Tax Rate
      *
-     * 税率を更新します。  Update tax rate. 
+     * Update tax rate. 
      *
      * @throws ApiException if the Api call fails
      */

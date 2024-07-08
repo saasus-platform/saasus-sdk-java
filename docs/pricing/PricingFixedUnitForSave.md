@@ -7,12 +7,12 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**name** | **String** | 名前(name) |  |
-|**displayName** | **String** | 表示名(display name) |  |
-|**description** | **String** | 説明(description) |  |
+|**name** | **String** | Name |  |
+|**displayName** | **String** | Display Name |  |
+|**description** | **String** | Description |  |
 |**type** | **UnitType** |  |  |
 |**currency** | **Currency** |  |  |
-|**unitAmount** | **Integer** | 料金(price) |  |
+|**unitAmount** | **Integer** | Price |  |
 |**recurringInterval** | **RecurringInterval** |  |  |
 
 

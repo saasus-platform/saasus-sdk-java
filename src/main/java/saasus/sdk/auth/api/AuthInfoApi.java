@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -140,8 +140,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * 認証情報を取得(Get Authentication Info)
-     * ログイン後に認証情報を渡す SaaS の URL を取得します。 ここで取得した URL へ認証情報を渡し、SaaSus SDK を利用してこの Callback の実装をすることが可能となります。  Get the post-login SaaS URL that contains authentication information. You can pass authentication information to the URL obtained here and implement this Callback using the SaaSus SDK. 
+     * Get Authentication Info
+     * Get the post-login SaaS URL that contains authentication information. You can pass authentication information to the URL obtained here and implement this Callback using the SaaSus SDK. 
      * @return AuthInfo
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -157,8 +157,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * 認証情報を取得(Get Authentication Info)
-     * ログイン後に認証情報を渡す SaaS の URL を取得します。 ここで取得した URL へ認証情報を渡し、SaaSus SDK を利用してこの Callback の実装をすることが可能となります。  Get the post-login SaaS URL that contains authentication information. You can pass authentication information to the URL obtained here and implement this Callback using the SaaSus SDK. 
+     * Get Authentication Info
+     * Get the post-login SaaS URL that contains authentication information. You can pass authentication information to the URL obtained here and implement this Callback using the SaaSus SDK. 
      * @return ApiResponse&lt;AuthInfo&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -175,8 +175,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * 認証情報を取得(Get Authentication Info) (asynchronously)
-     * ログイン後に認証情報を渡す SaaS の URL を取得します。 ここで取得した URL へ認証情報を渡し、SaaSus SDK を利用してこの Callback の実装をすることが可能となります。  Get the post-login SaaS URL that contains authentication information. You can pass authentication information to the URL obtained here and implement this Callback using the SaaSus SDK. 
+     * Get Authentication Info (asynchronously)
+     * Get the post-login SaaS URL that contains authentication information. You can pass authentication information to the URL obtained here and implement this Callback using the SaaSus SDK. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -257,8 +257,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * 
-     * cognitoに設定している外部プロバイダ経由のサインイン情報取得  Get sign-in information via external provider set in cognito 
+     * Get Sign-In Information Via External Provider
+     * Get sign-in information via external provider set in cognito. 
      * @return IdentityProviders
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -274,8 +274,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * 
-     * cognitoに設定している外部プロバイダ経由のサインイン情報取得  Get sign-in information via external provider set in cognito 
+     * Get Sign-In Information Via External Provider
+     * Get sign-in information via external provider set in cognito. 
      * @return ApiResponse&lt;IdentityProviders&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -292,8 +292,8 @@ public class AuthInfoApi {
     }
 
     /**
-     *  (asynchronously)
-     * cognitoに設定している外部プロバイダ経由のサインイン情報取得  Get sign-in information via external provider set in cognito 
+     * Get Sign-In Information Via External Provider (asynchronously)
+     * Get sign-in information via external provider set in cognito. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -374,8 +374,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * パスワード要件を取得(Get Password Requirements)
-     * ユーザーパスワードの要件設定を取得します。 アルファベット、数字、記号の組み合わせで、桁数を長くすれば解読されづらい安全なパスワードを設定することが可能となります。  Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Get Password Requirements
+     * Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
      * @return SignInSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -391,8 +391,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * パスワード要件を取得(Get Password Requirements)
-     * ユーザーパスワードの要件設定を取得します。 アルファベット、数字、記号の組み合わせで、桁数を長くすれば解読されづらい安全なパスワードを設定することが可能となります。  Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Get Password Requirements
+     * Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
      * @return ApiResponse&lt;SignInSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -409,8 +409,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * パスワード要件を取得(Get Password Requirements) (asynchronously)
-     * ユーザーパスワードの要件設定を取得します。 アルファベット、数字、記号の組み合わせで、桁数を長くすれば解読されづらい安全なパスワードを設定することが可能となります。  Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Get Password Requirements (asynchronously)
+     * Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -493,8 +493,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * 認証情報を更新(Update Authentication Info)
-     * ログイン後に認証情報を渡す SaaS の URL を登録します。 ここで登録した URL に認証情報を渡し、SaaSus SDK を利用してこの Callback の実装をすることが可能となります。  Register post-login SaaS URL for authentication information. It is possible to pass authentication information to the URL registered here and implement this Callback using the SaaSus SDK. 
+     * Update Authentication Info
+     * Register post-login SaaS URL for authentication information. It is possible to pass authentication information to the URL registered here and implement this Callback using the SaaSus SDK. 
      * @param body  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -509,8 +509,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * 認証情報を更新(Update Authentication Info)
-     * ログイン後に認証情報を渡す SaaS の URL を登録します。 ここで登録した URL に認証情報を渡し、SaaSus SDK を利用してこの Callback の実装をすることが可能となります。  Register post-login SaaS URL for authentication information. It is possible to pass authentication information to the URL registered here and implement this Callback using the SaaSus SDK. 
+     * Update Authentication Info
+     * Register post-login SaaS URL for authentication information. It is possible to pass authentication information to the URL registered here and implement this Callback using the SaaSus SDK. 
      * @param body  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -527,8 +527,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * 認証情報を更新(Update Authentication Info) (asynchronously)
-     * ログイン後に認証情報を渡す SaaS の URL を登録します。 ここで登録した URL に認証情報を渡し、SaaSus SDK を利用してこの Callback の実装をすることが可能となります。  Register post-login SaaS URL for authentication information. It is possible to pass authentication information to the URL registered here and implement this Callback using the SaaSus SDK. 
+     * Update Authentication Info (asynchronously)
+     * Register post-login SaaS URL for authentication information. It is possible to pass authentication information to the URL registered here and implement this Callback using the SaaSus SDK. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -611,8 +611,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * 
-     * 外部IDプロバイダのサインイン情報更新
+     * Update Sign-In Information
+     * Update the sign-in information for the external ID provider
      * @param updateIdentityProviderParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -627,8 +627,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * 
-     * 外部IDプロバイダのサインイン情報更新
+     * Update Sign-In Information
+     * Update the sign-in information for the external ID provider
      * @param updateIdentityProviderParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -645,8 +645,8 @@ public class AuthInfoApi {
     }
 
     /**
-     *  (asynchronously)
-     * 外部IDプロバイダのサインイン情報更新
+     * Update Sign-In Information (asynchronously)
+     * Update the sign-in information for the external ID provider
      * @param updateIdentityProviderParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -729,8 +729,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * パスワード要件を更新(Update Password Requirements)
-     * ユーザーパスワードの要件設定を更新します。 アルファベット、数字、記号の組み合わせで、桁数を長くすれば解読されづらい安全なパスワードを設定することが可能となります。  Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Update Password Requirements
+     * Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
      * @param updateSignInSettingsParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -745,8 +745,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * パスワード要件を更新(Update Password Requirements)
-     * ユーザーパスワードの要件設定を更新します。 アルファベット、数字、記号の組み合わせで、桁数を長くすれば解読されづらい安全なパスワードを設定することが可能となります。  Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Update Password Requirements
+     * Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
      * @param updateSignInSettingsParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -763,8 +763,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * パスワード要件を更新(Update Password Requirements) (asynchronously)
-     * ユーザーパスワードの要件設定を更新します。 アルファベット、数字、記号の組み合わせで、桁数を長くすれば解読されづらい安全なパスワードを設定することが可能となります。  Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Update Password Requirements (asynchronously)
+     * Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
      * @param updateSignInSettingsParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

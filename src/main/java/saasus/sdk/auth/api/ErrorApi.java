@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -134,8 +134,8 @@ public class ErrorApi {
     }
 
     /**
-     * ステータスコード500でサーバーエラーを返却(Return Internal Server Error)
-     * テスト用途で使用するエンドポイントです。ステータスコード500でサーバーエラーを返却します。  This endpoint is used for testing purposes. Returns a server error with status code 500. 
+     * Return Internal Server Error
+     * This endpoint is used for testing purposes. Returns a server error with status code 500. 
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -148,8 +148,8 @@ public class ErrorApi {
     }
 
     /**
-     * ステータスコード500でサーバーエラーを返却(Return Internal Server Error)
-     * テスト用途で使用するエンドポイントです。ステータスコード500でサーバーエラーを返却します。  This endpoint is used for testing purposes. Returns a server error with status code 500. 
+     * Return Internal Server Error
+     * This endpoint is used for testing purposes. Returns a server error with status code 500. 
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -164,8 +164,8 @@ public class ErrorApi {
     }
 
     /**
-     * ステータスコード500でサーバーエラーを返却(Return Internal Server Error) (asynchronously)
-     * テスト用途で使用するエンドポイントです。ステータスコード500でサーバーエラーを返却します。  This endpoint is used for testing purposes. Returns a server error with status code 500. 
+     * Return Internal Server Error (asynchronously)
+     * This endpoint is used for testing purposes. Returns a server error with status code 500. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

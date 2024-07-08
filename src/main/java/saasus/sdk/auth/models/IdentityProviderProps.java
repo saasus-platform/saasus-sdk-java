@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * IdentityProviderProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-08T02:50:30.611858448Z[Etc/UTC]")
 public class IdentityProviderProps {
   public static final String SERIALIZED_NAME_APPLICATION_ID = "application_id";
   @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
@@ -72,7 +71,6 @@ public class IdentityProviderProps {
   }
 
   public IdentityProviderProps applicationId(String applicationId) {
-    
     this.applicationId = applicationId;
     return this;
   }
@@ -86,14 +84,12 @@ public class IdentityProviderProps {
     return applicationId;
   }
 
-
   public void setApplicationId(String applicationId) {
     this.applicationId = applicationId;
   }
 
 
   public IdentityProviderProps applicationSecret(String applicationSecret) {
-    
     this.applicationSecret = applicationSecret;
     return this;
   }
@@ -107,14 +103,12 @@ public class IdentityProviderProps {
     return applicationSecret;
   }
 
-
   public void setApplicationSecret(String applicationSecret) {
     this.applicationSecret = applicationSecret;
   }
 
 
   public IdentityProviderProps approvalScope(String approvalScope) {
-    
     this.approvalScope = approvalScope;
     return this;
   }
@@ -128,14 +122,12 @@ public class IdentityProviderProps {
     return approvalScope;
   }
 
-
   public void setApprovalScope(String approvalScope) {
     this.approvalScope = approvalScope;
   }
 
 
   public IdentityProviderProps isButtonHidden(Boolean isButtonHidden) {
-    
     this.isButtonHidden = isButtonHidden;
     return this;
   }
@@ -148,7 +140,6 @@ public class IdentityProviderProps {
   public Boolean getIsButtonHidden() {
     return isButtonHidden;
   }
-
 
   public void setIsButtonHidden(Boolean isButtonHidden) {
     this.isButtonHidden = isButtonHidden;
@@ -231,9 +222,9 @@ public class IdentityProviderProps {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!IdentityProviderProps.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IdentityProviderProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
