@@ -14,13 +14,13 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 import saasus.sdk.pricing.models.AggregateUsage;
 import saasus.sdk.pricing.models.Currency;
 import saasus.sdk.pricing.models.UnitType;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingUsageUnitForSave
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-08T02:50:36.350294086Z[Etc/UTC]")
 public class PricingUsageUnitForSave {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -95,13 +94,12 @@ public class PricingUsageUnitForSave {
   }
 
   public PricingUsageUnitForSave name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * 名前(name)
+   * Name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -109,20 +107,18 @@ public class PricingUsageUnitForSave {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public PricingUsageUnitForSave displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
 
    /**
-   * 表示名(display name)
+   * Display Name
    * @return displayName
   **/
   @javax.annotation.Nonnull
@@ -130,20 +126,18 @@ public class PricingUsageUnitForSave {
     return displayName;
   }
 
-
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
   public PricingUsageUnitForSave description(String description) {
-    
     this.description = description;
     return this;
   }
 
    /**
-   * 説明(description)
+   * Description
    * @return description
   **/
   @javax.annotation.Nonnull
@@ -151,14 +145,12 @@ public class PricingUsageUnitForSave {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public PricingUsageUnitForSave type(UnitType type) {
-    
     this.type = type;
     return this;
   }
@@ -172,14 +164,12 @@ public class PricingUsageUnitForSave {
     return type;
   }
 
-
   public void setType(UnitType type) {
     this.type = type;
   }
 
 
   public PricingUsageUnitForSave currency(Currency currency) {
-    
     this.currency = currency;
     return this;
   }
@@ -193,20 +183,18 @@ public class PricingUsageUnitForSave {
     return currency;
   }
 
-
   public void setCurrency(Currency currency) {
     this.currency = currency;
   }
 
 
   public PricingUsageUnitForSave upperCount(Integer upperCount) {
-    
     this.upperCount = upperCount;
     return this;
   }
 
    /**
-   * 上限値(upper limit)
+   * Upper limit
    * @return upperCount
   **/
   @javax.annotation.Nonnull
@@ -214,20 +202,18 @@ public class PricingUsageUnitForSave {
     return upperCount;
   }
 
-
   public void setUpperCount(Integer upperCount) {
     this.upperCount = upperCount;
   }
 
 
   public PricingUsageUnitForSave unitAmount(Integer unitAmount) {
-    
     this.unitAmount = unitAmount;
     return this;
   }
 
    /**
-   * 使用量あたりの金額(amount per usage)
+   * Amount per usage
    * @return unitAmount
   **/
   @javax.annotation.Nonnull
@@ -235,20 +221,18 @@ public class PricingUsageUnitForSave {
     return unitAmount;
   }
 
-
   public void setUnitAmount(Integer unitAmount) {
     this.unitAmount = unitAmount;
   }
 
 
   public PricingUsageUnitForSave meteringUnitName(String meteringUnitName) {
-    
     this.meteringUnitName = meteringUnitName;
     return this;
   }
 
    /**
-   * Get meteringUnitName
+   * Metering unit name
    * @return meteringUnitName
   **/
   @javax.annotation.Nonnull
@@ -256,14 +240,12 @@ public class PricingUsageUnitForSave {
     return meteringUnitName;
   }
 
-
   public void setMeteringUnitName(String meteringUnitName) {
     this.meteringUnitName = meteringUnitName;
   }
 
 
   public PricingUsageUnitForSave aggregateUsage(AggregateUsage aggregateUsage) {
-    
     this.aggregateUsage = aggregateUsage;
     return this;
   }
@@ -276,7 +258,6 @@ public class PricingUsageUnitForSave {
   public AggregateUsage getAggregateUsage() {
     return aggregateUsage;
   }
-
 
   public void setAggregateUsage(AggregateUsage aggregateUsage) {
     this.aggregateUsage = aggregateUsage;
@@ -379,9 +360,9 @@ public class PricingUsageUnitForSave {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PricingUsageUnitForSave.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PricingUsageUnitForSave` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -403,8 +384,16 @@ public class PricingUsageUnitForSave {
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      // validate the required field `type`
+      UnitType.validateJsonElement(jsonObj.get("type"));
+      // validate the required field `currency`
+      Currency.validateJsonElement(jsonObj.get("currency"));
       if (!jsonObj.get("metering_unit_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metering_unit_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metering_unit_name").toString()));
+      }
+      // validate the optional field `aggregate_usage`
+      if (jsonObj.get("aggregate_usage") != null && !jsonObj.get("aggregate_usage").isJsonNull()) {
+        AggregateUsage.validateJsonElement(jsonObj.get("aggregate_usage"));
       }
   }
 

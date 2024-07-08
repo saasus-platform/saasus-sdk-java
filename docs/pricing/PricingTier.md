@@ -7,10 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**upTo** | **Integer** | 上限(upper limit) |  |
-|**unitAmount** | **Integer** | 単位金額(amount per unit) |  |
-|**flatAmount** | **Integer** | 固定金額(fixed Amount) |  |
-|**inf** | **Boolean** | inf |  |
+|**upTo** | **Integer** | Upper limit |  |
+|**unitAmount** | **Integer** | Amount per unit |  |
+|**flatAmount** | **Integer** | Fixed amount |  |
+|**inf** | **Boolean** | Indefinite |  |
 
 
 

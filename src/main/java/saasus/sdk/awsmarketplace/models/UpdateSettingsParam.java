@@ -14,13 +14,13 @@
 package saasus.sdk.awsmarketplace.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.awsmarketplace.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.awsmarketplace.JSON;
 /**
  * UpdateSettingsParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:18.753981Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-08T02:50:43.390113847Z[Etc/UTC]")
 public class UpdateSettingsParam {
   public static final String SERIALIZED_NAME_PRODUCT_CODE = "product_code";
   @SerializedName(SERIALIZED_NAME_PRODUCT_CODE)
@@ -88,7 +87,6 @@ public class UpdateSettingsParam {
   }
 
   public UpdateSettingsParam productCode(String productCode) {
-    
     this.productCode = productCode;
     return this;
   }
@@ -102,14 +100,12 @@ public class UpdateSettingsParam {
     return productCode;
   }
 
-
   public void setProductCode(String productCode) {
     this.productCode = productCode;
   }
 
 
   public UpdateSettingsParam roleArn(String roleArn) {
-    
     this.roleArn = roleArn;
     return this;
   }
@@ -123,14 +119,12 @@ public class UpdateSettingsParam {
     return roleArn;
   }
 
-
   public void setRoleArn(String roleArn) {
     this.roleArn = roleArn;
   }
 
 
   public UpdateSettingsParam roleExternalId(String roleExternalId) {
-    
     this.roleExternalId = roleExternalId;
     return this;
   }
@@ -144,14 +138,12 @@ public class UpdateSettingsParam {
     return roleExternalId;
   }
 
-
   public void setRoleExternalId(String roleExternalId) {
     this.roleExternalId = roleExternalId;
   }
 
 
   public UpdateSettingsParam snsTopicArn(String snsTopicArn) {
-    
     this.snsTopicArn = snsTopicArn;
     return this;
   }
@@ -165,14 +157,12 @@ public class UpdateSettingsParam {
     return snsTopicArn;
   }
 
-
   public void setSnsTopicArn(String snsTopicArn) {
     this.snsTopicArn = snsTopicArn;
   }
 
 
   public UpdateSettingsParam casBucketName(String casBucketName) {
-    
     this.casBucketName = casBucketName;
     return this;
   }
@@ -186,14 +176,12 @@ public class UpdateSettingsParam {
     return casBucketName;
   }
 
-
   public void setCasBucketName(String casBucketName) {
     this.casBucketName = casBucketName;
   }
 
 
   public UpdateSettingsParam casSnsTopicArn(String casSnsTopicArn) {
-    
     this.casSnsTopicArn = casSnsTopicArn;
     return this;
   }
@@ -207,14 +195,12 @@ public class UpdateSettingsParam {
     return casSnsTopicArn;
   }
 
-
   public void setCasSnsTopicArn(String casSnsTopicArn) {
     this.casSnsTopicArn = casSnsTopicArn;
   }
 
 
   public UpdateSettingsParam sellerSnsTopicArn(String sellerSnsTopicArn) {
-    
     this.sellerSnsTopicArn = sellerSnsTopicArn;
     return this;
   }
@@ -228,14 +214,12 @@ public class UpdateSettingsParam {
     return sellerSnsTopicArn;
   }
 
-
   public void setSellerSnsTopicArn(String sellerSnsTopicArn) {
     this.sellerSnsTopicArn = sellerSnsTopicArn;
   }
 
 
   public UpdateSettingsParam sqsArn(String sqsArn) {
-    
     this.sqsArn = sqsArn;
     return this;
   }
@@ -248,7 +232,6 @@ public class UpdateSettingsParam {
   public String getSqsArn() {
     return sqsArn;
   }
-
 
   public void setSqsArn(String sqsArn) {
     this.sqsArn = sqsArn;
@@ -340,9 +323,9 @@ public class UpdateSettingsParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateSettingsParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateSettingsParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

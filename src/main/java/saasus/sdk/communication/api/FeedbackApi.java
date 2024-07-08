@@ -147,8 +147,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックを起票
+     * Create Feedback
+     * Create Feedback.
      * @param createFeedbackParam  (optional)
      * @return Feedback
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -165,8 +165,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックを起票
+     * Create Feedback
+     * Create Feedback.
      * @param createFeedbackParam  (optional)
      * @return ApiResponse&lt;Feedback&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -184,8 +184,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックを起票
+     * Create Feedback (asynchronously)
+     * Create Feedback.
      * @param createFeedbackParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -277,8 +277,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへのコメント
+     * Create Feedback Comment
+     * Post comment to feedback.
      * @param feedbackId  (required)
      * @param createFeedbackCommentParam  (optional)
      * @return Comment
@@ -297,8 +297,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへのコメント
+     * Create Feedback Comment
+     * Post comment to feedback.
      * @param feedbackId  (required)
      * @param createFeedbackCommentParam  (optional)
      * @return ApiResponse&lt;Comment&gt;
@@ -318,8 +318,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックへのコメント
+     * Create Feedback Comment (asynchronously)
+     * Post comment to feedback.
      * @param feedbackId  (required)
      * @param createFeedbackCommentParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -413,8 +413,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへの投票
+     * Create Vote User
+     * Vote for feedback.
      * @param feedbackId  (required)
      * @param createVoteUserParam  (optional)
      * @return Votes
@@ -433,8 +433,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへの投票
+     * Create Vote User
+     * Vote for feedback.
      * @param feedbackId  (required)
      * @param createVoteUserParam  (optional)
      * @return ApiResponse&lt;Votes&gt;
@@ -454,8 +454,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックへの投票
+     * Create Vote User (asynchronously)
+     * Vote for feedback.
      * @param feedbackId  (required)
      * @param createVoteUserParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -547,8 +547,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックの削除
+     * Delete Feedback
+     * Delete Feedback.
      * @param feedbackId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -564,8 +564,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックの削除
+     * Delete Feedback
+     * Delete Feedback.
      * @param feedbackId  (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -583,8 +583,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックの削除
+     * Delete Feedback (asynchronously)
+     * Delete Feedback.
      * @param feedbackId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -681,8 +681,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへのコメント削除
+     * Delete Feedback Comment
+     * Delete comment for feedback.
      * @param feedbackId  (required)
      * @param commentId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -699,8 +699,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへのコメント削除
+     * Delete Feedback Comment
+     * Delete comment for feedback.
      * @param feedbackId  (required)
      * @param commentId  (required)
      * @return ApiResponse&lt;Void&gt;
@@ -719,8 +719,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックへのコメント削除
+     * Delete Feedback Comment (asynchronously)
+     * Delete comment for feedback.
      * @param feedbackId  (required)
      * @param commentId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -818,8 +818,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへの投票の取消
+     * Delete Vote For Feedback
+     * Cancel vote for feedback.
      * @param feedbackId  (required)
      * @param userId  (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -836,8 +836,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへの投票の取消
+     * Delete Vote For Feedback
+     * Cancel vote for feedback.
      * @param feedbackId  (required)
      * @param userId  (required)
      * @return ApiResponse&lt;Void&gt;
@@ -856,8 +856,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックへの投票の取消
+     * Delete Vote For Feedback (asynchronously)
+     * Cancel vote for feedback.
      * @param feedbackId  (required)
      * @param userId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -948,8 +948,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックの取得
+     * Get Feedback
+     * Retrieve feedback.
      * @param feedbackId  (required)
      * @return Feedback
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -967,8 +967,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックの取得
+     * Get Feedback
+     * Retrieve feedback.
      * @param feedbackId  (required)
      * @return ApiResponse&lt;Feedback&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -987,8 +987,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックの取得
+     * Get Feedback (asynchronously)
+     * Retrieve feedback.
      * @param feedbackId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1086,8 +1086,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへのコメント取得
+     * Get Feedback Comment
+     * Retrieve comment from feedback.
      * @param feedbackId  (required)
      * @param commentId  (required)
      * @return Comment
@@ -1106,8 +1106,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへのコメント取得
+     * Get Feedback Comment
+     * Retrieve comment from feedback.
      * @param feedbackId  (required)
      * @param commentId  (required)
      * @return ApiResponse&lt;Comment&gt;
@@ -1127,8 +1127,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックへのコメント取得
+     * Get Feedback Comment (asynchronously)
+     * Retrieve comment from feedback.
      * @param feedbackId  (required)
      * @param commentId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1212,8 +1212,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックの一覧を取得
+     * Get Feedbacks
+     * Get the list of feedbacks.
      * @return Feedbacks
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1229,8 +1229,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックの一覧を取得
+     * Get Feedbacks
+     * Get the list of feedbacks.
      * @return ApiResponse&lt;Feedbacks&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1247,8 +1247,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックの一覧を取得
+     * Get Feedbacks (asynchronously)
+     * Get the list of feedbacks.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1339,8 +1339,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックの編集
+     * Update Feedback
+     * Edit feedback.
      * @param feedbackId  (required)
      * @param updateFeedbackParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1357,8 +1357,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックの編集
+     * Update Feedback
+     * Edit feedback.
      * @param feedbackId  (required)
      * @param updateFeedbackParam  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -1377,8 +1377,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックの編集
+     * Update Feedback (asynchronously)
+     * Edit feedback.
      * @param feedbackId  (required)
      * @param updateFeedbackParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1478,8 +1478,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへのコメント編集
+     * Update Feedback Comment
+     * Edit comment for feedback.
      * @param feedbackId  (required)
      * @param commentId  (required)
      * @param updateFeedbackCommentParam  (optional)
@@ -1497,8 +1497,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックへのコメント編集
+     * Update Feedback Comment
+     * Edit comment for feedback.
      * @param feedbackId  (required)
      * @param commentId  (required)
      * @param updateFeedbackCommentParam  (optional)
@@ -1518,8 +1518,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックへのコメント編集
+     * Update Feedback Comment (asynchronously)
+     * Edit comment for feedback.
      * @param feedbackId  (required)
      * @param commentId  (required)
      * @param updateFeedbackCommentParam  (optional)
@@ -1613,8 +1613,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックのステータス更新
+     * Update Feedback Status
+     * Update Feedback Status.
      * @param feedbackId  (required)
      * @param updateFeedbackStatusParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1631,8 +1631,8 @@ public class FeedbackApi {
     }
 
     /**
-     * 
-     * フィードバックのステータス更新
+     * Update Feedback Status
+     * Update Feedback Status.
      * @param feedbackId  (required)
      * @param updateFeedbackStatusParam  (optional)
      * @return ApiResponse&lt;Void&gt;
@@ -1651,8 +1651,8 @@ public class FeedbackApi {
     }
 
     /**
-     *  (asynchronously)
-     * フィードバックのステータス更新
+     * Update Feedback Status (asynchronously)
+     * Update Feedback Status.
      * @param feedbackId  (required)
      * @param updateFeedbackStatusParam  (optional)
      * @param _callback The callback to be executed when the API call finishes

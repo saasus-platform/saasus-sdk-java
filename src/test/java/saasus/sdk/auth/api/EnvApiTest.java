@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -35,9 +35,9 @@ public class EnvApiTest {
     private final EnvApi api = new EnvApi();
 
     /**
-     * 環境情報を作成(Create Env Info)
+     * Create Env Info
      *
-     * 環境情報を作成します。 連携のテストや開発用環境や実際の運用で利用する環境など複数の環境を定義することができます。  Create environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
+     * Create environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -49,9 +49,9 @@ public class EnvApiTest {
     }
 
     /**
-     * 環境情報を削除(Delete Env Info)
+     * Delete Env Info
      *
-     * 環境情報を削除します。  Delete env info. 
+     * Delete env info. Env with id 3 cannot be deleted. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -63,9 +63,9 @@ public class EnvApiTest {
     }
 
     /**
-     * 環境情報を取得(Get Env Details)
+     * Get Env Details
      *
-     * 環境情報の詳細を取得します。  Get environment details. 
+     * Get environment details. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -77,9 +77,9 @@ public class EnvApiTest {
     }
 
     /**
-     * 環境情報一覧を取得(Get Env Info)
+     * Get Env Info
      *
-     * 登録されている環境情報を取得します。 連携のテストや開発用環境や実際の運用で利用する環境など複数の環境を定義することができます。  Get registered environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
+     * Get registered environment information. Multiple environments can be defined, such as an environment for testing linkage, an environment for development, and an environment for actual operation. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -90,9 +90,9 @@ public class EnvApiTest {
     }
 
     /**
-     * 環境情報を更新(Update Env Info)
+     * Update Env Info
      *
-     * 環境情報を更新します。  Update env info. 
+     * Update env info. 
      *
      * @throws ApiException if the Api call fails
      */

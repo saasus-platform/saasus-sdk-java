@@ -4,18 +4,18 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createUserAttribute**](UserAttributeApi.md#createUserAttribute) | **POST** /user-attributes | ユーザー属性の作成(Create User Attributes) |
-| [**deleteUserAttribute**](UserAttributeApi.md#deleteUserAttribute) | **DELETE** /user-attributes/{attribute_name} | ユーザー属性の削除(Delete User Attribute) |
-| [**getUserAttributes**](UserAttributeApi.md#getUserAttributes) | **GET** /user-attributes | ユーザー属性の一覧を取得(Get User Attributes) |
+| [**createUserAttribute**](UserAttributeApi.md#createUserAttribute) | **POST** /user-attributes | Create User Attributes |
+| [**deleteUserAttribute**](UserAttributeApi.md#deleteUserAttribute) | **DELETE** /user-attributes/{attribute_name} | Delete User Attribute |
+| [**getUserAttributes**](UserAttributeApi.md#getUserAttributes) | **GET** /user-attributes | Get User Attributes |
 
 
 <a id="createUserAttribute"></a>
 # **createUserAttribute**
 > Attribute createUserAttribute(body)
 
-ユーザー属性の作成(Create User Attributes)
+Create User Attributes
 
-SaaSus Platform にて保持するユーザーの追加属性を登録します。 例えば、ユーザー名を持たせる、誕生日を持たせるなど、ユーザーに紐付いた項目の定義を行うことができます。 一方で、個人情報を SaaSus Platform 側に持たせたくない場合は、このユーザー属性定義を行わずに SaaS 側で個人情報を持つことを検討してください。  Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
 
 ### Example
 ```java
@@ -81,9 +81,9 @@ public class Example {
 # **deleteUserAttribute**
 > deleteUserAttribute(attributeName)
 
-ユーザー属性の削除(Delete User Attribute)
+Delete User Attribute
 
-SaaSus Platform にて保持するユーザーの追加属性を削除します。  Delete user attributes kept on the SaaSus Platform. 
+Delete user attributes kept on the SaaSus Platform. 
 
 ### Example
 ```java
@@ -105,7 +105,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     UserAttributeApi apiInstance = new UserAttributeApi(defaultClient);
-    String attributeName = "birthday"; // String | 属性名(Attribute Name)
+    String attributeName = "birthday"; // String | Attribute Name
     try {
       apiInstance.deleteUserAttribute(attributeName);
     } catch (ApiException e) {
@@ -123,7 +123,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **attributeName** | **String**| 属性名(Attribute Name) | |
+| **attributeName** | **String**| Attribute Name | |
 
 ### Return type
 
@@ -149,9 +149,9 @@ null (empty response body)
 # **getUserAttributes**
 > UserAttributes getUserAttributes()
 
-ユーザー属性の一覧を取得(Get User Attributes)
+Get User Attributes
 
-SaaSus Platform にて保持するユーザーの追加属性を取得します。 例えば、ユーザー名を持たせる、誕生日を持たせるなど、ユーザーに紐付いた項目の定義を行うことができます。 一方で、個人情報を SaaSus Platform 側に持たせたくない場合は、このユーザー属性定義を行わずに SaaS 側で個人情報を持つことを検討してください。  Get additional attributes of the user saved in the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+Get additional attributes of the user saved in the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
 
 ### Example
 ```java
