@@ -14,13 +14,13 @@
 package saasus.sdk.communication.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.communication.JSON;
@@ -50,15 +49,11 @@ import saasus.sdk.communication.JSON;
 /**
  * Comment
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:32.358898Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-08T02:49:17.666029907Z[Etc/UTC]")
 public class Comment {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
-
-  public static final String SERIALIZED_NAME_USER_ID = "user_id";
-  @SerializedName(SERIALIZED_NAME_USER_ID)
-  private String userId;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -72,7 +67,6 @@ public class Comment {
   }
 
   public Comment id(String id) {
-    
     this.id = id;
     return this;
   }
@@ -86,35 +80,12 @@ public class Comment {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
 
 
-  public Comment userId(String userId) {
-    
-    this.userId = userId;
-    return this;
-  }
-
-   /**
-   * Get userId
-   * @return userId
-  **/
-  @javax.annotation.Nonnull
-  public String getUserId() {
-    return userId;
-  }
-
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-
   public Comment createdAt(Integer createdAt) {
-    
     this.createdAt = createdAt;
     return this;
   }
@@ -128,14 +99,12 @@ public class Comment {
     return createdAt;
   }
 
-
   public void setCreatedAt(Integer createdAt) {
     this.createdAt = createdAt;
   }
 
 
   public Comment body(String body) {
-    
     this.body = body;
     return this;
   }
@@ -148,7 +117,6 @@ public class Comment {
   public String getBody() {
     return body;
   }
-
 
   public void setBody(String body) {
     this.body = body;
@@ -166,14 +134,13 @@ public class Comment {
     }
     Comment comment = (Comment) o;
     return Objects.equals(this.id, comment.id) &&
-        Objects.equals(this.userId, comment.userId) &&
         Objects.equals(this.createdAt, comment.createdAt) &&
         Objects.equals(this.body, comment.body);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, userId, createdAt, body);
+    return Objects.hash(id, createdAt, body);
   }
 
   @Override
@@ -181,7 +148,6 @@ public class Comment {
     StringBuilder sb = new StringBuilder();
     sb.append("class Comment {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    body: ").append(toIndentedString(body)).append("\n");
     sb.append("}");
@@ -207,14 +173,12 @@ public class Comment {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
-    openapiFields.add("user_id");
     openapiFields.add("created_at");
     openapiFields.add("body");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("id");
-    openapiRequiredFields.add("user_id");
     openapiRequiredFields.add("created_at");
     openapiRequiredFields.add("body");
   }
@@ -232,9 +196,9 @@ public class Comment {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Comment.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Comment` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -249,9 +213,6 @@ public class Comment {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      if (!jsonObj.get("user_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
       }
       if (!jsonObj.get("body").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("body").toString()));

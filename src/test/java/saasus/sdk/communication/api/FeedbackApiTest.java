@@ -42,7 +42,9 @@ public class FeedbackApiTest {
     private final FeedbackApi api = new FeedbackApi();
 
     /**
-     * フィードバックを起票
+     * Create Feedback
+     *
+     * Create Feedback.
      *
      * @throws ApiException if the Api call fails
      */
@@ -54,7 +56,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックへのコメント
+     * Create Feedback Comment
+     *
+     * Post comment to feedback.
      *
      * @throws ApiException if the Api call fails
      */
@@ -67,7 +71,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックへの投票
+     * Create Vote User
+     *
+     * Vote for feedback.
      *
      * @throws ApiException if the Api call fails
      */
@@ -80,7 +86,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックの削除
+     * Delete Feedback
+     *
+     * Delete Feedback.
      *
      * @throws ApiException if the Api call fails
      */
@@ -92,7 +100,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックへのコメント削除
+     * Delete Feedback Comment
+     *
+     * Delete comment for feedback.
      *
      * @throws ApiException if the Api call fails
      */
@@ -105,7 +115,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックへの投票の取消
+     * Delete Vote For Feedback
+     *
+     * Cancel vote for feedback.
      *
      * @throws ApiException if the Api call fails
      */
@@ -118,7 +130,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックの取得
+     * Get Feedback
+     *
+     * Retrieve feedback.
      *
      * @throws ApiException if the Api call fails
      */
@@ -130,7 +144,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックへのコメント取得
+     * Get Feedback Comment
+     *
+     * Retrieve comment from feedback.
      *
      * @throws ApiException if the Api call fails
      */
@@ -143,7 +159,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックの一覧を取得
+     * Get Feedbacks
+     *
+     * Get the list of feedbacks.
      *
      * @throws ApiException if the Api call fails
      */
@@ -154,7 +172,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックの編集
+     * Update Feedback
+     *
+     * Edit feedback.
      *
      * @throws ApiException if the Api call fails
      */
@@ -167,7 +187,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックへのコメント編集
+     * Update Feedback Comment
+     *
+     * Edit comment for feedback.
      *
      * @throws ApiException if the Api call fails
      */
@@ -181,7 +203,9 @@ public class FeedbackApiTest {
     }
 
     /**
-     * フィードバックのステータス更新
+     * Update Feedback Status
+     *
+     * Update Feedback Status.
      *
      * @throws ApiException if the Api call fails
      */

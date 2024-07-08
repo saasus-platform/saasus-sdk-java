@@ -14,7 +14,6 @@
 package saasus.sdk.awsmarketplace.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.awsmarketplace.models.Customer;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.awsmarketplace.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.awsmarketplace.JSON;
 /**
  * Customers
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:18.753981Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-08T02:49:08.693800825Z[Etc/UTC]")
 public class Customers {
   public static final String SERIALIZED_NAME_CUSTOMERS = "customers";
   @SerializedName(SERIALIZED_NAME_CUSTOMERS)
@@ -63,7 +62,6 @@ public class Customers {
   }
 
   public Customers customers(List<Customer> customers) {
-    
     this.customers = customers;
     return this;
   }
@@ -84,7 +82,6 @@ public class Customers {
   public List<Customer> getCustomers() {
     return customers;
   }
-
 
   public void setCustomers(List<Customer> customers) {
     this.customers = customers;
@@ -156,9 +153,9 @@ public class Customers {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Customers.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Customers` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
