@@ -150,8 +150,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報を新規作成(Create customer information to be linked to AWS Marketplace)
-     * AWS Marketplaceに連携する顧客情報を新規作成します。  Create customer information to be linked to AWS Marketplace. 
+     * Create customer information to be linked to AWS Marketplace
+     * Create customer information to be linked to AWS Marketplace. 
      * @param createCustomerParam  (optional)
      * @return Customer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -168,8 +168,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報を新規作成(Create customer information to be linked to AWS Marketplace)
-     * AWS Marketplaceに連携する顧客情報を新規作成します。  Create customer information to be linked to AWS Marketplace. 
+     * Create customer information to be linked to AWS Marketplace
+     * Create customer information to be linked to AWS Marketplace. 
      * @param createCustomerParam  (optional)
      * @return ApiResponse&lt;Customer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -187,8 +187,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報を新規作成(Create customer information to be linked to AWS Marketplace) (asynchronously)
-     * AWS Marketplaceに連携する顧客情報を新規作成します。  Create customer information to be linked to AWS Marketplace. 
+     * Create customer information to be linked to AWS Marketplace (asynchronously)
+     * Create customer information to be linked to AWS Marketplace. 
      * @param createCustomerParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -270,8 +270,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceから商品の公開状況を取得(Obtain product publication status from AWS Marketplace)
-     * AWS Marketplaceから商品の公開状況を取得します。  Retrieve the product&#39;s publication status from AWS Marketplace. 
+     * Obtain product publication status from AWS Marketplace
+     * Retrieve the product&#39;s publication status from AWS Marketplace. 
      * @return CatalogEntityVisibility
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -287,8 +287,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceから商品の公開状況を取得(Obtain product publication status from AWS Marketplace)
-     * AWS Marketplaceから商品の公開状況を取得します。  Retrieve the product&#39;s publication status from AWS Marketplace. 
+     * Obtain product publication status from AWS Marketplace
+     * Retrieve the product&#39;s publication status from AWS Marketplace. 
      * @return ApiResponse&lt;CatalogEntityVisibility&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -305,8 +305,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceから商品の公開状況を取得(Obtain product publication status from AWS Marketplace) (asynchronously)
-     * AWS Marketplaceから商品の公開状況を取得します。  Retrieve the product&#39;s publication status from AWS Marketplace. 
+     * Obtain product publication status from AWS Marketplace (asynchronously)
+     * Retrieve the product&#39;s publication status from AWS Marketplace. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -387,8 +387,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS CloudFormationのスタック作成リンクを取得(Get the link to create the AWS CloudFormation stack)
-     * CloudFormationのクイック作成リンクを取得します。  Get the CloudFormation Quick Create link. 
+     * Get the link to create the AWS CloudFormation stack
+     * Get the CloudFormation Quick Create link. 
      * @return CloudFormationLaunchStackLink
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -404,8 +404,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS CloudFormationのスタック作成リンクを取得(Get the link to create the AWS CloudFormation stack)
-     * CloudFormationのクイック作成リンクを取得します。  Get the CloudFormation Quick Create link. 
+     * Get the link to create the AWS CloudFormation stack
+     * Get the CloudFormation Quick Create link. 
      * @return ApiResponse&lt;CloudFormationLaunchStackLink&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -422,8 +422,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS CloudFormationのスタック作成リンクを取得(Get the link to create the AWS CloudFormation stack) (asynchronously)
-     * CloudFormationのクイック作成リンクを取得します。  Get the CloudFormation Quick Create link. 
+     * Get the link to create the AWS CloudFormation stack (asynchronously)
+     * Get the CloudFormation Quick Create link. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -443,7 +443,7 @@ public class AwsMarketplaceApi {
     }
     /**
      * Build call for getCustomer
-     * @param customerIdentifier 顧客ID (required)
+     * @param customerIdentifier Customer ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -511,9 +511,9 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報を取得(Get customer information to be linked to AWS Marketplace)
-     * AWS Marketplaceに連携する顧客情報を取得します。  Get customer information to be linked to AWS Marketplace. 
-     * @param customerIdentifier 顧客ID (required)
+     * Get customer information to be linked to AWS Marketplace
+     * Get customer information to be linked to AWS Marketplace. 
+     * @param customerIdentifier Customer ID (required)
      * @return Customer
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -529,9 +529,9 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報を取得(Get customer information to be linked to AWS Marketplace)
-     * AWS Marketplaceに連携する顧客情報を取得します。  Get customer information to be linked to AWS Marketplace. 
-     * @param customerIdentifier 顧客ID (required)
+     * Get customer information to be linked to AWS Marketplace
+     * Get customer information to be linked to AWS Marketplace. 
+     * @param customerIdentifier Customer ID (required)
      * @return ApiResponse&lt;Customer&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -548,9 +548,9 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報を取得(Get customer information to be linked to AWS Marketplace) (asynchronously)
-     * AWS Marketplaceに連携する顧客情報を取得します。  Get customer information to be linked to AWS Marketplace. 
-     * @param customerIdentifier 顧客ID (required)
+     * Get customer information to be linked to AWS Marketplace (asynchronously)
+     * Get customer information to be linked to AWS Marketplace. 
+     * @param customerIdentifier Customer ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -636,8 +636,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報の一覧を取得(Get a list of customer information to be linked to AWS Marketplace)
-     * AWS Marketplaceに連携する顧客情報の一覧を取得します。  Get a list of customer information to be linked to AWS Marketplace. 
+     * Get a list of customer information to be linked to AWS Marketplace
+     * Get a list of customer information to be linked to AWS Marketplace. 
      * @param tenantIds 指定したテナントIDの顧客を取得する(Get customers with the specified tenant ID) (optional)
      * @return Customers
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -654,8 +654,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報の一覧を取得(Get a list of customer information to be linked to AWS Marketplace)
-     * AWS Marketplaceに連携する顧客情報の一覧を取得します。  Get a list of customer information to be linked to AWS Marketplace. 
+     * Get a list of customer information to be linked to AWS Marketplace
+     * Get a list of customer information to be linked to AWS Marketplace. 
      * @param tenantIds 指定したテナントIDの顧客を取得する(Get customers with the specified tenant ID) (optional)
      * @return ApiResponse&lt;Customers&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -673,8 +673,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携する顧客情報の一覧を取得(Get a list of customer information to be linked to AWS Marketplace) (asynchronously)
-     * AWS Marketplaceに連携する顧客情報の一覧を取得します。  Get a list of customer information to be linked to AWS Marketplace. 
+     * Get a list of customer information to be linked to AWS Marketplace (asynchronously)
+     * Get a list of customer information to be linked to AWS Marketplace. 
      * @param tenantIds 指定したテナントIDの顧客を取得する(Get customers with the specified tenant ID) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -756,8 +756,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの出品状況を取得(Get AWS Marketplace Listing Status)
-     * AWS Marketplaceの出品状況を取得します。  Get AWS Marketplace Listing Status. 
+     * Get AWS Marketplace Listing Status
+     * Get AWS Marketplace Listing Status. 
      * @return GetListingStatusResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -773,8 +773,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの出品状況を取得(Get AWS Marketplace Listing Status)
-     * AWS Marketplaceの出品状況を取得します。  Get AWS Marketplace Listing Status. 
+     * Get AWS Marketplace Listing Status
+     * Get AWS Marketplace Listing Status. 
      * @return ApiResponse&lt;GetListingStatusResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -791,8 +791,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの出品状況を取得(Get AWS Marketplace Listing Status) (asynchronously)
-     * AWS Marketplaceの出品状況を取得します。  Get AWS Marketplace Listing Status. 
+     * Get AWS Marketplace Listing Status (asynchronously)
+     * Get AWS Marketplace Listing Status. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -812,7 +812,7 @@ public class AwsMarketplaceApi {
     }
     /**
      * Build call for getPlanByPlanName
-     * @param planName AWS Marketplace連携プラン名 (required)
+     * @param planName AWS Marketplace linked plan name (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -880,9 +880,9 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWSMarketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace)
-     * Marketplaceと連携するプラン情報を取得します。  Obtain plan information to link to AWS Marketplace. 
-     * @param planName AWS Marketplace連携プラン名 (required)
+     * Obtain plan information to link to AWS Marketplace
+     * Obtain plan information to link to AWS Marketplace. 
+     * @param planName AWS Marketplace linked plan name (required)
      * @return Plan
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -898,9 +898,9 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWSMarketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace)
-     * Marketplaceと連携するプラン情報を取得します。  Obtain plan information to link to AWS Marketplace. 
-     * @param planName AWS Marketplace連携プラン名 (required)
+     * Obtain plan information to link to AWS Marketplace
+     * Obtain plan information to link to AWS Marketplace. 
+     * @param planName AWS Marketplace linked plan name (required)
      * @return ApiResponse&lt;Plan&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -917,9 +917,9 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWSMarketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace) (asynchronously)
-     * Marketplaceと連携するプラン情報を取得します。  Obtain plan information to link to AWS Marketplace. 
-     * @param planName AWS Marketplace連携プラン名 (required)
+     * Obtain plan information to link to AWS Marketplace (asynchronously)
+     * Obtain plan information to link to AWS Marketplace. 
+     * @param planName AWS Marketplace linked plan name (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1000,8 +1000,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace)
-     * Marketplaceと連携するプラン情報を取得します。  Obtain plan information to link to AWS Marketplace. 
+     * Obtain plan information to link to AWS Marketplace
+     * Obtain plan information to link to AWS Marketplace. 
      * @return Plans
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1017,8 +1017,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace)
-     * Marketplaceと連携するプラン情報を取得します。  Obtain plan information to link to AWS Marketplace. 
+     * Obtain plan information to link to AWS Marketplace
+     * Obtain plan information to link to AWS Marketplace. 
      * @return ApiResponse&lt;Plans&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1035,8 +1035,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携するプラン情報を取得(Obtain plan information to link to AWS Marketplace) (asynchronously)
-     * Marketplaceと連携するプラン情報を取得します。  Obtain plan information to link to AWS Marketplace. 
+     * Obtain plan information to link to AWS Marketplace (asynchronously)
+     * Obtain plan information to link to AWS Marketplace. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1117,8 +1117,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの設定を取得(Get AWS Marketplace Settings)
-     * AWS Marketplaceの設定を取得します。  Get AWS Marketplace Settings. 
+     * Get AWS Marketplace Settings
+     * Get AWS Marketplace Settings. 
      * @return Settings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1134,8 +1134,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの設定を取得(Get AWS Marketplace Settings)
-     * AWS Marketplaceの設定を取得します。  Get AWS Marketplace Settings. 
+     * Get AWS Marketplace Settings
+     * Get AWS Marketplace Settings. 
      * @return ApiResponse&lt;Settings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1152,8 +1152,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの設定を取得(Get AWS Marketplace Settings) (asynchronously)
-     * AWS Marketplaceの設定を取得します。  Get AWS Marketplace Settings. 
+     * Get AWS Marketplace Settings (asynchronously)
+     * Get AWS Marketplace Settings. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1236,8 +1236,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携するプラン情報を登録(Save plan information to be linked to AWSMarketplace)
-     * AWSMarketplaceに連携するプラン情報を登録します。  Save plan information to be linked to AWSMarketplace. 
+     * Save plan information to be linked to AWSMarketplace
+     * Save plan information to be linked to AWSMarketplace. 
      * @param savePlanParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1252,8 +1252,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携するプラン情報を登録(Save plan information to be linked to AWSMarketplace)
-     * AWSMarketplaceに連携するプラン情報を登録します。  Save plan information to be linked to AWSMarketplace. 
+     * Save plan information to be linked to AWSMarketplace
+     * Save plan information to be linked to AWSMarketplace. 
      * @param savePlanParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1270,8 +1270,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceに連携するプラン情報を登録(Save plan information to be linked to AWSMarketplace) (asynchronously)
-     * AWSMarketplaceに連携するプラン情報を登録します。  Save plan information to be linked to AWSMarketplace. 
+     * Save plan information to be linked to AWSMarketplace (asynchronously)
+     * Save plan information to be linked to AWSMarketplace. 
      * @param savePlanParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1291,7 +1291,7 @@ public class AwsMarketplaceApi {
     }
     /**
      * Build call for syncCustomer
-     * @param customerIdentifier 顧客ID (required)
+     * @param customerIdentifier Customer ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1359,9 +1359,9 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの顧客情報をSaaSusに同期します(Sync AWS Marketplace customer information to SaaSus)
-     * AWS Marketplaceの顧客情報をSaaSusに同期します。  Sync AWS Marketplace customer information to SaaSus. 
-     * @param customerIdentifier 顧客ID (required)
+     * Sync AWS Marketplace customer information to SaaSus
+     * Sync AWS Marketplace customer information to SaaSus. 
+     * @param customerIdentifier Customer ID (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1375,9 +1375,9 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの顧客情報をSaaSusに同期します(Sync AWS Marketplace customer information to SaaSus)
-     * AWS Marketplaceの顧客情報をSaaSusに同期します。  Sync AWS Marketplace customer information to SaaSus. 
-     * @param customerIdentifier 顧客ID (required)
+     * Sync AWS Marketplace customer information to SaaSus
+     * Sync AWS Marketplace customer information to SaaSus. 
+     * @param customerIdentifier Customer ID (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1393,9 +1393,9 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの顧客情報をSaaSusに同期します(Sync AWS Marketplace customer information to SaaSus) (asynchronously)
-     * AWS Marketplaceの顧客情報をSaaSusに同期します。  Sync AWS Marketplace customer information to SaaSus. 
-     * @param customerIdentifier 顧客ID (required)
+     * Sync AWS Marketplace customer information to SaaSus (asynchronously)
+     * Sync AWS Marketplace customer information to SaaSus. 
+     * @param customerIdentifier Customer ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1477,8 +1477,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの出品状況を更新(Update AWS Marketplace Listing Status)
-     * AWS Marketplaceの出品状況を更新します。  Update AWS Marketplace Listing Status. 
+     * Update AWS Marketplace Listing Status
+     * Update AWS Marketplace Listing Status. 
      * @param updateListingStatusParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1493,8 +1493,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの出品状況を更新(Update AWS Marketplace Listing Status)
-     * AWS Marketplaceの出品状況を更新します。  Update AWS Marketplace Listing Status. 
+     * Update AWS Marketplace Listing Status
+     * Update AWS Marketplace Listing Status. 
      * @param updateListingStatusParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1511,8 +1511,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの出品状況を更新(Update AWS Marketplace Listing Status) (asynchronously)
-     * AWS Marketplaceの出品状況を更新します。  Update AWS Marketplace Listing Status. 
+     * Update AWS Marketplace Listing Status (asynchronously)
+     * Update AWS Marketplace Listing Status. 
      * @param updateListingStatusParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1595,8 +1595,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの設定を更新(Update AWS Marketplace Settings)
-     * AWS Marketplaceの設定を更新します。  Update AWS Marketplace Settings. 
+     * Update AWS Marketplace Settings
+     * Update AWS Marketplace Settings. 
      * @param updateSettingsParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1611,8 +1611,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの設定を更新(Update AWS Marketplace Settings)
-     * AWS Marketplaceの設定を更新します。  Update AWS Marketplace Settings. 
+     * Update AWS Marketplace Settings
+     * Update AWS Marketplace Settings. 
      * @param updateSettingsParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1629,8 +1629,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * AWS Marketplaceの設定を更新(Update AWS Marketplace Settings) (asynchronously)
-     * AWS Marketplaceの設定を更新します。  Update AWS Marketplace Settings. 
+     * Update AWS Marketplace Settings (asynchronously)
+     * Update AWS Marketplace Settings. 
      * @param updateSettingsParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1714,8 +1714,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * Registration Tokenを検証(Verify Registration Token)
-     * Registration Tokenを検証します。  Verify Registration Token. 
+     * Verify Registration Token
+     * Verify Registration Token. 
      * @param verifyRegistrationTokenParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1731,8 +1731,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * Registration Tokenを検証(Verify Registration Token)
-     * Registration Tokenを検証します。  Verify Registration Token. 
+     * Verify Registration Token
+     * Verify Registration Token. 
      * @param verifyRegistrationTokenParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1750,8 +1750,8 @@ public class AwsMarketplaceApi {
     }
 
     /**
-     * Registration Tokenを検証(Verify Registration Token) (asynchronously)
-     * Registration Tokenを検証します。  Verify Registration Token. 
+     * Verify Registration Token (asynchronously)
+     * Verify Registration Token. 
      * @param verifyRegistrationTokenParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

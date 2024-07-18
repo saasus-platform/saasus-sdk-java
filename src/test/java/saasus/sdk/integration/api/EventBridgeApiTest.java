@@ -34,9 +34,9 @@ public class EventBridgeApiTest {
     private final EventBridgeApi api = new EventBridgeApi();
 
     /**
-     * イベント連携の送信(Send Events)
+     * Send Events
      *
-     * Amazon EventBridge へイベントを送信します。  Send events to Amazon EventBridge. 
+     * Send events to Amazon EventBridge. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -48,9 +48,9 @@ public class EventBridgeApiTest {
     }
 
     /**
-     * イベント連携のテスト送信(Test EventBridge Connection)
+     * Test EventBridge Connection
      *
-     * Amazon EventBridge との連携をテストする為のイベントを送信します。  Send events to test the connection with Amazon EventBridge. 
+     * Send events to test the connection with Amazon EventBridge. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -61,9 +61,9 @@ public class EventBridgeApiTest {
     }
 
     /**
-     * イベント連携設定を削除(Delete EventBridge Settings)
+     * Delete EventBridge Settings
      *
-     * ホストの状態を Amazon EventBridge 経由で提供するための設定を解除します。  Delete settings used to provide host state via Amazon EventBridge. 
+     * Delete settings used to provide host state via Amazon EventBridge. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -74,9 +74,9 @@ public class EventBridgeApiTest {
     }
 
     /**
-     * イベント連携設定を取得(Get EventBridge Settings)
+     * Get EventBridge Settings
      *
-     * 監視対象となっている全ホストの状態をリアルタイムにAmazon EventBridge 経由で提供するための設定を取得します。  Gets the settings for providing real-time status of all monitored hosts via Amazon EventBridge. 
+     * Gets the settings for providing real-time status of all monitored hosts via Amazon EventBridge. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -87,9 +87,9 @@ public class EventBridgeApiTest {
     }
 
     /**
-     * イベント連携設定を更新(Update EventBridge Settings)
+     * Update EventBridge Settings
      *
-     * ホストの状態を Amazon EventBridge 経由で提供するための設定を更新します。  Update configuration used to provide the host state via Amazon EventBridge. 
+     * Update configuration used to provide the host state via Amazon EventBridge. 
      *
      * @throws ApiException if the Api call fails
      */

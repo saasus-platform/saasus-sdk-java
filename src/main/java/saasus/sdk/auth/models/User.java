@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,7 +14,6 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +47,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -55,7 +54,7 @@ import saasus.sdk.auth.JSON;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:13:20.737609438Z[Etc/UTC]")
 public class User {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -85,13 +84,12 @@ public class User {
   }
 
   public User id(String id) {
-    
     this.id = id;
     return this;
   }
 
    /**
-   * ユーザーID(User ID)
+   * User ID
    * @return id
   **/
   @javax.annotation.Nonnull
@@ -99,14 +97,12 @@ public class User {
     return id;
   }
 
-
   public void setId(String id) {
     this.id = id;
   }
 
 
   public User tenantId(String tenantId) {
-    
     this.tenantId = tenantId;
     return this;
   }
@@ -120,20 +116,18 @@ public class User {
     return tenantId;
   }
 
-
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;
   }
 
 
   public User tenantName(String tenantName) {
-    
     this.tenantName = tenantName;
     return this;
   }
 
    /**
-   * テナント名(Tenant Name)
+   * Tenant Name
    * @return tenantName
   **/
   @javax.annotation.Nonnull
@@ -141,20 +135,18 @@ public class User {
     return tenantName;
   }
 
-
   public void setTenantName(String tenantName) {
     this.tenantName = tenantName;
   }
 
 
   public User email(String email) {
-    
     this.email = email;
     return this;
   }
 
    /**
-   * メールアドレス(E-mail)
+   * E-mail
    * @return email
   **/
   @javax.annotation.Nonnull
@@ -162,14 +154,12 @@ public class User {
     return email;
   }
 
-
   public void setEmail(String email) {
     this.email = email;
   }
 
 
   public User attributes(Map<String, Object> attributes) {
-    
     this.attributes = attributes;
     return this;
   }
@@ -183,7 +173,7 @@ public class User {
   }
 
    /**
-   * 属性情報（SaaS 開発コンソールでユーザー属性定義を行い設定された情報を取得します）  Attribute information (Get information set by defining user attributes in the SaaS development console) 
+   * Attribute information (Get information set by defining user attributes in the SaaS development console) 
    * @return attributes
   **/
   @javax.annotation.Nonnull
@@ -191,14 +181,12 @@ public class User {
     return attributes;
   }
 
-
   public void setAttributes(Map<String, Object> attributes) {
     this.attributes = attributes;
   }
 
 
   public User envs(List<UserAvailableEnv> envs) {
-    
     this.envs = envs;
     return this;
   }
@@ -219,7 +207,6 @@ public class User {
   public List<UserAvailableEnv> getEnvs() {
     return envs;
   }
-
 
   public void setEnvs(List<UserAvailableEnv> envs) {
     this.envs = envs;
@@ -311,9 +298,9 @@ public class User {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!User.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `User` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
