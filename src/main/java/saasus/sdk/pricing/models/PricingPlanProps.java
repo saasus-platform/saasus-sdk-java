@@ -14,7 +14,6 @@
 package saasus.sdk.pricing.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.pricing.models.PricingMenu;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.pricing.JSON;
@@ -53,7 +52,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingPlanProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:07.664062Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:13:26.228029854Z[Etc/UTC]")
 public class PricingPlanProps {
   public static final String SERIALIZED_NAME_PRICING_MENUS = "pricing_menus";
   @SerializedName(SERIALIZED_NAME_PRICING_MENUS)
@@ -79,7 +78,6 @@ public class PricingPlanProps {
   }
 
   public PricingPlanProps pricingMenus(List<PricingMenu> pricingMenus) {
-    
     this.pricingMenus = pricingMenus;
     return this;
   }
@@ -101,20 +99,18 @@ public class PricingPlanProps {
     return pricingMenus;
   }
 
-
   public void setPricingMenus(List<PricingMenu> pricingMenus) {
     this.pricingMenus = pricingMenus;
   }
 
 
   public PricingPlanProps name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * 料金プラン名(pricing plan name)
+   * Pricing plan name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -122,20 +118,18 @@ public class PricingPlanProps {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public PricingPlanProps displayName(String displayName) {
-    
     this.displayName = displayName;
     return this;
   }
 
    /**
-   * 料金プラン表示名(pricing plan display name)
+   * Pricing plan display name
    * @return displayName
   **/
   @javax.annotation.Nonnull
@@ -143,20 +137,18 @@ public class PricingPlanProps {
     return displayName;
   }
 
-
   public void setDisplayName(String displayName) {
     this.displayName = displayName;
   }
 
 
   public PricingPlanProps description(String description) {
-    
     this.description = description;
     return this;
   }
 
    /**
-   * 料金プラン説明(pricing plan description)
+   * Pricing plan description
    * @return description
   **/
   @javax.annotation.Nonnull
@@ -164,27 +156,24 @@ public class PricingPlanProps {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public PricingPlanProps used(Boolean used) {
-    
     this.used = used;
     return this;
   }
 
    /**
-   * 料金プランの使用済み設定(pricing plan used settings)
+   * Pricing plan used settings
    * @return used
   **/
   @javax.annotation.Nonnull
   public Boolean getUsed() {
     return used;
   }
-
 
   public void setUsed(Boolean used) {
     this.used = used;
@@ -272,9 +261,9 @@ public class PricingPlanProps {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!PricingPlanProps.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PricingPlanProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -14,13 +14,13 @@
 package saasus.sdk.auth.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.auth.JSON;
@@ -50,10 +49,10 @@ import saasus.sdk.auth.JSON;
 /**
  * DnsRecord
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:46:56.115515Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:13:20.737609438Z[Etc/UTC]")
 public class DnsRecord {
   /**
-   * CNAMEリソースレコード(CNAME Resource Record)
+   * CNAME Resource Record
    */
   @JsonAdapter(TypeEnum.Adapter.class)
   public enum TypeEnum {
@@ -95,6 +94,11 @@ public class DnsRecord {
         return TypeEnum.fromValue(value);
       }
     }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TypeEnum.fromValue(value);
+    }
   }
 
   public static final String SERIALIZED_NAME_TYPE = "type";
@@ -113,13 +117,12 @@ public class DnsRecord {
   }
 
   public DnsRecord type(TypeEnum type) {
-    
     this.type = type;
     return this;
   }
 
    /**
-   * CNAMEリソースレコード(CNAME Resource Record)
+   * CNAME Resource Record
    * @return type
   **/
   @javax.annotation.Nonnull
@@ -127,20 +130,18 @@ public class DnsRecord {
     return type;
   }
 
-
   public void setType(TypeEnum type) {
     this.type = type;
   }
 
 
   public DnsRecord name(String name) {
-    
     this.name = name;
     return this;
   }
 
    /**
-   * レコード名(Record Name)
+   * Record Name
    * @return name
   **/
   @javax.annotation.Nonnull
@@ -148,27 +149,24 @@ public class DnsRecord {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public DnsRecord value(String value) {
-    
     this.value = value;
     return this;
   }
 
    /**
-   * 値(Value)
+   * Value
    * @return value
   **/
   @javax.annotation.Nonnull
   public String getValue() {
     return value;
   }
-
 
   public void setValue(String value) {
     this.value = value;
@@ -248,9 +246,9 @@ public class DnsRecord {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!DnsRecord.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `DnsRecord` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -266,6 +264,8 @@ public class DnsRecord {
       if (!jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
+      // validate the required field `type`
+      TypeEnum.validateJsonElement(jsonObj.get("type"));
       if (!jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }

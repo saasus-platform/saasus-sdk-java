@@ -14,7 +14,6 @@
 package saasus.sdk.apilog.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import saasus.sdk.apilog.models.ApiLog;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.apilog.JSON;
@@ -53,17 +52,20 @@ import saasus.sdk.apilog.JSON;
 /**
  * ApiLogs
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:28.055350Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:13:39.110041701Z[Etc/UTC]")
 public class ApiLogs {
   public static final String SERIALIZED_NAME_API_LOGS = "api_logs";
   @SerializedName(SERIALIZED_NAME_API_LOGS)
   private List<ApiLog> apiLogs = new ArrayList<>();
 
+  public static final String SERIALIZED_NAME_CURSOR = "cursor";
+  @SerializedName(SERIALIZED_NAME_CURSOR)
+  private String cursor;
+
   public ApiLogs() {
   }
 
   public ApiLogs apiLogs(List<ApiLog> apiLogs) {
-    
     this.apiLogs = apiLogs;
     return this;
   }
@@ -85,9 +87,27 @@ public class ApiLogs {
     return apiLogs;
   }
 
-
   public void setApiLogs(List<ApiLog> apiLogs) {
     this.apiLogs = apiLogs;
+  }
+
+
+  public ApiLogs cursor(String cursor) {
+    this.cursor = cursor;
+    return this;
+  }
+
+   /**
+   * Cursor for cursor pagination
+   * @return cursor
+  **/
+  @javax.annotation.Nullable
+  public String getCursor() {
+    return cursor;
+  }
+
+  public void setCursor(String cursor) {
+    this.cursor = cursor;
   }
 
 
@@ -101,12 +121,13 @@ public class ApiLogs {
       return false;
     }
     ApiLogs apiLogs = (ApiLogs) o;
-    return Objects.equals(this.apiLogs, apiLogs.apiLogs);
+    return Objects.equals(this.apiLogs, apiLogs.apiLogs) &&
+        Objects.equals(this.cursor, apiLogs.cursor);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiLogs);
+    return Objects.hash(apiLogs, cursor);
   }
 
   @Override
@@ -114,6 +135,7 @@ public class ApiLogs {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiLogs {\n");
     sb.append("    apiLogs: ").append(toIndentedString(apiLogs)).append("\n");
+    sb.append("    cursor: ").append(toIndentedString(cursor)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -137,6 +159,7 @@ public class ApiLogs {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("api_logs");
+    openapiFields.add("cursor");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -156,9 +179,9 @@ public class ApiLogs {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!ApiLogs.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiLogs` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
@@ -181,6 +204,9 @@ public class ApiLogs {
       for (int i = 0; i < jsonArrayapiLogs.size(); i++) {
         ApiLog.validateJsonElement(jsonArrayapiLogs.get(i));
       };
+      if ((jsonObj.get("cursor") != null && !jsonObj.get("cursor").isJsonNull()) && !jsonObj.get("cursor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cursor").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
