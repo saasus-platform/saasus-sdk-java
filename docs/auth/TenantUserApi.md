@@ -4,24 +4,24 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**createTenantUser**](TenantUserApi.md#createTenantUser) | **POST** /tenants/{tenant_id}/users | テナントにユーザーを作成(Create Tenant User) |
-| [**createTenantUserRoles**](TenantUserApi.md#createTenantUserRoles) | **POST** /tenants/{tenant_id}/users/{user_id}/envs/{env_id}/roles | テナントのユーザー情報に役割(ロール)を作成(Create Tenant User Role) |
-| [**deleteTenantUser**](TenantUserApi.md#deleteTenantUser) | **DELETE** /tenants/{tenant_id}/users/{user_id} | テナントのユーザー情報を削除(Delete Tenant User) |
-| [**deleteTenantUserRole**](TenantUserApi.md#deleteTenantUserRole) | **DELETE** /tenants/{tenant_id}/users/{user_id}/envs/{env_id}/roles/{role_name} | テナントのユーザーから役割(ロール)を削除(Remove Role From Tenant User) |
-| [**getAllTenantUser**](TenantUserApi.md#getAllTenantUser) | **GET** /tenants/all/users/{user_id} | ユーザー情報を取得(Get User Info) |
-| [**getAllTenantUsers**](TenantUserApi.md#getAllTenantUsers) | **GET** /tenants/all/users | ユーザー一覧を取得(Get Users) |
-| [**getTenantUser**](TenantUserApi.md#getTenantUser) | **GET** /tenants/{tenant_id}/users/{user_id} | テナントのユーザー情報を取得(Get Tenant User) |
-| [**getTenantUsers**](TenantUserApi.md#getTenantUsers) | **GET** /tenants/{tenant_id}/users | テナントのユーザー一覧を取得(Get Tenant Users) |
-| [**updateTenantUser**](TenantUserApi.md#updateTenantUser) | **PATCH** /tenants/{tenant_id}/users/{user_id} | テナントのユーザー属性情報を更新(Update Tenant User Attribute) |
+| [**createTenantUser**](TenantUserApi.md#createTenantUser) | **POST** /tenants/{tenant_id}/users | Create Tenant User |
+| [**createTenantUserRoles**](TenantUserApi.md#createTenantUserRoles) | **POST** /tenants/{tenant_id}/users/{user_id}/envs/{env_id}/roles | Create Tenant User Role |
+| [**deleteTenantUser**](TenantUserApi.md#deleteTenantUser) | **DELETE** /tenants/{tenant_id}/users/{user_id} | Delete Tenant User |
+| [**deleteTenantUserRole**](TenantUserApi.md#deleteTenantUserRole) | **DELETE** /tenants/{tenant_id}/users/{user_id}/envs/{env_id}/roles/{role_name} | Remove Role From Tenant User |
+| [**getAllTenantUser**](TenantUserApi.md#getAllTenantUser) | **GET** /tenants/all/users/{user_id} | Get User Info |
+| [**getAllTenantUsers**](TenantUserApi.md#getAllTenantUsers) | **GET** /tenants/all/users | Get Users |
+| [**getTenantUser**](TenantUserApi.md#getTenantUser) | **GET** /tenants/{tenant_id}/users/{user_id} | Get Tenant User |
+| [**getTenantUsers**](TenantUserApi.md#getTenantUsers) | **GET** /tenants/{tenant_id}/users | Get Tenant Users |
+| [**updateTenantUser**](TenantUserApi.md#updateTenantUser) | **PATCH** /tenants/{tenant_id}/users/{user_id} | Update Tenant User Attribute |
 
 
 <a id="createTenantUser"></a>
 # **createTenantUser**
 > User createTenantUser(tenantId, createTenantUserParam)
 
-テナントにユーザーを作成(Create Tenant User)
+Create Tenant User
 
-テナントにユーザーを作成します。 attributesを空のオブジェクトにした場合、追加属性は空で作成されます。  Create a tenant user. If attributes is empty, the additional attributes will be created empty. 
+Create a tenant user. If attributes is empty, the additional attributes will be created empty. 
 
 ### Example
 ```java
@@ -43,7 +43,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     TenantUserApi apiInstance = new TenantUserApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
+    String tenantId = "tenantId_example"; // String | Tenant ID
     CreateTenantUserParam createTenantUserParam = new CreateTenantUserParam(); // CreateTenantUserParam | 
     try {
       User result = apiInstance.createTenantUser(tenantId, createTenantUserParam);
@@ -63,7 +63,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
+| **tenantId** | **String**| Tenant ID | |
 | **createTenantUserParam** | [**CreateTenantUserParam**](CreateTenantUserParam.md)|  | [optional] |
 
 ### Return type
@@ -89,9 +89,9 @@ public class Example {
 # **createTenantUserRoles**
 > createTenantUserRoles(tenantId, userId, envId, createTenantUserRolesParam)
 
-テナントのユーザー情報に役割(ロール)を作成(Create Tenant User Role)
+Create Tenant User Role
 
-テナントのユーザーに役割(ロール)を作成します。  Create roles on tenant users. 
+Create roles on tenant users. 
 
 ### Example
 ```java
@@ -113,9 +113,9 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     TenantUserApi apiInstance = new TenantUserApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
-    Integer envId = 56; // Integer | 環境ID(Env ID)
+    String tenantId = "tenantId_example"; // String | Tenant ID
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
+    Integer envId = 56; // Integer | Env ID
     CreateTenantUserRolesParam createTenantUserRolesParam = new CreateTenantUserRolesParam(); // CreateTenantUserRolesParam | 
     try {
       apiInstance.createTenantUserRoles(tenantId, userId, envId, createTenantUserRolesParam);
@@ -134,9 +134,9 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
-| **userId** | **String**| ユーザーID(User ID) | |
-| **envId** | **Integer**| 環境ID(Env ID) | |
+| **tenantId** | **String**| Tenant ID | |
+| **userId** | **String**| User ID | |
+| **envId** | **Integer**| Env ID | |
 | **createTenantUserRolesParam** | [**CreateTenantUserRolesParam**](CreateTenantUserRolesParam.md)|  | [optional] |
 
 ### Return type
@@ -162,9 +162,9 @@ null (empty response body)
 # **deleteTenantUser**
 > deleteTenantUser(tenantId, userId)
 
-テナントのユーザー情報を削除(Delete Tenant User)
+Delete Tenant User
 
-テナントからユーザーを削除します。  Delete a user from your tenant. 
+Delete a user from the tenant. 
 
 ### Example
 ```java
@@ -186,8 +186,8 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     TenantUserApi apiInstance = new TenantUserApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String tenantId = "tenantId_example"; // String | Tenant ID
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     try {
       apiInstance.deleteTenantUser(tenantId, userId);
     } catch (ApiException e) {
@@ -205,8 +205,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
-| **userId** | **String**| ユーザーID(User ID) | |
+| **tenantId** | **String**| Tenant ID | |
+| **userId** | **String**| User ID | |
 
 ### Return type
 
@@ -232,9 +232,9 @@ null (empty response body)
 # **deleteTenantUserRole**
 > deleteTenantUserRole(tenantId, userId, envId, roleName)
 
-テナントのユーザーから役割(ロール)を削除(Remove Role From Tenant User)
+Remove Role From Tenant User
 
-テナントのユーザーから役割(ロール)を削除します。  Remove a role from a tenant user. 
+Remove a role from a tenant user. 
 
 ### Example
 ```java
@@ -256,10 +256,10 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     TenantUserApi apiInstance = new TenantUserApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
-    Integer envId = 56; // Integer | 環境ID(Env ID)
-    String roleName = "admin"; // String | 役割(ロール)名(role name)
+    String tenantId = "tenantId_example"; // String | Tenant ID
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
+    Integer envId = 56; // Integer | Env ID
+    String roleName = "admin"; // String | Role name
     try {
       apiInstance.deleteTenantUserRole(tenantId, userId, envId, roleName);
     } catch (ApiException e) {
@@ -277,10 +277,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
-| **userId** | **String**| ユーザーID(User ID) | |
-| **envId** | **Integer**| 環境ID(Env ID) | |
-| **roleName** | **String**| 役割(ロール)名(role name) | |
+| **tenantId** | **String**| Tenant ID | |
+| **userId** | **String**| User ID | |
+| **envId** | **Integer**| Env ID | |
+| **roleName** | **String**| Role name | |
 
 ### Return type
 
@@ -306,9 +306,9 @@ null (empty response body)
 # **getAllTenantUser**
 > Users getAllTenantUser(userId)
 
-ユーザー情報を取得(Get User Info)
+Get User Info
 
-ユーザーIDからテナントに所属しているユーザー情報を取得します。 複数テナントに所属している場合は別のオブジェクトとして返却されます。  Get information on user belonging to the tenant from the user ID. If the user belongs to multiple tenants, it will be returned as another object. 
+Get information on user belonging to the tenant from the user ID. If the user belongs to multiple tenants, it will be returned as another object. 
 
 ### Example
 ```java
@@ -330,7 +330,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     TenantUserApi apiInstance = new TenantUserApi(defaultClient);
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     try {
       Users result = apiInstance.getAllTenantUser(userId);
       System.out.println(result);
@@ -349,7 +349,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userId** | **String**| ユーザーID(User ID) | |
+| **userId** | **String**| User ID | |
 
 ### Return type
 
@@ -375,9 +375,9 @@ public class Example {
 # **getAllTenantUsers**
 > Users getAllTenantUsers()
 
-ユーザー一覧を取得(Get Users)
+Get Users
 
-テナントに所属しているユーザー全件を取得します。 複数テナントに所属する同一ユーザーは別のオブジェクトとして返却されます。 idは一意ではありません。  Get all users belonging to the tenant. The same user belonging to multiple tenants will be returned as a different object. Id is not unique. 
+Get all users belonging to the tenant. The same user belonging to multiple tenants will be returned as a different object. Id is not unique. 
 
 ### Example
 ```java
@@ -439,9 +439,9 @@ This endpoint does not need any parameter.
 # **getTenantUser**
 > User getTenantUser(tenantId, userId)
 
-テナントのユーザー情報を取得(Get Tenant User)
+Get Tenant User
 
-テナントのユーザーをIDから一件取得します。  Get one tenant user by specific ID. 
+Get one tenant user by specific ID. 
 
 ### Example
 ```java
@@ -463,8 +463,8 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     TenantUserApi apiInstance = new TenantUserApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String tenantId = "tenantId_example"; // String | Tenant ID
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     try {
       User result = apiInstance.getTenantUser(tenantId, userId);
       System.out.println(result);
@@ -483,8 +483,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
-| **userId** | **String**| ユーザーID(User ID) | |
+| **tenantId** | **String**| Tenant ID | |
+| **userId** | **String**| User ID | |
 
 ### Return type
 
@@ -510,9 +510,9 @@ public class Example {
 # **getTenantUsers**
 > Users getTenantUsers(tenantId)
 
-テナントのユーザー一覧を取得(Get Tenant Users)
+Get Tenant Users
 
-テナントに所属するユーザーを全件取得します。 idは一意です。  Get all the users belonging to the tenant. Id is unique. 
+Get all the users belonging to the tenant. Id is unique. 
 
 ### Example
 ```java
@@ -534,7 +534,7 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     TenantUserApi apiInstance = new TenantUserApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
+    String tenantId = "tenantId_example"; // String | Tenant ID
     try {
       Users result = apiInstance.getTenantUsers(tenantId);
       System.out.println(result);
@@ -553,7 +553,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
+| **tenantId** | **String**| Tenant ID | |
 
 ### Return type
 
@@ -578,9 +578,9 @@ public class Example {
 # **updateTenantUser**
 > updateTenantUser(tenantId, userId, updateTenantUserParam)
 
-テナントのユーザー属性情報を更新(Update Tenant User Attribute)
+Update Tenant User Attribute
 
-テナントのユーザー属性情報を更新します。  Update tenant user attributes. 
+Update tenant user attributes. 
 
 ### Example
 ```java
@@ -602,8 +602,8 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     TenantUserApi apiInstance = new TenantUserApi(defaultClient);
-    String tenantId = "tenantId_example"; // String | テナントID(Tenant ID)
-    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | ユーザーID(User ID)
+    String tenantId = "tenantId_example"; // String | Tenant ID
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     UpdateTenantUserParam updateTenantUserParam = new UpdateTenantUserParam(); // UpdateTenantUserParam | 
     try {
       apiInstance.updateTenantUser(tenantId, userId, updateTenantUserParam);
@@ -622,8 +622,8 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **tenantId** | **String**| テナントID(Tenant ID) | |
-| **userId** | **String**| ユーザーID(User ID) | |
+| **tenantId** | **String**| Tenant ID | |
+| **userId** | **String**| User ID | |
 | **updateTenantUserParam** | [**UpdateTenantUserParam**](UpdateTenantUserParam.md)|  | [optional] |
 
 ### Return type
