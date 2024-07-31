@@ -14,13 +14,13 @@
 package saasus.sdk.communication.models;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -42,7 +42,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import saasus.sdk.communication.JSON;
@@ -50,7 +49,7 @@ import saasus.sdk.communication.JSON;
 /**
  * UpdateFeedbackCommentParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-10T08:47:32.358898Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:16:01.642502956Z[Etc/UTC]")
 public class UpdateFeedbackCommentParam {
   public static final String SERIALIZED_NAME_BODY = "body";
   @SerializedName(SERIALIZED_NAME_BODY)
@@ -60,7 +59,6 @@ public class UpdateFeedbackCommentParam {
   }
 
   public UpdateFeedbackCommentParam body(String body) {
-    
     this.body = body;
     return this;
   }
@@ -73,7 +71,6 @@ public class UpdateFeedbackCommentParam {
   public String getBody() {
     return body;
   }
-
 
   public void setBody(String body) {
     this.body = body;
@@ -145,9 +142,9 @@ public class UpdateFeedbackCommentParam {
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!UpdateFeedbackCommentParam.openapiFields.contains(entry.getKey())) {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateFeedbackCommentParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }

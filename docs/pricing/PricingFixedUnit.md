@@ -7,14 +7,14 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**unitAmount** | **Integer** | 料金(price) |  |
+|**unitAmount** | **Integer** | Price |  |
 |**recurringInterval** | **RecurringInterval** |  |  |
-|**name** | **String** | 名前(name) |  |
-|**displayName** | **String** | 表示名(display name) |  |
-|**description** | **String** | 説明(description) |  |
+|**name** | **String** | Name |  |
+|**displayName** | **String** | Display Name |  |
+|**description** | **String** | Description |  |
 |**type** | **UnitType** |  |  |
 |**currency** | **Currency** |  |  |
-|**id** | **String** |  |  |
+|**id** | **String** | Universally Unique Identifier |  |
 |**used** | **Boolean** |  |  |
 
 

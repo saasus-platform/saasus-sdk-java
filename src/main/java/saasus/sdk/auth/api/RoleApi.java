@@ -1,6 +1,6 @@
 /*
  * SaaSus Auth API Schema
- * スキーマ
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -139,8 +139,8 @@ public class RoleApi {
     }
 
     /**
-     * 役割(ロール)を作成(Create Role)
-     * 役割(ロール)を作成します。 ここで作成した役割をユーザーに付与することによって、SaaS側で役割ベースの認可を実装することが用意になります。 また、同じユーザーでも、属するテナント・環境ごとに持っている役割を変えることが可能です。  Create a role. By granting users the roles created here, it becomes easier to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
+     * Create Role
+     * Create a role. By granting users the roles created here, it becomes easier to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
      * @param body  (optional)
      * @return Role
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -157,8 +157,8 @@ public class RoleApi {
     }
 
     /**
-     * 役割(ロール)を作成(Create Role)
-     * 役割(ロール)を作成します。 ここで作成した役割をユーザーに付与することによって、SaaS側で役割ベースの認可を実装することが用意になります。 また、同じユーザーでも、属するテナント・環境ごとに持っている役割を変えることが可能です。  Create a role. By granting users the roles created here, it becomes easier to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
+     * Create Role
+     * Create a role. By granting users the roles created here, it becomes easier to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
      * @param body  (optional)
      * @return ApiResponse&lt;Role&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -176,8 +176,8 @@ public class RoleApi {
     }
 
     /**
-     * 役割(ロール)を作成(Create Role) (asynchronously)
-     * 役割(ロール)を作成します。 ここで作成した役割をユーザーに付与することによって、SaaS側で役割ベースの認可を実装することが用意になります。 また、同じユーザーでも、属するテナント・環境ごとに持っている役割を変えることが可能です。  Create a role. By granting users the roles created here, it becomes easier to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
+     * Create Role (asynchronously)
+     * Create a role. By granting users the roles created here, it becomes easier to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -198,7 +198,7 @@ public class RoleApi {
     }
     /**
      * Build call for deleteRole
-     * @param roleName 役割(ロール)名(role name) (required)
+     * @param roleName Role name (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -268,9 +268,9 @@ public class RoleApi {
     }
 
     /**
-     * 役割(ロール)を削除(Delete Role)
-     * 役割(ロール)を削除します。  Delete role. 
-     * @param roleName 役割(ロール)名(role name) (required)
+     * Delete Role
+     * Delete role. 
+     * @param roleName Role name (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -286,9 +286,9 @@ public class RoleApi {
     }
 
     /**
-     * 役割(ロール)を削除(Delete Role)
-     * 役割(ロール)を削除します。  Delete role. 
-     * @param roleName 役割(ロール)名(role name) (required)
+     * Delete Role
+     * Delete role. 
+     * @param roleName Role name (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -306,9 +306,9 @@ public class RoleApi {
     }
 
     /**
-     * 役割(ロール)を削除(Delete Role) (asynchronously)
-     * 役割(ロール)を削除します。  Delete role. 
-     * @param roleName 役割(ロール)名(role name) (required)
+     * Delete Role (asynchronously)
+     * Delete role. 
+     * @param roleName Role name (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -390,8 +390,8 @@ public class RoleApi {
     }
 
     /**
-     * 役割(ロール)一覧を取得(Get Roles)
-     * 登録されている役割(ロール)を一覧として取得します。 ここで定義した役割をユーザーに付与することによって、SaaS側で役割ベースの認可を実装することが用意になります。 また、同じユーザーでも、属するテナント・環境ごとに持っている役割を変えることが可能です。  Get registered roles list. Granting users the roles defined here makes it easy to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
+     * Get Roles
+     * Get registered roles list. Granting users the roles defined here makes it easy to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
      * @return Roles
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -407,8 +407,8 @@ public class RoleApi {
     }
 
     /**
-     * 役割(ロール)一覧を取得(Get Roles)
-     * 登録されている役割(ロール)を一覧として取得します。 ここで定義した役割をユーザーに付与することによって、SaaS側で役割ベースの認可を実装することが用意になります。 また、同じユーザーでも、属するテナント・環境ごとに持っている役割を変えることが可能です。  Get registered roles list. Granting users the roles defined here makes it easy to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
+     * Get Roles
+     * Get registered roles list. Granting users the roles defined here makes it easy to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
      * @return ApiResponse&lt;Roles&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -425,8 +425,8 @@ public class RoleApi {
     }
 
     /**
-     * 役割(ロール)一覧を取得(Get Roles) (asynchronously)
-     * 登録されている役割(ロール)を一覧として取得します。 ここで定義した役割をユーザーに付与することによって、SaaS側で役割ベースの認可を実装することが用意になります。 また、同じユーザーでも、属するテナント・環境ごとに持っている役割を変えることが可能です。  Get registered roles list. Granting users the roles defined here makes it easy to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
+     * Get Roles (asynchronously)
+     * Get registered roles list. Granting users the roles defined here makes it easy to implement role-based authorization on the SaaS side. In addition, even the same user can have different roles for each tenant/environment to which they belong. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
