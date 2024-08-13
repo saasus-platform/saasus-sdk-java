@@ -75,6 +75,128 @@ public class UserAttributeApi {
     }
 
     /**
+     * Build call for createSaasUserAttribute
+     * @param body  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSaasUserAttributeCall(Attribute body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/saas-user-attributes";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSaasUserAttributeValidateBeforeCall(Attribute body, final ApiCallback _callback) throws ApiException {
+        return createSaasUserAttributeCall(body, _callback);
+
+    }
+
+    /**
+     * Create SaaS User Attributes
+     * Create additional SaaS user attributes to be kept on the SaaSus Platform. You can give common values to all tenants. 
+     * @param body  (optional)
+     * @return Attribute
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Attribute createSaasUserAttribute(Attribute body) throws ApiException {
+        ApiResponse<Attribute> localVarResp = createSaasUserAttributeWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create SaaS User Attributes
+     * Create additional SaaS user attributes to be kept on the SaaSus Platform. You can give common values to all tenants. 
+     * @param body  (optional)
+     * @return ApiResponse&lt;Attribute&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Attribute> createSaasUserAttributeWithHttpInfo(Attribute body) throws ApiException {
+        okhttp3.Call localVarCall = createSaasUserAttributeValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<Attribute>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create SaaS User Attributes (asynchronously)
+     * Create additional SaaS user attributes to be kept on the SaaSus Platform. You can give common values to all tenants. 
+     * @param body  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSaasUserAttributeAsync(Attribute body, final ApiCallback<Attribute> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createSaasUserAttributeValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<Attribute>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for createUserAttribute
      * @param body  (optional)
      * @param _callback Callback for upload/download progress
@@ -140,7 +262,7 @@ public class UserAttributeApi {
 
     /**
      * Create User Attributes
-     * Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+     * Create additional user attributes to be kept on the SaaSus Platform. You can give different values to each tenant. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
      * @param body  (optional)
      * @return Attribute
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -158,7 +280,7 @@ public class UserAttributeApi {
 
     /**
      * Create User Attributes
-     * Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+     * Create additional user attributes to be kept on the SaaSus Platform. You can give different values to each tenant. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
      * @param body  (optional)
      * @return ApiResponse&lt;Attribute&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -177,7 +299,7 @@ public class UserAttributeApi {
 
     /**
      * Create User Attributes (asynchronously)
-     * Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+     * Create additional user attributes to be kept on the SaaSus Platform. You can give different values to each tenant. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
      * @param body  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
