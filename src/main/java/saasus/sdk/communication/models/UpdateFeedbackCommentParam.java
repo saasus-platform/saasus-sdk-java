@@ -49,7 +49,7 @@ import saasus.sdk.communication.JSON;
 /**
  * UpdateFeedbackCommentParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:16:01.642502956Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-13T09:26:05.073550303Z[Etc/UTC]")
 public class UpdateFeedbackCommentParam {
   public static final String SERIALIZED_NAME_BODY = "body";
   @SerializedName(SERIALIZED_NAME_BODY)

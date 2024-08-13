@@ -167,6 +167,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateEnvParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateIdentityProviderParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateNotificationMessagesParam.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateSaasUserAttributesParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateSaasUserEmailParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateSaasUserPasswordParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.UpdateSignInSettingsParam.CustomTypeAdapterFactory());
