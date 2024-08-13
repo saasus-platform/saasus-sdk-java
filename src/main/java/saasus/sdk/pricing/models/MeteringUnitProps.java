@@ -50,7 +50,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * MeteringUnitProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:15:46.013551151Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-13T09:46:20.262496057Z[Etc/UTC]")
 public class MeteringUnitProps {
   public static final String SERIALIZED_NAME_UNIT_NAME = "unit_name";
   @SerializedName(SERIALIZED_NAME_UNIT_NAME)
