@@ -52,7 +52,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingFixedUnit
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:15:46.013551151Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-13T09:46:20.262496057Z[Etc/UTC]")
 public class PricingFixedUnit {
   public static final String SERIALIZED_NAME_UNIT_AMOUNT = "unit_amount";
   @SerializedName(SERIALIZED_NAME_UNIT_AMOUNT)
