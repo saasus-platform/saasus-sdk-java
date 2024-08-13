@@ -34,9 +34,23 @@ public class UserAttributeApiTest {
     private final UserAttributeApi api = new UserAttributeApi();
 
     /**
+     * Create SaaS User Attributes
+     *
+     * Create additional SaaS user attributes to be kept on the SaaSus Platform. You can give common values to all tenants. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void createSaasUserAttributeTest() throws ApiException {
+        Attribute body = null;
+        Attribute response = api.createSaasUserAttribute(body);
+        // TODO: test validations
+    }
+
+    /**
      * Create User Attributes
      *
-     * Create additional user attributes to be kept on the SaaSus Platform. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
+     * Create additional user attributes to be kept on the SaaSus Platform. You can give different values to each tenant. For example, you can define items associated with a user, such as user name, birthday, etc. If you don&#39;t want personal information on the SaaS Platform side, personal information can be kept on the SaaS side without user attribute definition. 
      *
      * @throws ApiException if the Api call fails
      */

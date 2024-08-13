@@ -22,7 +22,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import saasus.sdk.auth.models.UserAvailableTenant;
 
 import com.google.gson.Gson;
@@ -52,7 +54,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UserInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:15:40.674090509Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-13T09:43:05.063392808Z[Etc/UTC]")
 public class UserInfo {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -61,6 +63,10 @@ public class UserInfo {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_USER_ATTRIBUTE = "user_attribute";
+  @SerializedName(SERIALIZED_NAME_USER_ATTRIBUTE)
+  private Map<String, Object> userAttribute = new HashMap<>();
 
   public static final String SERIALIZED_NAME_TENANTS = "tenants";
   @SerializedName(SERIALIZED_NAME_TENANTS)
@@ -107,6 +113,33 @@ public class UserInfo {
   }
 
 
+  public UserInfo userAttribute(Map<String, Object> userAttribute) {
+    this.userAttribute = userAttribute;
+    return this;
+  }
+
+  public UserInfo putUserAttributeItem(String key, Object userAttributeItem) {
+    if (this.userAttribute == null) {
+      this.userAttribute = new HashMap<>();
+    }
+    this.userAttribute.put(key, userAttributeItem);
+    return this;
+  }
+
+   /**
+   * user additional attributes
+   * @return userAttribute
+  **/
+  @javax.annotation.Nonnull
+  public Map<String, Object> getUserAttribute() {
+    return userAttribute;
+  }
+
+  public void setUserAttribute(Map<String, Object> userAttribute) {
+    this.userAttribute = userAttribute;
+  }
+
+
   public UserInfo tenants(List<UserAvailableTenant> tenants) {
     this.tenants = tenants;
     return this;
@@ -146,12 +179,13 @@ public class UserInfo {
     UserInfo userInfo = (UserInfo) o;
     return Objects.equals(this.id, userInfo.id) &&
         Objects.equals(this.email, userInfo.email) &&
+        Objects.equals(this.userAttribute, userInfo.userAttribute) &&
         Objects.equals(this.tenants, userInfo.tenants);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, email, tenants);
+    return Objects.hash(id, email, userAttribute, tenants);
   }
 
   @Override
@@ -160,6 +194,7 @@ public class UserInfo {
     sb.append("class UserInfo {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    userAttribute: ").append(toIndentedString(userAttribute)).append("\n");
     sb.append("    tenants: ").append(toIndentedString(tenants)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -185,12 +220,14 @@ public class UserInfo {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("email");
+    openapiFields.add("user_attribute");
     openapiFields.add("tenants");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("email");
+    openapiRequiredFields.add("user_attribute");
     openapiRequiredFields.add("tenants");
   }
 
