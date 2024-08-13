@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,33 +49,41 @@ import java.util.Set;
 import saasus.sdk.auth.JSON;
 
 /**
- * UpdateSaasUserPasswordParam
+ * UpdateSaasUserAttributesParam
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-13T07:38:53.895588628Z[Etc/UTC]")
-public class UpdateSaasUserPasswordParam {
-  public static final String SERIALIZED_NAME_PASSWORD = "password";
-  @SerializedName(SERIALIZED_NAME_PASSWORD)
-  private String password;
+public class UpdateSaasUserAttributesParam {
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private Map<String, Object> attributes = new HashMap<>();
 
-  public UpdateSaasUserPasswordParam() {
+  public UpdateSaasUserAttributesParam() {
   }
 
-  public UpdateSaasUserPasswordParam password(String password) {
-    this.password = password;
+  public UpdateSaasUserAttributesParam attributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public UpdateSaasUserAttributesParam putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
+    this.attributes.put(key, attributesItem);
     return this;
   }
 
    /**
-   * Password
-   * @return password
+   * Attribute information 
+   * @return attributes
   **/
   @javax.annotation.Nonnull
-  public String getPassword() {
-    return password;
+  public Map<String, Object> getAttributes() {
+    return attributes;
   }
 
-  public void setPassword(String password) {
-    this.password = password;
+  public void setAttributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
   }
 
 
@@ -86,20 +96,20 @@ public class UpdateSaasUserPasswordParam {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateSaasUserPasswordParam updateSaasUserPasswordParam = (UpdateSaasUserPasswordParam) o;
-    return Objects.equals(this.password, updateSaasUserPasswordParam.password);
+    UpdateSaasUserAttributesParam updateSaasUserAttributesParam = (UpdateSaasUserAttributesParam) o;
+    return Objects.equals(this.attributes, updateSaasUserAttributesParam.attributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password);
+    return Objects.hash(attributes);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateSaasUserPasswordParam {\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("class UpdateSaasUserAttributesParam {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -122,66 +132,63 @@ public class UpdateSaasUserPasswordParam {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("password");
+    openapiFields.add("attributes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("password");
+    openapiRequiredFields.add("attributes");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to UpdateSaasUserPasswordParam
+  * @throws IOException if the JSON Element is invalid with respect to UpdateSaasUserAttributesParam
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!UpdateSaasUserPasswordParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateSaasUserPasswordParam is not found in the empty JSON string", UpdateSaasUserPasswordParam.openapiRequiredFields.toString()));
+        if (!UpdateSaasUserAttributesParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateSaasUserAttributesParam is not found in the empty JSON string", UpdateSaasUserAttributesParam.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!UpdateSaasUserPasswordParam.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateSaasUserPasswordParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!UpdateSaasUserAttributesParam.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateSaasUserAttributesParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateSaasUserPasswordParam.openapiRequiredFields) {
+      for (String requiredField : UpdateSaasUserAttributesParam.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateSaasUserPasswordParam.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateSaasUserPasswordParam' and its subtypes
+       if (!UpdateSaasUserAttributesParam.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdateSaasUserAttributesParam' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateSaasUserPasswordParam> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateSaasUserPasswordParam.class));
+       final TypeAdapter<UpdateSaasUserAttributesParam> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateSaasUserAttributesParam.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UpdateSaasUserPasswordParam>() {
+       return (TypeAdapter<T>) new TypeAdapter<UpdateSaasUserAttributesParam>() {
            @Override
-           public void write(JsonWriter out, UpdateSaasUserPasswordParam value) throws IOException {
+           public void write(JsonWriter out, UpdateSaasUserAttributesParam value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public UpdateSaasUserPasswordParam read(JsonReader in) throws IOException {
+           public UpdateSaasUserAttributesParam read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -192,18 +199,18 @@ public class UpdateSaasUserPasswordParam {
   }
 
  /**
-  * Create an instance of UpdateSaasUserPasswordParam given an JSON string
+  * Create an instance of UpdateSaasUserAttributesParam given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of UpdateSaasUserPasswordParam
-  * @throws IOException if the JSON string is invalid with respect to UpdateSaasUserPasswordParam
+  * @return An instance of UpdateSaasUserAttributesParam
+  * @throws IOException if the JSON string is invalid with respect to UpdateSaasUserAttributesParam
   */
-  public static UpdateSaasUserPasswordParam fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateSaasUserPasswordParam.class);
+  public static UpdateSaasUserAttributesParam fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdateSaasUserAttributesParam.class);
   }
 
  /**
-  * Convert an instance of UpdateSaasUserPasswordParam to an JSON string
+  * Convert an instance of UpdateSaasUserAttributesParam to an JSON string
   *
   * @return JSON string
   */
