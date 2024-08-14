@@ -61,6 +61,10 @@ do
     echo "copy ${module} success"
 done
 
+# discriminatorの判定でエラーになるため、上書きする
+cp -p PricingUnit.java ${SDK_SRC_DIR}/pricing/models/PricingUnit.java
+cp -p PricingUnitForSave.java ${SDK_SRC_DIR}/pricing/models/PricingUnitForSave.java
+
 # 生成したプログラムを削除
 rm -rf ./generated
 echo "delete generated success"

@@ -51,7 +51,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * UpdatePricingPlansUsedParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:15:46.013551151Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-14T06:54:16.071630423Z[Etc/UTC]")
 public class UpdatePricingPlansUsedParam {
   public static final String SERIALIZED_NAME_PLAN_IDS = "plan_ids";
   @SerializedName(SERIALIZED_NAME_PLAN_IDS)
