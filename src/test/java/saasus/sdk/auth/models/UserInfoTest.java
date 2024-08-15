@@ -21,7 +21,9 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import saasus.sdk.auth.models.UserAvailableTenant;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -54,6 +56,14 @@ public class UserInfoTest {
     @Test
     public void emailTest() {
         // TODO: test email
+    }
+
+    /**
+     * Test the property 'userAttribute'
+     */
+    @Test
+    public void userAttributeTest() {
+        // TODO: test userAttribute
     }
 
     /**

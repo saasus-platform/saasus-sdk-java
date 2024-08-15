@@ -58,7 +58,7 @@ import com.google.gson.JsonParseException;
 
 import saasus.sdk.auth.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:15:40.674090509Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-15T08:29:53.195185360Z[Etc/UTC]")
 public class TenantIdentityProviderProps extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(TenantIdentityProviderProps.class.getName());
 
