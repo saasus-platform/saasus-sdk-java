@@ -54,7 +54,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UserAvailableTenant
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:15:40.674090509Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:08:24.906218523Z[Etc/UTC]")
 public class UserAvailableTenant {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

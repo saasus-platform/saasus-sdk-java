@@ -20,6 +20,7 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 | [**signUp**](SaasUserApi.md#signUp) | **POST** /sign-up | Sign Up |
 | [**signUpWithAwsMarketplace**](SaasUserApi.md#signUpWithAwsMarketplace) | **POST** /aws-marketplace/sign-up | Sign Up with AWS Marketplace |
 | [**unlinkProvider**](SaasUserApi.md#unlinkProvider) | **DELETE** /users/{user_id}/providers/{provider_name} | Unlink external identity providers |
+| [**updateSaasUserAttributes**](SaasUserApi.md#updateSaasUserAttributes) | **PATCH** /users/{user_id}/attributes | Update SaaS User Attributes |
 | [**updateSaasUserEmail**](SaasUserApi.md#updateSaasUserEmail) | **PATCH** /users/{user_id}/email | Change Email |
 | [**updateSaasUserPassword**](SaasUserApi.md#updateSaasUserPassword) | **PATCH** /users/{user_id}/password | Change Password |
 | [**updateSoftwareToken**](SaasUserApi.md#updateSoftwareToken) | **PUT** /users/{user_id}/mfa/software-token | Register Authentication Application |
@@ -1107,6 +1108,75 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="updateSaasUserAttributes"></a>
+# **updateSaasUserAttributes**
+> updateSaasUserAttributes(userId, updateSaasUserAttributesParam)
+
+Update SaaS User Attributes
+
+Update the additional attributes of the SaaS user. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.auth.ApiClient;
+import saasus.sdk.auth.ApiException;
+import saasus.sdk.auth.Configuration;
+import saasus.sdk.auth.auth.*;
+import saasus.sdk.auth.models.*;
+import saasus.sdk.auth.api.SaasUserApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/auth");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    SaasUserApi apiInstance = new SaasUserApi(defaultClient);
+    String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
+    UpdateSaasUserAttributesParam updateSaasUserAttributesParam = new UpdateSaasUserAttributesParam(); // UpdateSaasUserAttributesParam | 
+    try {
+      apiInstance.updateSaasUserAttributes(userId, updateSaasUserAttributesParam);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SaasUserApi#updateSaasUserAttributes");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userId** | **String**| User ID | |
+| **updateSaasUserAttributesParam** | [**UpdateSaasUserAttributesParam**](UpdateSaasUserAttributesParam.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

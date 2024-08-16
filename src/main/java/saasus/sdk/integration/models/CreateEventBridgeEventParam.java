@@ -52,7 +52,7 @@ import saasus.sdk.integration.JSON;
 /**
  * CreateEventBridgeEventParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:15:55.811243829Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:08:41.064704716Z[Etc/UTC]")
 public class CreateEventBridgeEventParam {
   public static final String SERIALIZED_NAME_EVENT_MESSAGES = "event_messages";
   @SerializedName(SERIALIZED_NAME_EVENT_MESSAGES)

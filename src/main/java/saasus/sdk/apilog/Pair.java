@@ -13,7 +13,7 @@
 
 package saasus.sdk.apilog;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:15:58.737628856Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:08:43.971415726Z[Etc/UTC]")
 public class Pair {
     private String name = "";
     private String value = "";
