@@ -26,33 +26,17 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
- * Model tests for SaasUser
+ * Model tests for UpdateSaasUserAttributesParam
  */
-public class SaasUserTest {
-    private final SaasUser model = new SaasUser();
+public class UpdateSaasUserAttributesParamTest {
+    private final UpdateSaasUserAttributesParam model = new UpdateSaasUserAttributesParam();
 
     /**
-     * Model tests for SaasUser
+     * Model tests for UpdateSaasUserAttributesParam
      */
     @Test
-    public void testSaasUser() {
-        // TODO: test SaasUser
-    }
-
-    /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
-     * Test the property 'email'
-     */
-    @Test
-    public void emailTest() {
-        // TODO: test email
+    public void testUpdateSaasUserAttributesParam() {
+        // TODO: test UpdateSaasUserAttributesParam
     }
 
     /**

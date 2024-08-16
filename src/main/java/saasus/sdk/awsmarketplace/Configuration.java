@@ -13,7 +13,7 @@
 
 package saasus.sdk.awsmarketplace;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-07-18T06:15:52.731282631Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:08:37.890779451Z[Etc/UTC]")
 public class Configuration {
     public static final String VERSION = "1.0.0";
 
