@@ -50,7 +50,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * UpdateMeteringUnitTimestampCountParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-14T06:54:16.071630423Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-19T07:54:44.338077925Z[Etc/UTC]")
 public class UpdateMeteringUnitTimestampCountParam {
   public static final String SERIALIZED_NAME_METHOD = "method";
   @SerializedName(SERIALIZED_NAME_METHOD)
@@ -100,6 +100,50 @@ public class UpdateMeteringUnitTimestampCountParam {
     this.count = count;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the UpdateMeteringUnitTimestampCountParam instance itself
+   */
+  public UpdateMeteringUnitTimestampCountParam putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -112,12 +156,13 @@ public class UpdateMeteringUnitTimestampCountParam {
     }
     UpdateMeteringUnitTimestampCountParam updateMeteringUnitTimestampCountParam = (UpdateMeteringUnitTimestampCountParam) o;
     return Objects.equals(this.method, updateMeteringUnitTimestampCountParam.method) &&
-        Objects.equals(this.count, updateMeteringUnitTimestampCountParam.count);
+        Objects.equals(this.count, updateMeteringUnitTimestampCountParam.count)&&
+        Objects.equals(this.additionalProperties, updateMeteringUnitTimestampCountParam.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(method, count);
+    return Objects.hash(method, count, additionalProperties);
   }
 
   @Override
@@ -126,6 +171,7 @@ public class UpdateMeteringUnitTimestampCountParam {
     sb.append("class UpdateMeteringUnitTimestampCountParam {\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -170,14 +216,6 @@ public class UpdateMeteringUnitTimestampCountParam {
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!UpdateMeteringUnitTimestampCountParam.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateMeteringUnitTimestampCountParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : UpdateMeteringUnitTimestampCountParam.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
@@ -204,6 +242,23 @@ public class UpdateMeteringUnitTimestampCountParam {
            @Override
            public void write(JsonWriter out, UpdateMeteringUnitTimestampCountParam value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -211,7 +266,28 @@ public class UpdateMeteringUnitTimestampCountParam {
            public UpdateMeteringUnitTimestampCountParam read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             UpdateMeteringUnitTimestampCountParam instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format("The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();

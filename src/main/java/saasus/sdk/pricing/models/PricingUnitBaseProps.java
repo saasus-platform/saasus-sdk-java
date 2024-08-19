@@ -51,7 +51,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingUnitBaseProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-14T06:54:16.071630423Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-19T07:54:44.338077925Z[Etc/UTC]")
 public class PricingUnitBaseProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -170,6 +170,50 @@ public class PricingUnitBaseProps {
     this.currency = currency;
   }
 
+  /**
+   * A container for additional, undeclared properties.
+   * This is a holder for any undeclared properties as specified with
+   * the 'additionalProperties' keyword in the OAS document.
+   */
+  private Map<String, Object> additionalProperties;
+
+  /**
+   * Set the additional (undeclared) property with the specified name and value.
+   * If the property does not already exist, create it otherwise replace it.
+   *
+   * @param key name of the property
+   * @param value value of the property
+   * @return the PricingUnitBaseProps instance itself
+   */
+  public PricingUnitBaseProps putAdditionalProperty(String key, Object value) {
+    if (this.additionalProperties == null) {
+        this.additionalProperties = new HashMap<String, Object>();
+    }
+    this.additionalProperties.put(key, value);
+    return this;
+  }
+
+  /**
+   * Return the additional (undeclared) property.
+   *
+   * @return a map of objects
+   */
+  public Map<String, Object> getAdditionalProperties() {
+    return additionalProperties;
+  }
+
+  /**
+   * Return the additional (undeclared) property with the specified name.
+   *
+   * @param key name of the property
+   * @return an object
+   */
+  public Object getAdditionalProperty(String key) {
+    if (this.additionalProperties == null) {
+        return null;
+    }
+    return this.additionalProperties.get(key);
+  }
 
 
   @Override
@@ -185,12 +229,13 @@ public class PricingUnitBaseProps {
         Objects.equals(this.displayName, pricingUnitBaseProps.displayName) &&
         Objects.equals(this.description, pricingUnitBaseProps.description) &&
         Objects.equals(this.type, pricingUnitBaseProps.type) &&
-        Objects.equals(this.currency, pricingUnitBaseProps.currency);
+        Objects.equals(this.currency, pricingUnitBaseProps.currency)&&
+        Objects.equals(this.additionalProperties, pricingUnitBaseProps.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, displayName, description, type, currency);
+    return Objects.hash(name, displayName, description, type, currency, additionalProperties);
   }
 
   @Override
@@ -202,6 +247,7 @@ public class PricingUnitBaseProps {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
+    sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -252,14 +298,6 @@ public class PricingUnitBaseProps {
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!PricingUnitBaseProps.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `PricingUnitBaseProps` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
-      }
-
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : PricingUnitBaseProps.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
@@ -297,6 +335,23 @@ public class PricingUnitBaseProps {
            @Override
            public void write(JsonWriter out, PricingUnitBaseProps value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             obj.remove("additionalProperties");
+             // serialize additional properties
+             if (value.getAdditionalProperties() != null) {
+               for (Map.Entry<String, Object> entry : value.getAdditionalProperties().entrySet()) {
+                 if (entry.getValue() instanceof String)
+                   obj.addProperty(entry.getKey(), (String) entry.getValue());
+                 else if (entry.getValue() instanceof Number)
+                   obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                 else if (entry.getValue() instanceof Boolean)
+                   obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                 else if (entry.getValue() instanceof Character)
+                   obj.addProperty(entry.getKey(), (Character) entry.getValue());
+                 else {
+                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
+                 }
+               }
+             }
              elementAdapter.write(out, obj);
            }
 
@@ -304,7 +359,28 @@ public class PricingUnitBaseProps {
            public PricingUnitBaseProps read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
+             // store additional fields in the deserialized instance
+             PricingUnitBaseProps instance = thisAdapter.fromJsonTree(jsonObj);
+             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+               if (!openapiFields.contains(entry.getKey())) {
+                 if (entry.getValue().isJsonPrimitive()) { // primitive type
+                   if (entry.getValue().getAsJsonPrimitive().isString())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsString());
+                   else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsNumber());
+                   else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                     instance.putAdditionalProperty(entry.getKey(), entry.getValue().getAsBoolean());
+                   else
+                     throw new IllegalArgumentException(String.format("The field `%s` has unknown primitive type. Value: %s", entry.getKey(), entry.getValue().toString()));
+                 } else if (entry.getValue().isJsonArray()) {
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), List.class));
+                 } else { // JSON object
+                     instance.putAdditionalProperty(entry.getKey(), gson.fromJson(entry.getValue(), HashMap.class));
+                 }
+               }
+             }
+             return instance;
            }
 
        }.nullSafe();
