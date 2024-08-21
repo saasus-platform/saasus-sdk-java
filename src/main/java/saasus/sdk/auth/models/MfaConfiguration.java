@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * MFA device authentication settings ※ This function is not yet provided, so it cannot be changed or saved. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-19T07:54:41.919951341Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-21T01:53:19.017419721Z[Etc/UTC]")
 public class MfaConfiguration {
   /**
    * on: apply when all users log in optional: apply to individual users with MFA factor enabled ※ The parameter is currently optional and fixed. 

@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * This information is required to set up sign-in using an external identity provider. It cannot be changed. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-19T07:54:41.919951341Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-21T01:53:19.017419721Z[Etc/UTC]")
 public class IdentityProviderConfiguration {
   public static final String SERIALIZED_NAME_DOMAIN = "domain";
   @SerializedName(SERIALIZED_NAME_DOMAIN)

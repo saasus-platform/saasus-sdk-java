@@ -56,7 +56,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingTieredUnit
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-19T07:54:44.338077925Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-21T01:53:24.042734292Z[Etc/UTC]")
 public class PricingTieredUnit {
   public static final String SERIALIZED_NAME_UPPER_COUNT = "upper_count";
   @SerializedName(SERIALIZED_NAME_UPPER_COUNT)

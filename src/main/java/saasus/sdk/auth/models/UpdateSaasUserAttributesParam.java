@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,79 +49,41 @@ import java.util.Set;
 import saasus.sdk.auth.JSON;
 
 /**
- * LinkAwsMarketplaceParam
+ * UpdateSaasUserAttributesParam
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-21T01:53:19.017419721Z[Etc/UTC]")
-public class LinkAwsMarketplaceParam {
-  public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
-  @SerializedName(SERIALIZED_NAME_TENANT_ID)
-  private String tenantId;
+public class UpdateSaasUserAttributesParam {
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private Map<String, Object> attributes = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
-  @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
-  private String accessToken;
-
-  public static final String SERIALIZED_NAME_REGISTRATION_TOKEN = "registration_token";
-  @SerializedName(SERIALIZED_NAME_REGISTRATION_TOKEN)
-  private String registrationToken;
-
-  public LinkAwsMarketplaceParam() {
+  public UpdateSaasUserAttributesParam() {
   }
 
-  public LinkAwsMarketplaceParam tenantId(String tenantId) {
-    this.tenantId = tenantId;
+  public UpdateSaasUserAttributesParam attributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public UpdateSaasUserAttributesParam putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
+    this.attributes.put(key, attributesItem);
     return this;
   }
 
    /**
-   * Tenant ID
-   * @return tenantId
+   * Attribute information 
+   * @return attributes
   **/
   @javax.annotation.Nonnull
-  public String getTenantId() {
-    return tenantId;
+  public Map<String, Object> getAttributes() {
+    return attributes;
   }
 
-  public void setTenantId(String tenantId) {
-    this.tenantId = tenantId;
-  }
-
-
-  public LinkAwsMarketplaceParam accessToken(String accessToken) {
-    this.accessToken = accessToken;
-    return this;
-  }
-
-   /**
-   * Access token
-   * @return accessToken
-  **/
-  @javax.annotation.Nonnull
-  public String getAccessToken() {
-    return accessToken;
-  }
-
-  public void setAccessToken(String accessToken) {
-    this.accessToken = accessToken;
-  }
-
-
-  public LinkAwsMarketplaceParam registrationToken(String registrationToken) {
-    this.registrationToken = registrationToken;
-    return this;
-  }
-
-   /**
-   * Registration Token
-   * @return registrationToken
-  **/
-  @javax.annotation.Nonnull
-  public String getRegistrationToken() {
-    return registrationToken;
-  }
-
-  public void setRegistrationToken(String registrationToken) {
-    this.registrationToken = registrationToken;
+  public void setAttributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
   }
 
   /**
@@ -135,9 +99,9 @@ public class LinkAwsMarketplaceParam {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the LinkAwsMarketplaceParam instance itself
+   * @return the UpdateSaasUserAttributesParam instance itself
    */
-  public LinkAwsMarketplaceParam putAdditionalProperty(String key, Object value) {
+  public UpdateSaasUserAttributesParam putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -176,25 +140,21 @@ public class LinkAwsMarketplaceParam {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LinkAwsMarketplaceParam linkAwsMarketplaceParam = (LinkAwsMarketplaceParam) o;
-    return Objects.equals(this.tenantId, linkAwsMarketplaceParam.tenantId) &&
-        Objects.equals(this.accessToken, linkAwsMarketplaceParam.accessToken) &&
-        Objects.equals(this.registrationToken, linkAwsMarketplaceParam.registrationToken)&&
-        Objects.equals(this.additionalProperties, linkAwsMarketplaceParam.additionalProperties);
+    UpdateSaasUserAttributesParam updateSaasUserAttributesParam = (UpdateSaasUserAttributesParam) o;
+    return Objects.equals(this.attributes, updateSaasUserAttributesParam.attributes)&&
+        Objects.equals(this.additionalProperties, updateSaasUserAttributesParam.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tenantId, accessToken, registrationToken, additionalProperties);
+    return Objects.hash(attributes, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LinkAwsMarketplaceParam {\n");
-    sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
-    sb.append("    registrationToken: ").append(toIndentedString(registrationToken)).append("\n");
+    sb.append("class UpdateSaasUserAttributesParam {\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -218,62 +178,49 @@ public class LinkAwsMarketplaceParam {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("tenant_id");
-    openapiFields.add("access_token");
-    openapiFields.add("registration_token");
+    openapiFields.add("attributes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("tenant_id");
-    openapiRequiredFields.add("access_token");
-    openapiRequiredFields.add("registration_token");
+    openapiRequiredFields.add("attributes");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to LinkAwsMarketplaceParam
+  * @throws IOException if the JSON Element is invalid with respect to UpdateSaasUserAttributesParam
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!LinkAwsMarketplaceParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LinkAwsMarketplaceParam is not found in the empty JSON string", LinkAwsMarketplaceParam.openapiRequiredFields.toString()));
+        if (!UpdateSaasUserAttributesParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateSaasUserAttributesParam is not found in the empty JSON string", UpdateSaasUserAttributesParam.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : LinkAwsMarketplaceParam.openapiRequiredFields) {
+      for (String requiredField : UpdateSaasUserAttributesParam.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("tenant_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_id").toString()));
-      }
-      if (!jsonObj.get("access_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `access_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("access_token").toString()));
-      }
-      if (!jsonObj.get("registration_token").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `registration_token` to be a primitive type in the JSON string but got `%s`", jsonObj.get("registration_token").toString()));
-      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!LinkAwsMarketplaceParam.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LinkAwsMarketplaceParam' and its subtypes
+       if (!UpdateSaasUserAttributesParam.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdateSaasUserAttributesParam' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<LinkAwsMarketplaceParam> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(LinkAwsMarketplaceParam.class));
+       final TypeAdapter<UpdateSaasUserAttributesParam> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateSaasUserAttributesParam.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<LinkAwsMarketplaceParam>() {
+       return (TypeAdapter<T>) new TypeAdapter<UpdateSaasUserAttributesParam>() {
            @Override
-           public void write(JsonWriter out, LinkAwsMarketplaceParam value) throws IOException {
+           public void write(JsonWriter out, UpdateSaasUserAttributesParam value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -296,12 +243,12 @@ public class LinkAwsMarketplaceParam {
            }
 
            @Override
-           public LinkAwsMarketplaceParam read(JsonReader in) throws IOException {
+           public UpdateSaasUserAttributesParam read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             LinkAwsMarketplaceParam instance = thisAdapter.fromJsonTree(jsonObj);
+             UpdateSaasUserAttributesParam instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -328,18 +275,18 @@ public class LinkAwsMarketplaceParam {
   }
 
  /**
-  * Create an instance of LinkAwsMarketplaceParam given an JSON string
+  * Create an instance of UpdateSaasUserAttributesParam given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of LinkAwsMarketplaceParam
-  * @throws IOException if the JSON string is invalid with respect to LinkAwsMarketplaceParam
+  * @return An instance of UpdateSaasUserAttributesParam
+  * @throws IOException if the JSON string is invalid with respect to UpdateSaasUserAttributesParam
   */
-  public static LinkAwsMarketplaceParam fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, LinkAwsMarketplaceParam.class);
+  public static UpdateSaasUserAttributesParam fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdateSaasUserAttributesParam.class);
   }
 
  /**
-  * Convert an instance of LinkAwsMarketplaceParam to an JSON string
+  * Convert an instance of UpdateSaasUserAttributesParam to an JSON string
   *
   * @return JSON string
   */

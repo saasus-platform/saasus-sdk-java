@@ -21,6 +21,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * SaasUser
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-19T07:54:41.919951341Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-21T01:53:19.017419721Z[Etc/UTC]")
 public class SaasUser {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -58,6 +60,10 @@ public class SaasUser {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
+  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
+  private Map<String, Object> attributes = new HashMap<>();
 
   public SaasUser() {
   }
@@ -97,6 +103,33 @@ public class SaasUser {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+
+  public SaasUser attributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
+    return this;
+  }
+
+  public SaasUser putAttributesItem(String key, Object attributesItem) {
+    if (this.attributes == null) {
+      this.attributes = new HashMap<>();
+    }
+    this.attributes.put(key, attributesItem);
+    return this;
+  }
+
+   /**
+   * Attribute information 
+   * @return attributes
+  **/
+  @javax.annotation.Nonnull
+  public Map<String, Object> getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(Map<String, Object> attributes) {
+    this.attributes = attributes;
   }
 
   /**
@@ -155,13 +188,14 @@ public class SaasUser {
     }
     SaasUser saasUser = (SaasUser) o;
     return Objects.equals(this.id, saasUser.id) &&
-        Objects.equals(this.email, saasUser.email)&&
+        Objects.equals(this.email, saasUser.email) &&
+        Objects.equals(this.attributes, saasUser.attributes)&&
         Objects.equals(this.additionalProperties, saasUser.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, email, additionalProperties);
+    return Objects.hash(id, email, attributes, additionalProperties);
   }
 
   @Override
@@ -170,6 +204,7 @@ public class SaasUser {
     sb.append("class SaasUser {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -195,11 +230,13 @@ public class SaasUser {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("email");
+    openapiFields.add("attributes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("email");
+    openapiRequiredFields.add("attributes");
   }
 
  /**
