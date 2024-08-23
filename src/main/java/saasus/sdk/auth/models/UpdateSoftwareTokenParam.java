@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateSoftwareTokenParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-23T07:14:31.359457335Z[Etc/UTC]")
 public class UpdateSoftwareTokenParam {
   public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
   @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
