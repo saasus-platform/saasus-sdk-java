@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateSingleTenantSettingsParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-29T08:36:17.637237350Z[Etc/UTC]")
 public class UpdateSingleTenantSettingsParam {
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
