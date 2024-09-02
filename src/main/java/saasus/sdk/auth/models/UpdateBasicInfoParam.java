@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateBasicInfoParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-02T11:59:29.043764050Z[Etc/UTC]")
 public class UpdateBasicInfoParam {
   public static final String SERIALIZED_NAME_DOMAIN_NAME = "domain_name";
   @SerializedName(SERIALIZED_NAME_DOMAIN_NAME)
