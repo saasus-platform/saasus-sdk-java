@@ -50,7 +50,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateNotificationMessagesParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-09T09:10:50.445997561Z[Etc/UTC]")
 public class UpdateNotificationMessagesParam {
   public static final String SERIALIZED_NAME_SIGN_UP = "sign_up";
   @SerializedName(SERIALIZED_NAME_SIGN_UP)
