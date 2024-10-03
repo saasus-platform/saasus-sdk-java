@@ -31,6 +31,7 @@ import saasus.sdk.auth.models.SignUpParam;
 import saasus.sdk.auth.models.SignUpWithAwsMarketplaceParam;
 import saasus.sdk.auth.models.SoftwareTokenSecretCode;
 import saasus.sdk.auth.models.Tenant;
+import saasus.sdk.auth.models.UpdateSaasUserAttributesParam;
 import saasus.sdk.auth.models.UpdateSaasUserEmailParam;
 import saasus.sdk.auth.models.UpdateSaasUserPasswordParam;
 import saasus.sdk.auth.models.UpdateSoftwareTokenParam;
@@ -274,6 +275,21 @@ public class SaasUserApiTest {
         String providerName = null;
         String userId = null;
         api.unlinkProvider(providerName, userId);
+        // TODO: test validations
+    }
+
+    /**
+     * Update SaaS User Attributes
+     *
+     * Update the additional attributes of the SaaS user. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateSaasUserAttributesTest() throws ApiException {
+        String userId = null;
+        UpdateSaasUserAttributesParam updateSaasUserAttributesParam = null;
+        api.updateSaasUserAttributes(userId, updateSaasUserAttributesParam);
         // TODO: test validations
     }
 
