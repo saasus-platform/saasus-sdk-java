@@ -17,6 +17,7 @@ import saasus.sdk.auth.ApiException;
 import saasus.sdk.auth.models.BillingInfo;
 import saasus.sdk.auth.models.Error;
 import saasus.sdk.auth.models.PlanReservation;
+import saasus.sdk.auth.models.StripeCustomer;
 import saasus.sdk.auth.models.Tenant;
 import saasus.sdk.auth.models.TenantDetail;
 import saasus.sdk.auth.models.TenantIdentityProviders;
@@ -90,6 +91,20 @@ public class TenantApiTest {
     public void deleteTenantTest() throws ApiException {
         String tenantId = null;
         api.deleteTenant(tenantId);
+        // TODO: test validations
+    }
+
+    /**
+     * Get Stripe Customer
+     *
+     * Get the Stripe Customer information associated with the tenant, including their subscriptions. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getStripeCustomerTest() throws ApiException {
+        String tenantId = null;
+        StripeCustomer response = api.getStripeCustomer(tenantId);
         // TODO: test validations
     }
 
