@@ -1,5 +1,8 @@
 package saasus.sdk.util.apiserver;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -17,6 +20,8 @@ import java.util.List;
 import java.util.Map;
 
 public class ApiServer {
+
+    private static final ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
     public static void start(int port) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
@@ -59,8 +64,9 @@ public class ApiServer {
                 
                 if (method != null) {
                     Object[] args = prepareMethodArguments(method, queryParams);
-                    String response = (String) method.invoke(null, args);
-                    sendResponse(exchange, 200, response);
+                    Object response = method.invoke(null, args);
+                    String jsonResponse = objectMapper.writeValueAsString(response);
+                    sendResponse(exchange, 200, jsonResponse);
                 } else {
                     sendResponse(exchange, 404, "Method not found: " + methodName);
                 }
@@ -146,9 +152,11 @@ public class ApiServer {
         }
 
         private void sendResponse(HttpExchange exchange, int statusCode, String response) throws IOException {
-            exchange.sendResponseHeaders(statusCode, response.length());
+            exchange.getResponseHeaders().set("Content-Type", "application/json");
+            byte[] responseBytes = response.getBytes("UTF-8");
+            exchange.sendResponseHeaders(statusCode, responseBytes.length);
             try (OutputStream os = exchange.getResponseBody()) {
-                os.write(response.getBytes());
+                os.write(responseBytes);
             }
         }
     }
