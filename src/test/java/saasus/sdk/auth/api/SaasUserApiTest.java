@@ -97,7 +97,7 @@ public class SaasUserApiTest {
     /**
      * Create SaaS User
      *
-     * Create SaaS User. 
+     * Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
      *
      * @throws ApiException if the Api call fails
      */

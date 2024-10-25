@@ -51,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * CreateTenantUserRolesParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-25T14:10:10.161314458Z[Etc/UTC]")
 public class CreateTenantUserRolesParam {
   public static final String SERIALIZED_NAME_ROLE_NAMES = "role_names";
   @SerializedName(SERIALIZED_NAME_ROLE_NAMES)
