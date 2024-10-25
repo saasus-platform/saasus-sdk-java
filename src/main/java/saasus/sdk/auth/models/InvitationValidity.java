@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Invitation validity
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-10-25T16:36:00.014827280Z[Etc/UTC]")
 public class InvitationValidity {
   public static final String SERIALIZED_NAME_IS_VALID = "is_valid";
   @SerializedName(SERIALIZED_NAME_IS_VALID)
