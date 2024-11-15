@@ -50,7 +50,7 @@ import saasus.sdk.auth.JSON;
 /**
  * PlanHistory
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-15T11:07:28.071127658Z[Etc/UTC]")
 public class PlanHistory {
   public static final String SERIALIZED_NAME_PLAN_ID = "plan_id";
   @SerializedName(SERIALIZED_NAME_PLAN_ID)

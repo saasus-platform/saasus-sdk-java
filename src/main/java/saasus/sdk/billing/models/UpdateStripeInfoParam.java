@@ -49,7 +49,7 @@ import saasus.sdk.billing.JSON;
 /**
  * UpdateStripeInfoParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:31.552713001Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-15T11:07:38.103471619Z[Etc/UTC]")
 public class UpdateStripeInfoParam {
   public static final String SERIALIZED_NAME_SECRET_KEY = "secret_key";
   @SerializedName(SERIALIZED_NAME_SECRET_KEY)

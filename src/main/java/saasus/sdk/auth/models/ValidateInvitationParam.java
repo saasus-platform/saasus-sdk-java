@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Access token is required for existing users, and email and password is required for new users. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-15T11:07:28.071127658Z[Etc/UTC]")
 public class ValidateInvitationParam {
   public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
   @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
