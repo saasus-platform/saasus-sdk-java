@@ -50,7 +50,7 @@ import saasus.sdk.auth.JSON;
 /**
  * CustomizePages
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-15T14:19:23.475124796Z[Etc/UTC]")
 public class CustomizePages {
   public static final String SERIALIZED_NAME_SIGN_UP_PAGE = "sign_up_page";
   @SerializedName(SERIALIZED_NAME_SIGN_UP_PAGE)

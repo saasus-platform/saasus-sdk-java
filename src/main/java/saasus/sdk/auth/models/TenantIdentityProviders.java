@@ -50,7 +50,7 @@ import saasus.sdk.auth.JSON;
 /**
  * TenantIdentityProviders
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-15T14:19:23.475124796Z[Etc/UTC]")
 public class TenantIdentityProviders {
   public static final String SERIALIZED_NAME_SAML = "saml";
   @SerializedName(SERIALIZED_NAME_SAML)

@@ -47,56 +47,56 @@ import java.util.Set;
 import saasus.sdk.auth.JSON;
 
 /**
- * role info
+ * StripeCustomer
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-15T14:19:23.475124796Z[Etc/UTC]")
-public class Role {
-  public static final String SERIALIZED_NAME_ROLE_NAME = "role_name";
-  @SerializedName(SERIALIZED_NAME_ROLE_NAME)
-  private String roleName;
+public class StripeCustomer {
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
 
-  public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
-  @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
-  private String displayName;
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_SCHEDULE_ID = "subscription_schedule_id";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_SCHEDULE_ID)
+  private String subscriptionScheduleId;
 
-  public Role() {
+  public StripeCustomer() {
   }
 
-  public Role roleName(String roleName) {
-    this.roleName = roleName;
+  public StripeCustomer customerId(String customerId) {
+    this.customerId = customerId;
     return this;
   }
 
    /**
-   * role name
-   * @return roleName
+   * stripe Customer ID
+   * @return customerId
   **/
   @javax.annotation.Nonnull
-  public String getRoleName() {
-    return roleName;
+  public String getCustomerId() {
+    return customerId;
   }
 
-  public void setRoleName(String roleName) {
-    this.roleName = roleName;
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
   }
 
 
-  public Role displayName(String displayName) {
-    this.displayName = displayName;
+  public StripeCustomer subscriptionScheduleId(String subscriptionScheduleId) {
+    this.subscriptionScheduleId = subscriptionScheduleId;
     return this;
   }
 
    /**
-   * role display name
-   * @return displayName
+   * stripe Subscription Schedule ID
+   * @return subscriptionScheduleId
   **/
   @javax.annotation.Nonnull
-  public String getDisplayName() {
-    return displayName;
+  public String getSubscriptionScheduleId() {
+    return subscriptionScheduleId;
   }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
+  public void setSubscriptionScheduleId(String subscriptionScheduleId) {
+    this.subscriptionScheduleId = subscriptionScheduleId;
   }
 
 
@@ -109,22 +109,22 @@ public class Role {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Role role = (Role) o;
-    return Objects.equals(this.roleName, role.roleName) &&
-        Objects.equals(this.displayName, role.displayName);
+    StripeCustomer stripeCustomer = (StripeCustomer) o;
+    return Objects.equals(this.customerId, stripeCustomer.customerId) &&
+        Objects.equals(this.subscriptionScheduleId, stripeCustomer.subscriptionScheduleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(roleName, displayName);
+    return Objects.hash(customerId, subscriptionScheduleId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Role {\n");
-    sb.append("    roleName: ").append(toIndentedString(roleName)).append("\n");
-    sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+    sb.append("class StripeCustomer {\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    subscriptionScheduleId: ").append(toIndentedString(subscriptionScheduleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -147,48 +147,48 @@ public class Role {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("role_name");
-    openapiFields.add("display_name");
+    openapiFields.add("customer_id");
+    openapiFields.add("subscription_schedule_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("role_name");
-    openapiRequiredFields.add("display_name");
+    openapiRequiredFields.add("customer_id");
+    openapiRequiredFields.add("subscription_schedule_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to Role
+  * @throws IOException if the JSON Element is invalid with respect to StripeCustomer
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Role.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Role is not found in the empty JSON string", Role.openapiRequiredFields.toString()));
+        if (!StripeCustomer.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StripeCustomer is not found in the empty JSON string", StripeCustomer.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Role.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Role` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!StripeCustomer.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StripeCustomer` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Role.openapiRequiredFields) {
+      for (String requiredField : StripeCustomer.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("role_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role_name").toString()));
+      if (!jsonObj.get("customer_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_id").toString()));
       }
-      if (!jsonObj.get("display_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `display_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("display_name").toString()));
+      if (!jsonObj.get("subscription_schedule_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subscription_schedule_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_schedule_id").toString()));
       }
   }
 
@@ -196,22 +196,22 @@ public class Role {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Role.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Role' and its subtypes
+       if (!StripeCustomer.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StripeCustomer' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Role> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Role.class));
+       final TypeAdapter<StripeCustomer> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StripeCustomer.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Role>() {
+       return (TypeAdapter<T>) new TypeAdapter<StripeCustomer>() {
            @Override
-           public void write(JsonWriter out, Role value) throws IOException {
+           public void write(JsonWriter out, StripeCustomer value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public Role read(JsonReader in) throws IOException {
+           public StripeCustomer read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -222,18 +222,18 @@ public class Role {
   }
 
  /**
-  * Create an instance of Role given an JSON string
+  * Create an instance of StripeCustomer given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of Role
-  * @throws IOException if the JSON string is invalid with respect to Role
+  * @return An instance of StripeCustomer
+  * @throws IOException if the JSON string is invalid with respect to StripeCustomer
   */
-  public static Role fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Role.class);
+  public static StripeCustomer fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StripeCustomer.class);
   }
 
  /**
-  * Convert an instance of Role to an JSON string
+  * Convert an instance of StripeCustomer to an JSON string
   *
   * @return JSON string
   */
