@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * RequestEmailUpdateParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-09-02T11:18:17.074212389Z[Etc/UTC]")
 public class RequestEmailUpdateParam {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
