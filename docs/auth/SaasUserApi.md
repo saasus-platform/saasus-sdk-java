@@ -238,7 +238,7 @@ public class Example {
 
 Create SaaS User
 
-Create SaaS User. 
+Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
 
 ### Example
 ```java
