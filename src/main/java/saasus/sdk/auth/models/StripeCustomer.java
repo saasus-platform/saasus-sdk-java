@@ -21,8 +21,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -49,64 +47,56 @@ import java.util.Set;
 import saasus.sdk.auth.JSON;
 
 /**
- * CreateTenantUserParam
+ * StripeCustomer
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-25T09:25:08.066891950Z[Etc/UTC]")
-public class CreateTenantUserParam {
-  public static final String SERIALIZED_NAME_EMAIL = "email";
-  @SerializedName(SERIALIZED_NAME_EMAIL)
-  private String email;
+public class StripeCustomer {
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
 
-  public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
-  @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
-  private Map<String, Object> attributes = new HashMap<>();
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_SCHEDULE_ID = "subscription_schedule_id";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_SCHEDULE_ID)
+  private String subscriptionScheduleId;
 
-  public CreateTenantUserParam() {
+  public StripeCustomer() {
   }
 
-  public CreateTenantUserParam email(String email) {
-    this.email = email;
+  public StripeCustomer customerId(String customerId) {
+    this.customerId = customerId;
     return this;
   }
 
    /**
-   * E-mail
-   * @return email
+   * stripe Customer ID
+   * @return customerId
   **/
   @javax.annotation.Nonnull
-  public String getEmail() {
-    return email;
+  public String getCustomerId() {
+    return customerId;
   }
 
-  public void setEmail(String email) {
-    this.email = email;
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
   }
 
 
-  public CreateTenantUserParam attributes(Map<String, Object> attributes) {
-    this.attributes = attributes;
-    return this;
-  }
-
-  public CreateTenantUserParam putAttributesItem(String key, Object attributesItem) {
-    if (this.attributes == null) {
-      this.attributes = new HashMap<>();
-    }
-    this.attributes.put(key, attributesItem);
+  public StripeCustomer subscriptionScheduleId(String subscriptionScheduleId) {
+    this.subscriptionScheduleId = subscriptionScheduleId;
     return this;
   }
 
    /**
-   * Attribute information (Get information set by defining user attributes in the SaaS development console) 
-   * @return attributes
+   * stripe Subscription Schedule ID
+   * @return subscriptionScheduleId
   **/
   @javax.annotation.Nonnull
-  public Map<String, Object> getAttributes() {
-    return attributes;
+  public String getSubscriptionScheduleId() {
+    return subscriptionScheduleId;
   }
 
-  public void setAttributes(Map<String, Object> attributes) {
-    this.attributes = attributes;
+  public void setSubscriptionScheduleId(String subscriptionScheduleId) {
+    this.subscriptionScheduleId = subscriptionScheduleId;
   }
 
 
@@ -119,22 +109,22 @@ public class CreateTenantUserParam {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateTenantUserParam createTenantUserParam = (CreateTenantUserParam) o;
-    return Objects.equals(this.email, createTenantUserParam.email) &&
-        Objects.equals(this.attributes, createTenantUserParam.attributes);
+    StripeCustomer stripeCustomer = (StripeCustomer) o;
+    return Objects.equals(this.customerId, stripeCustomer.customerId) &&
+        Objects.equals(this.subscriptionScheduleId, stripeCustomer.subscriptionScheduleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, attributes);
+    return Objects.hash(customerId, subscriptionScheduleId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateTenantUserParam {\n");
-    sb.append("    email: ").append(toIndentedString(email)).append("\n");
-    sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("class StripeCustomer {\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    subscriptionScheduleId: ").append(toIndentedString(subscriptionScheduleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -157,45 +147,48 @@ public class CreateTenantUserParam {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("email");
-    openapiFields.add("attributes");
+    openapiFields.add("customer_id");
+    openapiFields.add("subscription_schedule_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("email");
-    openapiRequiredFields.add("attributes");
+    openapiRequiredFields.add("customer_id");
+    openapiRequiredFields.add("subscription_schedule_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to CreateTenantUserParam
+  * @throws IOException if the JSON Element is invalid with respect to StripeCustomer
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!CreateTenantUserParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateTenantUserParam is not found in the empty JSON string", CreateTenantUserParam.openapiRequiredFields.toString()));
+        if (!StripeCustomer.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StripeCustomer is not found in the empty JSON string", StripeCustomer.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!CreateTenantUserParam.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateTenantUserParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!StripeCustomer.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StripeCustomer` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateTenantUserParam.openapiRequiredFields) {
+      for (String requiredField : StripeCustomer.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      if (!jsonObj.get("customer_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_id").toString()));
+      }
+      if (!jsonObj.get("subscription_schedule_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subscription_schedule_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_schedule_id").toString()));
       }
   }
 
@@ -203,22 +196,22 @@ public class CreateTenantUserParam {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!CreateTenantUserParam.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'CreateTenantUserParam' and its subtypes
+       if (!StripeCustomer.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StripeCustomer' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<CreateTenantUserParam> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(CreateTenantUserParam.class));
+       final TypeAdapter<StripeCustomer> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StripeCustomer.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<CreateTenantUserParam>() {
+       return (TypeAdapter<T>) new TypeAdapter<StripeCustomer>() {
            @Override
-           public void write(JsonWriter out, CreateTenantUserParam value) throws IOException {
+           public void write(JsonWriter out, StripeCustomer value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public CreateTenantUserParam read(JsonReader in) throws IOException {
+           public StripeCustomer read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -229,18 +222,18 @@ public class CreateTenantUserParam {
   }
 
  /**
-  * Create an instance of CreateTenantUserParam given an JSON string
+  * Create an instance of StripeCustomer given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of CreateTenantUserParam
-  * @throws IOException if the JSON string is invalid with respect to CreateTenantUserParam
+  * @return An instance of StripeCustomer
+  * @throws IOException if the JSON string is invalid with respect to StripeCustomer
   */
-  public static CreateTenantUserParam fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, CreateTenantUserParam.class);
+  public static StripeCustomer fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StripeCustomer.class);
   }
 
  /**
-  * Convert an instance of CreateTenantUserParam to an JSON string
+  * Convert an instance of StripeCustomer to an JSON string
   *
   * @return JSON string
   */

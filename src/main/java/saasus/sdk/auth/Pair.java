@@ -13,7 +13,7 @@
 
 package saasus.sdk.auth;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-11-25T09:25:08.066891950Z[Etc/UTC]")
 public class Pair {
     private String name = "";
     private String value = "";
