@@ -8,6 +8,7 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 | [**createTenantAndPricing**](TenantApi.md#createTenantAndPricing) | **PATCH** /stripe/init | Stripe Initial Setting |
 | [**deleteStripeTenantAndPricing**](TenantApi.md#deleteStripeTenantAndPricing) | **DELETE** /stripe | Delete Customer and Product From Stripe |
 | [**deleteTenant**](TenantApi.md#deleteTenant) | **DELETE** /tenants/{tenant_id} | Delete Tenant |
+| [**getStripeCustomer**](TenantApi.md#getStripeCustomer) | **GET** /tenants/{tenant_id}/stripe-customer | Get Stripe Customer |
 | [**getTenant**](TenantApi.md#getTenant) | **GET** /tenants/{tenant_id} | Get Tenant Details |
 | [**getTenantIdentityProviders**](TenantApi.md#getTenantIdentityProviders) | **GET** /tenants/{tenant_id}/identity-providers | Get identity provider per tenant |
 | [**getTenants**](TenantApi.md#getTenants) | **GET** /tenants | Get Tenants |
@@ -263,6 +264,74 @@ public class Example {
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="getStripeCustomer"></a>
+# **getStripeCustomer**
+> StripeCustomer getStripeCustomer(tenantId)
+
+Get Stripe Customer
+
+Get the Stripe Customer information associated with the tenant, including their subscriptions. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.auth.ApiClient;
+import saasus.sdk.auth.ApiException;
+import saasus.sdk.auth.Configuration;
+import saasus.sdk.auth.auth.*;
+import saasus.sdk.auth.models.*;
+import saasus.sdk.auth.api.TenantApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/auth");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    TenantApi apiInstance = new TenantApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | Tenant ID
+    try {
+      StripeCustomer result = apiInstance.getStripeCustomer(tenantId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TenantApi#getStripeCustomer");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**| Tenant ID | |
+
+### Return type
+
+[**StripeCustomer**](StripeCustomer.md)
 
 ### Authorization
 
