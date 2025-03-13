@@ -51,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * InvitedUserEnvironmentInformationInner
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-13T14:57:17.086837354Z[Etc/UTC]")
 public class InvitedUserEnvironmentInformationInner {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
