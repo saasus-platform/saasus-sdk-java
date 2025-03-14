@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * CreateSaasUserParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T14:09:41.184241725Z[Etc/UTC]")
 public class CreateSaasUserParam {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
@@ -90,7 +90,7 @@ public class CreateSaasUserParam {
    * Password
    * @return password
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPassword() {
     return password;
   }
@@ -153,7 +153,6 @@ public class CreateSaasUserParam {
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("email");
-    openapiRequiredFields.add("password");
   }
 
  /**
@@ -187,7 +186,7 @@ public class CreateSaasUserParam {
       if (!jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
-      if (!jsonObj.get("password").isJsonPrimitive()) {
+      if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
   }
