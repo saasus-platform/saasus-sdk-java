@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Settings for remembering trusted devices
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T14:09:41.184241725Z[Etc/UTC]")
 public class DeviceConfiguration {
   /**
    * always: always remember userOptIn: user opt-in no: don&#39;t save 

@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * SoftwareTokenSecretCode
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-14T14:09:41.184241725Z[Etc/UTC]")
 public class SoftwareTokenSecretCode {
   public static final String SERIALIZED_NAME_SECRET_CODE = "secret_code";
   @SerializedName(SERIALIZED_NAME_SECRET_CODE)
