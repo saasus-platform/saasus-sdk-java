@@ -49,7 +49,7 @@ import saasus.sdk.awsmarketplace.JSON;
 /**
  * VerifyRegistrationTokenParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:34.280462778Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T14:16:35.052246402Z[Etc/UTC]")
 public class VerifyRegistrationTokenParam {
   public static final String SERIALIZED_NAME_REGISTRATION_TOKEN = "registration_token";
   @SerializedName(SERIALIZED_NAME_REGISTRATION_TOKEN)
