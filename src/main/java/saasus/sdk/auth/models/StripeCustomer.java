@@ -47,56 +47,56 @@ import java.util.Set;
 import saasus.sdk.auth.JSON;
 
 /**
- * IdentityProviderSaml
+ * StripeCustomer
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T14:16:21.295564247Z[Etc/UTC]")
-public class IdentityProviderSaml {
-  public static final String SERIALIZED_NAME_METADATA_URL = "metadata_url";
-  @SerializedName(SERIALIZED_NAME_METADATA_URL)
-  private String metadataUrl;
+public class StripeCustomer {
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
 
-  public static final String SERIALIZED_NAME_EMAIL_ATTRIBUTE = "email_attribute";
-  @SerializedName(SERIALIZED_NAME_EMAIL_ATTRIBUTE)
-  private String emailAttribute;
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_SCHEDULE_ID = "subscription_schedule_id";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_SCHEDULE_ID)
+  private String subscriptionScheduleId;
 
-  public IdentityProviderSaml() {
+  public StripeCustomer() {
   }
 
-  public IdentityProviderSaml metadataUrl(String metadataUrl) {
-    this.metadataUrl = metadataUrl;
+  public StripeCustomer customerId(String customerId) {
+    this.customerId = customerId;
     return this;
   }
 
    /**
-   * Get metadataUrl
-   * @return metadataUrl
+   * stripe Customer ID
+   * @return customerId
   **/
   @javax.annotation.Nonnull
-  public String getMetadataUrl() {
-    return metadataUrl;
+  public String getCustomerId() {
+    return customerId;
   }
 
-  public void setMetadataUrl(String metadataUrl) {
-    this.metadataUrl = metadataUrl;
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
   }
 
 
-  public IdentityProviderSaml emailAttribute(String emailAttribute) {
-    this.emailAttribute = emailAttribute;
+  public StripeCustomer subscriptionScheduleId(String subscriptionScheduleId) {
+    this.subscriptionScheduleId = subscriptionScheduleId;
     return this;
   }
 
    /**
-   * Get emailAttribute
-   * @return emailAttribute
+   * stripe Subscription Schedule ID
+   * @return subscriptionScheduleId
   **/
   @javax.annotation.Nonnull
-  public String getEmailAttribute() {
-    return emailAttribute;
+  public String getSubscriptionScheduleId() {
+    return subscriptionScheduleId;
   }
 
-  public void setEmailAttribute(String emailAttribute) {
-    this.emailAttribute = emailAttribute;
+  public void setSubscriptionScheduleId(String subscriptionScheduleId) {
+    this.subscriptionScheduleId = subscriptionScheduleId;
   }
 
 
@@ -109,22 +109,22 @@ public class IdentityProviderSaml {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    IdentityProviderSaml identityProviderSaml = (IdentityProviderSaml) o;
-    return Objects.equals(this.metadataUrl, identityProviderSaml.metadataUrl) &&
-        Objects.equals(this.emailAttribute, identityProviderSaml.emailAttribute);
+    StripeCustomer stripeCustomer = (StripeCustomer) o;
+    return Objects.equals(this.customerId, stripeCustomer.customerId) &&
+        Objects.equals(this.subscriptionScheduleId, stripeCustomer.subscriptionScheduleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadataUrl, emailAttribute);
+    return Objects.hash(customerId, subscriptionScheduleId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class IdentityProviderSaml {\n");
-    sb.append("    metadataUrl: ").append(toIndentedString(metadataUrl)).append("\n");
-    sb.append("    emailAttribute: ").append(toIndentedString(emailAttribute)).append("\n");
+    sb.append("class StripeCustomer {\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    subscriptionScheduleId: ").append(toIndentedString(subscriptionScheduleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -147,48 +147,48 @@ public class IdentityProviderSaml {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("metadata_url");
-    openapiFields.add("email_attribute");
+    openapiFields.add("customer_id");
+    openapiFields.add("subscription_schedule_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("metadata_url");
-    openapiRequiredFields.add("email_attribute");
+    openapiRequiredFields.add("customer_id");
+    openapiRequiredFields.add("subscription_schedule_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to IdentityProviderSaml
+  * @throws IOException if the JSON Element is invalid with respect to StripeCustomer
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!IdentityProviderSaml.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in IdentityProviderSaml is not found in the empty JSON string", IdentityProviderSaml.openapiRequiredFields.toString()));
+        if (!StripeCustomer.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StripeCustomer is not found in the empty JSON string", StripeCustomer.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!IdentityProviderSaml.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `IdentityProviderSaml` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!StripeCustomer.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StripeCustomer` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : IdentityProviderSaml.openapiRequiredFields) {
+      for (String requiredField : StripeCustomer.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("metadata_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `metadata_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata_url").toString()));
+      if (!jsonObj.get("customer_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_id").toString()));
       }
-      if (!jsonObj.get("email_attribute").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `email_attribute` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email_attribute").toString()));
+      if (!jsonObj.get("subscription_schedule_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subscription_schedule_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_schedule_id").toString()));
       }
   }
 
@@ -196,22 +196,22 @@ public class IdentityProviderSaml {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!IdentityProviderSaml.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'IdentityProviderSaml' and its subtypes
+       if (!StripeCustomer.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StripeCustomer' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<IdentityProviderSaml> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(IdentityProviderSaml.class));
+       final TypeAdapter<StripeCustomer> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StripeCustomer.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<IdentityProviderSaml>() {
+       return (TypeAdapter<T>) new TypeAdapter<StripeCustomer>() {
            @Override
-           public void write(JsonWriter out, IdentityProviderSaml value) throws IOException {
+           public void write(JsonWriter out, StripeCustomer value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public IdentityProviderSaml read(JsonReader in) throws IOException {
+           public StripeCustomer read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -222,18 +222,18 @@ public class IdentityProviderSaml {
   }
 
  /**
-  * Create an instance of IdentityProviderSaml given an JSON string
+  * Create an instance of StripeCustomer given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of IdentityProviderSaml
-  * @throws IOException if the JSON string is invalid with respect to IdentityProviderSaml
+  * @return An instance of StripeCustomer
+  * @throws IOException if the JSON string is invalid with respect to StripeCustomer
   */
-  public static IdentityProviderSaml fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, IdentityProviderSaml.class);
+  public static StripeCustomer fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StripeCustomer.class);
   }
 
  /**
-  * Convert an instance of IdentityProviderSaml to an JSON string
+  * Convert an instance of StripeCustomer to an JSON string
   *
   * @return JSON string
   */
