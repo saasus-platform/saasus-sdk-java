@@ -51,7 +51,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingUnitBaseProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:27.364679080Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T16:44:20.029944090Z[Etc/UTC]")
 public class PricingUnitBaseProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

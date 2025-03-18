@@ -52,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Tenant Info
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-03-18T16:44:13.763013676Z[Etc/UTC]")
 public class Tenants {
   public static final String SERIALIZED_NAME_TENANTS = "tenants";
   @SerializedName(SERIALIZED_NAME_TENANTS)
