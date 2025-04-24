@@ -35,4 +35,8 @@ jobs:
 
       # Sonatype Snapshots リポジトリに SNAPSHOT をデプロイ
       - name: Deploy SNAPSHOT to OSSRH
-        run: mvn deploy -P release
+        run: mvn deploy
+        env:
+            MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+            MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+            GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
