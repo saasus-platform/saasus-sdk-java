@@ -1,0 +1,32 @@
+name: Publish Java SDK to Maven Central
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: Publish to Maven Central
+    runs-on: ubuntu-latest
+
+    steps:
+      # Git リポジトリをチェックアウト
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Java + OSSRH 認証設定と GPG 鍵をセットアップ
+      - name: Set up Java and Maven Settings
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+          server-id: ossrh
+          server-username: ${{ secrets.OSSRH_USERNAME }}
+          server-password: ${{ secrets.OSSRH_PASSWORD }}
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
+      # Sonatype OSSRH（ステージング）にデプロイ → 自動で Close → Release
+      - name: Deploy to Maven Central
+        run: mvn deploy -P release
