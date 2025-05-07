@@ -33,6 +33,15 @@ jobs:
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+      - name: Echo secrets
+        run: |
+          echo "USERNAME: ${{ secrets.OSSRH_USERNAME }}"
+          echo "PASSWORD: ${{ secrets.OSSRH_PASSWORD }}"
+      - name: Debug Show settings.xml (sanitized)
+        run: |
+          echo "===== ~/.m2/settings.xml ====="
+          cat ~/.m2/settings.xml | sed -e 's/<password>.*<\/password>/<password>***<\/password>/g' \
+                                       -e 's/<username>.*<\/username>/<username>***<\/username>/g'
 
       # pom.xml のバージョンを `-SNAPSHOT` に変更
       - name: Bump version to SNAPSHOT
