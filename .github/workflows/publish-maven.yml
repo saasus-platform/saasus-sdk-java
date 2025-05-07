@@ -27,6 +27,12 @@ jobs:
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
 
+      - name: Configure Maven settings.xml
+        run: .github/scripts/setup-maven-settings.sh
+        env:
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+
       # Sonatype OSSRH（ステージング）にデプロイ → 自動で Close → Release
       - name: Deploy to Maven Central
         run: mvn clean deploy -P release
