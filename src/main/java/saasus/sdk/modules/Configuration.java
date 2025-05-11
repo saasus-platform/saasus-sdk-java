@@ -1,7 +1,7 @@
 package saasus.sdk.modules;
 
 public class Configuration {
-    
+
     private static final AuthApiClient authApiClient = new AuthApiClient();
     private static final PricingApiClient pricingApiClient = new PricingApiClient();
     private static final ApiLogApiClient apiLogApiClient = new ApiLogApiClient();
@@ -9,6 +9,7 @@ public class Configuration {
     private static final BillingApiClient billingApiClient = new BillingApiClient();
     private static final CommunicationApiClient communicationApiClient = new CommunicationApiClient();
     private static final IntegrationApiClient integrationApiClient = new IntegrationApiClient();
+    private static final SmartApiGatewayClient smartApiGatewayClient = new SmartApiGatewayClient();
 
     public Configuration() {
         String urlBase = System.getenv("SAASUS_API_URL_BASE");
@@ -20,6 +21,7 @@ public class Configuration {
             billingApiClient.setBasePath(urlBase + "/v1/billing");
             communicationApiClient.setBasePath(urlBase + "/v1/communication");
             integrationApiClient.setBasePath(urlBase + "/v1/integration");
+            smartApiGatewayClient.setBasePath(urlBase + "/v1/smartapigateway");
         }
     }
 
@@ -49,5 +51,9 @@ public class Configuration {
 
     public IntegrationApiClient getIntegrationApiClient() {
         return integrationApiClient;
+    }
+
+    public SmartApiGatewayClient getSmartApiGatewayClient() {
+        return smartApiGatewayClient;
     }
 }
