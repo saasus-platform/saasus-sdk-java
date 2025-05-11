@@ -9,7 +9,7 @@ import saasus.sdk.apigateway.ApiClient;
 import saasus.sdk.apigateway.ApiException;
 import saasus.sdk.apigateway.ApiResponse;
 
-public class SmartApiGatewayClient extends ApiClient {
+public class ApiGatewayClient extends ApiClient {
 
     private String referer;
     private String xSaasusReferer;
