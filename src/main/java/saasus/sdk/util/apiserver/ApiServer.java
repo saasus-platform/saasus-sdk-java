@@ -33,6 +33,7 @@ import com.sun.net.httpserver.HttpServer;
 import saasus.sdk.apigateway.api.SmartApiGatewayApi;
 import saasus.sdk.apigateway.models.ApiKey;
 import saasus.sdk.modules.ApiGatewayClient;
+import saasus.sdk.modules.Configuration;
 
 public class ApiServer {
     private static String clientSecret;
@@ -47,8 +48,7 @@ public class ApiServer {
         }
 
         try {
-
-            ApiGatewayClient apiClient = new ApiGatewayClient();
+            ApiGatewayClient apiClient = new Configuration().getSmartApiGatewayClient();
 
             SmartApiGatewayApi smartApiGatewayApi = new SmartApiGatewayApi(apiClient);
             ApiKey response = smartApiGatewayApi.getApiKey(apiKey);
