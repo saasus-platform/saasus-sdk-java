@@ -1,6 +1,8 @@
 package saasus.sdk.util.apiserver;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -37,41 +39,21 @@ public class ApiServer {
 
     private static String fetchClientSecret(String apiKey) {
         if (apiKey == null || apiKey.trim().isEmpty()) {
-            System.out.println("APIキーが空なのでスキップします");
             return null;
         }
-
-        System.out.println("fetchClientSecret called with apiKey: " + apiKey);
-        System.out.println("current clientSecret: " + (clientSecret != null ? "exists" : "null"));
 
         if (clientSecret != null) {
             return clientSecret;
         }
 
         try {
-            System.out.println("SmartApiGatewayApiを初期化しています...");
-            System.out.println("環境変数の確認:");
-            System.out.println("SAASUS_SECRET_KEY: " + (System.getenv("SAASUS_SECRET_KEY")));
-            System.out.println("SAASUS_API_KEY: " + (System.getenv("SAASUS_API_KEY")));
-            System.out.println("SAASUS_SAAS_ID: " + (System.getenv("SAASUS_SAAS_ID")));
-            System.out.println("SAASUS_API_URL_BASE: "
-                    + (System.getenv("SAASUS_API_URL_BASE")));
 
             ApiGatewayClient apiClient = new ApiGatewayClient();
-            String basePath = System.getenv("SAASUS_API_URL_BASE");
-            if (basePath != null && !basePath.trim().isEmpty()) {
-                String apiPath = basePath + "/v1/apigateway";
-                System.out.println("API Base Path: " + apiPath);
-                apiClient.setBasePath(apiPath);
-            } else {
-                System.out.println("WARNING: SAASUS_API_URL_BASE is not set. Using default base path.");
-            }
 
             SmartApiGatewayApi smartApiGatewayApi = new SmartApiGatewayApi(apiClient);
             ApiKey response = smartApiGatewayApi.getApiKey(apiKey);
 
             clientSecret = response.getClientSecret();
-            System.out.println("Client secret status: " + (clientSecret != null ? "受信成功" : "受信失敗"));
             return clientSecret;
 
         } catch (Exception e) {
@@ -104,13 +86,18 @@ public class ApiServer {
             String host = exchange.getRequestHeaders().getFirst("Host");
             String path = exchange.getRequestURI().getPath();
             String hostAndPath = host + path;
+            String pathAndQuery = exchange.getRequestURI().getRawPath();
+            String query = exchange.getRequestURI().getRawQuery();
+            if (query != null && !query.isEmpty()) {
+                pathAndQuery += "?" + query;
+            }
+            String hostAndPathAndQuery = host + pathAndQuery;
 
             String authHeader = exchange.getRequestHeaders().getFirst("Authorization");
             if (authHeader == null || authHeader.isEmpty()) {
                 System.err.println("Authorization header is missing or empty");
                 return false;
             }
-            System.out.println("Authorization header: " + authHeader);
 
             Pattern pattern = Pattern.compile("^SAASUSSIGV1 Sig=([^,]+),\\s*APIKey=([^,]+)$");
             Matcher matcher = pattern.matcher(authHeader);
@@ -121,8 +108,6 @@ public class ApiServer {
 
             String signature = matcher.group(1);
             String headerApiKey = matcher.group(2);
-            System.out.println("Extracted signature: " + signature);
-            System.out.println("Extracted APIKey: " + headerApiKey);
 
             String apiKey = exchange.getRequestHeaders().getFirst("x-api-key");
             if (!headerApiKey.equals(apiKey)) {
@@ -146,12 +131,6 @@ public class ApiServer {
                 return true;
             }
 
-            System.out.println("Request details:");
-            System.out.println("  Method: " + method);
-            System.out.println("  Host: " + host);
-            System.out.println("  Path: " + path);
-            System.out.println("  API Key: " + apiKey);
-
             Date now = new Date();
             int timeWindow = 1;
 
@@ -170,13 +149,27 @@ public class ApiServer {
                     SecretKeySpec keySpec = new SecretKeySpec(clientSecret.getBytes(StandardCharsets.UTF_8),
                             "HmacSHA256");
                     mac.init(keySpec);
+                    // バイト配列にデータを書き込む
                     mac.update(timestamp.getBytes(StandardCharsets.UTF_8));
                     mac.update(apiKey.getBytes(StandardCharsets.UTF_8));
                     mac.update(method.toUpperCase().getBytes(StandardCharsets.UTF_8));
-                    mac.update(hostAndPath.getBytes(StandardCharsets.UTF_8));
+                    mac.update(hostAndPathAndQuery.getBytes(StandardCharsets.UTF_8));
+
+                    // リクエストボディが存在する場合は追加
+                    InputStream is = exchange.getRequestBody();
+                    ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+                    int nRead;
+                    byte[] data = new byte[16384];
+                    while ((nRead = is.read(data, 0, data.length)) != -1) {
+                        buffer.write(data, 0, nRead);
+                    }
+                    buffer.flush();
+                    byte[] requestBody = buffer.toByteArray();
+                    if (requestBody.length > 0) {
+                        mac.update(requestBody);
+                    }
+
                     String calculatedSignature = bytesToHex(mac.doFinal());
-                    System.out.println("Timestamp: " + timestamp);
-                    System.out.println("Calculated signature: " + calculatedSignature);
 
                     if (calculatedSignature.equals(signature)) {
                         System.out.println("Signature verification successful");
