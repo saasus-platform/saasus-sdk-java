@@ -1,12 +1,5 @@
 package saasus.sdk.util.apiserver;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
-import com.sun.net.httpserver.HttpServer;
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
@@ -14,22 +7,91 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.net.InetSocketAddress;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
+
+import saasus.sdk.apigateway.api.SmartApiGatewayApi;
+import saasus.sdk.apigateway.models.ApiKey;
+import saasus.sdk.modules.ApiGatewayClient;
 
 public class ApiServer {
+    private static String clientSecret;
+
+    private static String fetchClientSecret(String apiKey) {
+        if (apiKey == null || apiKey.trim().isEmpty()) {
+            System.out.println("APIキーが空なのでスキップします");
+            return null;
+        }
+
+        System.out.println("fetchClientSecret called with apiKey: " + apiKey);
+        System.out.println("current clientSecret: " + (clientSecret != null ? "exists" : "null"));
+
+        if (clientSecret != null) {
+            return clientSecret;
+        }
+
+        try {
+            System.out.println("SmartApiGatewayApiを初期化しています...");
+            System.out.println("環境変数の確認:");
+            System.out.println("SAASUS_SECRET_KEY: " + (System.getenv("SAASUS_SECRET_KEY")));
+            System.out.println("SAASUS_API_KEY: " + (System.getenv("SAASUS_API_KEY")));
+            System.out.println("SAASUS_SAAS_ID: " + (System.getenv("SAASUS_SAAS_ID")));
+            System.out.println("SAASUS_API_URL_BASE: "
+                    + (System.getenv("SAASUS_API_URL_BASE")));
+
+            ApiGatewayClient apiClient = new ApiGatewayClient();
+            String basePath = System.getenv("SAASUS_API_URL_BASE");
+            if (basePath != null && !basePath.trim().isEmpty()) {
+                String apiPath = basePath + "/v1/apigateway";
+                System.out.println("API Base Path: " + apiPath);
+                apiClient.setBasePath(apiPath);
+            } else {
+                System.out.println("WARNING: SAASUS_API_URL_BASE is not set. Using default base path.");
+            }
+
+            SmartApiGatewayApi smartApiGatewayApi = new SmartApiGatewayApi(apiClient);
+            ApiKey response = smartApiGatewayApi.getApiKey(apiKey);
+
+            clientSecret = response.getClientSecret();
+            System.out.println("Client secret status: " + (clientSecret != null ? "受信成功" : "受信失敗"));
+            return clientSecret;
+
+        } catch (Exception e) {
+            System.out.println("クライアントシークレットの取得に失敗しました:");
+            System.out.println("  エラータイプ: " + e.getClass().getName());
+            System.out.println("  メッセージ: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     private static final ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
     public static void start(int port) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-        
+
         server.createContext("/", new DynamicHandler());
         server.setExecutor(null); // デフォルトのエグゼキューターを使用
         server.start();
-        
+
         System.out.println("#################### Server is listening on port " + port);
     }
 
@@ -37,18 +99,121 @@ public class ApiServer {
         private final Map<String, Class<?>> classCache = new HashMap<>();
         private final Map<String, Method> methodCache = new HashMap<>();
 
+        private boolean verifySignature(HttpExchange exchange) {
+            String method = exchange.getRequestMethod();
+            String host = exchange.getRequestHeaders().getFirst("Host");
+            String path = exchange.getRequestURI().getPath();
+            String hostAndPath = host + path;
+
+            String authHeader = exchange.getRequestHeaders().getFirst("Authorization");
+            if (authHeader == null || authHeader.isEmpty()) {
+                System.err.println("Authorization header is missing or empty");
+                return false;
+            }
+            System.out.println("Authorization header: " + authHeader);
+
+            Pattern pattern = Pattern.compile("^SAASUSSIGV1 Sig=([^,]+),\\s*APIKey=([^,]+)$");
+            Matcher matcher = pattern.matcher(authHeader);
+            if (!matcher.matches()) {
+                System.err.println("Invalid Authorization header format");
+                return false;
+            }
+
+            String signature = matcher.group(1);
+            String headerApiKey = matcher.group(2);
+            System.out.println("Extracted signature: " + signature);
+            System.out.println("Extracted APIKey: " + headerApiKey);
+
+            String apiKey = exchange.getRequestHeaders().getFirst("x-api-key");
+            if (!headerApiKey.equals(apiKey)) {
+                System.err.println("APIKey mismatch between header and x-api-key");
+                return false;
+            }
+
+            try {
+                clientSecret = fetchClientSecret(apiKey);
+                if (clientSecret == null) {
+                    System.out.println("No client secret available - skipping signature verification");
+                    return true;
+                }
+            } catch (Exception e) {
+                System.out.println("Error fetching client secret: " + e.getMessage());
+                return true;
+            }
+
+            if (clientSecret == null) {
+                System.out.println("No client secret available");
+                return true;
+            }
+
+            System.out.println("Request details:");
+            System.out.println("  Method: " + method);
+            System.out.println("  Host: " + host);
+            System.out.println("  Path: " + path);
+            System.out.println("  API Key: " + apiKey);
+
+            Date now = new Date();
+            int timeWindow = 1;
+
+            for (int i = -timeWindow; i <= timeWindow; i++) {
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(now);
+                cal.add(Calendar.MINUTE, i);
+                Date adjustedTime = cal.getTime();
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm");
+                sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
+                String timestamp = sdf.format(adjustedTime);
+
+                try {
+                    Mac mac = Mac.getInstance("HmacSHA256");
+                    SecretKeySpec keySpec = new SecretKeySpec(clientSecret.getBytes(StandardCharsets.UTF_8),
+                            "HmacSHA256");
+                    mac.init(keySpec);
+                    mac.update(timestamp.getBytes(StandardCharsets.UTF_8));
+                    mac.update(apiKey.getBytes(StandardCharsets.UTF_8));
+                    mac.update(method.toUpperCase().getBytes(StandardCharsets.UTF_8));
+                    mac.update(hostAndPath.getBytes(StandardCharsets.UTF_8));
+                    String calculatedSignature = bytesToHex(mac.doFinal());
+                    System.out.println("Timestamp: " + timestamp);
+                    System.out.println("Calculated signature: " + calculatedSignature);
+
+                    if (calculatedSignature.equals(signature)) {
+                        System.out.println("Signature verification successful");
+                        return true;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            System.err.println("Signature verification failed for all time windows");
+            return false;
+        }
+
+        private String bytesToHex(byte[] bytes) {
+            StringBuilder hexString = new StringBuilder();
+            for (byte aByte : bytes) {
+                hexString.append(String.format("%02x", aByte));
+            }
+            return hexString.toString();
+        }
+
         @Override
         public void handle(HttpExchange exchange) throws IOException {
+            String apiKey = exchange.getRequestHeaders().getFirst("x-api-key");
+            if (apiKey == null || apiKey.isEmpty()) {
+                sendResponse(exchange, 401, "{\"message\": \"x-api-key header is required\"}");
+                return;
+            }
 
-            // ここで、API定義を読んで、リクエストと一致するかどうかを判定する
-            // 一致していたら、パラメータを取得し、コール先の型に変換する
-            // そして、以下のサンプルのようにリフレクションを使ってコールする
-            // 戻り値をAPI定義に従ってJSONに変換して返す
-            // エラー処理は、適切なHTTPステータスコードを返す(要検討)
+            if (!verifySignature(exchange)) {
+                sendResponse(exchange, 401, "{\"message\": \"Invalid signature\"}");
+                return;
+            }
 
             String path = exchange.getRequestURI().getPath();
             String[] pathParts = path.split("/");
-            
+
             if (pathParts.length < 3) {
                 sendResponse(exchange, 400, "Invalid path. Use format: /ClassName/methodName");
                 return;
@@ -57,11 +222,11 @@ public class ApiServer {
             String className = pathParts[1];
             String methodName = pathParts[2];
             Map<String, String> queryParams = parseQueryParams(exchange.getRequestURI());
-            
+
             try {
                 Class<?> clazz = getClass(className);
                 Method method = getMethod(clazz, methodName);
-                
+
                 if (method != null) {
                     Object[] args = prepareMethodArguments(method, queryParams);
                     Object response = method.invoke(null, args);
@@ -124,7 +289,7 @@ public class ApiServer {
             for (Parameter parameter : parameters) {
                 String paramName = parameter.getName();
                 String paramValue = queryParams.get(paramName);
-                
+
                 if (paramValue == null) {
                     throw new IllegalArgumentException("Missing parameter: " + paramName);
                 }
