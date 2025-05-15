@@ -121,8 +121,14 @@ public class ApiServer {
                     return;
                 }
             } else {
-                // default class and method
-                System.out.println("No routing value found, using default class and method");
+                if (pathParts.length >= 4) {
+                    className = pathParts[2];
+                    methodName = pathParts[3];
+                    System.out.println("No explicit routing found, assuming " + pathParts[1] + " is routing, class: " + className + ", method: " + methodName);
+                } else {
+                    sendResponse(exchange, 400, "Invalid path format. Expected /routing/ClassName/methodName");
+                    return;
+                }
             }
                         
             Map<String, String> queryParams = parseQueryParams(exchange.getRequestURI());
