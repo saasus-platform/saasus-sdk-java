@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 生成するモジュール名の配列
-MODULES="auth pricing billing awsmarketplace integration apilog communication"
+MODULES="auth pricing billing awsmarketplace integration apilog communication apigateway"
 
 # sdkに含まれる生成したプログラムを削除
 SDK_SRC_DIR="src/main/java/saasus/sdk"

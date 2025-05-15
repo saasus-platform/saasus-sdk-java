@@ -9,6 +9,7 @@ public class Configuration {
     private static final BillingApiClient billingApiClient = new BillingApiClient();
     private static final CommunicationApiClient communicationApiClient = new CommunicationApiClient();
     private static final IntegrationApiClient integrationApiClient = new IntegrationApiClient();
+    private static final ApiGatewayApiClient apiGatewayApiClient = new ApiGatewayApiClient();
 
     public Configuration() {
         String urlBase = System.getenv("SAASUS_API_URL_BASE");
@@ -20,6 +21,7 @@ public class Configuration {
             billingApiClient.setBasePath(urlBase + "/v1/billing");
             communicationApiClient.setBasePath(urlBase + "/v1/communication");
             integrationApiClient.setBasePath(urlBase + "/v1/integration");
+            apiGatewayApiClient.setBasePath(urlBase + "/v1/apigateway");
         }
     }
 
@@ -49,5 +51,9 @@ public class Configuration {
 
     public IntegrationApiClient getIntegrationApiClient() {
         return integrationApiClient;
+    }
+
+    public ApiGatewayApiClient getApiGatewayApiClient() {
+        return apiGatewayApiClient;
     }
 }

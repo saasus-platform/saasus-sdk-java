@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import saasus.sdk.pricing.models.Currency;
 import saasus.sdk.pricing.models.RecurringInterval;
-import saasus.sdk.pricing.models.UnitType;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +51,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingFixedUnitForSave
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:27.364679080Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-15T05:22:55.932611594Z[Etc/UTC]")
 public class PricingFixedUnitForSave {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -66,10 +65,6 @@ public class PricingFixedUnitForSave {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private UnitType type;
-
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
   private Currency currency;
@@ -81,6 +76,60 @@ public class PricingFixedUnitForSave {
   public static final String SERIALIZED_NAME_RECURRING_INTERVAL = "recurring_interval";
   @SerializedName(SERIALIZED_NAME_RECURRING_INTERVAL)
   private RecurringInterval recurringInterval;
+
+  /**
+   * Gets or Sets uType
+   */
+  @JsonAdapter(UTypeEnum.Adapter.class)
+  public enum UTypeEnum {
+    FIXED("fixed");
+
+    private String value;
+
+    UTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UTypeEnum fromValue(String value) {
+      for (UTypeEnum b : UTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<UTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return UTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      UTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_U_TYPE = "u_type";
+  @SerializedName(SERIALIZED_NAME_U_TYPE)
+  private UTypeEnum uType;
 
   public PricingFixedUnitForSave() {
   }
@@ -142,25 +191,6 @@ public class PricingFixedUnitForSave {
   }
 
 
-  public PricingFixedUnitForSave type(UnitType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nonnull
-  public UnitType getType() {
-    return type;
-  }
-
-  public void setType(UnitType type) {
-    this.type = type;
-  }
-
-
   public PricingFixedUnitForSave currency(Currency currency) {
     this.currency = currency;
     return this;
@@ -218,6 +248,25 @@ public class PricingFixedUnitForSave {
   }
 
 
+  public PricingFixedUnitForSave uType(UTypeEnum uType) {
+    this.uType = uType;
+    return this;
+  }
+
+   /**
+   * Get uType
+   * @return uType
+  **/
+  @javax.annotation.Nonnull
+  public UTypeEnum getuType() {
+    return uType;
+  }
+
+  public void setuType(UTypeEnum uType) {
+    this.uType = uType;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -231,15 +280,15 @@ public class PricingFixedUnitForSave {
     return Objects.equals(this.name, pricingFixedUnitForSave.name) &&
         Objects.equals(this.displayName, pricingFixedUnitForSave.displayName) &&
         Objects.equals(this.description, pricingFixedUnitForSave.description) &&
-        Objects.equals(this.type, pricingFixedUnitForSave.type) &&
         Objects.equals(this.currency, pricingFixedUnitForSave.currency) &&
         Objects.equals(this.unitAmount, pricingFixedUnitForSave.unitAmount) &&
-        Objects.equals(this.recurringInterval, pricingFixedUnitForSave.recurringInterval);
+        Objects.equals(this.recurringInterval, pricingFixedUnitForSave.recurringInterval) &&
+        Objects.equals(this.uType, pricingFixedUnitForSave.uType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, displayName, description, type, currency, unitAmount, recurringInterval);
+    return Objects.hash(name, displayName, description, currency, unitAmount, recurringInterval, uType);
   }
 
   @Override
@@ -249,10 +298,10 @@ public class PricingFixedUnitForSave {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    unitAmount: ").append(toIndentedString(unitAmount)).append("\n");
     sb.append("    recurringInterval: ").append(toIndentedString(recurringInterval)).append("\n");
+    sb.append("    uType: ").append(toIndentedString(uType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -278,20 +327,20 @@ public class PricingFixedUnitForSave {
     openapiFields.add("name");
     openapiFields.add("display_name");
     openapiFields.add("description");
-    openapiFields.add("type");
     openapiFields.add("currency");
     openapiFields.add("unit_amount");
     openapiFields.add("recurring_interval");
+    openapiFields.add("u_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("display_name");
     openapiRequiredFields.add("description");
-    openapiRequiredFields.add("type");
     openapiRequiredFields.add("currency");
     openapiRequiredFields.add("unit_amount");
     openapiRequiredFields.add("recurring_interval");
+    openapiRequiredFields.add("u_type");
   }
 
  /**
@@ -331,12 +380,15 @@ public class PricingFixedUnitForSave {
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // validate the required field `type`
-      UnitType.validateJsonElement(jsonObj.get("type"));
       // validate the required field `currency`
       Currency.validateJsonElement(jsonObj.get("currency"));
       // validate the required field `recurring_interval`
       RecurringInterval.validateJsonElement(jsonObj.get("recurring_interval"));
+      if (!jsonObj.get("u_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `u_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("u_type").toString()));
+      }
+      // validate the required field `u_type`
+      UTypeEnum.validateJsonElement(jsonObj.get("u_type"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
