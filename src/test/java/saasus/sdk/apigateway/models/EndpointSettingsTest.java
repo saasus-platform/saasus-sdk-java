@@ -57,11 +57,11 @@ public class EndpointSettingsTest {
     }
 
     /**
-     * Test the property 'throttling'
+     * Test the property 'throttlings'
      */
     @Test
-    public void throttlingTest() {
-        // TODO: test throttling
+    public void throttlingsTest() {
+        // TODO: test throttlings
     }
 
     /**

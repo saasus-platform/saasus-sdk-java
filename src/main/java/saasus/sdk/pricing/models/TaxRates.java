@@ -52,7 +52,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * TaxRates
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-15T05:22:55.932611594Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:34.475188381Z[Etc/UTC]")
 public class TaxRates {
   public static final String SERIALIZED_NAME_TAX_RATES = "tax_rates";
   @SerializedName(SERIALIZED_NAME_TAX_RATES)

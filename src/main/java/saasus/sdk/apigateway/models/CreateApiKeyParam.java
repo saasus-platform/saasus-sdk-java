@@ -49,7 +49,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * CreateApiKeyParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-15T05:23:02.925274292Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:41.421804217Z[Etc/UTC]")
 public class CreateApiKeyParam {
   public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)

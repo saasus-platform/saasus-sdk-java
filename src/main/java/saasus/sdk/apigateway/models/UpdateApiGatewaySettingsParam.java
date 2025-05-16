@@ -53,7 +53,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * UpdateApiGatewaySettingsParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-15T05:23:02.925274292Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:41.421804217Z[Etc/UTC]")
 public class UpdateApiGatewaySettingsParam {
   public static final String SERIALIZED_NAME_ROLE_ARN = "role_arn";
   @SerializedName(SERIALIZED_NAME_ROLE_ARN)

@@ -52,7 +52,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * UpdateTenantParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-15T05:23:02.925274292Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:41.421804217Z[Etc/UTC]")
 public class UpdateTenantParam {
   public static final String SERIALIZED_NAME_ALLOWED_IPS = "allowed_ips";
   @SerializedName(SERIALIZED_NAME_ALLOWED_IPS)

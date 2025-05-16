@@ -52,7 +52,7 @@ import saasus.sdk.apilog.JSON;
 /**
  * ApiLogs
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-15T05:23:00.704121638Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:39.149123550Z[Etc/UTC]")
 public class ApiLogs {
   public static final String SERIALIZED_NAME_API_LOGS = "api_logs";
   @SerializedName(SERIALIZED_NAME_API_LOGS)

@@ -52,7 +52,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * Settings per endpoint
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-15T05:23:02.925274292Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:41.421804217Z[Etc/UTC]")
 public class EndpointSettings {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
@@ -128,9 +128,9 @@ public class EndpointSettings {
   @SerializedName(SERIALIZED_NAME_METHOD)
   private MethodEnum method;
 
-  public static final String SERIALIZED_NAME_THROTTLING = "throttling";
-  @SerializedName(SERIALIZED_NAME_THROTTLING)
-  private Throttling throttling;
+  public static final String SERIALIZED_NAME_THROTTLINGS = "throttlings";
+  @SerializedName(SERIALIZED_NAME_THROTTLINGS)
+  private List<Throttling> throttlings = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ROLE_NAMES = "role_names";
   @SerializedName(SERIALIZED_NAME_ROLE_NAMES)
@@ -177,22 +177,30 @@ public class EndpointSettings {
   }
 
 
-  public EndpointSettings throttling(Throttling throttling) {
-    this.throttling = throttling;
+  public EndpointSettings throttlings(List<Throttling> throttlings) {
+    this.throttlings = throttlings;
+    return this;
+  }
+
+  public EndpointSettings addThrottlingsItem(Throttling throttlingsItem) {
+    if (this.throttlings == null) {
+      this.throttlings = new ArrayList<>();
+    }
+    this.throttlings.add(throttlingsItem);
     return this;
   }
 
    /**
-   * Get throttling
-   * @return throttling
+   * Throttling settings for each target TODO: Make it possible to set multiple settings in the future 
+   * @return throttlings
   **/
-  @javax.annotation.Nullable
-  public Throttling getThrottling() {
-    return throttling;
+  @javax.annotation.Nonnull
+  public List<Throttling> getThrottlings() {
+    return throttlings;
   }
 
-  public void setThrottling(Throttling throttling) {
-    this.throttling = throttling;
+  public void setThrottlings(List<Throttling> throttlings) {
+    this.throttlings = throttlings;
   }
 
 
@@ -235,13 +243,13 @@ public class EndpointSettings {
     EndpointSettings endpointSettings = (EndpointSettings) o;
     return Objects.equals(this.path, endpointSettings.path) &&
         Objects.equals(this.method, endpointSettings.method) &&
-        Objects.equals(this.throttling, endpointSettings.throttling) &&
+        Objects.equals(this.throttlings, endpointSettings.throttlings) &&
         Objects.equals(this.roleNames, endpointSettings.roleNames);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, method, throttling, roleNames);
+    return Objects.hash(path, method, throttlings, roleNames);
   }
 
   @Override
@@ -250,7 +258,7 @@ public class EndpointSettings {
     sb.append("class EndpointSettings {\n");
     sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
-    sb.append("    throttling: ").append(toIndentedString(throttling)).append("\n");
+    sb.append("    throttlings: ").append(toIndentedString(throttlings)).append("\n");
     sb.append("    roleNames: ").append(toIndentedString(roleNames)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -276,13 +284,14 @@ public class EndpointSettings {
     openapiFields = new HashSet<String>();
     openapiFields.add("path");
     openapiFields.add("method");
-    openapiFields.add("throttling");
+    openapiFields.add("throttlings");
     openapiFields.add("role_names");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("path");
     openapiRequiredFields.add("method");
+    openapiRequiredFields.add("throttlings");
   }
 
  /**
@@ -321,10 +330,16 @@ public class EndpointSettings {
       }
       // validate the required field `method`
       MethodEnum.validateJsonElement(jsonObj.get("method"));
-      // validate the optional field `throttling`
-      if (jsonObj.get("throttling") != null && !jsonObj.get("throttling").isJsonNull()) {
-        Throttling.validateJsonElement(jsonObj.get("throttling"));
+      // ensure the json data is an array
+      if (!jsonObj.get("throttlings").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `throttlings` to be an array in the JSON string but got `%s`", jsonObj.get("throttlings").toString()));
       }
+
+      JsonArray jsonArraythrottlings = jsonObj.getAsJsonArray("throttlings");
+      // validate the required field `throttlings` (array)
+      for (int i = 0; i < jsonArraythrottlings.size(); i++) {
+        Throttling.validateJsonElement(jsonArraythrottlings.get(i));
+      };
       // ensure the optional json data is an array if present
       if (jsonObj.get("role_names") != null && !jsonObj.get("role_names").isJsonNull() && !jsonObj.get("role_names").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `role_names` to be an array in the JSON string but got `%s`", jsonObj.get("role_names").toString()));

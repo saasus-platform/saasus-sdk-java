@@ -10,7 +10,7 @@ Settings per endpoint
 |------------ | ------------- | ------------- | -------------|
 |**path** | **String** | Path |  |
 |**method** | [**MethodEnum**](#MethodEnum) | Method |  |
-|**throttling** | [**Throttling**](Throttling.md) |  |  [optional] |
+|**throttlings** | [**List&lt;Throttling&gt;**](Throttling.md) | Throttling settings for each target TODO: Make it possible to set multiple settings in the future  |  |
 |**roleNames** | **List&lt;String&gt;** | Role names that can access the endpoint |  [optional] |
 
 

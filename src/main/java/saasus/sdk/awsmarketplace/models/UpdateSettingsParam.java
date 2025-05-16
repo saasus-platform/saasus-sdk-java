@@ -49,7 +49,7 @@ import saasus.sdk.awsmarketplace.JSON;
 /**
  * UpdateSettingsParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-15T05:22:58.469497345Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:36.931963715Z[Etc/UTC]")
 public class UpdateSettingsParam {
   public static final String SERIALIZED_NAME_PRODUCT_CODE = "product_code";
   @SerializedName(SERIALIZED_NAME_PRODUCT_CODE)
