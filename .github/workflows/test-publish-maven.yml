@@ -14,34 +14,19 @@ jobs:
     steps:
       # Git リポジトリをチェックアウト
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Java + OSSRH 認証設定と GPG 鍵をセットアップ
       - name: Set up Java and Maven Settings
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '8'
-          server-id: ossrh
+          server-id: central
           server-username: ${{ secrets.OSSRH_USERNAME }}
           server-password: ${{ secrets.OSSRH_PASSWORD }}
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
-
-      - name: Configure Maven settings.xml
-        run: .github/scripts/setup-maven-settings.sh
-        env:
-          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-      - name: Echo secrets
-        run: |
-          echo "USERNAME: ${{ secrets.OSSRH_USERNAME }}"
-          echo "PASSWORD: ${{ secrets.OSSRH_PASSWORD }}"
-      - name: Debug Show settings.xml (sanitized)
-        run: |
-          echo "===== ~/.m2/settings.xml ====="
-          cat ~/.m2/settings.xml | sed -e 's/<password>.*<\/password>/<password>***<\/password>/g' \
-                                       -e 's/<username>.*<\/username>/<username>***<\/username>/g'
 
       # pom.xml のバージョンを `-SNAPSHOT` に変更
       - name: Bump version to SNAPSHOT
@@ -53,8 +38,4 @@ jobs:
 
       # Sonatype Snapshots リポジトリに SNAPSHOT をデプロイ
       - name: Deploy SNAPSHOT to OSSRH
-        run: mvn clean deploy -X
-        env:
-            MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-            MAVEN_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-            GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+        run: mvn -B -ntp clean deploy
