@@ -9,13 +9,21 @@
 |------------ | ------------- | ------------- | -------------|
 |**unitAmount** | **Integer** | Price |  |
 |**recurringInterval** | **RecurringInterval** |  |  |
+|**uType** | [**UTypeEnum**](#UTypeEnum) |  |  |
 |**name** | **String** | Name |  |
 |**displayName** | **String** | Display Name |  |
 |**description** | **String** | Description |  |
-|**type** | **UnitType** |  |  |
 |**currency** | **Currency** |  |  |
 |**id** | **String** | Universally Unique Identifier |  |
 |**used** | **Boolean** |  |  |
+
+
+
+## Enum: UTypeEnum
+
+| Name | Value |
+|---- | -----|
+| FIXED | &quot;fixed&quot; |
 
 
 
