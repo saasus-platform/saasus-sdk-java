@@ -15,17 +15,30 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Java + OSSRH 認証設定と GPG 鍵をセットアップ
+      # 手動で settings.xml を生成（Central 用資格情報を書き込む）
+      - name: Write settings.xml manually
+        run: |
+          mkdir -p ~/.m2
+          cat > ~/.m2/settings.xml <<'EOF'
+          <settings>
+              <servers>
+              <server>
+                  <id>central</id>
+                  <username>${{ secrets.OSSRH_USERNAME }}</username>
+                  <password>${{ secrets.OSSRH_PASSWORD }}</password>
+              </server>
+              </servers>
+          </settings>
+          EOF
+
+      # JDK 8 をインストールするだけ（手動 settings.xml は overwrite-settings:false で保持）
       - name: Set up Java and Maven Settings
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '8'
+          overwrite-settings: false
           server-id: central
-          server-username: ${{ secrets.OSSRH_USERNAME }}
-          server-password: ${{ secrets.OSSRH_PASSWORD }}
-          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
-          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
 
       # Sonatype OSSRH（ステージング）にデプロイ → 自動で Close → Release
       - name: Deploy to Maven Central
