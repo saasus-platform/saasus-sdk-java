@@ -10,21 +10,7 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapter;
-import com.google.gson.internal.bind.util.ISO8601Utils;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.google.gson.JsonElement;
-import io.gsonfire.GsonFireBuilder;
-import io.gsonfire.TypeSelector;
-
-import okio.ByteString;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -36,9 +22,19 @@ import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Map;
-import java.util.HashMap;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapter;
+import com.google.gson.internal.bind.util.ISO8601Utils;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
+import io.gsonfire.GsonFireBuilder;
+import okio.ByteString;
 
 /*
  * A JSON utility class
@@ -57,8 +53,7 @@ public class JSON {
 
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
-        GsonFireBuilder fireBuilder = new GsonFireBuilder()
-        ;
+        GsonFireBuilder fireBuilder = new GsonFireBuilder();
         GsonBuilder builder = fireBuilder.createGsonBuilder();
         return builder;
     }
@@ -72,10 +67,13 @@ public class JSON {
     }
 
     /**
-     * Returns the Java class that implements the OpenAPI schema for the specified discriminator value.
+     * Returns the Java class that implements the OpenAPI schema for the specified
+     * discriminator value.
      *
-     * @param classByDiscriminatorValue The map of discriminator values to Java classes.
-     * @param discriminatorValue The value of the OpenAPI discriminator in the input data.
+     * @param classByDiscriminatorValue The map of discriminator values to Java
+     *                                  classes.
+     * @param discriminatorValue        The value of the OpenAPI discriminator in
+     *                                  the input data.
      * @return The Java class that implements the OpenAPI schema
      */
     private static Class getClassByDiscriminator(Map classByDiscriminatorValue, String discriminatorValue) {
@@ -94,21 +92,31 @@ public class JSON {
         gsonBuilder.registerTypeAdapter(LocalDate.class, localDateTypeAdapter);
         gsonBuilder.registerTypeAdapter(byte[].class, byteArrayAdapter);
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.AllowedIps.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.ApiGatewayInputFile.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.ApiGatewaySettings.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.ApiGatewayTenant.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new saasus.sdk.apigateway.models.ApiGatewayInputFile.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new saasus.sdk.apigateway.models.ApiGatewaySettings.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new saasus.sdk.apigateway.models.ApiGatewayTenant.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.ApiKey.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.ApiKeys.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.CloudFormationLaunchStackLink.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.CreateApiKeyParam.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new saasus.sdk.apigateway.models.CloudFormationLaunchStackLink.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new saasus.sdk.apigateway.models.CreateApiKeyParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.DnsRecord.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.EndpointSettings.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new saasus.sdk.apigateway.models.EndpointSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.Error.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.TenantRouting.CustomTypeAdapterFactory());
+        gsonBuilder
+                .registerTypeAdapterFactory(new saasus.sdk.apigateway.models.TenantRouting.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.Throttling.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.UpdateAllowedIpsParam.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.UpdateApiGatewaySettingsParam.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.UpdateTenantParam.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new saasus.sdk.apigateway.models.UpdateAllowedIpsParam.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new saasus.sdk.apigateway.models.UpdateApiGatewaySettingsParam.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new saasus.sdk.apigateway.models.UpdateTenantParam.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }
 
@@ -157,7 +165,8 @@ public class JSON {
         try {
             if (isLenientOnJson) {
                 JsonReader jsonReader = new JsonReader(new StringReader(body));
-                // see https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/stream/JsonReader.html#setLenient(boolean)
+                // see
+                // https://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/stream/JsonReader.html#setLenient(boolean)
                 jsonReader.setLenient(true);
                 return gson.fromJson(jsonReader, returnType);
             } else {
@@ -239,7 +248,7 @@ public class JSON {
                 default:
                     String date = in.nextString();
                     if (date.endsWith("+0000")) {
-                        date = date.substring(0, date.length()-5) + "Z";
+                        date = date.substring(0, date.length() - 5) + "Z";
                     }
                     return OffsetDateTime.parse(date, formatter);
             }
@@ -304,7 +313,8 @@ public class JSON {
 
         private DateFormat dateFormat;
 
-        public SqlDateTypeAdapter() {}
+        public SqlDateTypeAdapter() {
+        }
 
         public SqlDateTypeAdapter(DateFormat dateFormat) {
             this.dateFormat = dateFormat;
@@ -357,7 +367,8 @@ public class JSON {
 
         private DateFormat dateFormat;
 
-        public DateTypeAdapter() {}
+        public DateTypeAdapter() {
+        }
 
         public DateTypeAdapter(DateFormat dateFormat) {
             this.dateFormat = dateFormat;

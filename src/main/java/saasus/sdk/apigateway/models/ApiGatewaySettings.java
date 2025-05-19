@@ -10,44 +10,26 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.models;
 
-import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import saasus.sdk.apigateway.models.DnsRecord;
-import saasus.sdk.apigateway.models.EndpointSettings;
-import saasus.sdk.apigateway.models.TenantRoutingType;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 import saasus.sdk.apigateway.JSON;
 
@@ -156,10 +138,11 @@ public class ApiGatewaySettings {
     return this;
   }
 
-   /**
+  /**
    * Status of automatically generated files
+   * 
    * @return generatedFileStatus
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getGeneratedFileStatus() {
     return generatedFileStatus;
@@ -169,35 +152,39 @@ public class ApiGatewaySettings {
     this.generatedFileStatus = generatedFileStatus;
   }
 
-
-  public ApiGatewaySettings internalEndpointOpenapiDefinitionFileDownloadUrl(String internalEndpointOpenapiDefinitionFileDownloadUrl) {
+  public ApiGatewaySettings internalEndpointOpenapiDefinitionFileDownloadUrl(
+      String internalEndpointOpenapiDefinitionFileDownloadUrl) {
     this.internalEndpointOpenapiDefinitionFileDownloadUrl = internalEndpointOpenapiDefinitionFileDownloadUrl;
     return this;
   }
 
-   /**
-   * URL to download the auto-generated openapi definition file, which will be used to build the API Gateway.
+  /**
+   * URL to download the auto-generated openapi definition file, which will be
+   * used to build the API Gateway.
+   * 
    * @return internalEndpointOpenapiDefinitionFileDownloadUrl
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getInternalEndpointOpenapiDefinitionFileDownloadUrl() {
     return internalEndpointOpenapiDefinitionFileDownloadUrl;
   }
 
-  public void setInternalEndpointOpenapiDefinitionFileDownloadUrl(String internalEndpointOpenapiDefinitionFileDownloadUrl) {
+  public void setInternalEndpointOpenapiDefinitionFileDownloadUrl(
+      String internalEndpointOpenapiDefinitionFileDownloadUrl) {
     this.internalEndpointOpenapiDefinitionFileDownloadUrl = internalEndpointOpenapiDefinitionFileDownloadUrl;
   }
-
 
   public ApiGatewaySettings internalEndpointMappingFileDownloadUrl(String internalEndpointMappingFileDownloadUrl) {
     this.internalEndpointMappingFileDownloadUrl = internalEndpointMappingFileDownloadUrl;
     return this;
   }
 
-   /**
-   * The download URL for the auto-generated internal endpoint mapping file, which will be used to build the API Gateway.
+  /**
+   * The download URL for the auto-generated internal endpoint mapping file, which
+   * will be used to build the API Gateway.
+   * 
    * @return internalEndpointMappingFileDownloadUrl
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getInternalEndpointMappingFileDownloadUrl() {
     return internalEndpointMappingFileDownloadUrl;
@@ -207,16 +194,16 @@ public class ApiGatewaySettings {
     this.internalEndpointMappingFileDownloadUrl = internalEndpointMappingFileDownloadUrl;
   }
 
-
   public ApiGatewaySettings status(String status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * API Gateway creation status
+   * 
    * @return status
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getStatus() {
     return status;
@@ -226,16 +213,16 @@ public class ApiGatewaySettings {
     this.status = status;
   }
 
-
   public ApiGatewaySettings roleArn(String roleArn) {
     this.roleArn = roleArn;
     return this;
   }
 
-   /**
+  /**
    * ARN of the role for SaaSus Platform to AssumeRole
+   * 
    * @return roleArn
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getRoleArn() {
     return roleArn;
@@ -245,16 +232,16 @@ public class ApiGatewaySettings {
     this.roleArn = roleArn;
   }
 
-
   public ApiGatewaySettings roleExternalId(String roleExternalId) {
     this.roleExternalId = roleExternalId;
     return this;
   }
 
-   /**
+  /**
    * External id used by SaaSus when AssumeRole to operate SaaS
+   * 
    * @return roleExternalId
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getRoleExternalId() {
     return roleExternalId;
@@ -264,16 +251,16 @@ public class ApiGatewaySettings {
     this.roleExternalId = roleExternalId;
   }
 
-
   public ApiGatewaySettings internalEndpointHealthCheckPath(String internalEndpointHealthCheckPath) {
     this.internalEndpointHealthCheckPath = internalEndpointHealthCheckPath;
     return this;
   }
 
-   /**
+  /**
    * The path to be used for health checks on the internal endpoint.
+   * 
    * @return internalEndpointHealthCheckPath
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getInternalEndpointHealthCheckPath() {
     return internalEndpointHealthCheckPath;
@@ -283,16 +270,16 @@ public class ApiGatewaySettings {
     this.internalEndpointHealthCheckPath = internalEndpointHealthCheckPath;
   }
 
-
   public ApiGatewaySettings internalEndpointHealthCheckPort(Integer internalEndpointHealthCheckPort) {
     this.internalEndpointHealthCheckPort = internalEndpointHealthCheckPort;
     return this;
   }
 
-   /**
+  /**
    * The port to be used for health checks on the internal endpoint.
+   * 
    * @return internalEndpointHealthCheckPort
-  **/
+   **/
   @javax.annotation.Nonnull
   public Integer getInternalEndpointHealthCheckPort() {
     return internalEndpointHealthCheckPort;
@@ -302,16 +289,16 @@ public class ApiGatewaySettings {
     this.internalEndpointHealthCheckPort = internalEndpointHealthCheckPort;
   }
 
-
   public ApiGatewaySettings internalEndpointHealthCheckProtocol(String internalEndpointHealthCheckProtocol) {
     this.internalEndpointHealthCheckProtocol = internalEndpointHealthCheckProtocol;
     return this;
   }
 
-   /**
+  /**
    * The protocol to be used for health checks on the internal endpoint.
+   * 
    * @return internalEndpointHealthCheckProtocol
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getInternalEndpointHealthCheckProtocol() {
     return internalEndpointHealthCheckProtocol;
@@ -321,16 +308,16 @@ public class ApiGatewaySettings {
     this.internalEndpointHealthCheckProtocol = internalEndpointHealthCheckProtocol;
   }
 
-
   public ApiGatewaySettings internalEndpointHealthStatusCodes(String internalEndpointHealthStatusCodes) {
     this.internalEndpointHealthStatusCodes = internalEndpointHealthStatusCodes;
     return this;
   }
 
-   /**
+  /**
    * The status codes to be used for health checks on the internal endpoint.
+   * 
    * @return internalEndpointHealthStatusCodes
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getInternalEndpointHealthStatusCodes() {
     return internalEndpointHealthStatusCodes;
@@ -339,7 +326,6 @@ public class ApiGatewaySettings {
   public void setInternalEndpointHealthStatusCodes(String internalEndpointHealthStatusCodes) {
     this.internalEndpointHealthStatusCodes = internalEndpointHealthStatusCodes;
   }
-
 
   public ApiGatewaySettings saasSubnetIds(List<String> saasSubnetIds) {
     this.saasSubnetIds = saasSubnetIds;
@@ -354,10 +340,11 @@ public class ApiGatewaySettings {
     return this;
   }
 
-   /**
+  /**
    * Subnet IDs for SaaS
+   * 
    * @return saasSubnetIds
-  **/
+   **/
   @javax.annotation.Nonnull
   public List<String> getSaasSubnetIds() {
     return saasSubnetIds;
@@ -367,16 +354,16 @@ public class ApiGatewaySettings {
     this.saasSubnetIds = saasSubnetIds;
   }
 
-
   public ApiGatewaySettings saasVpcId(String saasVpcId) {
     this.saasVpcId = saasVpcId;
     return this;
   }
 
-   /**
+  /**
    * VPC ID for SaaS
+   * 
    * @return saasVpcId
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getSaasVpcId() {
     return saasVpcId;
@@ -386,16 +373,16 @@ public class ApiGatewaySettings {
     this.saasVpcId = saasVpcId;
   }
 
-
   public ApiGatewaySettings domainName(String domainName) {
     this.domainName = domainName;
     return this;
   }
 
-   /**
+  /**
    * Domain Name
+   * 
    * @return domainName
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getDomainName() {
     return domainName;
@@ -405,16 +392,16 @@ public class ApiGatewaySettings {
     this.domainName = domainName;
   }
 
-
   public ApiGatewaySettings isDnsValidated(Boolean isDnsValidated) {
     this.isDnsValidated = isDnsValidated;
     return this;
   }
 
-   /**
+  /**
    * DNS Record Verification Results
+   * 
    * @return isDnsValidated
-  **/
+   **/
   @javax.annotation.Nonnull
   public Boolean getIsDnsValidated() {
     return isDnsValidated;
@@ -424,16 +411,16 @@ public class ApiGatewaySettings {
     this.isDnsValidated = isDnsValidated;
   }
 
-
   public ApiGatewaySettings certificateDnsRecord(DnsRecord certificateDnsRecord) {
     this.certificateDnsRecord = certificateDnsRecord;
     return this;
   }
 
-   /**
+  /**
    * Get certificateDnsRecord
+   * 
    * @return certificateDnsRecord
-  **/
+   **/
   @javax.annotation.Nonnull
   public DnsRecord getCertificateDnsRecord() {
     return certificateDnsRecord;
@@ -443,16 +430,16 @@ public class ApiGatewaySettings {
     this.certificateDnsRecord = certificateDnsRecord;
   }
 
-
   public ApiGatewaySettings cloudFrontDnsRecord(DnsRecord cloudFrontDnsRecord) {
     this.cloudFrontDnsRecord = cloudFrontDnsRecord;
     return this;
   }
 
-   /**
+  /**
    * Get cloudFrontDnsRecord
+   * 
    * @return cloudFrontDnsRecord
-  **/
+   **/
   @javax.annotation.Nonnull
   public DnsRecord getCloudFrontDnsRecord() {
     return cloudFrontDnsRecord;
@@ -462,16 +449,16 @@ public class ApiGatewaySettings {
     this.cloudFrontDnsRecord = cloudFrontDnsRecord;
   }
 
-
   public ApiGatewaySettings vpcEndpointDnsRecord(DnsRecord vpcEndpointDnsRecord) {
     this.vpcEndpointDnsRecord = vpcEndpointDnsRecord;
     return this;
   }
 
-   /**
+  /**
    * Get vpcEndpointDnsRecord
+   * 
    * @return vpcEndpointDnsRecord
-  **/
+   **/
   @javax.annotation.Nonnull
   public DnsRecord getVpcEndpointDnsRecord() {
     return vpcEndpointDnsRecord;
@@ -481,16 +468,16 @@ public class ApiGatewaySettings {
     this.vpcEndpointDnsRecord = vpcEndpointDnsRecord;
   }
 
-
   public ApiGatewaySettings defaultDomainName(String defaultDomainName) {
     this.defaultDomainName = defaultDomainName;
     return this;
   }
 
-   /**
+  /**
    * Default Domain Name
+   * 
    * @return defaultDomainName
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getDefaultDomainName() {
     return defaultDomainName;
@@ -500,16 +487,16 @@ public class ApiGatewaySettings {
     this.defaultDomainName = defaultDomainName;
   }
 
-
   public ApiGatewaySettings saasAlbArn(String saasAlbArn) {
     this.saasAlbArn = saasAlbArn;
     return this;
   }
 
-   /**
+  /**
    * SaaS Application Load Balancer ARN
+   * 
    * @return saasAlbArn
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getSaasAlbArn() {
     return saasAlbArn;
@@ -519,16 +506,16 @@ public class ApiGatewaySettings {
     this.saasAlbArn = saasAlbArn;
   }
 
-
   public ApiGatewaySettings restApiEndpoint(String restApiEndpoint) {
     this.restApiEndpoint = restApiEndpoint;
     return this;
   }
 
-   /**
+  /**
    * The endpoint for the REST API
+   * 
    * @return restApiEndpoint
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getRestApiEndpoint() {
     return restApiEndpoint;
@@ -537,7 +524,6 @@ public class ApiGatewaySettings {
   public void setRestApiEndpoint(String restApiEndpoint) {
     this.restApiEndpoint = restApiEndpoint;
   }
-
 
   public ApiGatewaySettings endpointSettingsList(List<EndpointSettings> endpointSettingsList) {
     this.endpointSettingsList = endpointSettingsList;
@@ -552,10 +538,11 @@ public class ApiGatewaySettings {
     return this;
   }
 
-   /**
+  /**
    * Endpoint Settings List
+   * 
    * @return endpointSettingsList
-  **/
+   **/
   @javax.annotation.Nonnull
   public List<EndpointSettings> getEndpointSettingsList() {
     return endpointSettingsList;
@@ -565,16 +552,16 @@ public class ApiGatewaySettings {
     this.endpointSettingsList = endpointSettingsList;
   }
 
-
   public ApiGatewaySettings tenantRoutingType(TenantRoutingType tenantRoutingType) {
     this.tenantRoutingType = tenantRoutingType;
     return this;
   }
 
-   /**
+  /**
    * Get tenantRoutingType
+   * 
    * @return tenantRoutingType
-  **/
+   **/
   @javax.annotation.Nonnull
   public TenantRoutingType getTenantRoutingType() {
     return tenantRoutingType;
@@ -584,16 +571,16 @@ public class ApiGatewaySettings {
     this.tenantRoutingType = tenantRoutingType;
   }
 
-
   public ApiGatewaySettings docsCloudFrontFqdn(String docsCloudFrontFqdn) {
     this.docsCloudFrontFqdn = docsCloudFrontFqdn;
     return this;
   }
 
-   /**
+  /**
    * CloudFront FQDN for Smart API Gateway Documentation
+   * 
    * @return docsCloudFrontFqdn
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getDocsCloudFrontFqdn() {
     return docsCloudFrontFqdn;
@@ -602,8 +589,6 @@ public class ApiGatewaySettings {
   public void setDocsCloudFrontFqdn(String docsCloudFrontFqdn) {
     this.docsCloudFrontFqdn = docsCloudFrontFqdn;
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -615,14 +600,19 @@ public class ApiGatewaySettings {
     }
     ApiGatewaySettings apiGatewaySettings = (ApiGatewaySettings) o;
     return Objects.equals(this.generatedFileStatus, apiGatewaySettings.generatedFileStatus) &&
-        Objects.equals(this.internalEndpointOpenapiDefinitionFileDownloadUrl, apiGatewaySettings.internalEndpointOpenapiDefinitionFileDownloadUrl) &&
-        Objects.equals(this.internalEndpointMappingFileDownloadUrl, apiGatewaySettings.internalEndpointMappingFileDownloadUrl) &&
+        Objects.equals(this.internalEndpointOpenapiDefinitionFileDownloadUrl,
+            apiGatewaySettings.internalEndpointOpenapiDefinitionFileDownloadUrl)
+        &&
+        Objects.equals(this.internalEndpointMappingFileDownloadUrl,
+            apiGatewaySettings.internalEndpointMappingFileDownloadUrl)
+        &&
         Objects.equals(this.status, apiGatewaySettings.status) &&
         Objects.equals(this.roleArn, apiGatewaySettings.roleArn) &&
         Objects.equals(this.roleExternalId, apiGatewaySettings.roleExternalId) &&
         Objects.equals(this.internalEndpointHealthCheckPath, apiGatewaySettings.internalEndpointHealthCheckPath) &&
         Objects.equals(this.internalEndpointHealthCheckPort, apiGatewaySettings.internalEndpointHealthCheckPort) &&
-        Objects.equals(this.internalEndpointHealthCheckProtocol, apiGatewaySettings.internalEndpointHealthCheckProtocol) &&
+        Objects.equals(this.internalEndpointHealthCheckProtocol, apiGatewaySettings.internalEndpointHealthCheckProtocol)
+        &&
         Objects.equals(this.internalEndpointHealthStatusCodes, apiGatewaySettings.internalEndpointHealthStatusCodes) &&
         Objects.equals(this.saasSubnetIds, apiGatewaySettings.saasSubnetIds) &&
         Objects.equals(this.saasVpcId, apiGatewaySettings.saasVpcId) &&
@@ -641,7 +631,12 @@ public class ApiGatewaySettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(generatedFileStatus, internalEndpointOpenapiDefinitionFileDownloadUrl, internalEndpointMappingFileDownloadUrl, status, roleArn, roleExternalId, internalEndpointHealthCheckPath, internalEndpointHealthCheckPort, internalEndpointHealthCheckProtocol, internalEndpointHealthStatusCodes, saasSubnetIds, saasVpcId, domainName, isDnsValidated, certificateDnsRecord, cloudFrontDnsRecord, vpcEndpointDnsRecord, defaultDomainName, saasAlbArn, restApiEndpoint, endpointSettingsList, tenantRoutingType, docsCloudFrontFqdn);
+    return Objects.hash(generatedFileStatus, internalEndpointOpenapiDefinitionFileDownloadUrl,
+        internalEndpointMappingFileDownloadUrl, status, roleArn, roleExternalId, internalEndpointHealthCheckPath,
+        internalEndpointHealthCheckPort, internalEndpointHealthCheckProtocol, internalEndpointHealthStatusCodes,
+        saasSubnetIds, saasVpcId, domainName, isDnsValidated, certificateDnsRecord, cloudFrontDnsRecord,
+        vpcEndpointDnsRecord, defaultDomainName, saasAlbArn, restApiEndpoint, endpointSettingsList, tenantRoutingType,
+        docsCloudFrontFqdn);
   }
 
   @Override
@@ -649,15 +644,21 @@ public class ApiGatewaySettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class ApiGatewaySettings {\n");
     sb.append("    generatedFileStatus: ").append(toIndentedString(generatedFileStatus)).append("\n");
-    sb.append("    internalEndpointOpenapiDefinitionFileDownloadUrl: ").append(toIndentedString(internalEndpointOpenapiDefinitionFileDownloadUrl)).append("\n");
-    sb.append("    internalEndpointMappingFileDownloadUrl: ").append(toIndentedString(internalEndpointMappingFileDownloadUrl)).append("\n");
+    sb.append("    internalEndpointOpenapiDefinitionFileDownloadUrl: ")
+        .append(toIndentedString(internalEndpointOpenapiDefinitionFileDownloadUrl)).append("\n");
+    sb.append("    internalEndpointMappingFileDownloadUrl: ")
+        .append(toIndentedString(internalEndpointMappingFileDownloadUrl)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    roleArn: ").append(toIndentedString(roleArn)).append("\n");
     sb.append("    roleExternalId: ").append(toIndentedString(roleExternalId)).append("\n");
-    sb.append("    internalEndpointHealthCheckPath: ").append(toIndentedString(internalEndpointHealthCheckPath)).append("\n");
-    sb.append("    internalEndpointHealthCheckPort: ").append(toIndentedString(internalEndpointHealthCheckPort)).append("\n");
-    sb.append("    internalEndpointHealthCheckProtocol: ").append(toIndentedString(internalEndpointHealthCheckProtocol)).append("\n");
-    sb.append("    internalEndpointHealthStatusCodes: ").append(toIndentedString(internalEndpointHealthStatusCodes)).append("\n");
+    sb.append("    internalEndpointHealthCheckPath: ").append(toIndentedString(internalEndpointHealthCheckPath))
+        .append("\n");
+    sb.append("    internalEndpointHealthCheckPort: ").append(toIndentedString(internalEndpointHealthCheckPort))
+        .append("\n");
+    sb.append("    internalEndpointHealthCheckProtocol: ").append(toIndentedString(internalEndpointHealthCheckProtocol))
+        .append("\n");
+    sb.append("    internalEndpointHealthStatusCodes: ").append(toIndentedString(internalEndpointHealthStatusCodes))
+        .append("\n");
     sb.append("    saasSubnetIds: ").append(toIndentedString(saasSubnetIds)).append("\n");
     sb.append("    saasVpcId: ").append(toIndentedString(saasVpcId)).append("\n");
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
@@ -685,7 +686,6 @@ public class ApiGatewaySettings {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 
   public static HashSet<String> openapiFields;
   public static HashSet<String> openapiRequiredFields;
@@ -744,152 +744,195 @@ public class ApiGatewaySettings {
     openapiRequiredFields.add("docs_cloud_front_fqdn");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ApiGatewaySettings
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to
+   *                     ApiGatewaySettings
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ApiGatewaySettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiGatewaySettings is not found in the empty JSON string", ApiGatewaySettings.openapiRequiredFields.toString()));
-        }
+    if (jsonElement == null) {
+      if (!ApiGatewaySettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+        throw new IllegalArgumentException(
+            String.format("The required field(s) %s in ApiGatewaySettings is not found in the empty JSON string",
+                ApiGatewaySettings.openapiRequiredFields.toString()));
       }
+    }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ApiGatewaySettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiGatewaySettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
+    Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+    // check to see if the JSON string contains additional fields
+    for (Map.Entry<String, JsonElement> entry : entries) {
+      if (!ApiGatewaySettings.openapiFields.contains(entry.getKey())) {
+        throw new IllegalArgumentException(String.format(
+            "The field `%s` in the JSON string is not defined in the `ApiGatewaySettings` properties. JSON: %s",
+            entry.getKey(), jsonElement.toString()));
       }
+    }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ApiGatewaySettings.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
+    // check to make sure all required properties/fields are present in the JSON
+    // string
+    for (String requiredField : ApiGatewaySettings.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s",
+            requiredField, jsonElement.toString()));
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("generated_file_status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `generated_file_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("generated_file_status").toString()));
-      }
-      if (!jsonObj.get("internal_endpoint_openapi_definition_file_download_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_openapi_definition_file_download_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_openapi_definition_file_download_url").toString()));
-      }
-      if (!jsonObj.get("internal_endpoint_mapping_file_download_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_mapping_file_download_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_mapping_file_download_url").toString()));
-      }
-      if (!jsonObj.get("status").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
-      }
-      if (!jsonObj.get("role_arn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role_arn").toString()));
-      }
-      if (!jsonObj.get("role_external_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role_external_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role_external_id").toString()));
-      }
-      if (!jsonObj.get("internal_endpoint_health_check_path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_health_check_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_health_check_path").toString()));
-      }
-      if (!jsonObj.get("internal_endpoint_health_check_protocol").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_health_check_protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_health_check_protocol").toString()));
-      }
-      if (!jsonObj.get("internal_endpoint_health_status_codes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_health_status_codes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_health_status_codes").toString()));
-      }
-      // ensure the required json array is present
-      if (jsonObj.get("saas_subnet_ids") == null) {
-        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-      } else if (!jsonObj.get("saas_subnet_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `saas_subnet_ids` to be an array in the JSON string but got `%s`", jsonObj.get("saas_subnet_ids").toString()));
-      }
-      if (!jsonObj.get("saas_vpc_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `saas_vpc_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("saas_vpc_id").toString()));
-      }
-      if (!jsonObj.get("domain_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `domain_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_name").toString()));
-      }
-      // validate the required field `certificate_dns_record`
-      DnsRecord.validateJsonElement(jsonObj.get("certificate_dns_record"));
-      // validate the required field `cloud_front_dns_record`
-      DnsRecord.validateJsonElement(jsonObj.get("cloud_front_dns_record"));
-      // validate the required field `vpc_endpoint_dns_record`
-      DnsRecord.validateJsonElement(jsonObj.get("vpc_endpoint_dns_record"));
-      if (!jsonObj.get("default_domain_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `default_domain_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_domain_name").toString()));
-      }
-      if (!jsonObj.get("saas_alb_arn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `saas_alb_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("saas_alb_arn").toString()));
-      }
-      if (!jsonObj.get("rest_api_endpoint").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `rest_api_endpoint` to be a primitive type in the JSON string but got `%s`", jsonObj.get("rest_api_endpoint").toString()));
-      }
-      // ensure the json data is an array
-      if (!jsonObj.get("endpoint_settings_list").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `endpoint_settings_list` to be an array in the JSON string but got `%s`", jsonObj.get("endpoint_settings_list").toString()));
-      }
+    }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("generated_file_status").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `generated_file_status` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("generated_file_status").toString()));
+    }
+    if (!jsonObj.get("internal_endpoint_openapi_definition_file_download_url").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `internal_endpoint_openapi_definition_file_download_url` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("internal_endpoint_openapi_definition_file_download_url").toString()));
+    }
+    if (!jsonObj.get("internal_endpoint_mapping_file_download_url").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `internal_endpoint_mapping_file_download_url` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("internal_endpoint_mapping_file_download_url").toString()));
+    }
+    if (!jsonObj.get("status").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("status").toString()));
+    }
+    if (!jsonObj.get("role_arn").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `role_arn` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("role_arn").toString()));
+    }
+    if (!jsonObj.get("role_external_id").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `role_external_id` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("role_external_id").toString()));
+    }
+    if (!jsonObj.get("internal_endpoint_health_check_path").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `internal_endpoint_health_check_path` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("internal_endpoint_health_check_path").toString()));
+    }
+    if (!jsonObj.get("internal_endpoint_health_check_protocol").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `internal_endpoint_health_check_protocol` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("internal_endpoint_health_check_protocol").toString()));
+    }
+    if (!jsonObj.get("internal_endpoint_health_status_codes").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `internal_endpoint_health_status_codes` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("internal_endpoint_health_status_codes").toString()));
+    }
+    // ensure the required json array is present
+    if (jsonObj.get("saas_subnet_ids") == null) {
+      throw new IllegalArgumentException(
+          "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+    } else if (!jsonObj.get("saas_subnet_ids").isJsonArray()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `saas_subnet_ids` to be an array in the JSON string but got `%s`",
+              jsonObj.get("saas_subnet_ids").toString()));
+    }
+    if (!jsonObj.get("saas_vpc_id").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `saas_vpc_id` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("saas_vpc_id").toString()));
+    }
+    if (!jsonObj.get("domain_name").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `domain_name` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("domain_name").toString()));
+    }
+    // validate the required field `certificate_dns_record`
+    DnsRecord.validateJsonElement(jsonObj.get("certificate_dns_record"));
+    // validate the required field `cloud_front_dns_record`
+    DnsRecord.validateJsonElement(jsonObj.get("cloud_front_dns_record"));
+    // validate the required field `vpc_endpoint_dns_record`
+    DnsRecord.validateJsonElement(jsonObj.get("vpc_endpoint_dns_record"));
+    if (!jsonObj.get("default_domain_name").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `default_domain_name` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("default_domain_name").toString()));
+    }
+    if (!jsonObj.get("saas_alb_arn").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `saas_alb_arn` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("saas_alb_arn").toString()));
+    }
+    if (!jsonObj.get("rest_api_endpoint").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `rest_api_endpoint` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("rest_api_endpoint").toString()));
+    }
+    // ensure the json data is an array
+    if (!jsonObj.get("endpoint_settings_list").isJsonArray()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `endpoint_settings_list` to be an array in the JSON string but got `%s`",
+              jsonObj.get("endpoint_settings_list").toString()));
+    }
 
-      JsonArray jsonArrayendpointSettingsList = jsonObj.getAsJsonArray("endpoint_settings_list");
-      // validate the required field `endpoint_settings_list` (array)
-      for (int i = 0; i < jsonArrayendpointSettingsList.size(); i++) {
-        EndpointSettings.validateJsonElement(jsonArrayendpointSettingsList.get(i));
-      };
-      // validate the required field `tenant_routing_type`
-      TenantRoutingType.validateJsonElement(jsonObj.get("tenant_routing_type"));
-      if (!jsonObj.get("docs_cloud_front_fqdn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `docs_cloud_front_fqdn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("docs_cloud_front_fqdn").toString()));
-      }
+    JsonArray jsonArrayendpointSettingsList = jsonObj.getAsJsonArray("endpoint_settings_list");
+    // validate the required field `endpoint_settings_list` (array)
+    for (int i = 0; i < jsonArrayendpointSettingsList.size(); i++) {
+      EndpointSettings.validateJsonElement(jsonArrayendpointSettingsList.get(i));
+    }
+    ;
+    // validate the required field `tenant_routing_type`
+    TenantRoutingType.validateJsonElement(jsonObj.get("tenant_routing_type"));
+    if (!jsonObj.get("docs_cloud_front_fqdn").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `docs_cloud_front_fqdn` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("docs_cloud_front_fqdn").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiGatewaySettings.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiGatewaySettings' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiGatewaySettings> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiGatewaySettings.class));
+      if (!ApiGatewaySettings.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'ApiGatewaySettings' and its subtypes
+      }
+      final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+      final TypeAdapter<ApiGatewaySettings> thisAdapter = gson.getDelegateAdapter(this,
+          TypeToken.get(ApiGatewaySettings.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ApiGatewaySettings>() {
-           @Override
-           public void write(JsonWriter out, ApiGatewaySettings value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
+      return (TypeAdapter<T>) new TypeAdapter<ApiGatewaySettings>() {
+        @Override
+        public void write(JsonWriter out, ApiGatewaySettings value) throws IOException {
+          JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+          elementAdapter.write(out, obj);
+        }
 
-           @Override
-           public ApiGatewaySettings read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
+        @Override
+        public ApiGatewaySettings read(JsonReader in) throws IOException {
+          JsonElement jsonElement = elementAdapter.read(in);
+          validateJsonElement(jsonElement);
+          return thisAdapter.fromJsonTree(jsonElement);
+        }
 
-       }.nullSafe();
+      }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ApiGatewaySettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiGatewaySettings
-  * @throws IOException if the JSON string is invalid with respect to ApiGatewaySettings
-  */
+  /**
+   * Create an instance of ApiGatewaySettings given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ApiGatewaySettings
+   * @throws IOException if the JSON string is invalid with respect to
+   *                     ApiGatewaySettings
+   */
   public static ApiGatewaySettings fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ApiGatewaySettings.class);
   }
 
- /**
-  * Convert an instance of ApiGatewaySettings to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ApiGatewaySettings to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
 }
-

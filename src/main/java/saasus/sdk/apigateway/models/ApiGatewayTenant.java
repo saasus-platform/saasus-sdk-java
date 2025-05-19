@@ -10,40 +10,23 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.models;
 
-import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import saasus.sdk.apigateway.models.TenantRouting;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import saasus.sdk.apigateway.JSON;
 
@@ -68,10 +51,11 @@ public class ApiGatewayTenant {
     return this;
   }
 
-   /**
+  /**
    * Get id
+   * 
    * @return id
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getId() {
     return id;
@@ -81,16 +65,16 @@ public class ApiGatewayTenant {
     this.id = id;
   }
 
-
   public ApiGatewayTenant routing(TenantRouting routing) {
     this.routing = routing;
     return this;
   }
 
-   /**
+  /**
    * Get routing
+   * 
    * @return routing
-  **/
+   **/
   @javax.annotation.Nonnull
   public TenantRouting getRouting() {
     return routing;
@@ -99,8 +83,6 @@ public class ApiGatewayTenant {
   public void setRouting(TenantRouting routing) {
     this.routing = routing;
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -141,7 +123,6 @@ public class ApiGatewayTenant {
     return o.toString().replace("\n", "\n    ");
   }
 
-
   public static HashSet<String> openapiFields;
   public static HashSet<String> openapiRequiredFields;
 
@@ -157,88 +138,97 @@ public class ApiGatewayTenant {
     openapiRequiredFields.add("routing");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ApiGatewayTenant
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to
+   *                     ApiGatewayTenant
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ApiGatewayTenant.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiGatewayTenant is not found in the empty JSON string", ApiGatewayTenant.openapiRequiredFields.toString()));
-        }
+    if (jsonElement == null) {
+      if (!ApiGatewayTenant.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+        throw new IllegalArgumentException(
+            String.format("The required field(s) %s in ApiGatewayTenant is not found in the empty JSON string",
+                ApiGatewayTenant.openapiRequiredFields.toString()));
       }
+    }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ApiGatewayTenant.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiGatewayTenant` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
+    Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+    // check to see if the JSON string contains additional fields
+    for (Map.Entry<String, JsonElement> entry : entries) {
+      if (!ApiGatewayTenant.openapiFields.contains(entry.getKey())) {
+        throw new IllegalArgumentException(String.format(
+            "The field `%s` in the JSON string is not defined in the `ApiGatewayTenant` properties. JSON: %s",
+            entry.getKey(), jsonElement.toString()));
       }
+    }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ApiGatewayTenant.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
+    // check to make sure all required properties/fields are present in the JSON
+    // string
+    for (String requiredField : ApiGatewayTenant.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s",
+            requiredField, jsonElement.toString()));
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
-      }
-      // validate the required field `routing`
-      TenantRouting.validateJsonElement(jsonObj.get("routing"));
+    }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("id").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("id").toString()));
+    }
+    // validate the required field `routing`
+    TenantRouting.validateJsonElement(jsonObj.get("routing"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiGatewayTenant.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiGatewayTenant' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiGatewayTenant> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiGatewayTenant.class));
+      if (!ApiGatewayTenant.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'ApiGatewayTenant' and its subtypes
+      }
+      final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+      final TypeAdapter<ApiGatewayTenant> thisAdapter = gson.getDelegateAdapter(this,
+          TypeToken.get(ApiGatewayTenant.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ApiGatewayTenant>() {
-           @Override
-           public void write(JsonWriter out, ApiGatewayTenant value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
+      return (TypeAdapter<T>) new TypeAdapter<ApiGatewayTenant>() {
+        @Override
+        public void write(JsonWriter out, ApiGatewayTenant value) throws IOException {
+          JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+          elementAdapter.write(out, obj);
+        }
 
-           @Override
-           public ApiGatewayTenant read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
+        @Override
+        public ApiGatewayTenant read(JsonReader in) throws IOException {
+          JsonElement jsonElement = elementAdapter.read(in);
+          validateJsonElement(jsonElement);
+          return thisAdapter.fromJsonTree(jsonElement);
+        }
 
-       }.nullSafe();
+      }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ApiGatewayTenant given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiGatewayTenant
-  * @throws IOException if the JSON string is invalid with respect to ApiGatewayTenant
-  */
+  /**
+   * Create an instance of ApiGatewayTenant given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ApiGatewayTenant
+   * @throws IOException if the JSON string is invalid with respect to
+   *                     ApiGatewayTenant
+   */
   public static ApiGatewayTenant fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ApiGatewayTenant.class);
   }
 
- /**
-  * Convert an instance of ApiGatewayTenant to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ApiGatewayTenant to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
 }
-

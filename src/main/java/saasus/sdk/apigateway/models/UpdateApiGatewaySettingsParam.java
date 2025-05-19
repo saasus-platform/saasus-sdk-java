@@ -10,43 +10,26 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.models;
 
-import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import saasus.sdk.apigateway.models.EndpointSettings;
-import saasus.sdk.apigateway.models.TenantRoutingType;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 import saasus.sdk.apigateway.JSON;
 
@@ -111,10 +94,11 @@ public class UpdateApiGatewaySettingsParam {
     return this;
   }
 
-   /**
+  /**
    * ARN of the role for SaaSus Platform to AssumeRole
+   * 
    * @return roleArn
-  **/
+   **/
   @javax.annotation.Nullable
   public String getRoleArn() {
     return roleArn;
@@ -124,16 +108,16 @@ public class UpdateApiGatewaySettingsParam {
     this.roleArn = roleArn;
   }
 
-
   public UpdateApiGatewaySettingsParam roleExternalId(String roleExternalId) {
     this.roleExternalId = roleExternalId;
     return this;
   }
 
-   /**
+  /**
    * External id used by SaaSus when AssumeRole to operate SaaS
+   * 
    * @return roleExternalId
-  **/
+   **/
   @javax.annotation.Nullable
   public String getRoleExternalId() {
     return roleExternalId;
@@ -143,16 +127,16 @@ public class UpdateApiGatewaySettingsParam {
     this.roleExternalId = roleExternalId;
   }
 
-
   public UpdateApiGatewaySettingsParam internalEndpointHealthCheckPath(String internalEndpointHealthCheckPath) {
     this.internalEndpointHealthCheckPath = internalEndpointHealthCheckPath;
     return this;
   }
 
-   /**
+  /**
    * The path to be used for health checks on the internal endpoint.
+   * 
    * @return internalEndpointHealthCheckPath
-  **/
+   **/
   @javax.annotation.Nullable
   public String getInternalEndpointHealthCheckPath() {
     return internalEndpointHealthCheckPath;
@@ -162,16 +146,16 @@ public class UpdateApiGatewaySettingsParam {
     this.internalEndpointHealthCheckPath = internalEndpointHealthCheckPath;
   }
 
-
   public UpdateApiGatewaySettingsParam internalEndpointHealthCheckPort(Integer internalEndpointHealthCheckPort) {
     this.internalEndpointHealthCheckPort = internalEndpointHealthCheckPort;
     return this;
   }
 
-   /**
+  /**
    * The port to be used for health checks on the internal endpoint.
+   * 
    * @return internalEndpointHealthCheckPort
-  **/
+   **/
   @javax.annotation.Nullable
   public Integer getInternalEndpointHealthCheckPort() {
     return internalEndpointHealthCheckPort;
@@ -181,16 +165,16 @@ public class UpdateApiGatewaySettingsParam {
     this.internalEndpointHealthCheckPort = internalEndpointHealthCheckPort;
   }
 
-
   public UpdateApiGatewaySettingsParam internalEndpointHealthCheckProtocol(String internalEndpointHealthCheckProtocol) {
     this.internalEndpointHealthCheckProtocol = internalEndpointHealthCheckProtocol;
     return this;
   }
 
-   /**
+  /**
    * The protocol to be used for health checks on the internal endpoint.
+   * 
    * @return internalEndpointHealthCheckProtocol
-  **/
+   **/
   @javax.annotation.Nullable
   public String getInternalEndpointHealthCheckProtocol() {
     return internalEndpointHealthCheckProtocol;
@@ -200,16 +184,16 @@ public class UpdateApiGatewaySettingsParam {
     this.internalEndpointHealthCheckProtocol = internalEndpointHealthCheckProtocol;
   }
 
-
   public UpdateApiGatewaySettingsParam internalEndpointHealthStatusCodes(String internalEndpointHealthStatusCodes) {
     this.internalEndpointHealthStatusCodes = internalEndpointHealthStatusCodes;
     return this;
   }
 
-   /**
+  /**
    * The status codes to be used for health checks on the internal endpoint.
+   * 
    * @return internalEndpointHealthStatusCodes
-  **/
+   **/
   @javax.annotation.Nullable
   public String getInternalEndpointHealthStatusCodes() {
     return internalEndpointHealthStatusCodes;
@@ -218,7 +202,6 @@ public class UpdateApiGatewaySettingsParam {
   public void setInternalEndpointHealthStatusCodes(String internalEndpointHealthStatusCodes) {
     this.internalEndpointHealthStatusCodes = internalEndpointHealthStatusCodes;
   }
-
 
   public UpdateApiGatewaySettingsParam saasSubnetIds(List<String> saasSubnetIds) {
     this.saasSubnetIds = saasSubnetIds;
@@ -233,10 +216,11 @@ public class UpdateApiGatewaySettingsParam {
     return this;
   }
 
-   /**
+  /**
    * Subnet IDs for SaaS
+   * 
    * @return saasSubnetIds
-  **/
+   **/
   @javax.annotation.Nullable
   public List<String> getSaasSubnetIds() {
     return saasSubnetIds;
@@ -246,16 +230,16 @@ public class UpdateApiGatewaySettingsParam {
     this.saasSubnetIds = saasSubnetIds;
   }
 
-
   public UpdateApiGatewaySettingsParam saasVpcId(String saasVpcId) {
     this.saasVpcId = saasVpcId;
     return this;
   }
 
-   /**
+  /**
    * VPC ID for SaaS
+   * 
    * @return saasVpcId
-  **/
+   **/
   @javax.annotation.Nullable
   public String getSaasVpcId() {
     return saasVpcId;
@@ -265,16 +249,16 @@ public class UpdateApiGatewaySettingsParam {
     this.saasVpcId = saasVpcId;
   }
 
-
   public UpdateApiGatewaySettingsParam domainName(String domainName) {
     this.domainName = domainName;
     return this;
   }
 
-   /**
+  /**
    * Domain Name
+   * 
    * @return domainName
-  **/
+   **/
   @javax.annotation.Nullable
   public String getDomainName() {
     return domainName;
@@ -284,16 +268,16 @@ public class UpdateApiGatewaySettingsParam {
     this.domainName = domainName;
   }
 
-
   public UpdateApiGatewaySettingsParam saasAlbArn(String saasAlbArn) {
     this.saasAlbArn = saasAlbArn;
     return this;
   }
 
-   /**
+  /**
    * SaaS Application Load Balancer ARN
+   * 
    * @return saasAlbArn
-  **/
+   **/
   @javax.annotation.Nullable
   public String getSaasAlbArn() {
     return saasAlbArn;
@@ -302,7 +286,6 @@ public class UpdateApiGatewaySettingsParam {
   public void setSaasAlbArn(String saasAlbArn) {
     this.saasAlbArn = saasAlbArn;
   }
-
 
   public UpdateApiGatewaySettingsParam endpointSettingsList(List<EndpointSettings> endpointSettingsList) {
     this.endpointSettingsList = endpointSettingsList;
@@ -317,10 +300,11 @@ public class UpdateApiGatewaySettingsParam {
     return this;
   }
 
-   /**
+  /**
    * Endpoint Settings List
+   * 
    * @return endpointSettingsList
-  **/
+   **/
   @javax.annotation.Nullable
   public List<EndpointSettings> getEndpointSettingsList() {
     return endpointSettingsList;
@@ -330,16 +314,16 @@ public class UpdateApiGatewaySettingsParam {
     this.endpointSettingsList = endpointSettingsList;
   }
 
-
   public UpdateApiGatewaySettingsParam tenantRoutingType(TenantRoutingType tenantRoutingType) {
     this.tenantRoutingType = tenantRoutingType;
     return this;
   }
 
-   /**
+  /**
    * Get tenantRoutingType
+   * 
    * @return tenantRoutingType
-  **/
+   **/
   @javax.annotation.Nullable
   public TenantRoutingType getTenantRoutingType() {
     return tenantRoutingType;
@@ -348,8 +332,6 @@ public class UpdateApiGatewaySettingsParam {
   public void setTenantRoutingType(TenantRoutingType tenantRoutingType) {
     this.tenantRoutingType = tenantRoutingType;
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -362,10 +344,18 @@ public class UpdateApiGatewaySettingsParam {
     UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam = (UpdateApiGatewaySettingsParam) o;
     return Objects.equals(this.roleArn, updateApiGatewaySettingsParam.roleArn) &&
         Objects.equals(this.roleExternalId, updateApiGatewaySettingsParam.roleExternalId) &&
-        Objects.equals(this.internalEndpointHealthCheckPath, updateApiGatewaySettingsParam.internalEndpointHealthCheckPath) &&
-        Objects.equals(this.internalEndpointHealthCheckPort, updateApiGatewaySettingsParam.internalEndpointHealthCheckPort) &&
-        Objects.equals(this.internalEndpointHealthCheckProtocol, updateApiGatewaySettingsParam.internalEndpointHealthCheckProtocol) &&
-        Objects.equals(this.internalEndpointHealthStatusCodes, updateApiGatewaySettingsParam.internalEndpointHealthStatusCodes) &&
+        Objects
+            .equals(this.internalEndpointHealthCheckPath, updateApiGatewaySettingsParam.internalEndpointHealthCheckPath)
+        &&
+        Objects
+            .equals(this.internalEndpointHealthCheckPort, updateApiGatewaySettingsParam.internalEndpointHealthCheckPort)
+        &&
+        Objects.equals(
+            this.internalEndpointHealthCheckProtocol, updateApiGatewaySettingsParam.internalEndpointHealthCheckProtocol)
+        &&
+        Objects.equals(this.internalEndpointHealthStatusCodes,
+            updateApiGatewaySettingsParam.internalEndpointHealthStatusCodes)
+        &&
         Objects.equals(this.saasSubnetIds, updateApiGatewaySettingsParam.saasSubnetIds) &&
         Objects.equals(this.saasVpcId, updateApiGatewaySettingsParam.saasVpcId) &&
         Objects.equals(this.domainName, updateApiGatewaySettingsParam.domainName) &&
@@ -376,7 +366,9 @@ public class UpdateApiGatewaySettingsParam {
 
   @Override
   public int hashCode() {
-    return Objects.hash(roleArn, roleExternalId, internalEndpointHealthCheckPath, internalEndpointHealthCheckPort, internalEndpointHealthCheckProtocol, internalEndpointHealthStatusCodes, saasSubnetIds, saasVpcId, domainName, saasAlbArn, endpointSettingsList, tenantRoutingType);
+    return Objects.hash(roleArn, roleExternalId, internalEndpointHealthCheckPath, internalEndpointHealthCheckPort,
+        internalEndpointHealthCheckProtocol, internalEndpointHealthStatusCodes, saasSubnetIds, saasVpcId, domainName,
+        saasAlbArn, endpointSettingsList, tenantRoutingType);
   }
 
   @Override
@@ -385,10 +377,14 @@ public class UpdateApiGatewaySettingsParam {
     sb.append("class UpdateApiGatewaySettingsParam {\n");
     sb.append("    roleArn: ").append(toIndentedString(roleArn)).append("\n");
     sb.append("    roleExternalId: ").append(toIndentedString(roleExternalId)).append("\n");
-    sb.append("    internalEndpointHealthCheckPath: ").append(toIndentedString(internalEndpointHealthCheckPath)).append("\n");
-    sb.append("    internalEndpointHealthCheckPort: ").append(toIndentedString(internalEndpointHealthCheckPort)).append("\n");
-    sb.append("    internalEndpointHealthCheckProtocol: ").append(toIndentedString(internalEndpointHealthCheckProtocol)).append("\n");
-    sb.append("    internalEndpointHealthStatusCodes: ").append(toIndentedString(internalEndpointHealthStatusCodes)).append("\n");
+    sb.append("    internalEndpointHealthCheckPath: ").append(toIndentedString(internalEndpointHealthCheckPath))
+        .append("\n");
+    sb.append("    internalEndpointHealthCheckPort: ").append(toIndentedString(internalEndpointHealthCheckPort))
+        .append("\n");
+    sb.append("    internalEndpointHealthCheckProtocol: ").append(toIndentedString(internalEndpointHealthCheckProtocol))
+        .append("\n");
+    sb.append("    internalEndpointHealthStatusCodes: ").append(toIndentedString(internalEndpointHealthStatusCodes))
+        .append("\n");
     sb.append("    saasSubnetIds: ").append(toIndentedString(saasSubnetIds)).append("\n");
     sb.append("    saasVpcId: ").append(toIndentedString(saasVpcId)).append("\n");
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
@@ -409,7 +405,6 @@ public class UpdateApiGatewaySettingsParam {
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 
   public static HashSet<String> openapiFields;
   public static HashSet<String> openapiRequiredFields;
@@ -434,122 +429,161 @@ public class UpdateApiGatewaySettingsParam {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to UpdateApiGatewaySettingsParam
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to
+   *                     UpdateApiGatewaySettingsParam
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!UpdateApiGatewaySettingsParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateApiGatewaySettingsParam is not found in the empty JSON string", UpdateApiGatewaySettingsParam.openapiRequiredFields.toString()));
-        }
+    if (jsonElement == null) {
+      if (!UpdateApiGatewaySettingsParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is
+                                                                            // null
+        throw new IllegalArgumentException(String.format(
+            "The required field(s) %s in UpdateApiGatewaySettingsParam is not found in the empty JSON string",
+            UpdateApiGatewaySettingsParam.openapiRequiredFields.toString()));
       }
+    }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!UpdateApiGatewaySettingsParam.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateApiGatewaySettingsParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+    Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+    // check to see if the JSON string contains additional fields
+    for (Map.Entry<String, JsonElement> entry : entries) {
+      if (!UpdateApiGatewaySettingsParam.openapiFields.contains(entry.getKey())) {
+        throw new IllegalArgumentException(String.format(
+            "The field `%s` in the JSON string is not defined in the `UpdateApiGatewaySettingsParam` properties. JSON: %s",
+            entry.getKey(), jsonElement.toString()));
+      }
+    }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("role_arn") != null && !jsonObj.get("role_arn").isJsonNull())
+        && !jsonObj.get("role_arn").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `role_arn` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("role_arn").toString()));
+    }
+    if ((jsonObj.get("role_external_id") != null && !jsonObj.get("role_external_id").isJsonNull())
+        && !jsonObj.get("role_external_id").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `role_external_id` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("role_external_id").toString()));
+    }
+    if ((jsonObj.get("internal_endpoint_health_check_path") != null
+        && !jsonObj.get("internal_endpoint_health_check_path").isJsonNull())
+        && !jsonObj.get("internal_endpoint_health_check_path").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `internal_endpoint_health_check_path` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("internal_endpoint_health_check_path").toString()));
+    }
+    if ((jsonObj.get("internal_endpoint_health_check_protocol") != null
+        && !jsonObj.get("internal_endpoint_health_check_protocol").isJsonNull())
+        && !jsonObj.get("internal_endpoint_health_check_protocol").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `internal_endpoint_health_check_protocol` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("internal_endpoint_health_check_protocol").toString()));
+    }
+    if ((jsonObj.get("internal_endpoint_health_status_codes") != null
+        && !jsonObj.get("internal_endpoint_health_status_codes").isJsonNull())
+        && !jsonObj.get("internal_endpoint_health_status_codes").isJsonPrimitive()) {
+      throw new IllegalArgumentException(String.format(
+          "Expected the field `internal_endpoint_health_status_codes` to be a primitive type in the JSON string but got `%s`",
+          jsonObj.get("internal_endpoint_health_status_codes").toString()));
+    }
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("saas_subnet_ids") != null && !jsonObj.get("saas_subnet_ids").isJsonNull()
+        && !jsonObj.get("saas_subnet_ids").isJsonArray()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `saas_subnet_ids` to be an array in the JSON string but got `%s`",
+              jsonObj.get("saas_subnet_ids").toString()));
+    }
+    if ((jsonObj.get("saas_vpc_id") != null && !jsonObj.get("saas_vpc_id").isJsonNull())
+        && !jsonObj.get("saas_vpc_id").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `saas_vpc_id` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("saas_vpc_id").toString()));
+    }
+    if ((jsonObj.get("domain_name") != null && !jsonObj.get("domain_name").isJsonNull())
+        && !jsonObj.get("domain_name").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `domain_name` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("domain_name").toString()));
+    }
+    if ((jsonObj.get("saas_alb_arn") != null && !jsonObj.get("saas_alb_arn").isJsonNull())
+        && !jsonObj.get("saas_alb_arn").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `saas_alb_arn` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("saas_alb_arn").toString()));
+    }
+    if (jsonObj.get("endpoint_settings_list") != null && !jsonObj.get("endpoint_settings_list").isJsonNull()) {
+      JsonArray jsonArrayendpointSettingsList = jsonObj.getAsJsonArray("endpoint_settings_list");
+      if (jsonArrayendpointSettingsList != null) {
+        // ensure the json data is an array
+        if (!jsonObj.get("endpoint_settings_list").isJsonArray()) {
+          throw new IllegalArgumentException(String.format(
+              "Expected the field `endpoint_settings_list` to be an array in the JSON string but got `%s`",
+              jsonObj.get("endpoint_settings_list").toString()));
         }
-      }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("role_arn") != null && !jsonObj.get("role_arn").isJsonNull()) && !jsonObj.get("role_arn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role_arn").toString()));
-      }
-      if ((jsonObj.get("role_external_id") != null && !jsonObj.get("role_external_id").isJsonNull()) && !jsonObj.get("role_external_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role_external_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("role_external_id").toString()));
-      }
-      if ((jsonObj.get("internal_endpoint_health_check_path") != null && !jsonObj.get("internal_endpoint_health_check_path").isJsonNull()) && !jsonObj.get("internal_endpoint_health_check_path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_health_check_path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_health_check_path").toString()));
-      }
-      if ((jsonObj.get("internal_endpoint_health_check_protocol") != null && !jsonObj.get("internal_endpoint_health_check_protocol").isJsonNull()) && !jsonObj.get("internal_endpoint_health_check_protocol").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_health_check_protocol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_health_check_protocol").toString()));
-      }
-      if ((jsonObj.get("internal_endpoint_health_status_codes") != null && !jsonObj.get("internal_endpoint_health_status_codes").isJsonNull()) && !jsonObj.get("internal_endpoint_health_status_codes").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_health_status_codes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_health_status_codes").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("saas_subnet_ids") != null && !jsonObj.get("saas_subnet_ids").isJsonNull() && !jsonObj.get("saas_subnet_ids").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `saas_subnet_ids` to be an array in the JSON string but got `%s`", jsonObj.get("saas_subnet_ids").toString()));
-      }
-      if ((jsonObj.get("saas_vpc_id") != null && !jsonObj.get("saas_vpc_id").isJsonNull()) && !jsonObj.get("saas_vpc_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `saas_vpc_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("saas_vpc_id").toString()));
-      }
-      if ((jsonObj.get("domain_name") != null && !jsonObj.get("domain_name").isJsonNull()) && !jsonObj.get("domain_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `domain_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_name").toString()));
-      }
-      if ((jsonObj.get("saas_alb_arn") != null && !jsonObj.get("saas_alb_arn").isJsonNull()) && !jsonObj.get("saas_alb_arn").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `saas_alb_arn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("saas_alb_arn").toString()));
-      }
-      if (jsonObj.get("endpoint_settings_list") != null && !jsonObj.get("endpoint_settings_list").isJsonNull()) {
-        JsonArray jsonArrayendpointSettingsList = jsonObj.getAsJsonArray("endpoint_settings_list");
-        if (jsonArrayendpointSettingsList != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("endpoint_settings_list").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `endpoint_settings_list` to be an array in the JSON string but got `%s`", jsonObj.get("endpoint_settings_list").toString()));
-          }
 
-          // validate the optional field `endpoint_settings_list` (array)
-          for (int i = 0; i < jsonArrayendpointSettingsList.size(); i++) {
-            EndpointSettings.validateJsonElement(jsonArrayendpointSettingsList.get(i));
-          };
+        // validate the optional field `endpoint_settings_list` (array)
+        for (int i = 0; i < jsonArrayendpointSettingsList.size(); i++) {
+          EndpointSettings.validateJsonElement(jsonArrayendpointSettingsList.get(i));
         }
+        ;
       }
-      // validate the optional field `tenant_routing_type`
-      if (jsonObj.get("tenant_routing_type") != null && !jsonObj.get("tenant_routing_type").isJsonNull()) {
-        TenantRoutingType.validateJsonElement(jsonObj.get("tenant_routing_type"));
-      }
+    }
+    // validate the optional field `tenant_routing_type`
+    if (jsonObj.get("tenant_routing_type") != null && !jsonObj.get("tenant_routing_type").isJsonNull()) {
+      TenantRoutingType.validateJsonElement(jsonObj.get("tenant_routing_type"));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateApiGatewaySettingsParam.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateApiGatewaySettingsParam' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateApiGatewaySettingsParam> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateApiGatewaySettingsParam.class));
+      if (!UpdateApiGatewaySettingsParam.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'UpdateApiGatewaySettingsParam' and its subtypes
+      }
+      final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+      final TypeAdapter<UpdateApiGatewaySettingsParam> thisAdapter = gson.getDelegateAdapter(this,
+          TypeToken.get(UpdateApiGatewaySettingsParam.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UpdateApiGatewaySettingsParam>() {
-           @Override
-           public void write(JsonWriter out, UpdateApiGatewaySettingsParam value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
+      return (TypeAdapter<T>) new TypeAdapter<UpdateApiGatewaySettingsParam>() {
+        @Override
+        public void write(JsonWriter out, UpdateApiGatewaySettingsParam value) throws IOException {
+          JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+          elementAdapter.write(out, obj);
+        }
 
-           @Override
-           public UpdateApiGatewaySettingsParam read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
+        @Override
+        public UpdateApiGatewaySettingsParam read(JsonReader in) throws IOException {
+          JsonElement jsonElement = elementAdapter.read(in);
+          validateJsonElement(jsonElement);
+          return thisAdapter.fromJsonTree(jsonElement);
+        }
 
-       }.nullSafe();
+      }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of UpdateApiGatewaySettingsParam given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of UpdateApiGatewaySettingsParam
-  * @throws IOException if the JSON string is invalid with respect to UpdateApiGatewaySettingsParam
-  */
+  /**
+   * Create an instance of UpdateApiGatewaySettingsParam given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of UpdateApiGatewaySettingsParam
+   * @throws IOException if the JSON string is invalid with respect to
+   *                     UpdateApiGatewaySettingsParam
+   */
   public static UpdateApiGatewaySettingsParam fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, UpdateApiGatewaySettingsParam.class);
   }
 
- /**
-  * Convert an instance of UpdateApiGatewaySettingsParam to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of UpdateApiGatewaySettingsParam to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
 }
-

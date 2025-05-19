@@ -10,8 +10,15 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.api;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.reflect.TypeToken;
 
 import saasus.sdk.apigateway.ApiCallback;
 import saasus.sdk.apigateway.ApiClient;
@@ -19,14 +26,6 @@ import saasus.sdk.apigateway.ApiException;
 import saasus.sdk.apigateway.ApiResponse;
 import saasus.sdk.apigateway.Configuration;
 import saasus.sdk.apigateway.Pair;
-import saasus.sdk.apigateway.ProgressRequestBody;
-import saasus.sdk.apigateway.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
-
 import saasus.sdk.apigateway.models.AllowedIps;
 import saasus.sdk.apigateway.models.ApiGatewayInputFile;
 import saasus.sdk.apigateway.models.ApiGatewaySettings;
@@ -35,16 +34,9 @@ import saasus.sdk.apigateway.models.ApiKey;
 import saasus.sdk.apigateway.models.ApiKeys;
 import saasus.sdk.apigateway.models.CloudFormationLaunchStackLink;
 import saasus.sdk.apigateway.models.CreateApiKeyParam;
-import saasus.sdk.apigateway.models.Error;
 import saasus.sdk.apigateway.models.UpdateAllowedIpsParam;
 import saasus.sdk.apigateway.models.UpdateApiGatewaySettingsParam;
 import saasus.sdk.apigateway.models.UpdateTenantParam;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class SmartApiGatewayApi {
     private ApiClient localVarApiClient;
@@ -85,25 +77,38 @@ public class SmartApiGatewayApi {
 
     /**
      * Build call for createApiGateway
+     * 
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call createApiGatewayCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -121,7 +126,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -136,7 +141,9 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -147,14 +154,28 @@ public class SmartApiGatewayApi {
 
     /**
      * Create the API Gateway
-     * Create the API Gateway. 
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Create the API Gateway.
+     * 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public void createApiGateway() throws ApiException {
         createApiGatewayWithHttpInfo();
@@ -162,15 +183,29 @@ public class SmartApiGatewayApi {
 
     /**
      * Create the API Gateway
-     * Create the API Gateway. 
+     * Create the API Gateway.
+     * 
      * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiResponse<Void> createApiGatewayWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = createApiGatewayValidateBeforeCall(null);
@@ -179,16 +214,30 @@ public class SmartApiGatewayApi {
 
     /**
      * Create the API Gateway (asynchronously)
-     * Create the API Gateway. 
+     * Create the API Gateway.
+     * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call createApiGatewayAsync(final ApiCallback<Void> _callback) throws ApiException {
 
@@ -196,28 +245,43 @@ public class SmartApiGatewayApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for createApiKey
+     * 
      * @param createApiKeyParam Payload for API key creation or update. (required)
-     * @param _callback Callback for upload/download progress
+     * @param _callback         Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>201</td>
+     *                        <td>Created</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call createApiKeyCall(CreateApiKeyParam createApiKeyParam, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createApiKeyCall(CreateApiKeyParam createApiKeyParam, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -235,7 +299,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -243,7 +307,7 @@ public class SmartApiGatewayApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -251,14 +315,18 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createApiKeyValidateBeforeCall(CreateApiKeyParam createApiKeyParam, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createApiKeyValidateBeforeCall(CreateApiKeyParam createApiKeyParam,
+            final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'createApiKeyParam' is set
         if (createApiKeyParam == null) {
-            throw new ApiException("Missing the required parameter 'createApiKeyParam' when calling createApiKey(Async)");
+            throw new ApiException(
+                    "Missing the required parameter 'createApiKeyParam' when calling createApiKey(Async)");
         }
 
         return createApiKeyCall(createApiKeyParam, _callback);
@@ -267,16 +335,32 @@ public class SmartApiGatewayApi {
 
     /**
      * Create an API key
-     * Creates or updates an API key based on the contents of the request body. All parameters are in the request body: - tenant_id, env_id (required) - user_id (optional) 
+     * Creates or updates an API key based on the contents of the request body. All
+     * parameters are in the request body: - tenant_id, env_id (required) - user_id
+     * (optional)
+     * 
      * @param createApiKeyParam Payload for API key creation or update. (required)
      * @return ApiKey
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>201</td>
+     *                        <td>Created</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiKey createApiKey(CreateApiKeyParam createApiKeyParam) throws ApiException {
         ApiResponse<ApiKey> localVarResp = createApiKeyWithHttpInfo(createApiKeyParam);
@@ -285,66 +369,116 @@ public class SmartApiGatewayApi {
 
     /**
      * Create an API key
-     * Creates or updates an API key based on the contents of the request body. All parameters are in the request body: - tenant_id, env_id (required) - user_id (optional) 
+     * Creates or updates an API key based on the contents of the request body. All
+     * parameters are in the request body: - tenant_id, env_id (required) - user_id
+     * (optional)
+     * 
      * @param createApiKeyParam Payload for API key creation or update. (required)
      * @return ApiResponse&lt;ApiKey&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>201</td>
+     *                        <td>Created</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiResponse<ApiKey> createApiKeyWithHttpInfo(CreateApiKeyParam createApiKeyParam) throws ApiException {
         okhttp3.Call localVarCall = createApiKeyValidateBeforeCall(createApiKeyParam, null);
-        Type localVarReturnType = new TypeToken<ApiKey>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiKey>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Create an API key (asynchronously)
-     * Creates or updates an API key based on the contents of the request body. All parameters are in the request body: - tenant_id, env_id (required) - user_id (optional) 
+     * Creates or updates an API key based on the contents of the request body. All
+     * parameters are in the request body: - tenant_id, env_id (required) - user_id
+     * (optional)
+     * 
      * @param createApiKeyParam Payload for API key creation or update. (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * @param _callback         The callback to be executed when the API call
+     *                          finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 201 </td><td> Created </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>201</td>
+     *                        <td>Created</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call createApiKeyAsync(CreateApiKeyParam createApiKeyParam, final ApiCallback<ApiKey> _callback) throws ApiException {
+    public okhttp3.Call createApiKeyAsync(CreateApiKeyParam createApiKeyParam, final ApiCallback<ApiKey> _callback)
+            throws ApiException {
 
         okhttp3.Call localVarCall = createApiKeyValidateBeforeCall(createApiKeyParam, _callback);
-        Type localVarReturnType = new TypeToken<ApiKey>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiKey>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getAllowedIps
-     * @param tenantId Tenant ID (required)
+     * 
+     * @param tenantId  Tenant ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call getAllowedIpsCall(String tenantId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -354,7 +488,7 @@ public class SmartApiGatewayApi {
 
         // create path and map variables
         String localVarPath = "/tenants/{tenant_id}/allowed-ips"
-            .replace("{" + "tenant_id" + "}", localVarApiClient.escapeString(tenantId.toString()));
+                .replace("{" + "tenant_id" + "}", localVarApiClient.escapeString(tenantId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -363,7 +497,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -378,11 +512,14 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAllowedIpsValidateBeforeCall(String tenantId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAllowedIpsValidateBeforeCall(String tenantId, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling getAllowedIps(Async)");
@@ -394,16 +531,30 @@ public class SmartApiGatewayApi {
 
     /**
      * Get allowed IP addresses for the tenant
-     * Get allowed IP addresses for the tenant. 
+     * Get allowed IP addresses for the tenant.
+     * 
      * @param tenantId Tenant ID (required)
      * @return AllowedIps
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public AllowedIps getAllowedIps(String tenantId) throws ApiException {
         ApiResponse<AllowedIps> localVarResp = getAllowedIpsWithHttpInfo(tenantId);
@@ -412,65 +563,110 @@ public class SmartApiGatewayApi {
 
     /**
      * Get allowed IP addresses for the tenant
-     * Get allowed IP addresses for the tenant. 
+     * Get allowed IP addresses for the tenant.
+     * 
      * @param tenantId Tenant ID (required)
      * @return ApiResponse&lt;AllowedIps&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiResponse<AllowedIps> getAllowedIpsWithHttpInfo(String tenantId) throws ApiException {
         okhttp3.Call localVarCall = getAllowedIpsValidateBeforeCall(tenantId, null);
-        Type localVarReturnType = new TypeToken<AllowedIps>(){}.getType();
+        Type localVarReturnType = new TypeToken<AllowedIps>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get allowed IP addresses for the tenant (asynchronously)
-     * Get allowed IP addresses for the tenant. 
-     * @param tenantId Tenant ID (required)
+     * Get allowed IP addresses for the tenant.
+     * 
+     * @param tenantId  Tenant ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call getAllowedIpsAsync(String tenantId, final ApiCallback<AllowedIps> _callback) throws ApiException {
+    public okhttp3.Call getAllowedIpsAsync(String tenantId, final ApiCallback<AllowedIps> _callback)
+            throws ApiException {
 
         okhttp3.Call localVarCall = getAllowedIpsValidateBeforeCall(tenantId, _callback);
-        Type localVarReturnType = new TypeToken<AllowedIps>(){}.getType();
+        Type localVarReturnType = new TypeToken<AllowedIps>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getApiGatewaySettings
+     * 
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call getApiGatewaySettingsCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -488,7 +684,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -503,7 +699,9 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -514,15 +712,29 @@ public class SmartApiGatewayApi {
 
     /**
      * Obtain configuration information for api gateway function
-     * Obtain configuration information for api gateway function. 
+     * Obtain configuration information for api gateway function.
+     * 
      * @return ApiGatewaySettings
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiGatewaySettings getApiGatewaySettings() throws ApiException {
         ApiResponse<ApiGatewaySettings> localVarResp = getApiGatewaySettingsWithHttpInfo();
@@ -531,64 +743,109 @@ public class SmartApiGatewayApi {
 
     /**
      * Obtain configuration information for api gateway function
-     * Obtain configuration information for api gateway function. 
+     * Obtain configuration information for api gateway function.
+     * 
      * @return ApiResponse&lt;ApiGatewaySettings&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiResponse<ApiGatewaySettings> getApiGatewaySettingsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = getApiGatewaySettingsValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<ApiGatewaySettings>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiGatewaySettings>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Obtain configuration information for api gateway function (asynchronously)
-     * Obtain configuration information for api gateway function. 
+     * Obtain configuration information for api gateway function.
+     * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call getApiGatewaySettingsAsync(final ApiCallback<ApiGatewaySettings> _callback) throws ApiException {
+    public okhttp3.Call getApiGatewaySettingsAsync(final ApiCallback<ApiGatewaySettings> _callback)
+            throws ApiException {
 
         okhttp3.Call localVarCall = getApiGatewaySettingsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<ApiGatewaySettings>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiGatewaySettings>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getApiKey
-     * @param apiKey API Key (required)
+     * 
+     * @param apiKey    API Key (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call getApiKeyCall(String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -598,7 +855,7 @@ public class SmartApiGatewayApi {
 
         // create path and map variables
         String localVarPath = "/api-keys/{api_key}"
-            .replace("{" + "api_key" + "}", localVarApiClient.escapeString(apiKey.toString()));
+                .replace("{" + "api_key" + "}", localVarApiClient.escapeString(apiKey.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -607,7 +864,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -622,7 +879,9 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -638,16 +897,30 @@ public class SmartApiGatewayApi {
 
     /**
      * get API key details by API key
-     * Get the details of the API key by specifying the API key. 
+     * Get the details of the API key by specifying the API key.
+     * 
      * @param apiKey API Key (required)
      * @return ApiKey
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiKey getApiKey(String apiKey) throws ApiException {
         ApiResponse<ApiKey> localVarResp = getApiKeyWithHttpInfo(apiKey);
@@ -656,69 +929,118 @@ public class SmartApiGatewayApi {
 
     /**
      * get API key details by API key
-     * Get the details of the API key by specifying the API key. 
+     * Get the details of the API key by specifying the API key.
+     * 
      * @param apiKey API Key (required)
      * @return ApiResponse&lt;ApiKey&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiResponse<ApiKey> getApiKeyWithHttpInfo(String apiKey) throws ApiException {
         okhttp3.Call localVarCall = getApiKeyValidateBeforeCall(apiKey, null);
-        Type localVarReturnType = new TypeToken<ApiKey>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiKey>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * get API key details by API key (asynchronously)
-     * Get the details of the API key by specifying the API key. 
-     * @param apiKey API Key (required)
+     * Get the details of the API key by specifying the API key.
+     * 
+     * @param apiKey    API Key (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call getApiKeyAsync(String apiKey, final ApiCallback<ApiKey> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApiKeyValidateBeforeCall(apiKey, _callback);
-        Type localVarReturnType = new TypeToken<ApiKey>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiKey>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getApiKeys
-     * @param tenantId If specified, the API keys for the target tenant are returned.  (optional)
-     * @param envId If specified, the API keys for the target environment are returned.  (optional)
-     * @param userId If specified, the API keys for the target user (up to 2) are returned.  (optional)
-     * @param tenantOnly If true, only API keys that do not have a User_id specified are returned.  (optional)
-     * @param _callback Callback for upload/download progress
+     * 
+     * @param tenantId   If specified, the API keys for the target tenant are
+     *                   returned. (optional)
+     * @param envId      If specified, the API keys for the target environment are
+     *                   returned. (optional)
+     * @param userId     If specified, the API keys for the target user (up to 2)
+     *                   are returned. (optional)
+     * @param tenantOnly If true, only API keys that do not have a User_id specified
+     *                   are returned. (optional)
+     * @param _callback  Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call getApiKeysCall(String tenantId, Integer envId, String userId, Boolean tenantOnly, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getApiKeysCall(String tenantId, Integer envId, String userId, Boolean tenantOnly,
+            final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -752,7 +1074,7 @@ public class SmartApiGatewayApi {
         }
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -767,30 +1089,58 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getApiKeysValidateBeforeCall(String tenantId, Integer envId, String userId, Boolean tenantOnly, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getApiKeysValidateBeforeCall(String tenantId, Integer envId, String userId, Boolean tenantOnly,
+            final ApiCallback _callback) throws ApiException {
         return getApiKeysCall(tenantId, envId, userId, tenantOnly, _callback);
 
     }
 
     /**
      * API key list or get API key by condition
-     * The response content changes based on the combination of parameters tenant_id, env_id, and user_id. - If tenant_id is not specified, the full list is returned. - If only tenant_id is specified, the API keys within that tenant are returned. - If tenant_id and env_id are specified, the keys are filtered by the environment. - If tenant_id, env_id, and user_id are specified, a complete match returns the API keys for the target user. - Additionally, searching is supported even when only env_id or only user_id are provided. 
-     * @param tenantId If specified, the API keys for the target tenant are returned.  (optional)
-     * @param envId If specified, the API keys for the target environment are returned.  (optional)
-     * @param userId If specified, the API keys for the target user (up to 2) are returned.  (optional)
-     * @param tenantOnly If true, only API keys that do not have a User_id specified are returned.  (optional)
+     * The response content changes based on the combination of parameters
+     * tenant_id, env_id, and user_id. - If tenant_id is not specified, the full
+     * list is returned. - If only tenant_id is specified, the API keys within that
+     * tenant are returned. - If tenant_id and env_id are specified, the keys are
+     * filtered by the environment. - If tenant_id, env_id, and user_id are
+     * specified, a complete match returns the API keys for the target user. -
+     * Additionally, searching is supported even when only env_id or only user_id
+     * are provided.
+     * 
+     * @param tenantId   If specified, the API keys for the target tenant are
+     *                   returned. (optional)
+     * @param envId      If specified, the API keys for the target environment are
+     *                   returned. (optional)
+     * @param userId     If specified, the API keys for the target user (up to 2)
+     *                   are returned. (optional)
+     * @param tenantOnly If true, only API keys that do not have a User_id specified
+     *                   are returned. (optional)
      * @return ApiKeys
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiKeys getApiKeys(String tenantId, Integer envId, String userId, Boolean tenantOnly) throws ApiException {
         ApiResponse<ApiKeys> localVarResp = getApiKeysWithHttpInfo(tenantId, envId, userId, tenantOnly);
@@ -799,71 +1149,139 @@ public class SmartApiGatewayApi {
 
     /**
      * API key list or get API key by condition
-     * The response content changes based on the combination of parameters tenant_id, env_id, and user_id. - If tenant_id is not specified, the full list is returned. - If only tenant_id is specified, the API keys within that tenant are returned. - If tenant_id and env_id are specified, the keys are filtered by the environment. - If tenant_id, env_id, and user_id are specified, a complete match returns the API keys for the target user. - Additionally, searching is supported even when only env_id or only user_id are provided. 
-     * @param tenantId If specified, the API keys for the target tenant are returned.  (optional)
-     * @param envId If specified, the API keys for the target environment are returned.  (optional)
-     * @param userId If specified, the API keys for the target user (up to 2) are returned.  (optional)
-     * @param tenantOnly If true, only API keys that do not have a User_id specified are returned.  (optional)
+     * The response content changes based on the combination of parameters
+     * tenant_id, env_id, and user_id. - If tenant_id is not specified, the full
+     * list is returned. - If only tenant_id is specified, the API keys within that
+     * tenant are returned. - If tenant_id and env_id are specified, the keys are
+     * filtered by the environment. - If tenant_id, env_id, and user_id are
+     * specified, a complete match returns the API keys for the target user. -
+     * Additionally, searching is supported even when only env_id or only user_id
+     * are provided.
+     * 
+     * @param tenantId   If specified, the API keys for the target tenant are
+     *                   returned. (optional)
+     * @param envId      If specified, the API keys for the target environment are
+     *                   returned. (optional)
+     * @param userId     If specified, the API keys for the target user (up to 2)
+     *                   are returned. (optional)
+     * @param tenantOnly If true, only API keys that do not have a User_id specified
+     *                   are returned. (optional)
      * @return ApiResponse&lt;ApiKeys&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public ApiResponse<ApiKeys> getApiKeysWithHttpInfo(String tenantId, Integer envId, String userId, Boolean tenantOnly) throws ApiException {
+    public ApiResponse<ApiKeys> getApiKeysWithHttpInfo(String tenantId, Integer envId, String userId,
+            Boolean tenantOnly) throws ApiException {
         okhttp3.Call localVarCall = getApiKeysValidateBeforeCall(tenantId, envId, userId, tenantOnly, null);
-        Type localVarReturnType = new TypeToken<ApiKeys>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiKeys>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * API key list or get API key by condition (asynchronously)
-     * The response content changes based on the combination of parameters tenant_id, env_id, and user_id. - If tenant_id is not specified, the full list is returned. - If only tenant_id is specified, the API keys within that tenant are returned. - If tenant_id and env_id are specified, the keys are filtered by the environment. - If tenant_id, env_id, and user_id are specified, a complete match returns the API keys for the target user. - Additionally, searching is supported even when only env_id or only user_id are provided. 
-     * @param tenantId If specified, the API keys for the target tenant are returned.  (optional)
-     * @param envId If specified, the API keys for the target environment are returned.  (optional)
-     * @param userId If specified, the API keys for the target user (up to 2) are returned.  (optional)
-     * @param tenantOnly If true, only API keys that do not have a User_id specified are returned.  (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * The response content changes based on the combination of parameters
+     * tenant_id, env_id, and user_id. - If tenant_id is not specified, the full
+     * list is returned. - If only tenant_id is specified, the API keys within that
+     * tenant are returned. - If tenant_id and env_id are specified, the keys are
+     * filtered by the environment. - If tenant_id, env_id, and user_id are
+     * specified, a complete match returns the API keys for the target user. -
+     * Additionally, searching is supported even when only env_id or only user_id
+     * are provided.
+     * 
+     * @param tenantId   If specified, the API keys for the target tenant are
+     *                   returned. (optional)
+     * @param envId      If specified, the API keys for the target environment are
+     *                   returned. (optional)
+     * @param userId     If specified, the API keys for the target user (up to 2)
+     *                   are returned. (optional)
+     * @param tenantOnly If true, only API keys that do not have a User_id specified
+     *                   are returned. (optional)
+     * @param _callback  The callback to be executed when the API call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call getApiKeysAsync(String tenantId, Integer envId, String userId, Boolean tenantOnly, final ApiCallback<ApiKeys> _callback) throws ApiException {
+    public okhttp3.Call getApiKeysAsync(String tenantId, Integer envId, String userId, Boolean tenantOnly,
+            final ApiCallback<ApiKeys> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getApiKeysValidateBeforeCall(tenantId, envId, userId, tenantOnly, _callback);
-        Type localVarReturnType = new TypeToken<ApiKeys>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiKeys>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getCloudFormationLaunchStackLink
+     * 
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call getCloudFormationLaunchStackLinkCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -881,7 +1299,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -896,26 +1314,43 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCloudFormationLaunchStackLinkValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getCloudFormationLaunchStackLinkValidateBeforeCall(final ApiCallback _callback)
+            throws ApiException {
         return getCloudFormationLaunchStackLinkCall(_callback);
 
     }
 
     /**
      * Get the link to create the AWS CloudFormation stack
-     * Get the CloudFormation Quick Create link. 
+     * Get the CloudFormation Quick Create link.
+     * 
      * @return CloudFormationLaunchStackLink
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public CloudFormationLaunchStackLink getCloudFormationLaunchStackLink() throws ApiException {
         ApiResponse<CloudFormationLaunchStackLink> localVarResp = getCloudFormationLaunchStackLinkWithHttpInfo();
@@ -924,64 +1359,110 @@ public class SmartApiGatewayApi {
 
     /**
      * Get the link to create the AWS CloudFormation stack
-     * Get the CloudFormation Quick Create link. 
+     * Get the CloudFormation Quick Create link.
+     * 
      * @return ApiResponse&lt;CloudFormationLaunchStackLink&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public ApiResponse<CloudFormationLaunchStackLink> getCloudFormationLaunchStackLinkWithHttpInfo() throws ApiException {
+    public ApiResponse<CloudFormationLaunchStackLink> getCloudFormationLaunchStackLinkWithHttpInfo()
+            throws ApiException {
         okhttp3.Call localVarCall = getCloudFormationLaunchStackLinkValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<CloudFormationLaunchStackLink>(){}.getType();
+        Type localVarReturnType = new TypeToken<CloudFormationLaunchStackLink>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get the link to create the AWS CloudFormation stack (asynchronously)
-     * Get the CloudFormation Quick Create link. 
+     * Get the CloudFormation Quick Create link.
+     * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call getCloudFormationLaunchStackLinkAsync(final ApiCallback<CloudFormationLaunchStackLink> _callback) throws ApiException {
+    public okhttp3.Call getCloudFormationLaunchStackLinkAsync(
+            final ApiCallback<CloudFormationLaunchStackLink> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getCloudFormationLaunchStackLinkValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<CloudFormationLaunchStackLink>(){}.getType();
+        Type localVarReturnType = new TypeToken<CloudFormationLaunchStackLink>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for getTenant
-     * @param tenantId Tenant ID (required)
+     * 
+     * @param tenantId  Tenant ID (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call getTenantCall(String tenantId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -991,7 +1472,7 @@ public class SmartApiGatewayApi {
 
         // create path and map variables
         String localVarPath = "/tenants/{tenant_id}"
-            .replace("{" + "tenant_id" + "}", localVarApiClient.escapeString(tenantId.toString()));
+                .replace("{" + "tenant_id" + "}", localVarApiClient.escapeString(tenantId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1000,7 +1481,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1015,7 +1496,9 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1031,16 +1514,30 @@ public class SmartApiGatewayApi {
 
     /**
      * Get tenant information
-     * Get tenant information. 
+     * Get tenant information.
+     * 
      * @param tenantId Tenant ID (required)
      * @return ApiGatewayTenant
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiGatewayTenant getTenant(String tenantId) throws ApiException {
         ApiResponse<ApiGatewayTenant> localVarResp = getTenantWithHttpInfo(tenantId);
@@ -1049,65 +1546,110 @@ public class SmartApiGatewayApi {
 
     /**
      * Get tenant information
-     * Get tenant information. 
+     * Get tenant information.
+     * 
      * @param tenantId Tenant ID (required)
      * @return ApiResponse&lt;ApiGatewayTenant&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiResponse<ApiGatewayTenant> getTenantWithHttpInfo(String tenantId) throws ApiException {
         okhttp3.Call localVarCall = getTenantValidateBeforeCall(tenantId, null);
-        Type localVarReturnType = new TypeToken<ApiGatewayTenant>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiGatewayTenant>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Get tenant information (asynchronously)
-     * Get tenant information. 
-     * @param tenantId Tenant ID (required)
+     * Get tenant information.
+     * 
+     * @param tenantId  Tenant ID (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call getTenantAsync(String tenantId, final ApiCallback<ApiGatewayTenant> _callback) throws ApiException {
+    public okhttp3.Call getTenantAsync(String tenantId, final ApiCallback<ApiGatewayTenant> _callback)
+            throws ApiException {
 
         okhttp3.Call localVarCall = getTenantValidateBeforeCall(tenantId, _callback);
-        Type localVarReturnType = new TypeToken<ApiGatewayTenant>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiGatewayTenant>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for publishApiGateway
+     * 
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call publishApiGatewayCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1125,7 +1667,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1140,7 +1682,9 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1151,14 +1695,28 @@ public class SmartApiGatewayApi {
 
     /**
      * Publish the API Gateway
-     * Publish the API Gateway. 
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Publish the API Gateway.
+     * 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public void publishApiGateway() throws ApiException {
         publishApiGatewayWithHttpInfo();
@@ -1166,15 +1724,29 @@ public class SmartApiGatewayApi {
 
     /**
      * Publish the API Gateway
-     * Publish the API Gateway. 
+     * Publish the API Gateway.
+     * 
      * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiResponse<Void> publishApiGatewayWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = publishApiGatewayValidateBeforeCall(null);
@@ -1183,16 +1755,30 @@ public class SmartApiGatewayApi {
 
     /**
      * Publish the API Gateway (asynchronously)
-     * Publish the API Gateway. 
+     * Publish the API Gateway.
+     * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call publishApiGatewayAsync(final ApiCallback<Void> _callback) throws ApiException {
 
@@ -1200,28 +1786,42 @@ public class SmartApiGatewayApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for refreshClientSecret
-     * @param apiKey API Key (required)
+     * 
+     * @param apiKey    API Key (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call refreshClientSecretCall(String apiKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1231,7 +1831,7 @@ public class SmartApiGatewayApi {
 
         // create path and map variables
         String localVarPath = "/api-keys/{api_key}/client-secret"
-            .replace("{" + "api_key" + "}", localVarApiClient.escapeString(apiKey.toString()));
+                .replace("{" + "api_key" + "}", localVarApiClient.escapeString(apiKey.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1240,7 +1840,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1255,11 +1855,14 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call refreshClientSecretValidateBeforeCall(String apiKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call refreshClientSecretValidateBeforeCall(String apiKey, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'apiKey' is set
         if (apiKey == null) {
             throw new ApiException("Missing the required parameter 'apiKey' when calling refreshClientSecret(Async)");
@@ -1271,16 +1874,30 @@ public class SmartApiGatewayApi {
 
     /**
      * Update the client secret of the API key
-     * Update the client secret of the API key. 
+     * Update the client secret of the API key.
+     * 
      * @param apiKey API Key (required)
      * @return ApiKey
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiKey refreshClientSecret(String apiKey) throws ApiException {
         ApiResponse<ApiKey> localVarResp = refreshClientSecretWithHttpInfo(apiKey);
@@ -1289,65 +1906,110 @@ public class SmartApiGatewayApi {
 
     /**
      * Update the client secret of the API key
-     * Update the client secret of the API key. 
+     * Update the client secret of the API key.
+     * 
      * @param apiKey API Key (required)
      * @return ApiResponse&lt;ApiKey&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiResponse<ApiKey> refreshClientSecretWithHttpInfo(String apiKey) throws ApiException {
         okhttp3.Call localVarCall = refreshClientSecretValidateBeforeCall(apiKey, null);
-        Type localVarReturnType = new TypeToken<ApiKey>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiKey>() {
+        }.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Update the client secret of the API key (asynchronously)
-     * Update the client secret of the API key. 
-     * @param apiKey API Key (required)
+     * Update the client secret of the API key.
+     * 
+     * @param apiKey    API Key (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call refreshClientSecretAsync(String apiKey, final ApiCallback<ApiKey> _callback) throws ApiException {
+    public okhttp3.Call refreshClientSecretAsync(String apiKey, final ApiCallback<ApiKey> _callback)
+            throws ApiException {
 
         okhttp3.Call localVarCall = refreshClientSecretValidateBeforeCall(apiKey, _callback);
-        Type localVarReturnType = new TypeToken<ApiKey>(){}.getType();
+        Type localVarReturnType = new TypeToken<ApiKey>() {
+        }.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for unpublishApiGateway
+     * 
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call unpublishApiGatewayCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1365,7 +2027,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1380,7 +2042,9 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
@@ -1391,14 +2055,28 @@ public class SmartApiGatewayApi {
 
     /**
      * Unpublish the API Gateway
-     * Unpublish the API Gateway. 
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Unpublish the API Gateway.
+     * 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public void unpublishApiGateway() throws ApiException {
         unpublishApiGatewayWithHttpInfo();
@@ -1406,15 +2084,29 @@ public class SmartApiGatewayApi {
 
     /**
      * Unpublish the API Gateway
-     * Unpublish the API Gateway. 
+     * Unpublish the API Gateway.
+     * 
      * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public ApiResponse<Void> unpublishApiGatewayWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = unpublishApiGatewayValidateBeforeCall(null);
@@ -1423,16 +2115,30 @@ public class SmartApiGatewayApi {
 
     /**
      * Unpublish the API Gateway (asynchronously)
-     * Unpublish the API Gateway. 
+     * Unpublish the API Gateway.
+     * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public okhttp3.Call unpublishApiGatewayAsync(final ApiCallback<Void> _callback) throws ApiException {
 
@@ -1440,29 +2146,44 @@ public class SmartApiGatewayApi {
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for updateAllowedIps
-     * @param tenantId Tenant ID (required)
-     * @param updateAllowedIpsParam  (required)
-     * @param _callback Callback for upload/download progress
+     * 
+     * @param tenantId              Tenant ID (required)
+     * @param updateAllowedIpsParam (required)
+     * @param _callback             Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call updateAllowedIpsCall(String tenantId, UpdateAllowedIpsParam updateAllowedIpsParam, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAllowedIpsCall(String tenantId, UpdateAllowedIpsParam updateAllowedIpsParam,
+            final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1472,7 +2193,7 @@ public class SmartApiGatewayApi {
 
         // create path and map variables
         String localVarPath = "/tenants/{tenant_id}/allowed-ips"
-            .replace("{" + "tenant_id" + "}", localVarApiClient.escapeString(tenantId.toString()));
+                .replace("{" + "tenant_id" + "}", localVarApiClient.escapeString(tenantId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1481,7 +2202,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1489,7 +2210,7 @@ public class SmartApiGatewayApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1497,11 +2218,14 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAllowedIpsValidateBeforeCall(String tenantId, UpdateAllowedIpsParam updateAllowedIpsParam, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAllowedIpsValidateBeforeCall(String tenantId,
+            UpdateAllowedIpsParam updateAllowedIpsParam, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateAllowedIps(Async)");
@@ -1509,7 +2233,8 @@ public class SmartApiGatewayApi {
 
         // verify the required parameter 'updateAllowedIpsParam' is set
         if (updateAllowedIpsParam == null) {
-            throw new ApiException("Missing the required parameter 'updateAllowedIpsParam' when calling updateAllowedIps(Async)");
+            throw new ApiException(
+                    "Missing the required parameter 'updateAllowedIpsParam' when calling updateAllowedIps(Async)");
         }
 
         return updateAllowedIpsCall(tenantId, updateAllowedIpsParam, _callback);
@@ -1518,16 +2243,30 @@ public class SmartApiGatewayApi {
 
     /**
      * Update allowed IP addresses for the tenant
-     * Update allowed IP addresses for the tenant. 
-     * @param tenantId Tenant ID (required)
-     * @param updateAllowedIpsParam  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Update allowed IP addresses for the tenant.
+     * 
+     * @param tenantId              Tenant ID (required)
+     * @param updateAllowedIpsParam (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public void updateAllowedIps(String tenantId, UpdateAllowedIpsParam updateAllowedIpsParam) throws ApiException {
         updateAllowedIpsWithHttpInfo(tenantId, updateAllowedIpsParam);
@@ -1535,66 +2274,112 @@ public class SmartApiGatewayApi {
 
     /**
      * Update allowed IP addresses for the tenant
-     * Update allowed IP addresses for the tenant. 
-     * @param tenantId Tenant ID (required)
-     * @param updateAllowedIpsParam  (required)
+     * Update allowed IP addresses for the tenant.
+     * 
+     * @param tenantId              Tenant ID (required)
+     * @param updateAllowedIpsParam (required)
      * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public ApiResponse<Void> updateAllowedIpsWithHttpInfo(String tenantId, UpdateAllowedIpsParam updateAllowedIpsParam) throws ApiException {
+    public ApiResponse<Void> updateAllowedIpsWithHttpInfo(String tenantId, UpdateAllowedIpsParam updateAllowedIpsParam)
+            throws ApiException {
         okhttp3.Call localVarCall = updateAllowedIpsValidateBeforeCall(tenantId, updateAllowedIpsParam, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update allowed IP addresses for the tenant (asynchronously)
-     * Update allowed IP addresses for the tenant. 
-     * @param tenantId Tenant ID (required)
-     * @param updateAllowedIpsParam  (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * Update allowed IP addresses for the tenant.
+     * 
+     * @param tenantId              Tenant ID (required)
+     * @param updateAllowedIpsParam (required)
+     * @param _callback             The callback to be executed when the API call
+     *                              finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call updateAllowedIpsAsync(String tenantId, UpdateAllowedIpsParam updateAllowedIpsParam, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateAllowedIpsAsync(String tenantId, UpdateAllowedIpsParam updateAllowedIpsParam,
+            final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateAllowedIpsValidateBeforeCall(tenantId, updateAllowedIpsParam, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for updateApiGatewaySettings
-     * @param updateApiGatewaySettingsParam  (required)
-     * @param _callback Callback for upload/download progress
+     * 
+     * @param updateApiGatewaySettingsParam (required)
+     * @param _callback                     Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call updateApiGatewaySettingsCall(UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateApiGatewaySettingsCall(UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam,
+            final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1612,7 +2397,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1620,7 +2405,7 @@ public class SmartApiGatewayApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1628,14 +2413,19 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateApiGatewaySettingsValidateBeforeCall(UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateApiGatewaySettingsValidateBeforeCall(
+            UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'updateApiGatewaySettingsParam' is set
         if (updateApiGatewaySettingsParam == null) {
-            throw new ApiException("Missing the required parameter 'updateApiGatewaySettingsParam' when calling updateApiGatewaySettings(Async)");
+            throw new ApiException(
+                    "Missing the required parameter 'updateApiGatewaySettingsParam' when calling updateApiGatewaySettings(Async)");
         }
 
         return updateApiGatewaySettingsCall(updateApiGatewaySettingsParam, _callback);
@@ -1644,81 +2434,143 @@ public class SmartApiGatewayApi {
 
     /**
      * Update configuration information for api gateway function
-     * Update configuration information for api gateway function. 
-     * @param updateApiGatewaySettingsParam  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Update configuration information for api gateway function.
+     * 
+     * @param updateApiGatewaySettingsParam (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public void updateApiGatewaySettings(UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam) throws ApiException {
+    public void updateApiGatewaySettings(UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam)
+            throws ApiException {
         updateApiGatewaySettingsWithHttpInfo(updateApiGatewaySettingsParam);
     }
 
     /**
      * Update configuration information for api gateway function
-     * Update configuration information for api gateway function. 
-     * @param updateApiGatewaySettingsParam  (required)
+     * Update configuration information for api gateway function.
+     * 
+     * @param updateApiGatewaySettingsParam (required)
      * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public ApiResponse<Void> updateApiGatewaySettingsWithHttpInfo(UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam) throws ApiException {
+    public ApiResponse<Void> updateApiGatewaySettingsWithHttpInfo(
+            UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam) throws ApiException {
         okhttp3.Call localVarCall = updateApiGatewaySettingsValidateBeforeCall(updateApiGatewaySettingsParam, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update configuration information for api gateway function (asynchronously)
-     * Update configuration information for api gateway function. 
-     * @param updateApiGatewaySettingsParam  (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * Update configuration information for api gateway function.
+     * 
+     * @param updateApiGatewaySettingsParam (required)
+     * @param _callback                     The callback to be executed when the API
+     *                                      call finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call updateApiGatewaySettingsAsync(UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateApiGatewaySettingsAsync(UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam,
+            final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateApiGatewaySettingsValidateBeforeCall(updateApiGatewaySettingsParam, _callback);
+        okhttp3.Call localVarCall = updateApiGatewaySettingsValidateBeforeCall(updateApiGatewaySettingsParam,
+                _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for updateTenant
-     * @param tenantId Tenant ID (required)
-     * @param updateTenantParam  (required)
-     * @param _callback Callback for upload/download progress
+     * 
+     * @param tenantId          Tenant ID (required)
+     * @param updateTenantParam (required)
+     * @param _callback         Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call updateTenantCall(String tenantId, UpdateTenantParam updateTenantParam, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateTenantCall(String tenantId, UpdateTenantParam updateTenantParam,
+            final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1728,7 +2580,7 @@ public class SmartApiGatewayApi {
 
         // create path and map variables
         String localVarPath = "/tenants/{tenant_id}"
-            .replace("{" + "tenant_id" + "}", localVarApiClient.escapeString(tenantId.toString()));
+                .replace("{" + "tenant_id" + "}", localVarApiClient.escapeString(tenantId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1737,7 +2589,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1745,7 +2597,7 @@ public class SmartApiGatewayApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1753,11 +2605,14 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateTenantValidateBeforeCall(String tenantId, UpdateTenantParam updateTenantParam, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateTenantValidateBeforeCall(String tenantId, UpdateTenantParam updateTenantParam,
+            final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'tenantId' is set
         if (tenantId == null) {
             throw new ApiException("Missing the required parameter 'tenantId' when calling updateTenant(Async)");
@@ -1765,7 +2620,8 @@ public class SmartApiGatewayApi {
 
         // verify the required parameter 'updateTenantParam' is set
         if (updateTenantParam == null) {
-            throw new ApiException("Missing the required parameter 'updateTenantParam' when calling updateTenant(Async)");
+            throw new ApiException(
+                    "Missing the required parameter 'updateTenantParam' when calling updateTenant(Async)");
         }
 
         return updateTenantCall(tenantId, updateTenantParam, _callback);
@@ -1774,16 +2630,30 @@ public class SmartApiGatewayApi {
 
     /**
      * Update tenant information
-     * Update tenant information. 
-     * @param tenantId Tenant ID (required)
-     * @param updateTenantParam  (required)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Update tenant information.
+     * 
+     * @param tenantId          Tenant ID (required)
+     * @param updateTenantParam (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public void updateTenant(String tenantId, UpdateTenantParam updateTenantParam) throws ApiException {
         updateTenantWithHttpInfo(tenantId, updateTenantParam);
@@ -1791,66 +2661,112 @@ public class SmartApiGatewayApi {
 
     /**
      * Update tenant information
-     * Update tenant information. 
-     * @param tenantId Tenant ID (required)
-     * @param updateTenantParam  (required)
+     * Update tenant information.
+     * 
+     * @param tenantId          Tenant ID (required)
+     * @param updateTenantParam (required)
      * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public ApiResponse<Void> updateTenantWithHttpInfo(String tenantId, UpdateTenantParam updateTenantParam) throws ApiException {
+    public ApiResponse<Void> updateTenantWithHttpInfo(String tenantId, UpdateTenantParam updateTenantParam)
+            throws ApiException {
         okhttp3.Call localVarCall = updateTenantValidateBeforeCall(tenantId, updateTenantParam, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Update tenant information (asynchronously)
-     * Update tenant information. 
-     * @param tenantId Tenant ID (required)
-     * @param updateTenantParam  (required)
-     * @param _callback The callback to be executed when the API call finishes
+     * Update tenant information.
+     * 
+     * @param tenantId          Tenant ID (required)
+     * @param updateTenantParam (required)
+     * @param _callback         The callback to be executed when the API call
+     *                          finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call updateTenantAsync(String tenantId, UpdateTenantParam updateTenantParam, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call updateTenantAsync(String tenantId, UpdateTenantParam updateTenantParam,
+            final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = updateTenantValidateBeforeCall(tenantId, updateTenantParam, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
+
     /**
      * Build call for uploadGenerationFiles
-     * @param apiGatewayInputFile  (optional)
-     * @param _callback Callback for upload/download progress
+     * 
+     * @param apiGatewayInputFile (optional)
+     * @param _callback           Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call uploadGenerationFilesCall(ApiGatewayInputFile apiGatewayInputFile, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call uploadGenerationFilesCall(ApiGatewayInputFile apiGatewayInputFile, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
-        String[] localBasePaths = new String[] {  };
+        String[] localBasePaths = new String[] {};
 
         // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
+        if (localCustomBaseUrl != null) {
             basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
+        } else if (localBasePaths.length > 0) {
             basePath = localBasePaths[localHostIndex];
         } else {
             basePath = null;
@@ -1868,7 +2784,7 @@ public class SmartApiGatewayApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json"
+                "application/json"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1876,7 +2792,7 @@ public class SmartApiGatewayApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1884,26 +2800,43 @@ public class SmartApiGatewayApi {
         }
 
         String[] localVarAuthNames = new String[] { "Bearer" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams,
+                localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams,
+                localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call uploadGenerationFilesValidateBeforeCall(ApiGatewayInputFile apiGatewayInputFile, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call uploadGenerationFilesValidateBeforeCall(ApiGatewayInputFile apiGatewayInputFile,
+            final ApiCallback _callback) throws ApiException {
         return uploadGenerationFilesCall(apiGatewayInputFile, _callback);
 
     }
 
     /**
      * Upload files to create an API Gateway
-     * Upload files to create an API Gateway 
-     * @param apiGatewayInputFile  (optional)
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * Upload files to create an API Gateway
+     * 
+     * @param apiGatewayInputFile (optional)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
     public void uploadGenerationFiles(ApiGatewayInputFile apiGatewayInputFile) throws ApiException {
         uploadGenerationFilesWithHttpInfo(apiGatewayInputFile);
@@ -1911,37 +2844,68 @@ public class SmartApiGatewayApi {
 
     /**
      * Upload files to create an API Gateway
-     * Upload files to create an API Gateway 
-     * @param apiGatewayInputFile  (optional)
+     * Upload files to create an API Gateway
+     * 
+     * @param apiGatewayInputFile (optional)
      * @return ApiResponse&lt;Void&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @throws ApiException If fail to call the API, e.g. server error or cannot
+     *                      deserialize the response body
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public ApiResponse<Void> uploadGenerationFilesWithHttpInfo(ApiGatewayInputFile apiGatewayInputFile) throws ApiException {
+    public ApiResponse<Void> uploadGenerationFilesWithHttpInfo(ApiGatewayInputFile apiGatewayInputFile)
+            throws ApiException {
         okhttp3.Call localVarCall = uploadGenerationFilesValidateBeforeCall(apiGatewayInputFile, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Upload files to create an API Gateway (asynchronously)
-     * Upload files to create an API Gateway 
-     * @param apiGatewayInputFile  (optional)
-     * @param _callback The callback to be executed when the API call finishes
+     * Upload files to create an API Gateway
+     * 
+     * @param apiGatewayInputFile (optional)
+     * @param _callback           The callback to be executed when the API call
+     *                            finishes
      * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @throws ApiException If fail to process the API call, e.g. serializing the
+     *                      request body object
      * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
+     *                        <table summary="Response Details" border="1">
+     *                        <tr>
+     *                        <td>Status Code</td>
+     *                        <td>Description</td>
+     *                        <td>Response Headers</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>200</td>
+     *                        <td>OK</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        <tr>
+     *                        <td>500</td>
+     *                        <td>Internal Server Error</td>
+     *                        <td>-</td>
+     *                        </tr>
+     *                        </table>
      */
-    public okhttp3.Call uploadGenerationFilesAsync(ApiGatewayInputFile apiGatewayInputFile, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call uploadGenerationFilesAsync(ApiGatewayInputFile apiGatewayInputFile,
+            final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = uploadGenerationFilesValidateBeforeCall(apiGatewayInputFile, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

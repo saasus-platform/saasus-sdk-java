@@ -10,17 +10,16 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.auth;
-
-import saasus.sdk.apigateway.ApiException;
-import saasus.sdk.apigateway.Pair;
 
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Supplier;
+
+import saasus.sdk.apigateway.ApiException;
+import saasus.sdk.apigateway.Pair;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-11T20:38:02.567875254Z[Etc/UTC]")
 public class HttpBearerAuth implements Authentication {
@@ -32,7 +31,8 @@ public class HttpBearerAuth implements Authentication {
   }
 
   /**
-   * Gets the token, which together with the scheme, will be sent as the value of the Authorization header.
+   * Gets the token, which together with the scheme, will be sent as the value of
+   * the Authorization header.
    *
    * @return The bearer token
    */
@@ -41,7 +41,8 @@ public class HttpBearerAuth implements Authentication {
   }
 
   /**
-   * Sets the token, which together with the scheme, will be sent as the value of the Authorization header.
+   * Sets the token, which together with the scheme, will be sent as the value of
+   * the Authorization header.
    *
    * @param bearerToken The bearer token to send in the Authorization header
    */
@@ -50,9 +51,11 @@ public class HttpBearerAuth implements Authentication {
   }
 
   /**
-   * Sets the supplier of tokens, which together with the scheme, will be sent as the value of the Authorization header.
+   * Sets the supplier of tokens, which together with the scheme, will be sent as
+   * the value of the Authorization header.
    *
-   * @param tokenSupplier The supplier of bearer tokens to send in the Authorization header
+   * @param tokenSupplier The supplier of bearer tokens to send in the
+   *                      Authorization header
    */
   public void setBearerToken(Supplier<String> tokenSupplier) {
     this.tokenSupplier = tokenSupplier;
@@ -60,7 +63,7 @@ public class HttpBearerAuth implements Authentication {
 
   @Override
   public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams,
-                            String payload, String method, URI uri) throws ApiException {
+      String payload, String method, URI uri) throws ApiException {
     String bearerToken = Optional.ofNullable(tokenSupplier).map(Supplier::get).orElse(null);
     if (bearerToken == null) {
       return;

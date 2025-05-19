@@ -10,44 +10,29 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.models;
 
-import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import saasus.sdk.apigateway.JSON;
 
 /**
- * Information about tenant routing. Refer to the tenant_routing_type in ApiGatewaySettings and route the request. 
+ * Information about tenant routing. Refer to the tenant_routing_type in
+ * ApiGatewaySettings and route the request.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-11T20:38:02.567875254Z[Etc/UTC]")
 public class TenantRouting {
@@ -75,10 +60,11 @@ public class TenantRouting {
     return this;
   }
 
-   /**
+  /**
    * Path for each tenant
+   * 
    * @return path
-  **/
+   **/
   @javax.annotation.Nullable
   public String getPath() {
     return path;
@@ -88,16 +74,16 @@ public class TenantRouting {
     this.path = path;
   }
 
-
   public TenantRouting headerKey(String headerKey) {
     this.headerKey = headerKey;
     return this;
   }
 
-   /**
+  /**
    * Header key to specify the tenant identifier
+   * 
    * @return headerKey
-  **/
+   **/
   @javax.annotation.Nullable
   public String getHeaderKey() {
     return headerKey;
@@ -107,16 +93,16 @@ public class TenantRouting {
     this.headerKey = headerKey;
   }
 
-
   public TenantRouting headerValue(String headerValue) {
     this.headerValue = headerValue;
     return this;
   }
 
-   /**
+  /**
    * Tenant identifier set in header key
+   * 
    * @return headerValue
-  **/
+   **/
   @javax.annotation.Nullable
   public String getHeaderValue() {
     return headerValue;
@@ -126,16 +112,16 @@ public class TenantRouting {
     this.headerValue = headerValue;
   }
 
-
   public TenantRouting hostName(String hostName) {
     this.hostName = hostName;
     return this;
   }
 
-   /**
+  /**
    * Host Name for each tenant
+   * 
    * @return hostName
-  **/
+   **/
   @javax.annotation.Nullable
   public String getHostName() {
     return hostName;
@@ -144,8 +130,6 @@ public class TenantRouting {
   public void setHostName(String hostName) {
     this.hostName = hostName;
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -190,7 +174,6 @@ public class TenantRouting {
     return o.toString().replace("\n", "\n    ");
   }
 
-
   public static HashSet<String> openapiFields;
   public static HashSet<String> openapiRequiredFields;
 
@@ -206,88 +189,103 @@ public class TenantRouting {
     openapiRequiredFields = new HashSet<String>();
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to TenantRouting
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to
+   *                     TenantRouting
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!TenantRouting.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in TenantRouting is not found in the empty JSON string", TenantRouting.openapiRequiredFields.toString()));
-        }
+    if (jsonElement == null) {
+      if (!TenantRouting.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+        throw new IllegalArgumentException(
+            String.format("The required field(s) %s in TenantRouting is not found in the empty JSON string",
+                TenantRouting.openapiRequiredFields.toString()));
       }
+    }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!TenantRouting.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TenantRouting` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
+    Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+    // check to see if the JSON string contains additional fields
+    for (Map.Entry<String, JsonElement> entry : entries) {
+      if (!TenantRouting.openapiFields.contains(entry.getKey())) {
+        throw new IllegalArgumentException(String.format(
+            "The field `%s` in the JSON string is not defined in the `TenantRouting` properties. JSON: %s",
+            entry.getKey(), jsonElement.toString()));
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
-      }
-      if ((jsonObj.get("header_key") != null && !jsonObj.get("header_key").isJsonNull()) && !jsonObj.get("header_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `header_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("header_key").toString()));
-      }
-      if ((jsonObj.get("header_value") != null && !jsonObj.get("header_value").isJsonNull()) && !jsonObj.get("header_value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `header_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("header_value").toString()));
-      }
-      if ((jsonObj.get("host_name") != null && !jsonObj.get("host_name").isJsonNull()) && !jsonObj.get("host_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `host_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("host_name").toString()));
-      }
+    }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("path").toString()));
+    }
+    if ((jsonObj.get("header_key") != null && !jsonObj.get("header_key").isJsonNull())
+        && !jsonObj.get("header_key").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `header_key` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("header_key").toString()));
+    }
+    if ((jsonObj.get("header_value") != null && !jsonObj.get("header_value").isJsonNull())
+        && !jsonObj.get("header_value").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `header_value` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("header_value").toString()));
+    }
+    if ((jsonObj.get("host_name") != null && !jsonObj.get("host_name").isJsonNull())
+        && !jsonObj.get("host_name").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `host_name` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("host_name").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!TenantRouting.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'TenantRouting' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<TenantRouting> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(TenantRouting.class));
+      if (!TenantRouting.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'TenantRouting' and its subtypes
+      }
+      final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+      final TypeAdapter<TenantRouting> thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(TenantRouting.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<TenantRouting>() {
-           @Override
-           public void write(JsonWriter out, TenantRouting value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
+      return (TypeAdapter<T>) new TypeAdapter<TenantRouting>() {
+        @Override
+        public void write(JsonWriter out, TenantRouting value) throws IOException {
+          JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+          elementAdapter.write(out, obj);
+        }
 
-           @Override
-           public TenantRouting read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
+        @Override
+        public TenantRouting read(JsonReader in) throws IOException {
+          JsonElement jsonElement = elementAdapter.read(in);
+          validateJsonElement(jsonElement);
+          return thisAdapter.fromJsonTree(jsonElement);
+        }
 
-       }.nullSafe();
+      }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of TenantRouting given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of TenantRouting
-  * @throws IOException if the JSON string is invalid with respect to TenantRouting
-  */
+  /**
+   * Create an instance of TenantRouting given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of TenantRouting
+   * @throws IOException if the JSON string is invalid with respect to
+   *                     TenantRouting
+   */
   public static TenantRouting fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, TenantRouting.class);
   }
 
- /**
-  * Convert an instance of TenantRouting to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of TenantRouting to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
 }
-

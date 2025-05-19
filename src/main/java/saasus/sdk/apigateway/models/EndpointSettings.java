@@ -10,42 +10,26 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.models;
 
-import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import saasus.sdk.apigateway.models.Throttling;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
-import com.google.gson.TypeAdapter;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
 import saasus.sdk.apigateway.JSON;
 
@@ -64,21 +48,21 @@ public class EndpointSettings {
   @JsonAdapter(MethodEnum.Adapter.class)
   public enum MethodEnum {
     GET("GET"),
-    
+
     HEAD("HEAD"),
-    
+
     POST("POST"),
-    
+
     PUT("PUT"),
-    
+
     PATCH("PATCH"),
-    
+
     DELETE("DELETE"),
-    
+
     CONNECT("CONNECT"),
-    
+
     OPTIONS("OPTIONS"),
-    
+
     TRACE("TRACE");
 
     private String value;
@@ -113,7 +97,7 @@ public class EndpointSettings {
 
       @Override
       public MethodEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
+        String value = jsonReader.nextString();
         return MethodEnum.fromValue(value);
       }
     }
@@ -144,10 +128,11 @@ public class EndpointSettings {
     return this;
   }
 
-   /**
+  /**
    * Path
+   * 
    * @return path
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getPath() {
     return path;
@@ -157,16 +142,16 @@ public class EndpointSettings {
     this.path = path;
   }
 
-
   public EndpointSettings method(MethodEnum method) {
     this.method = method;
     return this;
   }
 
-   /**
+  /**
    * Method
+   * 
    * @return method
-  **/
+   **/
   @javax.annotation.Nonnull
   public MethodEnum getMethod() {
     return method;
@@ -176,16 +161,16 @@ public class EndpointSettings {
     this.method = method;
   }
 
-
   public EndpointSettings throttling(Throttling throttling) {
     this.throttling = throttling;
     return this;
   }
 
-   /**
+  /**
    * Get throttling
+   * 
    * @return throttling
-  **/
+   **/
   @javax.annotation.Nullable
   public Throttling getThrottling() {
     return throttling;
@@ -194,7 +179,6 @@ public class EndpointSettings {
   public void setThrottling(Throttling throttling) {
     this.throttling = throttling;
   }
-
 
   public EndpointSettings roleNames(List<String> roleNames) {
     this.roleNames = roleNames;
@@ -209,10 +193,11 @@ public class EndpointSettings {
     return this;
   }
 
-   /**
+  /**
    * Role names that can access the endpoint
+   * 
    * @return roleNames
-  **/
+   **/
   @javax.annotation.Nullable
   public List<String> getRoleNames() {
     return roleNames;
@@ -221,8 +206,6 @@ public class EndpointSettings {
   public void setRoleNames(List<String> roleNames) {
     this.roleNames = roleNames;
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -267,7 +250,6 @@ public class EndpointSettings {
     return o.toString().replace("\n", "\n    ");
   }
 
-
   public static HashSet<String> openapiFields;
   public static HashSet<String> openapiRequiredFields;
 
@@ -285,99 +267,113 @@ public class EndpointSettings {
     openapiRequiredFields.add("method");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to EndpointSettings
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to
+   *                     EndpointSettings
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!EndpointSettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in EndpointSettings is not found in the empty JSON string", EndpointSettings.openapiRequiredFields.toString()));
-        }
+    if (jsonElement == null) {
+      if (!EndpointSettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+        throw new IllegalArgumentException(
+            String.format("The required field(s) %s in EndpointSettings is not found in the empty JSON string",
+                EndpointSettings.openapiRequiredFields.toString()));
       }
+    }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!EndpointSettings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EndpointSettings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
+    Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+    // check to see if the JSON string contains additional fields
+    for (Map.Entry<String, JsonElement> entry : entries) {
+      if (!EndpointSettings.openapiFields.contains(entry.getKey())) {
+        throw new IllegalArgumentException(String.format(
+            "The field `%s` in the JSON string is not defined in the `EndpointSettings` properties. JSON: %s",
+            entry.getKey(), jsonElement.toString()));
       }
+    }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : EndpointSettings.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
+    // check to make sure all required properties/fields are present in the JSON
+    // string
+    for (String requiredField : EndpointSettings.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s",
+            requiredField, jsonElement.toString()));
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("path").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
-      }
-      if (!jsonObj.get("method").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `method` to be a primitive type in the JSON string but got `%s`", jsonObj.get("method").toString()));
-      }
-      // validate the required field `method`
-      MethodEnum.validateJsonElement(jsonObj.get("method"));
-      // validate the optional field `throttling`
-      if (jsonObj.get("throttling") != null && !jsonObj.get("throttling").isJsonNull()) {
-        Throttling.validateJsonElement(jsonObj.get("throttling"));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("role_names") != null && !jsonObj.get("role_names").isJsonNull() && !jsonObj.get("role_names").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `role_names` to be an array in the JSON string but got `%s`", jsonObj.get("role_names").toString()));
-      }
+    }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("path").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("path").toString()));
+    }
+    if (!jsonObj.get("method").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `method` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("method").toString()));
+    }
+    // validate the required field `method`
+    MethodEnum.validateJsonElement(jsonObj.get("method"));
+    // validate the optional field `throttling`
+    if (jsonObj.get("throttling") != null && !jsonObj.get("throttling").isJsonNull()) {
+      Throttling.validateJsonElement(jsonObj.get("throttling"));
+    }
+    // ensure the optional json data is an array if present
+    if (jsonObj.get("role_names") != null && !jsonObj.get("role_names").isJsonNull()
+        && !jsonObj.get("role_names").isJsonArray()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `role_names` to be an array in the JSON string but got `%s`",
+              jsonObj.get("role_names").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!EndpointSettings.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'EndpointSettings' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<EndpointSettings> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(EndpointSettings.class));
+      if (!EndpointSettings.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'EndpointSettings' and its subtypes
+      }
+      final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+      final TypeAdapter<EndpointSettings> thisAdapter = gson.getDelegateAdapter(this,
+          TypeToken.get(EndpointSettings.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<EndpointSettings>() {
-           @Override
-           public void write(JsonWriter out, EndpointSettings value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
+      return (TypeAdapter<T>) new TypeAdapter<EndpointSettings>() {
+        @Override
+        public void write(JsonWriter out, EndpointSettings value) throws IOException {
+          JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+          elementAdapter.write(out, obj);
+        }
 
-           @Override
-           public EndpointSettings read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
+        @Override
+        public EndpointSettings read(JsonReader in) throws IOException {
+          JsonElement jsonElement = elementAdapter.read(in);
+          validateJsonElement(jsonElement);
+          return thisAdapter.fromJsonTree(jsonElement);
+        }
 
-       }.nullSafe();
+      }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of EndpointSettings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of EndpointSettings
-  * @throws IOException if the JSON string is invalid with respect to EndpointSettings
-  */
+  /**
+   * Create an instance of EndpointSettings given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of EndpointSettings
+   * @throws IOException if the JSON string is invalid with respect to
+   *                     EndpointSettings
+   */
   public static EndpointSettings fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, EndpointSettings.class);
   }
 
- /**
-  * Convert an instance of EndpointSettings to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of EndpointSettings to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
 }
-

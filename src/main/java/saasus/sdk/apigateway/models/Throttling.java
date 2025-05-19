@@ -10,44 +10,30 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.models;
 
-import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import saasus.sdk.apigateway.JSON;
 
 /**
- * Permit requests up to the limit number of times within a range (seconds) time for each target.
+ * Permit requests up to the limit number of times within a range (seconds) time
+ * for each target.
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-11T20:38:02.567875254Z[Etc/UTC]")
 public class Throttling {
@@ -57,7 +43,7 @@ public class Throttling {
   @JsonAdapter(TargetEnum.Adapter.class)
   public enum TargetEnum {
     TENANT("tenant"),
-    
+
     USER("user");
 
     private String value;
@@ -92,7 +78,7 @@ public class Throttling {
 
       @Override
       public TargetEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
+        String value = jsonReader.nextString();
         return TargetEnum.fromValue(value);
       }
     }
@@ -123,10 +109,11 @@ public class Throttling {
     return this;
   }
 
-   /**
+  /**
    * Target of restriction
+   * 
    * @return target
-  **/
+   **/
   @javax.annotation.Nonnull
   public TargetEnum getTarget() {
     return target;
@@ -136,18 +123,18 @@ public class Throttling {
     this.target = target;
   }
 
-
   public Throttling range(Integer range) {
     this.range = range;
     return this;
   }
 
-   /**
+  /**
    * Throttling time range (seconds)
    * minimum: 60
    * maximum: 31536000
+   * 
    * @return range
-  **/
+   **/
   @javax.annotation.Nonnull
   public Integer getRange() {
     return range;
@@ -157,16 +144,16 @@ public class Throttling {
     this.range = range;
   }
 
-
   public Throttling limit(Integer limit) {
     this.limit = limit;
     return this;
   }
 
-   /**
+  /**
    * Throttling limit
+   * 
    * @return limit
-  **/
+   **/
   @javax.annotation.Nonnull
   public Integer getLimit() {
     return limit;
@@ -175,8 +162,6 @@ public class Throttling {
   public void setLimit(Integer limit) {
     this.limit = limit;
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -219,7 +204,6 @@ public class Throttling {
     return o.toString().replace("\n", "\n    ");
   }
 
-
   public static HashSet<String> openapiFields;
   public static HashSet<String> openapiRequiredFields;
 
@@ -237,88 +221,94 @@ public class Throttling {
     openapiRequiredFields.add("limit");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to Throttling
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Throttling
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!Throttling.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Throttling is not found in the empty JSON string", Throttling.openapiRequiredFields.toString()));
-        }
+    if (jsonElement == null) {
+      if (!Throttling.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+        throw new IllegalArgumentException(
+            String.format("The required field(s) %s in Throttling is not found in the empty JSON string",
+                Throttling.openapiRequiredFields.toString()));
       }
+    }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!Throttling.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Throttling` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
+    Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+    // check to see if the JSON string contains additional fields
+    for (Map.Entry<String, JsonElement> entry : entries) {
+      if (!Throttling.openapiFields.contains(entry.getKey())) {
+        throw new IllegalArgumentException(
+            String.format("The field `%s` in the JSON string is not defined in the `Throttling` properties. JSON: %s",
+                entry.getKey(), jsonElement.toString()));
       }
+    }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Throttling.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
+    // check to make sure all required properties/fields are present in the JSON
+    // string
+    for (String requiredField : Throttling.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s",
+            requiredField, jsonElement.toString()));
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("target").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target").toString()));
-      }
-      // validate the required field `target`
-      TargetEnum.validateJsonElement(jsonObj.get("target"));
+    }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("target").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `target` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("target").toString()));
+    }
+    // validate the required field `target`
+    TargetEnum.validateJsonElement(jsonObj.get("target"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Throttling.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Throttling' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Throttling> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Throttling.class));
+      if (!Throttling.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'Throttling' and its subtypes
+      }
+      final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+      final TypeAdapter<Throttling> thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(Throttling.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Throttling>() {
-           @Override
-           public void write(JsonWriter out, Throttling value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
+      return (TypeAdapter<T>) new TypeAdapter<Throttling>() {
+        @Override
+        public void write(JsonWriter out, Throttling value) throws IOException {
+          JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+          elementAdapter.write(out, obj);
+        }
 
-           @Override
-           public Throttling read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
+        @Override
+        public Throttling read(JsonReader in) throws IOException {
+          JsonElement jsonElement = elementAdapter.read(in);
+          validateJsonElement(jsonElement);
+          return thisAdapter.fromJsonTree(jsonElement);
+        }
 
-       }.nullSafe();
+      }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of Throttling given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Throttling
-  * @throws IOException if the JSON string is invalid with respect to Throttling
-  */
+  /**
+   * Create an instance of Throttling given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Throttling
+   * @throws IOException if the JSON string is invalid with respect to Throttling
+   */
   public static Throttling fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Throttling.class);
   }
 
- /**
-  * Convert an instance of Throttling to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Throttling to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
 }
-

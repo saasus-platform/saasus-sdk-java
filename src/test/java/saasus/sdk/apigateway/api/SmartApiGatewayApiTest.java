@@ -10,8 +10,10 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.api;
+
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import saasus.sdk.apigateway.ApiException;
 import saasus.sdk.apigateway.models.AllowedIps;
@@ -22,17 +24,9 @@ import saasus.sdk.apigateway.models.ApiKey;
 import saasus.sdk.apigateway.models.ApiKeys;
 import saasus.sdk.apigateway.models.CloudFormationLaunchStackLink;
 import saasus.sdk.apigateway.models.CreateApiKeyParam;
-import saasus.sdk.apigateway.models.Error;
 import saasus.sdk.apigateway.models.UpdateAllowedIpsParam;
 import saasus.sdk.apigateway.models.UpdateApiGatewaySettingsParam;
 import saasus.sdk.apigateway.models.UpdateTenantParam;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for SmartApiGatewayApi
@@ -45,7 +39,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Create the API Gateway
      *
-     * Create the API Gateway. 
+     * Create the API Gateway.
      *
      * @throws ApiException if the Api call fails
      */
@@ -58,7 +52,9 @@ public class SmartApiGatewayApiTest {
     /**
      * Create an API key
      *
-     * Creates or updates an API key based on the contents of the request body. All parameters are in the request body: - tenant_id, env_id (required) - user_id (optional) 
+     * Creates or updates an API key based on the contents of the request body. All
+     * parameters are in the request body: - tenant_id, env_id (required) - user_id
+     * (optional)
      *
      * @throws ApiException if the Api call fails
      */
@@ -72,7 +68,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Get allowed IP addresses for the tenant
      *
-     * Get allowed IP addresses for the tenant. 
+     * Get allowed IP addresses for the tenant.
      *
      * @throws ApiException if the Api call fails
      */
@@ -86,7 +82,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Obtain configuration information for api gateway function
      *
-     * Obtain configuration information for api gateway function. 
+     * Obtain configuration information for api gateway function.
      *
      * @throws ApiException if the Api call fails
      */
@@ -99,7 +95,7 @@ public class SmartApiGatewayApiTest {
     /**
      * get API key details by API key
      *
-     * Get the details of the API key by specifying the API key. 
+     * Get the details of the API key by specifying the API key.
      *
      * @throws ApiException if the Api call fails
      */
@@ -113,7 +109,14 @@ public class SmartApiGatewayApiTest {
     /**
      * API key list or get API key by condition
      *
-     * The response content changes based on the combination of parameters tenant_id, env_id, and user_id. - If tenant_id is not specified, the full list is returned. - If only tenant_id is specified, the API keys within that tenant are returned. - If tenant_id and env_id are specified, the keys are filtered by the environment. - If tenant_id, env_id, and user_id are specified, a complete match returns the API keys for the target user. - Additionally, searching is supported even when only env_id or only user_id are provided. 
+     * The response content changes based on the combination of parameters
+     * tenant_id, env_id, and user_id. - If tenant_id is not specified, the full
+     * list is returned. - If only tenant_id is specified, the API keys within that
+     * tenant are returned. - If tenant_id and env_id are specified, the keys are
+     * filtered by the environment. - If tenant_id, env_id, and user_id are
+     * specified, a complete match returns the API keys for the target user. -
+     * Additionally, searching is supported even when only env_id or only user_id
+     * are provided.
      *
      * @throws ApiException if the Api call fails
      */
@@ -130,7 +133,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Get the link to create the AWS CloudFormation stack
      *
-     * Get the CloudFormation Quick Create link. 
+     * Get the CloudFormation Quick Create link.
      *
      * @throws ApiException if the Api call fails
      */
@@ -143,7 +146,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Get tenant information
      *
-     * Get tenant information. 
+     * Get tenant information.
      *
      * @throws ApiException if the Api call fails
      */
@@ -157,7 +160,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Publish the API Gateway
      *
-     * Publish the API Gateway. 
+     * Publish the API Gateway.
      *
      * @throws ApiException if the Api call fails
      */
@@ -170,7 +173,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Update the client secret of the API key
      *
-     * Update the client secret of the API key. 
+     * Update the client secret of the API key.
      *
      * @throws ApiException if the Api call fails
      */
@@ -184,7 +187,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Unpublish the API Gateway
      *
-     * Unpublish the API Gateway. 
+     * Unpublish the API Gateway.
      *
      * @throws ApiException if the Api call fails
      */
@@ -197,7 +200,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Update allowed IP addresses for the tenant
      *
-     * Update allowed IP addresses for the tenant. 
+     * Update allowed IP addresses for the tenant.
      *
      * @throws ApiException if the Api call fails
      */
@@ -212,7 +215,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Update configuration information for api gateway function
      *
-     * Update configuration information for api gateway function. 
+     * Update configuration information for api gateway function.
      *
      * @throws ApiException if the Api call fails
      */
@@ -226,7 +229,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Update tenant information
      *
-     * Update tenant information. 
+     * Update tenant information.
      *
      * @throws ApiException if the Api call fails
      */
@@ -241,7 +244,7 @@ public class SmartApiGatewayApiTest {
     /**
      * Upload files to create an API Gateway
      *
-     * Upload files to create an API Gateway 
+     * Upload files to create an API Gateway
      *
      * @throws ApiException if the Api call fails
      */

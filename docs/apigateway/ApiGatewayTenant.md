@@ -1,14 +1,9 @@
-
-
 # ApiGatewayTenant
-
 
 ## Properties
 
-| Name | Type | Description | Notes |
-|------------ | ------------- | ------------- | -------------|
-|**id** | **String** |  |  |
-|**routing** | [**TenantRouting**](TenantRouting.md) |  |  |
-
-
-
+| Name           | Type                                  | Description                         | Notes |
+| -------------- | ------------------------------------- | ----------------------------------- | ----- |
+| **id**         | **String**                            |                                     |       |
+| **allowedIps** | **List&lt;String&gt;**                | Allowed IP addresses in CIDR format |       |
+| **routing**    | [**TenantRouting**](TenantRouting.md) |                                     |       |

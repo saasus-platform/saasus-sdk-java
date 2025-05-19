@@ -10,39 +10,23 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.models;
 
-import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
-import com.google.gson.TypeAdapterFactory;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.TypeAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import java.io.IOException;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 import saasus.sdk.apigateway.JSON;
 
@@ -79,10 +63,11 @@ public class ApiKey {
     return this;
   }
 
-   /**
+  /**
    * API Key
+   * 
    * @return apiKey
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getApiKey() {
     return apiKey;
@@ -92,16 +77,16 @@ public class ApiKey {
     this.apiKey = apiKey;
   }
 
-
   public ApiKey clientSecret(String clientSecret) {
     this.clientSecret = clientSecret;
     return this;
   }
 
-   /**
+  /**
    * Client secret
+   * 
    * @return clientSecret
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getClientSecret() {
     return clientSecret;
@@ -111,16 +96,16 @@ public class ApiKey {
     this.clientSecret = clientSecret;
   }
 
-
   public ApiKey tenantId(String tenantId) {
     this.tenantId = tenantId;
     return this;
   }
 
-   /**
+  /**
    * Get tenantId
+   * 
    * @return tenantId
-  **/
+   **/
   @javax.annotation.Nonnull
   public String getTenantId() {
     return tenantId;
@@ -130,16 +115,16 @@ public class ApiKey {
     this.tenantId = tenantId;
   }
 
-
   public ApiKey envId(Integer envId) {
     this.envId = envId;
     return this;
   }
 
-   /**
+  /**
    * Get envId
+   * 
    * @return envId
-  **/
+   **/
   @javax.annotation.Nonnull
   public Integer getEnvId() {
     return envId;
@@ -149,16 +134,16 @@ public class ApiKey {
     this.envId = envId;
   }
 
-
   public ApiKey userId(String userId) {
     this.userId = userId;
     return this;
   }
 
-   /**
+  /**
    * Get userId
+   * 
    * @return userId
-  **/
+   **/
   @javax.annotation.Nullable
   public String getUserId() {
     return userId;
@@ -167,8 +152,6 @@ public class ApiKey {
   public void setUserId(String userId) {
     this.userId = userId;
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -215,7 +198,6 @@ public class ApiKey {
     return o.toString().replace("\n", "\n    ");
   }
 
-
   public static HashSet<String> openapiFields;
   public static HashSet<String> openapiRequiredFields;
 
@@ -236,95 +218,108 @@ public class ApiKey {
     openapiRequiredFields.add("env_id");
   }
 
- /**
-  * Validates the JSON Element and throws an exception if issues found
-  *
-  * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to ApiKey
-  */
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to ApiKey
+   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ApiKey.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in ApiKey is not found in the empty JSON string", ApiKey.openapiRequiredFields.toString()));
-        }
+    if (jsonElement == null) {
+      if (!ApiKey.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+        throw new IllegalArgumentException(
+            String.format("The required field(s) %s in ApiKey is not found in the empty JSON string",
+                ApiKey.openapiRequiredFields.toString()));
       }
+    }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
-      // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!ApiKey.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ApiKey` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
-        }
+    Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+    // check to see if the JSON string contains additional fields
+    for (Map.Entry<String, JsonElement> entry : entries) {
+      if (!ApiKey.openapiFields.contains(entry.getKey())) {
+        throw new IllegalArgumentException(
+            String.format("The field `%s` in the JSON string is not defined in the `ApiKey` properties. JSON: %s",
+                entry.getKey(), jsonElement.toString()));
       }
+    }
 
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : ApiKey.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
+    // check to make sure all required properties/fields are present in the JSON
+    // string
+    for (String requiredField : ApiKey.openapiRequiredFields) {
+      if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+        throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s",
+            requiredField, jsonElement.toString()));
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("api_key").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `api_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("api_key").toString()));
-      }
-      if (!jsonObj.get("client_secret").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `client_secret` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_secret").toString()));
-      }
-      if (!jsonObj.get("tenant_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `tenant_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tenant_id").toString()));
-      }
-      if ((jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonNull()) && !jsonObj.get("user_id").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
-      }
+    }
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (!jsonObj.get("api_key").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `api_key` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("api_key").toString()));
+    }
+    if (!jsonObj.get("client_secret").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `client_secret` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("client_secret").toString()));
+    }
+    if (!jsonObj.get("tenant_id").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `tenant_id` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("tenant_id").toString()));
+    }
+    if ((jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonNull())
+        && !jsonObj.get("user_id").isJsonPrimitive()) {
+      throw new IllegalArgumentException(
+          String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`",
+              jsonObj.get("user_id").toString()));
+    }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!ApiKey.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'ApiKey' and its subtypes
-       }
-       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<ApiKey> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(ApiKey.class));
+      if (!ApiKey.class.isAssignableFrom(type.getRawType())) {
+        return null; // this class only serializes 'ApiKey' and its subtypes
+      }
+      final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+      final TypeAdapter<ApiKey> thisAdapter = gson.getDelegateAdapter(this, TypeToken.get(ApiKey.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<ApiKey>() {
-           @Override
-           public void write(JsonWriter out, ApiKey value) throws IOException {
-             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-             elementAdapter.write(out, obj);
-           }
+      return (TypeAdapter<T>) new TypeAdapter<ApiKey>() {
+        @Override
+        public void write(JsonWriter out, ApiKey value) throws IOException {
+          JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+          elementAdapter.write(out, obj);
+        }
 
-           @Override
-           public ApiKey read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
-           }
+        @Override
+        public ApiKey read(JsonReader in) throws IOException {
+          JsonElement jsonElement = elementAdapter.read(in);
+          validateJsonElement(jsonElement);
+          return thisAdapter.fromJsonTree(jsonElement);
+        }
 
-       }.nullSafe();
+      }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of ApiKey given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of ApiKey
-  * @throws IOException if the JSON string is invalid with respect to ApiKey
-  */
+  /**
+   * Create an instance of ApiKey given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of ApiKey
+   * @throws IOException if the JSON string is invalid with respect to ApiKey
+   */
   public static ApiKey fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ApiKey.class);
   }
 
- /**
-  * Convert an instance of ApiKey to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of ApiKey to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }
 }
-

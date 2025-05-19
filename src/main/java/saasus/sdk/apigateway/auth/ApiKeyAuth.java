@@ -10,15 +10,14 @@
  * Do not edit the class manually.
  */
 
-
 package saasus.sdk.apigateway.auth;
+
+import java.net.URI;
+import java.util.List;
+import java.util.Map;
 
 import saasus.sdk.apigateway.ApiException;
 import saasus.sdk.apigateway.Pair;
-
-import java.net.URI;
-import java.util.Map;
-import java.util.List;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-11T20:38:02.567875254Z[Etc/UTC]")
 public class ApiKeyAuth implements Authentication {
@@ -59,7 +58,7 @@ public class ApiKeyAuth implements Authentication {
 
   @Override
   public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams,
-                           String payload, String method, URI uri) throws ApiException {
+      String payload, String method, URI uri) throws ApiException {
     if (apiKey == null) {
       return;
     }
