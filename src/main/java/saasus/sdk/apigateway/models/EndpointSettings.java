@@ -52,7 +52,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * Settings per endpoint
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:41.421804217Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-26T00:29:00.145193009Z[Etc/UTC]")
 public class EndpointSettings {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)
@@ -135,6 +135,10 @@ public class EndpointSettings {
   public static final String SERIALIZED_NAME_ROLE_NAMES = "role_names";
   @SerializedName(SERIALIZED_NAME_ROLE_NAMES)
   private List<String> roleNames;
+
+  public static final String SERIALIZED_NAME_MAPPING_ENDPOINT_ID = "mapping_endpoint_id";
+  @SerializedName(SERIALIZED_NAME_MAPPING_ENDPOINT_ID)
+  private String mappingEndpointId;
 
   public EndpointSettings() {
   }
@@ -231,6 +235,25 @@ public class EndpointSettings {
   }
 
 
+  public EndpointSettings mappingEndpointId(String mappingEndpointId) {
+    this.mappingEndpointId = mappingEndpointId;
+    return this;
+  }
+
+   /**
+   * Identifier for the function to be executed when calling the API
+   * @return mappingEndpointId
+  **/
+  @javax.annotation.Nonnull
+  public String getMappingEndpointId() {
+    return mappingEndpointId;
+  }
+
+  public void setMappingEndpointId(String mappingEndpointId) {
+    this.mappingEndpointId = mappingEndpointId;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -244,12 +267,13 @@ public class EndpointSettings {
     return Objects.equals(this.path, endpointSettings.path) &&
         Objects.equals(this.method, endpointSettings.method) &&
         Objects.equals(this.throttlings, endpointSettings.throttlings) &&
-        Objects.equals(this.roleNames, endpointSettings.roleNames);
+        Objects.equals(this.roleNames, endpointSettings.roleNames) &&
+        Objects.equals(this.mappingEndpointId, endpointSettings.mappingEndpointId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(path, method, throttlings, roleNames);
+    return Objects.hash(path, method, throttlings, roleNames, mappingEndpointId);
   }
 
   @Override
@@ -260,6 +284,7 @@ public class EndpointSettings {
     sb.append("    method: ").append(toIndentedString(method)).append("\n");
     sb.append("    throttlings: ").append(toIndentedString(throttlings)).append("\n");
     sb.append("    roleNames: ").append(toIndentedString(roleNames)).append("\n");
+    sb.append("    mappingEndpointId: ").append(toIndentedString(mappingEndpointId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -286,12 +311,14 @@ public class EndpointSettings {
     openapiFields.add("method");
     openapiFields.add("throttlings");
     openapiFields.add("role_names");
+    openapiFields.add("mapping_endpoint_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("path");
     openapiRequiredFields.add("method");
     openapiRequiredFields.add("throttlings");
+    openapiRequiredFields.add("mapping_endpoint_id");
   }
 
  /**
@@ -343,6 +370,9 @@ public class EndpointSettings {
       // ensure the optional json data is an array if present
       if (jsonObj.get("role_names") != null && !jsonObj.get("role_names").isJsonNull() && !jsonObj.get("role_names").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `role_names` to be an array in the JSON string but got `%s`", jsonObj.get("role_names").toString()));
+      }
+      if (!jsonObj.get("mapping_endpoint_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mapping_endpoint_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mapping_endpoint_id").toString()));
       }
   }
 

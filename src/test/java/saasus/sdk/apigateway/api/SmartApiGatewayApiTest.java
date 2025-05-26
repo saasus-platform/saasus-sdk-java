@@ -23,6 +23,7 @@ import saasus.sdk.apigateway.models.CloudFormationLaunchStackLink;
 import saasus.sdk.apigateway.models.CreateApiKeyParam;
 import saasus.sdk.apigateway.models.Error;
 import saasus.sdk.apigateway.models.UpdateApiGatewaySettingsParam;
+import saasus.sdk.apigateway.models.UpdateOpenApiDefinitionParam;
 import saasus.sdk.apigateway.models.UpdateTenantParam;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -189,6 +190,20 @@ public class SmartApiGatewayApiTest {
     public void updateApiGatewaySettingsTest() throws ApiException {
         UpdateApiGatewaySettingsParam updateApiGatewaySettingsParam = null;
         api.updateApiGatewaySettings(updateApiGatewaySettingsParam);
+        // TODO: test validations
+    }
+
+    /**
+     * Update OpenAPI definition file
+     *
+     * Update OpenAPI definition file. The OpenAPI definition file is used for automatically generated documentation. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateOpenApiDefinitionTest() throws ApiException {
+        UpdateOpenApiDefinitionParam updateOpenApiDefinitionParam = null;
+        api.updateOpenApiDefinition(updateOpenApiDefinitionParam);
         // TODO: test validations
     }
 

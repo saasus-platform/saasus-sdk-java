@@ -15,6 +15,7 @@ All URIs are relative to *https://api.saasus.io/v1/apigateway*
 | [**refreshClientSecret**](SmartApiGatewayApi.md#refreshClientSecret) | **POST** /api-keys/{api_key}/client-secret | Update the client secret of the API key |
 | [**unpublishApiGateway**](SmartApiGatewayApi.md#unpublishApiGateway) | **POST** /unpublish | Unpublish the API Gateway |
 | [**updateApiGatewaySettings**](SmartApiGatewayApi.md#updateApiGatewaySettings) | **PATCH** /settings | Update configuration information for api gateway function |
+| [**updateOpenApiDefinition**](SmartApiGatewayApi.md#updateOpenApiDefinition) | **PUT** /settings/open-api-definition | Update OpenAPI definition file |
 | [**updateTenant**](SmartApiGatewayApi.md#updateTenant) | **PATCH** /tenants/{tenant_id} | Update tenant information |
 | [**uploadGenerationFiles**](SmartApiGatewayApi.md#uploadGenerationFiles) | **POST** /upload | Upload files to create an API Gateway |
 
@@ -729,6 +730,73 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **updateApiGatewaySettingsParam** | [**UpdateApiGatewaySettingsParam**](UpdateApiGatewaySettingsParam.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="updateOpenApiDefinition"></a>
+# **updateOpenApiDefinition**
+> updateOpenApiDefinition(updateOpenApiDefinitionParam)
+
+Update OpenAPI definition file
+
+Update OpenAPI definition file. The OpenAPI definition file is used for automatically generated documentation. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.apigateway.ApiClient;
+import saasus.sdk.apigateway.ApiException;
+import saasus.sdk.apigateway.Configuration;
+import saasus.sdk.apigateway.auth.*;
+import saasus.sdk.apigateway.models.*;
+import saasus.sdk.apigateway.api.SmartApiGatewayApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/apigateway");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(defaultClient);
+    UpdateOpenApiDefinitionParam updateOpenApiDefinitionParam = new UpdateOpenApiDefinitionParam(); // UpdateOpenApiDefinitionParam | 
+    try {
+      apiInstance.updateOpenApiDefinition(updateOpenApiDefinitionParam);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SmartApiGatewayApi#updateOpenApiDefinition");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **updateOpenApiDefinitionParam** | [**UpdateOpenApiDefinitionParam**](UpdateOpenApiDefinitionParam.md)|  | |
 
 ### Return type
 
