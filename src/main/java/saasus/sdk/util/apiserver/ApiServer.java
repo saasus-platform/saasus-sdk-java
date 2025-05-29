@@ -93,6 +93,9 @@ public class ApiServer {
             System.out.println("  Host: " + requestHost);
             System.out.println("  Path: " + rawPath);
             System.out.println("  Query: " + query);
+
+            // routing type "path"の場合、テナント識別子を除去する必要がある
+            String adjustedPath = rawPath;
             String pathWithQuery = query != null && !query.isEmpty() ? rawPath + "?" + query : rawPath;
 
             // 初期値として現在のホストとパスを使用
@@ -110,24 +113,6 @@ public class ApiServer {
             System.out.println("  ベースURL: " + apiClient.getBasePath());
             System.out.println("  タイムアウト設定: " + apiClient.getReadTimeout() + "ms");
             System.out.println("  接続タイムアウト: " + apiClient.getConnectTimeout() + "ms");
-
-            // 認証情報の詳細確認
-            try {
-                saasus.sdk.apigateway.auth.Authentication auth = apiClient.getAuthentication("Bearer");
-                System.out.println("  認証情報: " + auth);
-                if (auth instanceof saasus.sdk.apigateway.auth.HttpBearerAuth) {
-                    saasus.sdk.apigateway.auth.HttpBearerAuth bearerAuth = (saasus.sdk.apigateway.auth.HttpBearerAuth) auth;
-                    String token = bearerAuth.getBearerToken();
-                    if (token != null && !token.isEmpty()) {
-                        System.out.println("  Bearerトークン: " + token.substring(0, Math.min(token.length(), 20)) + "...");
-                    } else {
-                        System.out.println("  ⚠️  Bearerトークンが設定されていません");
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println("  認証情報の取得に失敗: " + e.getMessage());
-                e.printStackTrace();
-            }
 
             // 環境変数の確認
             System.out.println("\n環境変数確認:");
@@ -155,9 +140,10 @@ public class ApiServer {
 
                 System.out.println("✅ API Gateway設定の取得に成功");
                 System.out.println("設定内容:");
-                System.out.println("  テナントルーティングタイプ: " +
-                        (settings.getTenantRoutingType() != null ? settings.getTenantRoutingType().getValue()
-                                : "null"));
+                String tenantRoutingType = settings.getTenantRoutingType() != null
+                        ? settings.getTenantRoutingType().getValue()
+                        : "null";
+                System.out.println("  テナントルーティングタイプ: " + tenantRoutingType);
                 System.out.println("  RestApiEndpoint: " + settings.getRestApiEndpoint());
                 System.out.println("  DomainName: " + settings.getDomainName());
                 System.out.println("  CloudFrontDnsRecord: " +
@@ -165,6 +151,38 @@ public class ApiServer {
                                 : "null"));
                 System.out
                         .println("  InternalEndpointHealthCheckPort: " + settings.getInternalEndpointHealthCheckPort());
+
+                // routing type "path"の場合、テナント識別子をパスから除去
+                if ("path".equals(tenantRoutingType)) {
+                    System.out.println("\n=== Routing Type Path 処理 ===");
+                    System.out.println("元のrawPath: " + rawPath);
+
+                    // xApiKeyからテナント情報を取得
+                    String xApiKey = exchange.getRequestHeaders().getFirst("x-api-key");
+                    if (xApiKey != null) {
+                        try {
+                            String routingValue = getRoutingValue(xApiKey);
+                            if (routingValue != null && !routingValue.isEmpty()) {
+                                System.out.println("テナントルーティング値: " + routingValue);
+
+                                if (rawPath.contains("/" + routingValue + "/")) {
+                                    adjustedPath = rawPath.replace("/" + routingValue, "");
+                                    System.out.println("調整後のrawPath: " + adjustedPath);
+
+                                    // pathWithQueryも更新
+                                    pathWithQuery = query != null && !query.isEmpty() ? adjustedPath + "?" + query
+                                            : adjustedPath;
+                                    verificationPath = requestHost + pathWithQuery;
+                                    System.out.println("調整後のverificationPath: " + verificationPath);
+                                } else {
+                                    System.out.println("⚠️ パスにテナントルーティング値が含まれていません");
+                                }
+                            }
+                        } catch (Exception e) {
+                            System.out.println("⚠️ テナントルーティング値の取得に失敗: " + e.getMessage());
+                        }
+                    }
+                }
 
                 // ここで変換後のpathから変換前のpathを取得する
                 String originalPath = null;
@@ -174,13 +192,13 @@ public class ApiServer {
 
                 // 現在のrawPathに対応するEndpointSettingsを検索
                 System.out.println("🔍 マッピング検索中:");
-                System.out.println("  検索対象rawPath: '" + rawPath + "'");
+                System.out.println("  検索対象rawPath: '" + adjustedPath + "'");
                 for (saasus.sdk.apigateway.models.EndpointSettings endpoint : endpointSettingsList) {
                     String mappingId = endpoint.getMappingEndpointId();
                     System.out.println("  比較対象mappingEndpointId: '" + mappingId + "'");
 
-                    // rawPathから先頭の「/」を除去して比較
-                    String normalizedRawPath = rawPath.startsWith("/") ? rawPath.substring(1) : rawPath;
+                    // adjustedPathから先頭の「/」を除去して比較
+                    String normalizedRawPath = adjustedPath.startsWith("/") ? adjustedPath.substring(1) : adjustedPath;
                     System.out.println("  正規化されたrawPath: '" + normalizedRawPath + "'");
 
                     if (mappingId.equals(normalizedRawPath) || normalizedRawPath.startsWith(mappingId)) {
@@ -200,7 +218,7 @@ public class ApiServer {
                     verificationPath = requestHost + originalPathWithQuery;
                     System.out.println("元のパスを使用した検証パス: " + verificationPath);
                 } else {
-                    System.out.println("警告: 変換前のパスが見つかりませんでした。現在のパスを使用します: " + rawPath);
+                    System.out.println("警告: 変換前のパスが見つかりませんでした。現在のパスを使用します: " + adjustedPath);
                 }
 
                 Integer healthCheckPort = settings.getInternalEndpointHealthCheckPort();
