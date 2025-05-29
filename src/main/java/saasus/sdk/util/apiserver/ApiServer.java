@@ -18,6 +18,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -35,358 +38,172 @@ import saasus.sdk.apigateway.api.SmartApiGatewayApi;
 import saasus.sdk.apigateway.models.ApiGatewaySettings;
 import saasus.sdk.apigateway.models.ApiGatewayTenant;
 import saasus.sdk.apigateway.models.ApiKey;
-import saasus.sdk.apigateway.models.TenantRouting;
 import saasus.sdk.modules.ApiGatewayApiClient;
 import saasus.sdk.modules.Configuration;
 
 public class ApiServer {
-    private static String clientSecret;
+    private static final Logger logger = Logger.getLogger(ApiServer.class.getName());
+    private static final ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
+    private static final Configuration configuration = new Configuration();
+    private static final boolean DEBUG = Boolean.parseBoolean(System.getenv().getOrDefault("SAASUS_DEBUG", "false"));
 
-    private static String fetchClientSecret(String apiKey) {
-        if (apiKey == null || apiKey.trim().isEmpty()) {
-            return null;
+    // キャッシュ関連
+    private static final long CACHE_DURATION = 300_000; // 5分
+    private static final Map<String, CachedApiData> apiDataCache = new ConcurrentHashMap<>();
+
+    private static class CachedApiData {
+        final ApiGatewaySettings settings;
+        final ApiKey apiKey;
+        final ApiGatewayTenant tenant;
+        final long timestamp;
+
+        CachedApiData(ApiGatewaySettings settings, ApiKey apiKey, ApiGatewayTenant tenant) {
+            this.settings = settings;
+            this.apiKey = apiKey;
+            this.tenant = tenant;
+            this.timestamp = System.currentTimeMillis();
         }
 
-        try {
-            ApiGatewayApiClient apiClient = new Configuration().getApiGatewayApiClient();
-            SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(apiClient);
-
-            ApiKey response = apiInstance.getApiKey(apiKey);
-
-            clientSecret = response.getClientSecret();
-            return clientSecret;
-
-        } catch (Exception e) {
-            System.out.println("クライアントシークレットの取得に失敗しました:");
-            System.out.println("  エラータイプ: " + e.getClass().getName());
-            System.out.println("  メッセージ: " + e.getMessage());
-            e.printStackTrace();
-            return null;
+        boolean isExpired() {
+            return System.currentTimeMillis() - timestamp > CACHE_DURATION;
         }
     }
 
-    private static final ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
-
     public static void start(int port) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-
         server.createContext("/", new DynamicHandler());
-        server.setExecutor(null); // デフォルトのエグゼキューターを使用
+        server.setExecutor(null);
         server.start();
-
-        System.out.println("#################### Server is listening on port " + port);
+        logger.info("Server is listening on port " + port);
     }
 
     static class DynamicHandler implements HttpHandler {
         private final Map<String, Class<?>> classCache = new HashMap<>();
         private final Map<String, Method> methodCache = new HashMap<>();
 
-        private boolean verifySignature(HttpExchange exchange) {
-            System.out.println("\n=== 署名検証開始 ===");
+        private CachedApiData getApiData(String apiKey) throws ApiException {
+            // キャッシュから取得
+            CachedApiData cached = apiDataCache.get(apiKey);
+            if (cached != null && !cached.isExpired()) {
+                if (DEBUG)
+                    logger.info("Using cached API data for key: " + apiKey);
+                return cached;
+            }
+
+            // キャッシュが無効または期限切れの場合、新しいデータを取得
+            if (DEBUG)
+                logger.info("Fetching fresh API data for key: " + apiKey);
+
+            ApiGatewayApiClient apiClient = configuration.getApiGatewayApiClient();
+            SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(apiClient);
+
+            try {
+                // 一度に必要なデータを全て取得
+                ApiGatewaySettings settings = apiInstance.getApiGatewaySettings();
+                ApiKey apiKeyObj = apiInstance.getApiKey(apiKey);
+                ApiGatewayTenant tenant = apiInstance.getTenant(apiKeyObj.getTenantId());
+
+                CachedApiData newData = new CachedApiData(settings, apiKeyObj, tenant);
+                apiDataCache.put(apiKey, newData);
+
+                return newData;
+            } catch (ApiException e) {
+                if (e.getCode() == 404 || e.getCode() == 501) {
+                    logger.warning("API Gateway settings not available: " + e.getMessage());
+                    return null;
+                }
+                throw e;
+            }
+        }
+
+        private boolean verifySignature(HttpExchange exchange, CachedApiData apiData) {
+            if (DEBUG)
+                logger.info("Starting signature verification");
+
             String method = exchange.getRequestMethod();
             String requestHost = exchange.getRequestHeaders().getFirst("Host");
             String rawPath = exchange.getRequestURI().getRawPath();
             String query = exchange.getRequestURI().getRawQuery();
-
-            System.out.println("検証情報:");
-            System.out.println("  Method: " + method);
-            System.out.println("  Host: " + requestHost);
-            System.out.println("  Path: " + rawPath);
-            System.out.println("  Query: " + query);
-
-            // routing type "path"の場合、テナント識別子を除去する必要がある
-            String adjustedPath = rawPath;
-            String pathWithQuery = query != null && !query.isEmpty() ? rawPath + "?" + query : rawPath;
-
-            // 初期値として現在のホストとパスを使用
-            String verificationPath = requestHost + pathWithQuery;
-            System.out.println("verificationPath: " + verificationPath);
-
-            // 署名検証候補パスのリスト（スコープを広げるためここで宣言）
-            List<String> candidateVerificationPaths = new ArrayList<>();
-
-            System.out.println("\n=== API Gateway設定取得処理 ===");
-
-            System.out.println("1. ApiGatewayApiClient構築");
-            Configuration config = new Configuration();
-            ApiGatewayApiClient apiClient = config.getApiGatewayApiClient();
-            System.out.println("  ベースURL: " + apiClient.getBasePath());
-            System.out.println("  タイムアウト設定: " + apiClient.getReadTimeout() + "ms");
-            System.out.println("  接続タイムアウト: " + apiClient.getConnectTimeout() + "ms");
-
-            // 環境変数の確認
-            System.out.println("\n環境変数確認:");
-            System.out.println("  SAASUS_API_KEY: " + (System.getenv("SAASUS_API_KEY") != null ? "設定済み" : "未設定"));
-            System.out.println("  SAASUS_SECRET_KEY: " + (System.getenv("SAASUS_SECRET_KEY") != null ? "設定済み" : "未設定"));
-            System.out.println("  SAASUS_SAAS_ID: " + (System.getenv("SAASUS_SAAS_ID") != null ? "設定済み" : "未設定"));
-
-            System.out.println("\n2. SmartApiGatewayApiインスタンス作成");
-            SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(apiClient);
-
-            System.out.println("\n3. getApiGatewaySettings呼び出し開始");
-            System.out.println("  呼び出しURL: " + apiClient.getBasePath() + "/api-gateway/settings");
-            ApiGatewaySettings settings = null;
-            try {
-                // API呼び出しの時間計測
-                long startTime = System.currentTimeMillis();
-                settings = apiInstance.getApiGatewaySettings();
-                long endTime = System.currentTimeMillis();
-                System.out.println("  API呼び出し完了時間: " + (endTime - startTime) + "ms");
-
-                if (settings == null) {
-                    System.out.println("❌ API Gateway設定が見つかりません（レスポンスがnull）");
-                    return false;
-                }
-
-                System.out.println("✅ API Gateway設定の取得に成功");
-                System.out.println("設定内容:");
-                String tenantRoutingType = settings.getTenantRoutingType() != null
-                        ? settings.getTenantRoutingType().getValue()
-                        : "null";
-                System.out.println("  テナントルーティングタイプ: " + tenantRoutingType);
-                System.out.println("  RestApiEndpoint: " + settings.getRestApiEndpoint());
-                System.out.println("  DomainName: " + settings.getDomainName());
-                System.out.println("  CloudFrontDnsRecord: " +
-                        (settings.getCloudFrontDnsRecord() != null ? settings.getCloudFrontDnsRecord().getValue()
-                                : "null"));
-                System.out
-                        .println("  InternalEndpointHealthCheckPort: " + settings.getInternalEndpointHealthCheckPort());
-
-                // routing type "path"の場合、テナント識別子をパスから除去
-                if ("path".equals(tenantRoutingType)) {
-                    System.out.println("\n=== Routing Type Path 処理 ===");
-                    System.out.println("元のrawPath: " + rawPath);
-
-                    // xApiKeyからテナント情報を取得
-                    String xApiKey = exchange.getRequestHeaders().getFirst("x-api-key");
-                    if (xApiKey != null) {
-                        try {
-                            String routingValue = getRoutingValue(xApiKey);
-                            if (routingValue != null && !routingValue.isEmpty()) {
-                                System.out.println("テナントルーティング値: " + routingValue);
-
-                                if (rawPath.contains("/" + routingValue + "/")) {
-                                    adjustedPath = rawPath.replace("/" + routingValue, "");
-                                    System.out.println("調整後のrawPath: " + adjustedPath);
-
-                                    // pathWithQueryも更新
-                                    pathWithQuery = query != null && !query.isEmpty() ? adjustedPath + "?" + query
-                                            : adjustedPath;
-                                    verificationPath = requestHost + pathWithQuery;
-                                    System.out.println("調整後のverificationPath: " + verificationPath);
-                                } else {
-                                    System.out.println("⚠️ パスにテナントルーティング値が含まれていません");
-                                }
-                            }
-                        } catch (Exception e) {
-                            System.out.println("⚠️ テナントルーティング値の取得に失敗: " + e.getMessage());
-                        }
-                    }
-                }
-
-                // ここで変換後のpathから変換前のpathを取得する
-                String originalPath = null;
-                List<saasus.sdk.apigateway.models.EndpointSettings> endpointSettingsList = settings
-                        .getEndpointSettingsList();
-                System.out.println("endpoint list: " + endpointSettingsList);
-
-                // 現在のrawPathに対応するEndpointSettingsを検索
-                System.out.println("🔍 マッピング検索中:");
-                System.out.println("  検索対象rawPath: '" + adjustedPath + "'");
-                for (saasus.sdk.apigateway.models.EndpointSettings endpoint : endpointSettingsList) {
-                    String mappingId = endpoint.getMappingEndpointId();
-                    System.out.println("  比較対象mappingEndpointId: '" + mappingId + "'");
-
-                    // adjustedPathから先頭の「/」を除去して比較
-                    String normalizedRawPath = adjustedPath.startsWith("/") ? adjustedPath.substring(1) : adjustedPath;
-                    System.out.println("  正規化されたrawPath: '" + normalizedRawPath + "'");
-
-                    if (mappingId.equals(normalizedRawPath) || normalizedRawPath.startsWith(mappingId)) {
-                        originalPath = endpoint.getPath();
-                        System.out.println("マッピング発見:");
-                        System.out.println("  変換後のpath (mappingEndpointId): " + endpoint.getMappingEndpointId());
-                        System.out.println("  変換前のpath (path): " + originalPath);
-                        System.out.println("  メソッド: " + endpoint.getMethod().getValue());
-                        break;
-                    }
-                }
-
-                // 元のパスが見つかった場合、検証パスを更新
-                if (originalPath != null) {
-                    String originalPathWithQuery = query != null && !query.isEmpty() ? originalPath + "?" + query
-                            : originalPath;
-                    verificationPath = requestHost + originalPathWithQuery;
-                    System.out.println("元のパスを使用した検証パス: " + verificationPath);
-                } else {
-                    System.out.println("警告: 変換前のパスが見つかりませんでした。現在のパスを使用します: " + adjustedPath);
-                }
-
-                Integer healthCheckPort = settings.getInternalEndpointHealthCheckPort();
-
-                // マッピング後のパスを使用してpathWithQueryを再構築
-                String finalPathWithQuery;
-                if (originalPath != null) {
-                    finalPathWithQuery = query != null && !query.isEmpty() ? originalPath + "?" + query : originalPath;
-                    System.out.println("🔄 マッピング適用後のpathWithQuery: " + finalPathWithQuery);
-                } else {
-                    finalPathWithQuery = pathWithQuery;
-                    System.out.println("📝 マッピングなし、元のpathWithQueryを使用: " + finalPathWithQuery);
-                }
-
-                // 候補となるホストを取得
-                List<String> possibleHosts = new ArrayList<>();
-                if (settings.getCloudFrontDnsRecord() != null && settings.getCloudFrontDnsRecord().getValue() != null) {
-                    possibleHosts.add(settings.getCloudFrontDnsRecord().getValue());
-                }
-                if (settings.getRestApiEndpoint() != null) {
-                    possibleHosts.add(settings.getRestApiEndpoint());
-                }
-                if (settings.getDomainName() != null) {
-                    possibleHosts.add(settings.getDomainName());
-                }
-                System.out.println("possibleHosts: " + possibleHosts);
-
-                // 全てのホスト候補で署名検証を試行
-                candidateVerificationPaths.add(requestHost + finalPathWithQuery); // 元のリクエストホスト
-
-                for (String host : possibleHosts) {
-                    String candidatePath;
-                    // CloudFrontドメイン、REST API
-                    // エンドポイント、カスタムドメイン（getDomainName）の場合はHTTPSとして扱い、ポート番号を付加しない
-                    if (host.contains(settings.getCloudFrontDnsRecord().getValue()) ||
-                            host.contains(settings.getRestApiEndpoint()) ||
-                            host.contains(settings.getDomainName())) {
-                        candidatePath = host + finalPathWithQuery;
-                        System.out.println("🌐 HTTPS Endpoint（ポート番号なし）: " + candidatePath);
-                    } else {
-                        candidatePath = host + healthCheckPort + finalPathWithQuery;
-                        System.out.println("🔍 内部エンドポイント（ポート番号付き）: " + candidatePath);
-                    }
-                    candidateVerificationPaths.add(candidatePath);
-                }
-
-                System.out.println("📋 署名検証候補パス一覧:");
-                for (int i = 0; i < candidateVerificationPaths.size(); i++) {
-                    System.out.println("  " + (i + 1) + ". " + candidateVerificationPaths.get(i));
-                }
-
-            } catch (ApiException e) {
-                System.out.println("❌ API呼び出しでエラー発生:");
-                System.out.println("  ステータスコード: " + e.getCode());
-                System.out.println("  レスポンスボディ: " + e.getResponseBody());
-                System.out.println("  エラーメッセージ: " + e.getMessage());
-
-                // レスポンスヘッダーの詳細表示
-                System.out.println("  レスポンスヘッダー:");
-                if (e.getResponseHeaders() != null) {
-                    for (Map.Entry<String, java.util.List<String>> header : e.getResponseHeaders().entrySet()) {
-                        System.out.println("    " + header.getKey() + ": " + header.getValue());
-                    }
-                } else {
-                    System.out.println("    ヘッダー情報なし");
-                }
-
-                // 詳細なエラー解析
-                System.out.println("\n詳細なエラー解析:");
-                if (e.getCode() == 401) {
-                    System.out.println("  🔐 認証エラー: APIキーまたはトークンが無効です");
-                    System.out.println("     - SAASUS_API_KEY環境変数が正しく設定されているか確認してください");
-                    System.out.println("     - APIキーの有効期限が切れていないか確認してください");
-                    return false;
-                } else if (e.getCode() == 403) {
-                    System.out.println("  🚫 認可エラー: このリソースへのアクセス権限がありません");
-                    System.out.println("     - SaaS IDが正しく設定されているか確認してください");
-                    System.out.println("     - APIキーに適切な権限が付与されているか確認してください");
-                    return false;
-                } else if (e.getCode() == 404) {
-                    System.out.println("  🔍 リソースが見つかりません");
-                    System.out.println("     - API Gatewayの設定が存在しない可能性があります");
-                    System.out.println("  ⚠️  エンドポイントマッピングなしで署名検証を続行します");
-                } else if (e.getCode() == 500) {
-                    System.out.println("  🔥 サーバー内部エラー: SaaSus側でエラーが発生しています");
-                    return false;
-                } else if (e.getCode() == 501) {
-                    System.out.println("  ⚠️  API Gateway設定が利用できません（501 Not Implemented）");
-                    System.out.println("     - この機能がまだ実装されていない可能性があります");
-                    System.out.println("  ⚠️  エンドポイントマッピングなしで署名検証を続行します");
-                } else if (e.getCode() == 502 || e.getCode() == 503 || e.getCode() == 504) {
-                    System.out.println("  🌐 ネットワークエラー: SaaSusサービスへの接続に問題があります");
-                    System.out.println("     - インターネット接続を確認してください");
-                    System.out.println("     - ファイアウォール設定を確認してください");
-                    return false;
-                }
-
-                System.out.println("   現在のパスを使用して署名検証を続行: " + rawPath);
-                e.printStackTrace();
-            }
-
-            // 署名検証のためのホストとパスの組み合わせを確認
-            System.out.println("署名検証に使用するホストとパス: " + verificationPath);
-
-            // APIキーを先に取得してclient_secretの有無を確認
             String apiKey = exchange.getRequestHeaders().getFirst("x-api-key");
-            System.out.println("\n=== APIキー確認 ===");
-            System.out.println("x-api-keyヘッダーの値: " + apiKey);
 
-            try {
-                clientSecret = fetchClientSecret(apiKey);
-                System.out.println("client secret: " + clientSecret);
-                if (clientSecret == null || clientSecret.trim().isEmpty()) {
-                    System.out.println("\n⚠️  クライアントシークレットが利用できません");
-                    System.out.println("APIキー: " + apiKey);
-                    System.out.println("署名検証をスキップして処理を続行します");
-                    return true;
-                }
-                System.out.println("✅ クライアントシークレットの取得に成功しました");
-            } catch (Exception e) {
-                System.out.println("⚠️  クライアントシークレット取得中にエラーが発生しました: " + e.getMessage());
-                System.out.println("署名検証をスキップして処理を続行します");
+            if (apiData == null || apiData.apiKey.getClientSecret() == null
+                    || apiData.apiKey.getClientSecret().isEmpty()) {
+                if (DEBUG)
+                    logger.warning("Client secret not available, skipping signature verification");
                 return true;
             }
 
-            System.out.println("\n=== Authorization ヘッダー解析 ===");
-            String authHeader = exchange.getRequestHeaders().getFirst("Authorization");
-            System.out.println("Authorization ヘッダー: " + authHeader);
+            String adjustedPath = rawPath;
+            String pathWithQuery = query != null && !query.isEmpty() ? rawPath + "?" + query : rawPath;
 
+            // テナントルーティングの処理
+            if (apiData.settings != null && "path".equals(apiData.settings.getTenantRoutingType().getValue())) {
+                if (apiData.tenant != null && apiData.tenant.getRouting() != null) {
+                    String routingValue = apiData.tenant.getRouting().getPath();
+                    if (routingValue != null && rawPath.contains("/" + routingValue + "/")) {
+                        adjustedPath = rawPath.replace("/" + routingValue, "");
+                        pathWithQuery = query != null && !query.isEmpty() ? adjustedPath + "?" + query : adjustedPath;
+                        if (DEBUG)
+                            logger.info("Applied tenant routing: " + routingValue);
+                    } else {
+                        if (DEBUG)
+                            logger.info("Tenant routing path '" + routingValue + "' not found in rawPath '" + rawPath
+                                    + "', using original path");
+                    }
+                }
+            }
+
+            // エンドポイントマッピングの確認
+            String verificationPath = requestHost + pathWithQuery;
+            if (apiData.settings != null && apiData.settings.getEndpointSettingsList() != null) {
+                for (saasus.sdk.apigateway.models.EndpointSettings endpoint : apiData.settings
+                        .getEndpointSettingsList()) {
+                    String normalizedPath = adjustedPath.startsWith("/") ? adjustedPath.substring(1) : adjustedPath;
+                    if (endpoint.getMappingEndpointId().equals(normalizedPath) ||
+                            normalizedPath.startsWith(endpoint.getMappingEndpointId())) {
+                        String originalPath = endpoint.getPath();
+                        String originalPathWithQuery = query != null && !query.isEmpty() ? originalPath + "?" + query
+                                : originalPath;
+                        verificationPath = requestHost + originalPathWithQuery;
+                        break;
+                    }
+                }
+            }
+
+            // Authorization ヘッダーの解析
+            String authHeader = exchange.getRequestHeaders().getFirst("Authorization");
             if (authHeader == null || authHeader.isEmpty()) {
-                System.err.println("❌ Authorization ヘッダーが存在しないか空です");
+                if (DEBUG)
+                    logger.warning("Authorization header missing");
                 return false;
             }
 
             Pattern pattern = Pattern.compile("^SAASUSSIGV1 Sig=([^,]+),\\s*APIKey=([^,]+)$");
             Matcher matcher = pattern.matcher(authHeader);
             if (!matcher.matches()) {
-                System.err.println("❌ Authorization ヘッダーのフォーマットが不正です");
-                System.err.println("期待されるフォーマット: SAASUSSIGV1 Sig=<signature>,APIKey=<apikey>");
+                if (DEBUG)
+                    logger.warning("Invalid Authorization header format");
                 return false;
             }
 
             String signature = matcher.group(1);
             String headerApiKey = matcher.group(2);
 
-            System.out.println("ヘッダー解析結果:");
-            System.out.println("  署名: " + signature);
-            System.out.println("  APIキー: " + headerApiKey);
-
-            System.out.println("\nAPIキー検証:");
-            System.out.println("  Authorization内のAPIキー: " + headerApiKey);
-            System.out.println("  x-api-keyヘッダーの値: " + apiKey);
-
             if (!headerApiKey.equals(apiKey)) {
-                System.err.println("❌ APIキーが一致しません");
+                if (DEBUG)
+                    logger.warning("API key mismatch");
                 return false;
             }
-            System.out.println("✅ APIキーの検証成功");
 
-            // 既に上の部分でcandidateVerificationPathsが定義されているので、それを使用
-            // フォールバックとして現在のverificationPathが含まれていることを確認
-            if (!candidateVerificationPaths.contains(verificationPath)) {
-                candidateVerificationPaths.add(verificationPath);
-                System.out.println("🔍 フォールバック用に現在の検証パスを追加: " + verificationPath);
-            }
+            // リクエストボディの読み取り
+            byte[] requestBody = readRequestBody(exchange);
 
-            // リクエストボディを事前に読み取り（複数回使用するため）
-            byte[] requestBody = new byte[0];
+            // 署名検証
+            return verifySignatureWithCandidates(verificationPath, signature, apiKey,
+                    apiData.apiKey.getClientSecret(), method, requestBody, apiData.settings);
+        }
+
+        private byte[] readRequestBody(HttpExchange exchange) {
             try {
                 InputStream is = exchange.getRequestBody();
                 ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -396,18 +213,39 @@ public class ApiServer {
                     buffer.write(data, 0, nRead);
                 }
                 buffer.flush();
-                requestBody = buffer.toByteArray();
+                return buffer.toByteArray();
             } catch (IOException e) {
-                System.out.println("リクエストボディ読み取りエラー: " + e.getMessage());
+                if (DEBUG)
+                    logger.warning("Failed to read request body: " + e.getMessage());
+                return new byte[0];
+            }
+        }
+
+        private boolean verifySignatureWithCandidates(String primaryPath, String signature,
+                String apiKey, String clientSecret, String method, byte[] requestBody,
+                ApiGatewaySettings settings) {
+
+            List<String> candidatePaths = new ArrayList<>();
+            candidatePaths.add(primaryPath);
+
+            // 追加の候補パスを生成
+            if (settings != null) {
+                String pathPart = primaryPath.substring(primaryPath.indexOf("/"));
+                if (settings.getCloudFrontDnsRecord() != null) {
+                    candidatePaths.add(settings.getCloudFrontDnsRecord().getValue() + pathPart);
+                }
+                if (settings.getRestApiEndpoint() != null) {
+                    candidatePaths.add(settings.getRestApiEndpoint() + pathPart);
+                }
+                if (settings.getDomainName() != null) {
+                    candidatePaths.add(settings.getDomainName() + pathPart);
+                }
             }
 
             Date now = new Date();
             int timeWindow = 1;
 
-            // 全ての候補パスで署名検証を試行
-            for (String candidatePath : candidateVerificationPaths) {
-                System.out.println("\n🎯 候補パスでの署名検証: " + candidatePath);
-
+            for (String candidatePath : candidatePaths) {
                 for (int i = -timeWindow; i <= timeWindow; i++) {
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(now);
@@ -419,16 +257,11 @@ public class ApiServer {
                     String timestamp = sdf.format(adjustedTime);
 
                     try {
-                        System.out.println(
-                                "\n=== 署名計算（パス: " + candidatePath.substring(0, Math.min(50, candidatePath.length()))
-                                        + "..., タイムスタンプ: " + timestamp + "）===");
-
                         Mac mac = Mac.getInstance("HmacSHA256");
                         SecretKeySpec keySpec = new SecretKeySpec(clientSecret.getBytes(StandardCharsets.UTF_8),
                                 "HmacSHA256");
                         mac.init(keySpec);
 
-                        // 署名計算
                         mac.update(timestamp.getBytes(StandardCharsets.UTF_8));
                         mac.update(apiKey.getBytes(StandardCharsets.UTF_8));
                         mac.update(method.toUpperCase().getBytes(StandardCharsets.UTF_8));
@@ -439,39 +272,28 @@ public class ApiServer {
                         }
 
                         String calculatedSignature = bytesToHex(mac.doFinal());
-                        System.out.println("  🔍 署名計算詳細:");
-                        System.out.println("    タイムスタンプ: '" + timestamp + "'");
-                        System.out.println("    APIキー: '" + apiKey + "'");
-                        System.out.println("    メソッド: '" + method.toUpperCase() + "'");
-                        System.out.println("    候補パス: '" + candidatePath + "'");
-                        System.out.println("    リクエストボディ長: " + requestBody.length);
-                        System.out.println("  期待される署名: " + signature);
-                        System.out.println("  計算された署名: " + calculatedSignature);
 
-                        // 実際のクライアントリクエストと一致する候補パスの場合、追加情報を表示
-                        if (candidatePath.equals(
-                                "https://1xp91qxmeh.execute-api.ap-northeast-1.amazonaws.com/prod/inventory-service/get-inventory?xApiKey=d296b330-3cce-40b6-88c3ls")) {
-                            System.out.println("  🎯 クライアントリクエストと一致する候補パス！");
-                            System.out.println("  💡 クライアント側で使用すべき署名計算パラメータ:");
-                            System.out.println("    TIMESTAMP=" + timestamp);
-                            System.out.println("    API_KEY=" + apiKey);
-                            System.out.println("    METHOD=" + method.toUpperCase());
-                            System.out.println("    PATH=" + candidatePath);
+                        if (DEBUG) {
+                            logger.info("Signature check - Path: " + candidatePath +
+                                    ", Timestamp: " + timestamp +
+                                    ", Expected: " + signature +
+                                    ", Calculated: " + calculatedSignature);
                         }
 
                         if (calculatedSignature.equals(signature)) {
-                            System.out.println("\n🎉 署名検証成功!");
-                            System.out.println("  ✅ 成功したパス: " + candidatePath);
-                            System.out.println("  ✅ タイムスタンプ: " + timestamp);
+                            if (DEBUG)
+                                logger.info("Signature verification successful");
                             return true;
                         }
                     } catch (Exception e) {
-                        System.out.println("署名計算エラー: " + e.getMessage());
+                        if (DEBUG)
+                            logger.warning("Signature calculation error: " + e.getMessage());
                     }
                 }
             }
 
-            System.err.println("❌ 全ての候補パスで署名検証に失敗しました");
+            if (DEBUG)
+                logger.warning("Signature verification failed for all candidates");
             return false;
         }
 
@@ -491,10 +313,18 @@ public class ApiServer {
                 return;
             }
 
-            if (!verifySignature(exchange)) {
+            CachedApiData apiData = null;
+            try {
+                apiData = getApiData(apiKey);
+            } catch (Exception e) {
+                logger.log(Level.WARNING, "Failed to get API data", e);
+            }
+
+            if (!verifySignature(exchange, apiData)) {
                 sendResponse(exchange, 401, "{\"message\": \"Invalid signature\"}");
                 return;
             }
+
             String path = exchange.getRequestURI().getPath();
             String[] pathParts = path.split("/");
 
@@ -503,125 +333,63 @@ public class ApiServer {
                 return;
             }
 
-            System.out.println("Path parts: " + String.join(", ", pathParts));
-            // set default value
             String className = pathParts[1];
             String methodName = pathParts[2];
 
-            // custom routing
-            String routingValue = null;
-            try {
-                routingValue = getRoutingValue(apiKey);
-                System.out.println("Routing value: " + routingValue);
-            } catch (ApiException e) {
-                System.out.println("API Error: " + e.getMessage());
-                e.printStackTrace();
-                sendResponse(exchange, 500, "API Error: " + e.getMessage());
-                return;
-            } catch (Exception e) {
-                System.out.println("Error getting routing value: " + e.getMessage());
-                e.printStackTrace();
-                sendResponse(exchange, 500, "Error getting routing value: " + e.getMessage());
-                return;
-            }
-
-            // routing is required
-            if (routingValue != null && !routingValue.isEmpty()) {
-                System.out.println("Routing value found: " + routingValue);
-
-                if (path.contains("/" + routingValue + "/")) {
-                    // パスからルーティング値を削除して再分割
-                    String newPath = path.replace("/" + routingValue, "");
-                    String[] newPathParts = newPath.split("/");
-
-                    if (newPathParts.length >= 3) {
-                        className = newPathParts[1];
-                        methodName = newPathParts[2];
-                        System.out.println("Updated class name: " + className + ", method name: " + methodName);
+            // ルーティング処理の統合
+            if (apiData != null && apiData.tenant != null && apiData.tenant.getRouting() != null) {
+                String routingValue = apiData.tenant.getRouting().getPath();
+                if (routingValue != null && !routingValue.isEmpty()) {
+                    // パスにルーティング値が含まれている場合のみルーティング処理を適用
+                    if (path.contains("/" + routingValue + "/")) {
+                        String newPath = path.replace("/" + routingValue, "");
+                        String[] newPathParts = newPath.split("/");
+                        if (newPathParts.length >= 3) {
+                            className = newPathParts[1];
+                            methodName = newPathParts[2];
+                        } else {
+                            sendResponse(exchange, 400, "Invalid path after routing: " + newPath);
+                            return;
+                        }
                     } else {
-                        sendResponse(exchange, 400, "Invalid path after routing: " + newPath);
-                        return;
+                        // API Gatewayやプロキシ経由のリクエストの場合、
+                        // テナントルーティングを適用せずに直接処理
+                        if (DEBUG) {
+                            logger.info("Routing path '" + routingValue + "' not found in URL '" + path
+                                    + "', proceeding without tenant routing");
+                        }
+                        // 現在のpathPartsをそのまま使用（className, methodNameは既に設定済み）
                     }
-                } else {
-                    // routing value not found in URL
-                    sendResponse(exchange, 403,
-                            "Access denied: Required routing path '" + routingValue + "' not found in URL");
-                    return;
-                }
-            } else {
-                if (pathParts.length >= 3) {
-                    className = pathParts[1];
-                    methodName = pathParts[2];
-                    System.out.println("class: "
-                            + className + ", method: " + methodName);
-                } else {
-                    sendResponse(exchange, 400, "Invalid path format. Expected /routing/ClassName/methodName");
-                    return;
                 }
             }
 
             Map<String, String> queryParams = parseQueryParams(exchange.getRequestURI());
 
             try {
-                System.out.println("\n=== デバッグ: メソッド呼び出し開始 ===");
-                System.out.println("クラス名: " + className);
-                System.out.println("メソッド名: " + methodName);
-                System.out.println("クエリパラメータ: " + queryParams);
+                if (DEBUG) {
+                    logger.info("Invoking method - Class: " + className + ", Method: " + methodName);
+                }
 
                 Class<?> clazz = getClass(className);
-                System.out.println("✅ クラス解決成功: " + clazz.getName());
-
                 Method method = getMethod(clazz, methodName);
-                System.out.println("取得されたメソッド: " + method);
 
                 if (method != null) {
-                    System.out.println("✅ メソッド解決成功: " + method.toString());
-                    System.out.println("メソッドパラメータ数: " + method.getParameterCount());
-
-                    // パラメータ詳細を表示
-                    Parameter[] parameters = method.getParameters();
-                    for (int i = 0; i < parameters.length; i++) {
-                        System.out.println("  パラメータ" + i + ": " + parameters[i].getName() +
-                                " (型: " + parameters[i].getType().getSimpleName() + ")");
-                    }
-
-                    System.out.println("\n--- 引数準備開始 ---");
                     Object[] args = prepareMethodArguments(method, queryParams);
-                    System.out.println("✅ 引数準備完了");
-                    System.out.println("準備された引数数: " + args.length);
-                    for (int i = 0; i < args.length; i++) {
-                        System.out.println("  引数" + i + ": " + args[i] + " (型: " +
-                                (args[i] != null ? args[i].getClass().getSimpleName() : "null") + ")");
-                    }
-
-                    System.out.println("\n--- メソッド実行開始 ---");
                     Object response = method.invoke(null, args);
-                    System.out.println("✅ メソッド実行完了");
-                    System.out.println("レスポンス: " + response + " (型: " +
-                            (response != null ? response.getClass().getSimpleName() : "null") + ")");
-
-                    System.out.println("\n--- JSON変換開始 ---");
                     String jsonResponse = objectMapper.writeValueAsString(response);
-                    System.out.println("✅ JSON変換完了");
-                    System.out.println("JSONレスポンス: " + jsonResponse);
-
                     sendResponse(exchange, 200, jsonResponse);
-                    System.out.println("✅ レスポンス送信完了");
                 } else {
-                    System.out.println("❌ メソッドが見つかりません: " + methodName);
                     sendResponse(exchange, 404, "Method not found: " + methodName);
                 }
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
                 sendResponse(exchange, 404, "Class not found: " + className);
             } catch (InvocationTargetException | IllegalAccessException e) {
-                e.printStackTrace();
+                logger.log(Level.SEVERE, "Error invoking method", e);
                 sendResponse(exchange, 500, "Error invoking method: " + e.getMessage());
             } catch (IllegalArgumentException e) {
-                e.printStackTrace();
                 sendResponse(exchange, 400, "Invalid arguments: " + e.getMessage());
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.log(Level.SEVERE, "Internal server error", e);
                 sendResponse(exchange, 500, "Internal server error: " + e.getMessage());
             }
         }
@@ -656,7 +424,9 @@ public class ApiServer {
                 String[] pairs = query.split("&");
                 for (String pair : pairs) {
                     int idx = pair.indexOf("=");
-                    queryParams.put(pair.substring(0, idx), pair.substring(idx + 1));
+                    if (idx > 0) {
+                        queryParams.put(pair.substring(0, idx), pair.substring(idx + 1));
+                    }
                 }
             }
             return queryParams;
@@ -704,62 +474,6 @@ public class ApiServer {
                 os.write(responseBytes);
             }
         }
-
-        private String getRoutingValue(String apiKey) throws ApiException {
-            ApiGatewayApiClient apiClient = new Configuration().getApiGatewayApiClient();
-            SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(apiClient);
-
-            ApiGatewaySettings settings = apiInstance.getApiGatewaySettings();
-            if (settings == null) {
-                System.out.println("API Gateway Settings not found");
-                throw new ApiException("API Gateway Settings not found");
-            }
-
-            String tenantRoutingType = settings.getTenantRoutingType().getValue();
-            if (tenantRoutingType == null || tenantRoutingType.isEmpty()) {
-                System.out.println("Tenant Routing Type not found");
-                throw new ApiException("Tenant Routing Type not found");
-            }
-
-            // APIキーからテナント情報を取得（全ルーティングタイプで必要）
-            ApiKey apiKeyObj = apiInstance.getApiKey(apiKey);
-            if (apiKeyObj == null) {
-                System.out.println("API Key not found: " + apiKey);
-                throw new ApiException("API Key not found: " + apiKey);
-            }
-
-            // テナント設定情報を取得
-            ApiGatewayTenant tenant = apiInstance.getTenant(apiKeyObj.getTenantId());
-            if (tenant == null) {
-                System.out.println("Tenant not found for ID: " + apiKeyObj.getTenantId());
-                throw new ApiException("Tenant not found for ID: " + apiKeyObj.getTenantId());
-            }
-
-            TenantRouting routing = tenant.getRouting();
-            if (routing == null) {
-                System.out.println("Routing not found for tenant: " + apiKeyObj.getTenantId());
-                throw new ApiException("Routing not found for tenant: " + apiKeyObj.getTenantId());
-            }
-            switch (tenantRoutingType.toLowerCase()) {
-                case "none":
-                    System.out.println("Tenant Routing Type is none");
-                    return null;
-                case "path":
-                    System.out.println("Tenant Routing Type is path");
-                    return routing.getPath();
-                case "hostname":
-                    System.out.println("Tenant Routing Type is hostname");
-                    // not implemented
-                    return null;
-                case "headervalue":
-                    System.out.println("Tenant Routing Type is headervalue");
-                    // not implemented
-                    return null;
-                default:
-                    throw new ApiException("Invalid tenantRoutingType: " + tenantRoutingType);
-            }
-        }
-
     }
 
     public static class UserApi {
