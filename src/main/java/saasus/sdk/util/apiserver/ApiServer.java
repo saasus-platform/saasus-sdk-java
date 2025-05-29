@@ -47,10 +47,6 @@ public class ApiServer {
             return null;
         }
 
-        if (clientSecret != null) {
-            return clientSecret;
-        }
-
         try {
             ApiGatewayApiClient apiClient = new Configuration().getApiGatewayApiClient();
             SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(apiClient);
@@ -309,6 +305,27 @@ public class ApiServer {
             // 署名検証のためのホストとパスの組み合わせを確認
             System.out.println("署名検証に使用するホストとパス: " + verificationPath);
 
+            // APIキーを先に取得してclient_secretの有無を確認
+            String apiKey = exchange.getRequestHeaders().getFirst("x-api-key");
+            System.out.println("\n=== APIキー確認 ===");
+            System.out.println("x-api-keyヘッダーの値: " + apiKey);
+
+            try {
+                clientSecret = fetchClientSecret(apiKey);
+                System.out.println("client secret: " + clientSecret);
+                if (clientSecret == null || clientSecret.trim().isEmpty()) {
+                    System.out.println("\n⚠️  クライアントシークレットが利用できません");
+                    System.out.println("APIキー: " + apiKey);
+                    System.out.println("署名検証をスキップして処理を続行します");
+                    return true;
+                }
+                System.out.println("✅ クライアントシークレットの取得に成功しました");
+            } catch (Exception e) {
+                System.out.println("⚠️  クライアントシークレット取得中にエラーが発生しました: " + e.getMessage());
+                System.out.println("署名検証をスキップして処理を続行します");
+                return true;
+            }
+
             System.out.println("\n=== Authorization ヘッダー解析 ===");
             String authHeader = exchange.getRequestHeaders().getFirst("Authorization");
             System.out.println("Authorization ヘッダー: " + authHeader);
@@ -333,7 +350,6 @@ public class ApiServer {
             System.out.println("  署名: " + signature);
             System.out.println("  APIキー: " + headerApiKey);
 
-            String apiKey = exchange.getRequestHeaders().getFirst("x-api-key");
             System.out.println("\nAPIキー検証:");
             System.out.println("  Authorization内のAPIキー: " + headerApiKey);
             System.out.println("  x-api-keyヘッダーの値: " + apiKey);
@@ -343,25 +359,6 @@ public class ApiServer {
                 return false;
             }
             System.out.println("✅ APIキーの検証成功");
-
-            try {
-                clientSecret = fetchClientSecret(apiKey);
-                if (clientSecret == null) {
-                    System.out.println("\n警告: クライアントシークレットが利用できません");
-                    System.out.println("APIキー: " + apiKey);
-                    System.out.println("署名検証をスキップします");
-                    return true;
-                }
-                System.out.println("クライアントシークレットの取得に成功しました");
-            } catch (Exception e) {
-                System.out.println("Error fetching client secret: " + e.getMessage());
-                return true;
-            }
-
-            if (clientSecret == null) {
-                System.out.println("No client secret available");
-                return true;
-            }
 
             // 既に上の部分でcandidateVerificationPathsが定義されているので、それを使用
             // フォールバックとして現在のverificationPathが含まれていることを確認
@@ -537,7 +534,7 @@ public class ApiServer {
                 if (pathParts.length >= 3) {
                     className = pathParts[1];
                     methodName = pathParts[2];
-                    System.out.println("No explicit routing found, assuming " + pathParts[1] + " is routing, class: "
+                    System.out.println("class: "
                             + className + ", method: " + methodName);
                 } else {
                     sendResponse(exchange, 400, "Invalid path format. Expected /routing/ClassName/methodName");
@@ -548,15 +545,52 @@ public class ApiServer {
             Map<String, String> queryParams = parseQueryParams(exchange.getRequestURI());
 
             try {
+                System.out.println("\n=== デバッグ: メソッド呼び出し開始 ===");
+                System.out.println("クラス名: " + className);
+                System.out.println("メソッド名: " + methodName);
+                System.out.println("クエリパラメータ: " + queryParams);
+
                 Class<?> clazz = getClass(className);
+                System.out.println("✅ クラス解決成功: " + clazz.getName());
+
                 Method method = getMethod(clazz, methodName);
+                System.out.println("取得されたメソッド: " + method);
 
                 if (method != null) {
+                    System.out.println("✅ メソッド解決成功: " + method.toString());
+                    System.out.println("メソッドパラメータ数: " + method.getParameterCount());
+
+                    // パラメータ詳細を表示
+                    Parameter[] parameters = method.getParameters();
+                    for (int i = 0; i < parameters.length; i++) {
+                        System.out.println("  パラメータ" + i + ": " + parameters[i].getName() +
+                                " (型: " + parameters[i].getType().getSimpleName() + ")");
+                    }
+
+                    System.out.println("\n--- 引数準備開始 ---");
                     Object[] args = prepareMethodArguments(method, queryParams);
+                    System.out.println("✅ 引数準備完了");
+                    System.out.println("準備された引数数: " + args.length);
+                    for (int i = 0; i < args.length; i++) {
+                        System.out.println("  引数" + i + ": " + args[i] + " (型: " +
+                                (args[i] != null ? args[i].getClass().getSimpleName() : "null") + ")");
+                    }
+
+                    System.out.println("\n--- メソッド実行開始 ---");
                     Object response = method.invoke(null, args);
+                    System.out.println("✅ メソッド実行完了");
+                    System.out.println("レスポンス: " + response + " (型: " +
+                            (response != null ? response.getClass().getSimpleName() : "null") + ")");
+
+                    System.out.println("\n--- JSON変換開始 ---");
                     String jsonResponse = objectMapper.writeValueAsString(response);
+                    System.out.println("✅ JSON変換完了");
+                    System.out.println("JSONレスポンス: " + jsonResponse);
+
                     sendResponse(exchange, 200, jsonResponse);
+                    System.out.println("✅ レスポンス送信完了");
                 } else {
+                    System.out.println("❌ メソッドが見つかりません: " + methodName);
                     sendResponse(exchange, 404, "Method not found: " + methodName);
                 }
             } catch (ClassNotFoundException e) {
