@@ -110,19 +110,72 @@ public class ApiServer {
             ApiGatewayApiClient apiClient = config.getApiGatewayApiClient();
             System.out.println("  ベースURL: " + apiClient.getBasePath());
             System.out.println("  タイムアウト設定: " + apiClient.getReadTimeout() + "ms");
+            System.out.println("  接続タイムアウト: " + apiClient.getConnectTimeout() + "ms");
+
+            // 認証情報の詳細確認
             try {
-                System.out.println("  認証情報: " + apiClient.getAuthentication("Bearer"));
+                saasus.sdk.apigateway.auth.Authentication auth = apiClient.getAuthentication("Bearer");
+                System.out.println("  認証情報: " + auth);
+                if (auth instanceof saasus.sdk.apigateway.auth.HttpBearerAuth) {
+                    saasus.sdk.apigateway.auth.HttpBearerAuth bearerAuth = (saasus.sdk.apigateway.auth.HttpBearerAuth) auth;
+                    String token = bearerAuth.getBearerToken();
+                    if (token != null && !token.isEmpty()) {
+                        System.out.println("  Bearerトークン: " + token.substring(0, Math.min(token.length(), 20)) + "...");
+                    } else {
+                        System.out.println("  ⚠️  Bearerトークンが設定されていません");
+                    }
+                }
             } catch (Exception e) {
                 System.out.println("  認証情報の取得に失敗: " + e.getMessage());
+                e.printStackTrace();
             }
+
+            // 環境変数の確認
+            System.out.println("\n環境変数確認:");
+            System.out.println("  SAASUS_API_KEY: " + (System.getenv("SAASUS_API_KEY") != null ? "設定済み" : "未設定"));
+            System.out.println("  SAASUS_SECRET_KEY: " + (System.getenv("SAASUS_SECRET_KEY") != null ? "設定済み" : "未設定"));
+            System.out.println("  SAASUS_SAAS_ID: " + (System.getenv("SAASUS_SAAS_ID") != null ? "設定済み" : "未設定"));
 
             System.out.println("\n2. SmartApiGatewayApiインスタンス作成");
             SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(apiClient);
 
-            System.out.println("\n3. getApiGatewaySettings呼び出し");
+            System.out.println("\n3. getApiGatewaySettings呼び出し開始");
+            System.out.println("  呼び出しURL: " + apiClient.getBasePath() + "/api-gateway/settings");
             ApiGatewaySettings settings = null;
             try {
+                // まず別メソッドでgetRoutingValueを試してみる
+                System.out.println("\n🔬 DEBUG: getRoutingValueとの比較テスト");
+                String apiKey = exchange.getRequestHeaders().getFirst("x-api-key");
+                try {
+                    String testRoutingValue = testGetRoutingValue(apiKey);
+                    System.out.println("  ✅ getRoutingValueテスト成功: " + testRoutingValue);
+                    System.out.println("  📝 getRoutingValueでは正常に設定を取得できました");
+                } catch (Exception testE) {
+                    System.out.println("  ❌ getRoutingValueテストも失敗: " + testE.getMessage());
+                    // エラーメッセージからendpoint_settings_listを抽出を試行
+                    String errorMessage = testE.getMessage();
+                    if (errorMessage != null && errorMessage.contains("endpoint_settings_list")) {
+                        System.out.println("  🔍 エラーメッセージからエンドポイント設定を抽出中...");
+                        try {
+                            String extractedMapping = extractEndpointMappingFromError(errorMessage, rawPath);
+                            if (extractedMapping != null) {
+                                System.out.println("  ✅ エラーから元のパスを抽出成功: " + extractedMapping);
+                                String originalPathWithQuery = query != null && !query.isEmpty()
+                                        ? extractedMapping + "?" + query
+                                        : extractedMapping;
+                                verificationPath = requestHost + originalPathWithQuery;
+                                System.out.println("  🔄 抽出した元のパスで検証パスを更新: " + verificationPath);
+                            }
+                        } catch (Exception extractE) {
+                            System.out.println("  ⚠️  エンドポイント抽出に失敗: " + extractE.getMessage());
+                        }
+                    }
+                }
+
+                long startTime = System.currentTimeMillis();
                 settings = apiInstance.getApiGatewaySettings();
+                long endTime = System.currentTimeMillis();
+                System.out.println("  API呼び出し完了時間: " + (endTime - startTime) + "ms");
 
                 if (settings == null) {
                     System.out.println("❌ API Gateway設定が見つかりません（レスポンスがnull）");
@@ -142,8 +195,34 @@ public class ApiServer {
                 System.out
                         .println("  InternalEndpointHealthCheckPort: " + settings.getInternalEndpointHealthCheckPort());
 
-                // ここで変換後のpathから変換前のpathを取得する必要がある
-                System.out.println("endpoint list: " + settings.getEndpointSettingsList());
+                // ここで変換後のpathから変換前のpathを取得する
+                String originalPath = null;
+                List<saasus.sdk.apigateway.models.EndpointSettings> endpointSettingsList = settings
+                        .getEndpointSettingsList();
+                System.out.println("endpoint list: " + endpointSettingsList);
+
+                // 現在のrawPathに対応するEndpointSettingsを検索
+                for (saasus.sdk.apigateway.models.EndpointSettings endpoint : endpointSettingsList) {
+                    if (endpoint.getMappingEndpointId().equals(rawPath) ||
+                            rawPath.startsWith(endpoint.getMappingEndpointId())) {
+                        originalPath = endpoint.getPath();
+                        System.out.println("マッピング発見:");
+                        System.out.println("  変換後のpath (mappingEndpointId): " + endpoint.getMappingEndpointId());
+                        System.out.println("  変換前のpath (path): " + originalPath);
+                        System.out.println("  メソッド: " + endpoint.getMethod().getValue());
+                        break;
+                    }
+                }
+
+                // 元のパスが見つかった場合、検証パスを更新
+                if (originalPath != null) {
+                    String originalPathWithQuery = query != null && !query.isEmpty() ? originalPath + "?" + query
+                            : originalPath;
+                    verificationPath = requestHost + originalPathWithQuery;
+                    System.out.println("元のパスを使用した検証パス: " + verificationPath);
+                } else {
+                    System.out.println("警告: 変換前のパスが見つかりませんでした。現在のパスを使用します: " + rawPath);
+                }
 
                 Integer healthCheckPort = settings.getInternalEndpointHealthCheckPort();
 
@@ -175,8 +254,49 @@ public class ApiServer {
                 System.out.println("  ステータスコード: " + e.getCode());
                 System.out.println("  レスポンスボディ: " + e.getResponseBody());
                 System.out.println("  エラーメッセージ: " + e.getMessage());
+
+                // レスポンスヘッダーの詳細表示
+                System.out.println("  レスポンスヘッダー:");
+                if (e.getResponseHeaders() != null) {
+                    for (Map.Entry<String, java.util.List<String>> header : e.getResponseHeaders().entrySet()) {
+                        System.out.println("    " + header.getKey() + ": " + header.getValue());
+                    }
+                } else {
+                    System.out.println("    ヘッダー情報なし");
+                }
+
+                // 詳細なエラー解析
+                System.out.println("\n詳細なエラー解析:");
+                if (e.getCode() == 401) {
+                    System.out.println("  🔐 認証エラー: APIキーまたはトークンが無効です");
+                    System.out.println("     - SAASUS_API_KEY環境変数が正しく設定されているか確認してください");
+                    System.out.println("     - APIキーの有効期限が切れていないか確認してください");
+                    return false;
+                } else if (e.getCode() == 403) {
+                    System.out.println("  🚫 認可エラー: このリソースへのアクセス権限がありません");
+                    System.out.println("     - SaaS IDが正しく設定されているか確認してください");
+                    System.out.println("     - APIキーに適切な権限が付与されているか確認してください");
+                    return false;
+                } else if (e.getCode() == 404) {
+                    System.out.println("  🔍 リソースが見つかりません");
+                    System.out.println("     - API Gatewayの設定が存在しない可能性があります");
+                    System.out.println("  ⚠️  エンドポイントマッピングなしで署名検証を続行します");
+                } else if (e.getCode() == 500) {
+                    System.out.println("  🔥 サーバー内部エラー: SaaSus側でエラーが発生しています");
+                    return false;
+                } else if (e.getCode() == 501) {
+                    System.out.println("  ⚠️  API Gateway設定が利用できません（501 Not Implemented）");
+                    System.out.println("     - この機能がまだ実装されていない可能性があります");
+                    System.out.println("  ⚠️  エンドポイントマッピングなしで署名検証を続行します");
+                } else if (e.getCode() == 502 || e.getCode() == 503 || e.getCode() == 504) {
+                    System.out.println("  🌐 ネットワークエラー: SaaSusサービスへの接続に問題があります");
+                    System.out.println("     - インターネット接続を確認してください");
+                    System.out.println("     - ファイアウォール設定を確認してください");
+                    return false;
+                }
+
+                System.out.println("   現在のパスを使用して署名検証を続行: " + rawPath);
                 e.printStackTrace();
-                return false;
             }
 
             // 署名検証のためのホストとパスの組み合わせを確認
@@ -307,6 +427,95 @@ public class ApiServer {
             }
             System.err.println("Signature verification failed for all time windows");
             return false;
+        }
+
+        private String extractEndpointMappingFromError(String errorMessage, String rawPath) {
+            try {
+                // エラーメッセージからJSONを抽出
+                int jsonStart = errorMessage.indexOf("{");
+                if (jsonStart == -1)
+                    return null;
+
+                String jsonStr = errorMessage.substring(jsonStart);
+                System.out.println("  📄 抽出したJSON: " + jsonStr.substring(0, Math.min(200, jsonStr.length())) + "...");
+
+                // 簡易的なJSONパースでendpoint_settings_listを抽出
+                String searchPattern = "\"endpoint_settings_list\":[";
+                int listStart = jsonStr.indexOf(searchPattern);
+                if (listStart == -1)
+                    return null;
+
+                // endpoint_settings_listの開始位置
+                int arrayStart = listStart + searchPattern.length() - 1;
+                int bracketCount = 0;
+                int arrayEnd = arrayStart;
+
+                // 配列の終了位置を見つける
+                for (int i = arrayStart; i < jsonStr.length(); i++) {
+                    char c = jsonStr.charAt(i);
+                    if (c == '[')
+                        bracketCount++;
+                    else if (c == ']') {
+                        bracketCount--;
+                        if (bracketCount == 0) {
+                            arrayEnd = i + 1;
+                            break;
+                        }
+                    }
+                }
+
+                String endpointsArray = jsonStr.substring(arrayStart, arrayEnd);
+                System.out.println("  🎯 endpoint_settings_list: " + endpointsArray);
+
+                // 現在のrawPathにマッチするmapping_endpoint_idを探す
+                String mappingPattern = "\"mapping_endpoint_id\":\"" + rawPath.replace("/", "\\/") + "\"";
+                int mappingIndex = endpointsArray.indexOf(mappingPattern);
+                if (mappingIndex == -1)
+                    return null;
+
+                // そのオブジェクト内でpathを探す
+                int objStart = endpointsArray.lastIndexOf("{", mappingIndex);
+                int objEnd = endpointsArray.indexOf("}", mappingIndex) + 1;
+                String endpointObj = endpointsArray.substring(objStart, objEnd);
+
+                System.out.println("  🔍 マッチしたエンドポイントオブジェクト: " + endpointObj);
+
+                // pathの値を抽出
+                String pathPattern = "\"path\":\"";
+                int pathStart = endpointObj.indexOf(pathPattern);
+                if (pathStart == -1)
+                    return null;
+
+                pathStart += pathPattern.length();
+                int pathEnd = endpointObj.indexOf("\"", pathStart);
+                if (pathEnd == -1)
+                    return null;
+
+                String extractedPath = endpointObj.substring(pathStart, pathEnd);
+                System.out.println("  ✅ 抽出されたパス: " + extractedPath);
+
+                return extractedPath;
+
+            } catch (Exception e) {
+                System.out.println("  ❌ JSON抽出エラー: " + e.getMessage());
+                return null;
+            }
+        }
+
+        private String testGetRoutingValue(String apiKey) throws ApiException {
+            System.out.println("🔬 testGetRoutingValue開始");
+            ApiGatewayApiClient apiClient = new Configuration().getApiGatewayApiClient();
+            SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(apiClient);
+
+            System.out.println("  testGetRoutingValue用のgetApiGatewaySettings呼び出し");
+            ApiGatewaySettings settings = apiInstance.getApiGatewaySettings();
+            if (settings == null) {
+                throw new ApiException("API Gateway Settings not found in test");
+            }
+            System.out.println("  testGetRoutingValue: getApiGatewaySettings成功");
+
+            String tenantRoutingType = settings.getTenantRoutingType().getValue();
+            return tenantRoutingType; // 簡易版テスト
         }
 
         private String bytesToHex(byte[] bytes) {
@@ -528,54 +737,29 @@ public class ApiServer {
             // テナント設定情報を取得
             ApiGatewayTenant tenant = apiInstance.getTenant(apiKeyObj.getTenantId());
             if (tenant == null) {
-                System.out.println("Tenant not found for ID: " + apiKeyObj.getTenantId());
-                throw new ApiException("Tenant not found for ID: " + apiKeyObj.getTenantId());
+                System.out.println("Tenant not found: " + apiKeyObj.getTenantId());
+                throw new ApiException("Tenant not found: " + apiKeyObj.getTenantId());
             }
 
-            TenantRouting routing = tenant.getRouting();
-            if (routing == null) {
-                System.out.println("Routing not found for tenant: " + apiKeyObj.getTenantId());
-                throw new ApiException("Routing not found for tenant: " + apiKeyObj.getTenantId());
+            TenantRouting tenantRouting = tenant.getRouting();
+            if (tenantRouting == null) {
+                System.out.println("Tenant Routing not found for tenant: " + apiKeyObj.getTenantId());
+                throw new ApiException("Tenant Routing not found for tenant: " + apiKeyObj.getTenantId());
             }
-            switch (tenantRoutingType.toLowerCase()) {
-                case "none":
-                    System.out.println("Tenant Routing Type is none");
-                    return null;
-                case "path":
-                    System.out.println("Tenant Routing Type is path");
-                    return routing.getPath();
-                case "hostname":
-                    System.out.println("Tenant Routing Type is hostname");
-                    // not implemented
-                    return null;
-                case "headervalue":
-                    System.out.println("Tenant Routing Type is headervalue");
-                    // not implemented
-                    return null;
-                default:
-                    throw new ApiException("Invalid tenantRoutingType: " + tenantRoutingType);
-            }
+
+            return tenantRouting.getPath();
         }
     }
 
-    // サンプルAPIクラス
     public static class UserApi {
-        public static String getUser(int userId) {
-            return "User info for ID: " + userId;
-        }
-
-        public static String createUser(String name, int age) {
-            return "Created user: " + name + " (Age: " + age + ")";
+        public static String getUser(String id) {
+            return "User " + id;
         }
     }
 
     public static class MathApi {
-        public static String add(int a, int b) {
-            return "Result: " + (a + b);
-        }
-
-        public static String multiply(double x, double y) {
-            return "Result: " + (x * y);
+        public static int add(int a, int b) {
+            return a + b;
         }
     }
 }
