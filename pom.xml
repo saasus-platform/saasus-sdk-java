@@ -158,29 +158,7 @@
   </dependencies>
 
   <build>
-    <plugins>  
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>3.2.7</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals><goal>sign</goal></goals>
-          </execution>
-        </executions>
-
-        <!-- CI 非対話モード + 環境変数パスフレーズ -->
-        <configuration>
-          <gpgArguments>
-            <arg>--batch</arg>
-            <arg>--pinentry-mode</arg>
-            <arg>loopback</arg>
-          </gpgArguments>
-          <passphrase>${env.GPG_PASSPHRASE}</passphrase>
-        </configuration>
-      </plugin>
+    <plugins>
       <!-- ソースJAR -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -232,4 +210,38 @@
       </plugin>
     </plugins>
   </build>
+  <!-- 署名プラグインをリリース時だけ有効にするプロファイル -->
+  <profiles>
+    <profile>
+      <id>sign-release</id>
+      <activation>
+        <!-- -Psign-release が付いたときだけ有効 -->
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>3.2.7</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals><goal>sign</goal></goals>
+              </execution>
+            </executions>
+            <configuration>
+              <gpgArguments>
+                <arg>--batch</arg>
+                <arg>--pinentry-mode</arg>
+                <arg>loopback</arg>
+              </gpgArguments>
+              <passphrase>${env.GPG_PASSPHRASE}</passphrase>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
