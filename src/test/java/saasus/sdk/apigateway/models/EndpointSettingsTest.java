@@ -72,4 +72,12 @@ public class EndpointSettingsTest {
         // TODO: test roleNames
     }
 
+    /**
+     * Test the property 'mappingEndpointId'
+     */
+    @Test
+    public void mappingEndpointIdTest() {
+        // TODO: test mappingEndpointId
+    }
+
 }

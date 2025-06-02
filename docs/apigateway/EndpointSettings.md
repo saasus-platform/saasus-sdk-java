@@ -12,6 +12,7 @@ Settings per endpoint
 |**method** | [**MethodEnum**](#MethodEnum) | Method |  |
 |**throttlings** | [**List&lt;Throttling&gt;**](Throttling.md) | Throttling settings for each target TODO: Make it possible to set multiple settings in the future  |  |
 |**roleNames** | **List&lt;String&gt;** | Role names that can access the endpoint |  [optional] |
+|**mappingEndpointId** | **String** | Identifier for the function to be executed when calling the API |  |
 
 
 

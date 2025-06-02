@@ -47,56 +47,33 @@ import java.util.Set;
 import saasus.sdk.apigateway.JSON;
 
 /**
- * Error
+ * UpdateOpenApiDefinitionParam
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-29T19:09:17.011671667Z[Etc/UTC]")
-public class Error {
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+public class UpdateOpenApiDefinitionParam {
+  public static final String SERIALIZED_NAME_CONTENT = "content";
+  @SerializedName(SERIALIZED_NAME_CONTENT)
+  private String content;
 
-  public static final String SERIALIZED_NAME_MESSAGE = "message";
-  @SerializedName(SERIALIZED_NAME_MESSAGE)
-  private String message;
-
-  public Error() {
+  public UpdateOpenApiDefinitionParam() {
   }
 
-  public Error type(String type) {
-    this.type = type;
+  public UpdateOpenApiDefinitionParam content(String content) {
+    this.content = content;
     return this;
   }
 
    /**
-   * Get type
-   * @return type
+   * OpenAPI definition file content
+   * @return content
   **/
   @javax.annotation.Nonnull
-  public String getType() {
-    return type;
+  public String getContent() {
+    return content;
   }
 
-  public void setType(String type) {
-    this.type = type;
-  }
-
-
-  public Error message(String message) {
-    this.message = message;
-    return this;
-  }
-
-   /**
-   * Get message
-   * @return message
-  **/
-  @javax.annotation.Nonnull
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
+  public void setContent(String content) {
+    this.content = content;
   }
 
   /**
@@ -112,9 +89,9 @@ public class Error {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Error instance itself
+   * @return the UpdateOpenApiDefinitionParam instance itself
    */
-  public Error putAdditionalProperty(String key, Object value) {
+  public UpdateOpenApiDefinitionParam putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -153,23 +130,21 @@ public class Error {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Error error = (Error) o;
-    return Objects.equals(this.type, error.type) &&
-        Objects.equals(this.message, error.message)&&
-        Objects.equals(this.additionalProperties, error.additionalProperties);
+    UpdateOpenApiDefinitionParam updateOpenApiDefinitionParam = (UpdateOpenApiDefinitionParam) o;
+    return Objects.equals(this.content, updateOpenApiDefinitionParam.content)&&
+        Objects.equals(this.additionalProperties, updateOpenApiDefinitionParam.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(type, message, additionalProperties);
+    return Objects.hash(content, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Error {\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("class UpdateOpenApiDefinitionParam {\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -193,40 +168,35 @@ public class Error {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("type");
-    openapiFields.add("message");
+    openapiFields.add("content");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("type");
-    openapiRequiredFields.add("message");
+    openapiRequiredFields.add("content");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to Error
+  * @throws IOException if the JSON Element is invalid with respect to UpdateOpenApiDefinitionParam
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Error.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Error is not found in the empty JSON string", Error.openapiRequiredFields.toString()));
+        if (!UpdateOpenApiDefinitionParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateOpenApiDefinitionParam is not found in the empty JSON string", UpdateOpenApiDefinitionParam.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Error.openapiRequiredFields) {
+      for (String requiredField : UpdateOpenApiDefinitionParam.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if (!jsonObj.get("message").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      if (!jsonObj.get("content").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `content` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content").toString()));
       }
   }
 
@@ -234,16 +204,16 @@ public class Error {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Error.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Error' and its subtypes
+       if (!UpdateOpenApiDefinitionParam.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdateOpenApiDefinitionParam' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Error> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Error.class));
+       final TypeAdapter<UpdateOpenApiDefinitionParam> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateOpenApiDefinitionParam.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Error>() {
+       return (TypeAdapter<T>) new TypeAdapter<UpdateOpenApiDefinitionParam>() {
            @Override
-           public void write(JsonWriter out, Error value) throws IOException {
+           public void write(JsonWriter out, UpdateOpenApiDefinitionParam value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -266,12 +236,12 @@ public class Error {
            }
 
            @Override
-           public Error read(JsonReader in) throws IOException {
+           public UpdateOpenApiDefinitionParam read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Error instance = thisAdapter.fromJsonTree(jsonObj);
+             UpdateOpenApiDefinitionParam instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -298,18 +268,18 @@ public class Error {
   }
 
  /**
-  * Create an instance of Error given an JSON string
+  * Create an instance of UpdateOpenApiDefinitionParam given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of Error
-  * @throws IOException if the JSON string is invalid with respect to Error
+  * @return An instance of UpdateOpenApiDefinitionParam
+  * @throws IOException if the JSON string is invalid with respect to UpdateOpenApiDefinitionParam
   */
-  public static Error fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Error.class);
+  public static UpdateOpenApiDefinitionParam fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdateOpenApiDefinitionParam.class);
   }
 
  /**
-  * Convert an instance of Error to an JSON string
+  * Convert an instance of UpdateOpenApiDefinitionParam to an JSON string
   *
   * @return JSON string
   */
