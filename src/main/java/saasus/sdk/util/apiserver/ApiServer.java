@@ -204,9 +204,8 @@ public class ApiServer {
         }
 
         private byte[] readRequestBody(HttpExchange exchange) {
-            try {
-                InputStream is = exchange.getRequestBody();
-                ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+            try (InputStream is = exchange.getRequestBody();
+                    ByteArrayOutputStream buffer = new ByteArrayOutputStream()) {
                 int nRead;
                 byte[] data = new byte[16384];
                 while ((nRead = is.read(data, 0, data.length)) != -1) {
