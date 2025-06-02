@@ -2,6 +2,9 @@ name: Test Publish Java SDK Snapshot to OSSRH
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - feature/68
 
 jobs:
   snapshot-deploy:
