@@ -8,35 +8,24 @@ jobs:
     name: Publish SNAPSHOT to OSSRH
     runs-on: ubuntu-latest
 
+    env:
+      OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+      OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+
     steps:
       # Git リポジトリをチェックアウト
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # 手動で settings.xml を生成（Central 用資格情報を書き込む）
-      - name: Write settings.xml manually
-        run: |
-          mkdir -p ~/.m2
-          cat > ~/.m2/settings.xml <<'EOF'
-          <settings>
-            <servers>
-              <server>
-                <id>central</id>
-                <username>${{ secrets.OSSRH_USERNAME }}</username>
-                <password>${{ secrets.OSSRH_PASSWORD }}</password>
-              </server>
-            </servers>
-          </settings>
-          EOF
-
-      # JDK 8 をインストールするだけ（手動 settings.xml は overwrite-settings:false で保持）
+      # setup-java が settings.xml を自動生成
       - name: Set up Java and Maven Settings
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '8'
-          overwrite-settings: false
           server-id: central
+          server-username: OSSRH_USERNAME
+          server-password: OSSRH_PASSWORD
 
       # pom.xml のバージョンを `-SNAPSHOT` に変更
       - name: Bump version to SNAPSHOT
