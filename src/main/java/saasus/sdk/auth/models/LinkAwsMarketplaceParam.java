@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * LinkAwsMarketplaceParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T10:04:59.294293151Z[Etc/UTC]")
 public class LinkAwsMarketplaceParam {
   public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)

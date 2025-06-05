@@ -51,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateSaasUserAttributesParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-05T10:04:59.294293151Z[Etc/UTC]")
 public class UpdateSaasUserAttributesParam {
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
