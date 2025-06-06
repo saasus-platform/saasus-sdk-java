@@ -1,5 +1,25 @@
 #!/bin/bash
 
+# バージョン引数がある場合のみ pom.xml を更新
+if [ $# -ge 1 ]; then
+  RAW_VERSION=$1
+  CLEAN_VERSION=${RAW_VERSION#v}
+  echo "Updating pom.xml version to ${CLEAN_VERSION}"
+
+  awk -v v="$CLEAN_VERSION" '
+    BEGIN { replaced = 0 }
+    /<version>.*<\/version>/ && replaced == 0 {
+      sub(/<version>.*<\/version>/, "<version>" v "</version>")
+      replaced = 1
+    }
+    { print }
+  ' pom.xml > pom.tmp && mv pom.tmp pom.xml
+
+  echo "Updated pom.xml version to ${CLEAN_VERSION}"
+else
+  echo "Version argument not provided — skipping pom.xml version update"
+fi
+
 # 生成するモジュール名の配列
 MODULES="auth pricing billing awsmarketplace integration apilog communication"
 

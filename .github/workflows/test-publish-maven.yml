@@ -1,0 +1,40 @@
+name: Test Publish Java SDK Snapshot to OSSRH
+
+on:
+  workflow_dispatch:
+
+jobs:
+  snapshot-deploy:
+    name: Publish SNAPSHOT to OSSRH
+    runs-on: ubuntu-latest
+
+    env:
+      OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+      OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+
+    steps:
+      # Git リポジトリをチェックアウト
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # setup-java が settings.xml を自動生成
+      - name: Set up Java and Maven Settings
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+          server-id: central
+          server-username: OSSRH_USERNAME
+          server-password: OSSRH_PASSWORD
+
+      # pom.xml のバージョンを `-SNAPSHOT` に変更
+      - name: Bump version to SNAPSHOT
+        run: |
+          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          SNAPSHOT_VERSION="${VERSION%-SNAPSHOT}-SNAPSHOT"
+          echo "Set version to $SNAPSHOT_VERSION"
+          mvn versions:set -DnewVersion=$SNAPSHOT_VERSION -DgenerateBackupPoms=false
+
+      # Sonatype Snapshots リポジトリに SNAPSHOT をデプロイ
+      - name: Deploy SNAPSHOT to OSSRH
+        run: mvn -B -ntp clean deploy

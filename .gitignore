@@ -1,3 +1,7 @@
 .vscode
 target
 *.yml
+
+!.github/
+!.github/workflows/
+!.github/workflows/*.yml
