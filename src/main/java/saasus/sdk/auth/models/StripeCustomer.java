@@ -20,10 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import saasus.sdk.auth.models.SaasUser;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -50,41 +47,56 @@ import java.util.Set;
 import saasus.sdk.auth.JSON;
 
 /**
- * SaasUsers
+ * StripeCustomer
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-06T11:48:10.201557127Z[Etc/UTC]")
-public class SaasUsers {
-  public static final String SERIALIZED_NAME_USERS = "users";
-  @SerializedName(SERIALIZED_NAME_USERS)
-  private List<SaasUser> users = new ArrayList<>();
+public class StripeCustomer {
+  public static final String SERIALIZED_NAME_CUSTOMER_ID = "customer_id";
+  @SerializedName(SERIALIZED_NAME_CUSTOMER_ID)
+  private String customerId;
 
-  public SaasUsers() {
+  public static final String SERIALIZED_NAME_SUBSCRIPTION_SCHEDULE_ID = "subscription_schedule_id";
+  @SerializedName(SERIALIZED_NAME_SUBSCRIPTION_SCHEDULE_ID)
+  private String subscriptionScheduleId;
+
+  public StripeCustomer() {
   }
 
-  public SaasUsers users(List<SaasUser> users) {
-    this.users = users;
-    return this;
-  }
-
-  public SaasUsers addUsersItem(SaasUser usersItem) {
-    if (this.users == null) {
-      this.users = new ArrayList<>();
-    }
-    this.users.add(usersItem);
+  public StripeCustomer customerId(String customerId) {
+    this.customerId = customerId;
     return this;
   }
 
    /**
-   * Get users
-   * @return users
+   * stripe Customer ID
+   * @return customerId
   **/
   @javax.annotation.Nonnull
-  public List<SaasUser> getUsers() {
-    return users;
+  public String getCustomerId() {
+    return customerId;
   }
 
-  public void setUsers(List<SaasUser> users) {
-    this.users = users;
+  public void setCustomerId(String customerId) {
+    this.customerId = customerId;
+  }
+
+
+  public StripeCustomer subscriptionScheduleId(String subscriptionScheduleId) {
+    this.subscriptionScheduleId = subscriptionScheduleId;
+    return this;
+  }
+
+   /**
+   * stripe Subscription Schedule ID
+   * @return subscriptionScheduleId
+  **/
+  @javax.annotation.Nonnull
+  public String getSubscriptionScheduleId() {
+    return subscriptionScheduleId;
+  }
+
+  public void setSubscriptionScheduleId(String subscriptionScheduleId) {
+    this.subscriptionScheduleId = subscriptionScheduleId;
   }
 
 
@@ -97,20 +109,22 @@ public class SaasUsers {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SaasUsers saasUsers = (SaasUsers) o;
-    return Objects.equals(this.users, saasUsers.users);
+    StripeCustomer stripeCustomer = (StripeCustomer) o;
+    return Objects.equals(this.customerId, stripeCustomer.customerId) &&
+        Objects.equals(this.subscriptionScheduleId, stripeCustomer.subscriptionScheduleId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(users);
+    return Objects.hash(customerId, subscriptionScheduleId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SaasUsers {\n");
-    sb.append("    users: ").append(toIndentedString(users)).append("\n");
+    sb.append("class StripeCustomer {\n");
+    sb.append("    customerId: ").append(toIndentedString(customerId)).append("\n");
+    sb.append("    subscriptionScheduleId: ").append(toIndentedString(subscriptionScheduleId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -133,73 +147,71 @@ public class SaasUsers {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("users");
+    openapiFields.add("customer_id");
+    openapiFields.add("subscription_schedule_id");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("users");
+    openapiRequiredFields.add("customer_id");
+    openapiRequiredFields.add("subscription_schedule_id");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to SaasUsers
+  * @throws IOException if the JSON Element is invalid with respect to StripeCustomer
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!SaasUsers.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in SaasUsers is not found in the empty JSON string", SaasUsers.openapiRequiredFields.toString()));
+        if (!StripeCustomer.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StripeCustomer is not found in the empty JSON string", StripeCustomer.openapiRequiredFields.toString()));
         }
       }
 
       Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
       for (Map.Entry<String, JsonElement> entry : entries) {
-        if (!SaasUsers.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SaasUsers` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        if (!StripeCustomer.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StripeCustomer` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : SaasUsers.openapiRequiredFields) {
+      for (String requiredField : StripeCustomer.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // ensure the json data is an array
-      if (!jsonObj.get("users").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
+      if (!jsonObj.get("customer_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `customer_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("customer_id").toString()));
       }
-
-      JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
-      // validate the required field `users` (array)
-      for (int i = 0; i < jsonArrayusers.size(); i++) {
-        SaasUser.validateJsonElement(jsonArrayusers.get(i));
-      };
+      if (!jsonObj.get("subscription_schedule_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subscription_schedule_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subscription_schedule_id").toString()));
+      }
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!SaasUsers.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'SaasUsers' and its subtypes
+       if (!StripeCustomer.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StripeCustomer' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<SaasUsers> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(SaasUsers.class));
+       final TypeAdapter<StripeCustomer> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StripeCustomer.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<SaasUsers>() {
+       return (TypeAdapter<T>) new TypeAdapter<StripeCustomer>() {
            @Override
-           public void write(JsonWriter out, SaasUsers value) throws IOException {
+           public void write(JsonWriter out, StripeCustomer value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public SaasUsers read(JsonReader in) throws IOException {
+           public StripeCustomer read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              return thisAdapter.fromJsonTree(jsonElement);
@@ -210,18 +222,18 @@ public class SaasUsers {
   }
 
  /**
-  * Create an instance of SaasUsers given an JSON string
+  * Create an instance of StripeCustomer given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of SaasUsers
-  * @throws IOException if the JSON string is invalid with respect to SaasUsers
+  * @return An instance of StripeCustomer
+  * @throws IOException if the JSON string is invalid with respect to StripeCustomer
   */
-  public static SaasUsers fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, SaasUsers.class);
+  public static StripeCustomer fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StripeCustomer.class);
   }
 
  /**
-  * Convert an instance of SaasUsers to an JSON string
+  * Convert an instance of StripeCustomer to an JSON string
   *
   * @return JSON string
   */

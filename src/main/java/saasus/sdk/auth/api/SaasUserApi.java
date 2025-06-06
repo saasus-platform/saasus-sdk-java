@@ -531,7 +531,7 @@ public class SaasUserApi {
 
     /**
      * Create SaaS User
-     * Create SaaS User. 
+     * Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
      * @param createSaasUserParam  (optional)
      * @return SaasUser
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -550,7 +550,7 @@ public class SaasUserApi {
 
     /**
      * Create SaaS User
-     * Create SaaS User. 
+     * Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
      * @param createSaasUserParam  (optional)
      * @return ApiResponse&lt;SaasUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -570,7 +570,7 @@ public class SaasUserApi {
 
     /**
      * Create SaaS User (asynchronously)
-     * Create SaaS User. 
+     * Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
      * @param createSaasUserParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
