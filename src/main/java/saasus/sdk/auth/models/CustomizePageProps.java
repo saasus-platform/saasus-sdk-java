@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * CustomizePageProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-06T11:48:10.201557127Z[Etc/UTC]")
 public class CustomizePageProps {
   public static final String SERIALIZED_NAME_HTML_CONTENTS = "html_contents";
   @SerializedName(SERIALIZED_NAME_HTML_CONTENTS)
