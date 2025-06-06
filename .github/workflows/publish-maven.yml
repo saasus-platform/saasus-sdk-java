@@ -34,4 +34,4 @@ jobs:
 
       # Sonatype OSSRH（ステージング）にデプロイ → 自動で Close → Release
       - name: Verify & Publish to Maven Central
-        run: mvn -B -ntp -Psign-release verify
+        run: mvn -B -ntp -Psign-release deploy
