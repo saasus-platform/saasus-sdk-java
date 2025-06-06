@@ -4,7 +4,7 @@
   <groupId>io.github.saasus-platform</groupId>
   <artifactId>saasus-sdk-java</artifactId>
   <packaging>jar</packaging>
-  <version>1.10.14</version>
+  <version>1.10.14-beta</version>
   <name>saasus-sdk-java</name>
   <description>Official Java SDK for the SaaSus Platform</description>
   <url>https://github.com/saasus-platform/saasus-sdk-java</url>
