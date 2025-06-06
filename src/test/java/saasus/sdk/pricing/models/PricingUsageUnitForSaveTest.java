@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import saasus.sdk.pricing.models.AggregateUsage;
 import saasus.sdk.pricing.models.Currency;
-import saasus.sdk.pricing.models.UnitType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -65,14 +64,6 @@ public class PricingUsageUnitForSaveTest {
     }
 
     /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
-    }
-
-    /**
      * Test the property 'currency'
      */
     @Test
@@ -110,6 +101,14 @@ public class PricingUsageUnitForSaveTest {
     @Test
     public void aggregateUsageTest() {
         // TODO: test aggregateUsage
+    }
+
+    /**
+     * Test the property 'uType'
+     */
+    @Test
+    public void uTypeTest() {
+        // TODO: test uType
     }
 
 }
