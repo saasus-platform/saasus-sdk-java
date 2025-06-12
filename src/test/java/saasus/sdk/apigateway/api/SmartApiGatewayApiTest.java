@@ -21,6 +21,7 @@ import saasus.sdk.apigateway.models.ApiKey;
 import saasus.sdk.apigateway.models.ApiKeys;
 import saasus.sdk.apigateway.models.CloudFormationLaunchStackLink;
 import saasus.sdk.apigateway.models.CreateApiKeyParam;
+import saasus.sdk.apigateway.models.DraftApiGatewaySettings;
 import saasus.sdk.apigateway.models.Error;
 import saasus.sdk.apigateway.models.UpdateApiGatewaySettingsParam;
 import saasus.sdk.apigateway.models.UpdateOpenApiDefinitionParam;
@@ -40,6 +41,19 @@ import java.util.Map;
 public class SmartApiGatewayApiTest {
 
     private final SmartApiGatewayApi api = new SmartApiGatewayApi();
+
+    /**
+     * Apply draft configuration information for Smart API Gateway function
+     *
+     * Apply draft configuration information for Smart API Gateway function. This applies the changes made in the draft settings to the actual Smart API Gateway. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void applyDraftApiGatewaySettingsTest() throws ApiException {
+        api.applyDraftApiGatewaySettings();
+        // TODO: test validations
+    }
 
     /**
      * Create the API Gateway
@@ -122,6 +136,19 @@ public class SmartApiGatewayApiTest {
     @Test
     public void getCloudFormationLaunchStackLinkTest() throws ApiException {
         CloudFormationLaunchStackLink response = api.getCloudFormationLaunchStackLink();
+        // TODO: test validations
+    }
+
+    /**
+     * Obtain draft configuration information for Smart API Gateway function
+     *
+     * Obtain draft configuration information for Smart API Gateway function. You can check the settings generated from the uploaded source code before applying them. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getDraftApiGatewaySettingsTest() throws ApiException {
+        DraftApiGatewaySettings response = api.getDraftApiGatewaySettings();
         // TODO: test validations
     }
 

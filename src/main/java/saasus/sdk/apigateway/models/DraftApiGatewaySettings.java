@@ -20,7 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import saasus.sdk.apigateway.models.EndpointSettings;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,133 +50,64 @@ import java.util.Set;
 import saasus.sdk.apigateway.JSON;
 
 /**
- * Permit requests up to the limit number of times within a range (seconds) time for each target.
+ * DraftApiGatewaySettings
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-12T22:51:41.504076208Z[Etc/UTC]")
-public class Throttling {
-  /**
-   * Target of restriction
-   */
-  @JsonAdapter(TargetEnum.Adapter.class)
-  public enum TargetEnum {
-    TENANT("tenant"),
-    
-    USER("user");
+public class DraftApiGatewaySettings {
+  public static final String SERIALIZED_NAME_INTERNAL_ENDPOINT_OPENAPI_DEFINITION_FILE_DOWNLOAD_URL = "internal_endpoint_openapi_definition_file_download_url";
+  @SerializedName(SERIALIZED_NAME_INTERNAL_ENDPOINT_OPENAPI_DEFINITION_FILE_DOWNLOAD_URL)
+  private String internalEndpointOpenapiDefinitionFileDownloadUrl;
 
-    private String value;
+  public static final String SERIALIZED_NAME_ENDPOINT_SETTINGS_LIST = "endpoint_settings_list";
+  @SerializedName(SERIALIZED_NAME_ENDPOINT_SETTINGS_LIST)
+  private List<EndpointSettings> endpointSettingsList = new ArrayList<>();
 
-    TargetEnum(String value) {
-      this.value = value;
-    }
-
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    public static TargetEnum fromValue(String value) {
-      for (TargetEnum b : TargetEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-
-    public static class Adapter extends TypeAdapter<TargetEnum> {
-      @Override
-      public void write(final JsonWriter jsonWriter, final TargetEnum enumeration) throws IOException {
-        jsonWriter.value(enumeration.getValue());
-      }
-
-      @Override
-      public TargetEnum read(final JsonReader jsonReader) throws IOException {
-        String value =  jsonReader.nextString();
-        return TargetEnum.fromValue(value);
-      }
-    }
-
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      String value = jsonElement.getAsString();
-      TargetEnum.fromValue(value);
-    }
+  public DraftApiGatewaySettings() {
   }
 
-  public static final String SERIALIZED_NAME_TARGET = "target";
-  @SerializedName(SERIALIZED_NAME_TARGET)
-  private TargetEnum target;
-
-  public static final String SERIALIZED_NAME_RANGE = "range";
-  @SerializedName(SERIALIZED_NAME_RANGE)
-  private Integer range;
-
-  public static final String SERIALIZED_NAME_LIMIT = "limit";
-  @SerializedName(SERIALIZED_NAME_LIMIT)
-  private Integer limit;
-
-  public Throttling() {
-  }
-
-  public Throttling target(TargetEnum target) {
-    this.target = target;
+  public DraftApiGatewaySettings internalEndpointOpenapiDefinitionFileDownloadUrl(String internalEndpointOpenapiDefinitionFileDownloadUrl) {
+    this.internalEndpointOpenapiDefinitionFileDownloadUrl = internalEndpointOpenapiDefinitionFileDownloadUrl;
     return this;
   }
 
    /**
-   * Target of restriction
-   * @return target
+   * URL to download the auto-generated openapi definition file, which will be used to build the API Gateway.
+   * @return internalEndpointOpenapiDefinitionFileDownloadUrl
   **/
-  @javax.annotation.Nonnull
-  public TargetEnum getTarget() {
-    return target;
+  @javax.annotation.Nullable
+  public String getInternalEndpointOpenapiDefinitionFileDownloadUrl() {
+    return internalEndpointOpenapiDefinitionFileDownloadUrl;
   }
 
-  public void setTarget(TargetEnum target) {
-    this.target = target;
+  public void setInternalEndpointOpenapiDefinitionFileDownloadUrl(String internalEndpointOpenapiDefinitionFileDownloadUrl) {
+    this.internalEndpointOpenapiDefinitionFileDownloadUrl = internalEndpointOpenapiDefinitionFileDownloadUrl;
   }
 
 
-  public Throttling range(Integer range) {
-    this.range = range;
+  public DraftApiGatewaySettings endpointSettingsList(List<EndpointSettings> endpointSettingsList) {
+    this.endpointSettingsList = endpointSettingsList;
+    return this;
+  }
+
+  public DraftApiGatewaySettings addEndpointSettingsListItem(EndpointSettings endpointSettingsListItem) {
+    if (this.endpointSettingsList == null) {
+      this.endpointSettingsList = new ArrayList<>();
+    }
+    this.endpointSettingsList.add(endpointSettingsListItem);
     return this;
   }
 
    /**
-   * Throttling time range (seconds)
-   * minimum: 60
-   * maximum: 31536000
-   * @return range
+   * Endpoint Settings List
+   * @return endpointSettingsList
   **/
   @javax.annotation.Nonnull
-  public Integer getRange() {
-    return range;
+  public List<EndpointSettings> getEndpointSettingsList() {
+    return endpointSettingsList;
   }
 
-  public void setRange(Integer range) {
-    this.range = range;
-  }
-
-
-  public Throttling limit(Integer limit) {
-    this.limit = limit;
-    return this;
-  }
-
-   /**
-   * Throttling limit
-   * @return limit
-  **/
-  @javax.annotation.Nonnull
-  public Integer getLimit() {
-    return limit;
-  }
-
-  public void setLimit(Integer limit) {
-    this.limit = limit;
+  public void setEndpointSettingsList(List<EndpointSettings> endpointSettingsList) {
+    this.endpointSettingsList = endpointSettingsList;
   }
 
   /**
@@ -189,9 +123,9 @@ public class Throttling {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the Throttling instance itself
+   * @return the DraftApiGatewaySettings instance itself
    */
-  public Throttling putAdditionalProperty(String key, Object value) {
+  public DraftApiGatewaySettings putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -230,25 +164,23 @@ public class Throttling {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Throttling throttling = (Throttling) o;
-    return Objects.equals(this.target, throttling.target) &&
-        Objects.equals(this.range, throttling.range) &&
-        Objects.equals(this.limit, throttling.limit)&&
-        Objects.equals(this.additionalProperties, throttling.additionalProperties);
+    DraftApiGatewaySettings draftApiGatewaySettings = (DraftApiGatewaySettings) o;
+    return Objects.equals(this.internalEndpointOpenapiDefinitionFileDownloadUrl, draftApiGatewaySettings.internalEndpointOpenapiDefinitionFileDownloadUrl) &&
+        Objects.equals(this.endpointSettingsList, draftApiGatewaySettings.endpointSettingsList)&&
+        Objects.equals(this.additionalProperties, draftApiGatewaySettings.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(target, range, limit, additionalProperties);
+    return Objects.hash(internalEndpointOpenapiDefinitionFileDownloadUrl, endpointSettingsList, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Throttling {\n");
-    sb.append("    target: ").append(toIndentedString(target)).append("\n");
-    sb.append("    range: ").append(toIndentedString(range)).append("\n");
-    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("class DraftApiGatewaySettings {\n");
+    sb.append("    internalEndpointOpenapiDefinitionFileDownloadUrl: ").append(toIndentedString(internalEndpointOpenapiDefinitionFileDownloadUrl)).append("\n");
+    sb.append("    endpointSettingsList: ").append(toIndentedString(endpointSettingsList)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -272,58 +204,63 @@ public class Throttling {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("target");
-    openapiFields.add("range");
-    openapiFields.add("limit");
+    openapiFields.add("internal_endpoint_openapi_definition_file_download_url");
+    openapiFields.add("endpoint_settings_list");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("target");
-    openapiRequiredFields.add("range");
-    openapiRequiredFields.add("limit");
+    openapiRequiredFields.add("endpoint_settings_list");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to Throttling
+  * @throws IOException if the JSON Element is invalid with respect to DraftApiGatewaySettings
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!Throttling.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Throttling is not found in the empty JSON string", Throttling.openapiRequiredFields.toString()));
+        if (!DraftApiGatewaySettings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in DraftApiGatewaySettings is not found in the empty JSON string", DraftApiGatewaySettings.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : Throttling.openapiRequiredFields) {
+      for (String requiredField : DraftApiGatewaySettings.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("target").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `target` to be a primitive type in the JSON string but got `%s`", jsonObj.get("target").toString()));
+      if ((jsonObj.get("internal_endpoint_openapi_definition_file_download_url") != null && !jsonObj.get("internal_endpoint_openapi_definition_file_download_url").isJsonNull()) && !jsonObj.get("internal_endpoint_openapi_definition_file_download_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_openapi_definition_file_download_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_openapi_definition_file_download_url").toString()));
       }
-      // validate the required field `target`
-      TargetEnum.validateJsonElement(jsonObj.get("target"));
+      // ensure the json data is an array
+      if (!jsonObj.get("endpoint_settings_list").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `endpoint_settings_list` to be an array in the JSON string but got `%s`", jsonObj.get("endpoint_settings_list").toString()));
+      }
+
+      JsonArray jsonArrayendpointSettingsList = jsonObj.getAsJsonArray("endpoint_settings_list");
+      // validate the required field `endpoint_settings_list` (array)
+      for (int i = 0; i < jsonArrayendpointSettingsList.size(); i++) {
+        EndpointSettings.validateJsonElement(jsonArrayendpointSettingsList.get(i));
+      };
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Throttling.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Throttling' and its subtypes
+       if (!DraftApiGatewaySettings.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'DraftApiGatewaySettings' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Throttling> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Throttling.class));
+       final TypeAdapter<DraftApiGatewaySettings> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(DraftApiGatewaySettings.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Throttling>() {
+       return (TypeAdapter<T>) new TypeAdapter<DraftApiGatewaySettings>() {
            @Override
-           public void write(JsonWriter out, Throttling value) throws IOException {
+           public void write(JsonWriter out, DraftApiGatewaySettings value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -346,12 +283,12 @@ public class Throttling {
            }
 
            @Override
-           public Throttling read(JsonReader in) throws IOException {
+           public DraftApiGatewaySettings read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             Throttling instance = thisAdapter.fromJsonTree(jsonObj);
+             DraftApiGatewaySettings instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -378,18 +315,18 @@ public class Throttling {
   }
 
  /**
-  * Create an instance of Throttling given an JSON string
+  * Create an instance of DraftApiGatewaySettings given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of Throttling
-  * @throws IOException if the JSON string is invalid with respect to Throttling
+  * @return An instance of DraftApiGatewaySettings
+  * @throws IOException if the JSON string is invalid with respect to DraftApiGatewaySettings
   */
-  public static Throttling fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Throttling.class);
+  public static DraftApiGatewaySettings fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, DraftApiGatewaySettings.class);
   }
 
  /**
-  * Convert an instance of Throttling to an JSON string
+  * Convert an instance of DraftApiGatewaySettings to an JSON string
   *
   * @return JSON string
   */
