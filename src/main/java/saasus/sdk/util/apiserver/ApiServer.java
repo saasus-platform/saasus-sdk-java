@@ -153,8 +153,8 @@ public class ApiServer {
                 }
             }
 
-            // エンドポイントマッピングの確認
-            String verificationPath = requestHost + pathWithQuery;
+            // エンドポイントマッピングの確認（プロトコルを含む完全なURL形式）
+            String verificationPath = "https://" + requestHost + pathWithQuery;
             if (apiData.settings != null && apiData.settings.getEndpointSettingsList() != null) {
                 for (saasus.sdk.apigateway.models.EndpointSettings endpoint : apiData.settings
                         .getEndpointSettingsList()) {
@@ -164,7 +164,7 @@ public class ApiServer {
                         String originalPath = endpoint.getPath();
                         String originalPathWithQuery = query != null && !query.isEmpty() ? originalPath + "?" + query
                                 : originalPath;
-                        verificationPath = requestHost + originalPathWithQuery;
+                        verificationPath = "https://" + requestHost + originalPathWithQuery;
                         break;
                     }
                 }
@@ -224,27 +224,36 @@ public class ApiServer {
                 String apiKey, String clientSecret, String method, byte[] requestBody,
                 ApiGatewaySettings settings) {
 
-            List<String> candidatePaths = new ArrayList<>();
-            candidatePaths.add(primaryPath);
+            List<String> candidateUrls = new ArrayList<>();
+            candidateUrls.add(primaryPath);
 
-            // 追加の候補パスを生成
+            // 追加の候補URLを生成（プロトコルを含む完全なURL形式）
             if (settings != null) {
                 String pathPart = primaryPath.substring(primaryPath.indexOf("/"));
                 if (settings.getCloudFrontDnsRecord() != null) {
-                    candidatePaths.add(settings.getCloudFrontDnsRecord().getValue() + pathPart);
+                    String cloudFrontUrl = settings.getCloudFrontDnsRecord().getValue();
+                    if (!cloudFrontUrl.startsWith("http://") && !cloudFrontUrl.startsWith("https://")) {
+                        cloudFrontUrl = "https://" + cloudFrontUrl;
+                    }
+                    candidateUrls.add(cloudFrontUrl + pathPart);
                 }
                 if (settings.getRestApiEndpoint() != null) {
-                    candidatePaths.add(settings.getRestApiEndpoint() + pathPart);
+                    // rest_api_endpointは既にhttps://を含んでいる
+                    candidateUrls.add(settings.getRestApiEndpoint() + pathPart);
                 }
                 if (settings.getDomainName() != null) {
-                    candidatePaths.add(settings.getDomainName() + pathPart);
+                    String domainUrl = settings.getDomainName();
+                    if (!domainUrl.startsWith("http://") && !domainUrl.startsWith("https://")) {
+                        domainUrl = "https://" + domainUrl;
+                    }
+                    candidateUrls.add(domainUrl + pathPart);
                 }
             }
 
             Date now = new Date();
             int timeWindow = 1;
 
-            for (String candidatePath : candidatePaths) {
+            for (String candidateUrl : candidateUrls) {
                 for (int i = -timeWindow; i <= timeWindow; i++) {
                     Calendar cal = Calendar.getInstance();
                     cal.setTime(now);
@@ -261,10 +270,11 @@ public class ApiServer {
                                 "HmacSHA256");
                         mac.init(keySpec);
 
+                        // 署名=日時情報+API Key+HTTPメソッド+URL(Host:Port/URI)+Request Body
                         mac.update(timestamp.getBytes(StandardCharsets.UTF_8));
                         mac.update(apiKey.getBytes(StandardCharsets.UTF_8));
                         mac.update(method.toUpperCase().getBytes(StandardCharsets.UTF_8));
-                        mac.update(candidatePath.getBytes(StandardCharsets.UTF_8));
+                        mac.update(candidateUrl.getBytes(StandardCharsets.UTF_8));
 
                         if (requestBody.length > 0) {
                             mac.update(requestBody);
@@ -273,7 +283,7 @@ public class ApiServer {
                         String calculatedSignature = bytesToHex(mac.doFinal());
 
                         if (DEBUG) {
-                            logger.info("Signature check - Path: " + candidatePath +
+                            logger.info("Signature check - URL: " + candidateUrl +
                                     ", Timestamp: " + timestamp +
                                     ", Expected: " + signature +
                                     ", Calculated: " + calculatedSignature);
