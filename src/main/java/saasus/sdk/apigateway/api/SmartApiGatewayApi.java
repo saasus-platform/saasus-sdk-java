@@ -34,6 +34,7 @@ import saasus.sdk.apigateway.models.ApiKey;
 import saasus.sdk.apigateway.models.ApiKeys;
 import saasus.sdk.apigateway.models.CloudFormationLaunchStackLink;
 import saasus.sdk.apigateway.models.CreateApiKeyParam;
+import saasus.sdk.apigateway.models.DraftApiGatewaySettings;
 import saasus.sdk.apigateway.models.Error;
 import saasus.sdk.apigateway.models.UpdateApiGatewaySettingsParam;
 import saasus.sdk.apigateway.models.UpdateOpenApiDefinitionParam;
@@ -82,6 +83,119 @@ public class SmartApiGatewayApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for applyDraftApiGatewaySettings
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call applyDraftApiGatewaySettingsCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/draft/settings/apply";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call applyDraftApiGatewaySettingsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return applyDraftApiGatewaySettingsCall(_callback);
+
+    }
+
+    /**
+     * Apply draft configuration information for Smart API Gateway function
+     * Apply draft configuration information for Smart API Gateway function. This applies the changes made in the draft settings to the actual Smart API Gateway. 
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void applyDraftApiGatewaySettings() throws ApiException {
+        applyDraftApiGatewaySettingsWithHttpInfo();
+    }
+
+    /**
+     * Apply draft configuration information for Smart API Gateway function
+     * Apply draft configuration information for Smart API Gateway function. This applies the changes made in the draft settings to the actual Smart API Gateway. 
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> applyDraftApiGatewaySettingsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = applyDraftApiGatewaySettingsValidateBeforeCall(null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Apply draft configuration information for Smart API Gateway function (asynchronously)
+     * Apply draft configuration information for Smart API Gateway function. This applies the changes made in the draft settings to the actual Smart API Gateway. 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call applyDraftApiGatewaySettingsAsync(final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = applyDraftApiGatewaySettingsValidateBeforeCall(_callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for createApiGateway
      * @param _callback Callback for upload/download progress
@@ -829,6 +943,123 @@ public class SmartApiGatewayApi {
 
         okhttp3.Call localVarCall = getCloudFormationLaunchStackLinkValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<CloudFormationLaunchStackLink>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for getDraftApiGatewaySettings
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getDraftApiGatewaySettingsCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/draft/settings";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getDraftApiGatewaySettingsValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return getDraftApiGatewaySettingsCall(_callback);
+
+    }
+
+    /**
+     * Obtain draft configuration information for Smart API Gateway function
+     * Obtain draft configuration information for Smart API Gateway function. You can check the settings generated from the uploaded source code before applying them. 
+     * @return DraftApiGatewaySettings
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public DraftApiGatewaySettings getDraftApiGatewaySettings() throws ApiException {
+        ApiResponse<DraftApiGatewaySettings> localVarResp = getDraftApiGatewaySettingsWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Obtain draft configuration information for Smart API Gateway function
+     * Obtain draft configuration information for Smart API Gateway function. You can check the settings generated from the uploaded source code before applying them. 
+     * @return ApiResponse&lt;DraftApiGatewaySettings&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<DraftApiGatewaySettings> getDraftApiGatewaySettingsWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getDraftApiGatewaySettingsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<DraftApiGatewaySettings>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Obtain draft configuration information for Smart API Gateway function (asynchronously)
+     * Obtain draft configuration information for Smart API Gateway function. You can check the settings generated from the uploaded source code before applying them. 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getDraftApiGatewaySettingsAsync(final ApiCallback<DraftApiGatewaySettings> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getDraftApiGatewaySettingsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<DraftApiGatewaySettings>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

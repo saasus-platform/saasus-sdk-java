@@ -101,6 +101,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.CloudFormationLaunchStackLink.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.CreateApiKeyParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.DnsRecord.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.DraftApiGatewaySettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.EndpointSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.Error.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.apigateway.models.TenantRouting.CustomTypeAdapterFactory());

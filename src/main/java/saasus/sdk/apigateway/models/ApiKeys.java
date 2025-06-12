@@ -52,7 +52,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * ApiKeys
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-29T19:09:17.011671667Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-12T22:51:41.504076208Z[Etc/UTC]")
 public class ApiKeys {
   public static final String SERIALIZED_NAME_API_KEYS = "api_keys";
   @SerializedName(SERIALIZED_NAME_API_KEYS)

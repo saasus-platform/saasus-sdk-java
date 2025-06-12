@@ -59,14 +59,6 @@ public class ApiGatewaySettingsTest {
     }
 
     /**
-     * Test the property 'internalEndpointMappingFileDownloadUrl'
-     */
-    @Test
-    public void internalEndpointMappingFileDownloadUrlTest() {
-        // TODO: test internalEndpointMappingFileDownloadUrl
-    }
-
-    /**
      * Test the property 'status'
      */
     @Test
@@ -224,6 +216,14 @@ public class ApiGatewaySettingsTest {
     @Test
     public void docsCloudFrontFqdnTest() {
         // TODO: test docsCloudFrontFqdn
+    }
+
+    /**
+     * Test the property 'mcpServerUrl'
+     */
+    @Test
+    public void mcpServerUrlTest() {
+        // TODO: test mcpServerUrl
     }
 
 }

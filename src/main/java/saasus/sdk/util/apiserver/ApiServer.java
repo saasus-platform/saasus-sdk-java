@@ -103,6 +103,11 @@ public class ApiServer {
                 ApiKey apiKeyObj = apiInstance.getApiKey(apiKey);
                 ApiGatewayTenant tenant = apiInstance.getTenant(apiKeyObj.getTenantId());
 
+                if (DEBUG) {
+                    logger.info("API Key retrieved, Client Secret available: " +
+                               (apiKeyObj.getClientSecret() != null && !apiKeyObj.getClientSecret().isEmpty()));
+                }
+
                 CachedApiData newData = new CachedApiData(settings, apiKeyObj, tenant);
                 apiDataCache.put(apiKey, newData);
 
@@ -126,11 +131,16 @@ public class ApiServer {
             String query = exchange.getRequestURI().getRawQuery();
             String apiKey = exchange.getRequestHeaders().getFirst("x-api-key");
 
-            if (apiData == null || apiData.apiKey.getClientSecret() == null
-                    || apiData.apiKey.getClientSecret().isEmpty()) {
+            if (apiData == null) {
                 if (DEBUG)
-                    logger.warning("Client secret not available, skipping signature verification");
+                    logger.warning("API data not available, skipping signature verification");
                 return true;
+            }
+
+            if (apiData.apiKey.getClientSecret() == null || apiData.apiKey.getClientSecret().isEmpty()) {
+                if (DEBUG)
+                    logger.warning("Client secret not available, signature verification failed");
+                return false;
             }
 
             String adjustedPath = rawPath;
