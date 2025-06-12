@@ -239,9 +239,27 @@ public class ApiServer {
 
             // 追加の候補URLを生成（プロトコルを含む完全なURL形式）
             if (settings != null) {
-                String pathPart = primaryPath.substring(primaryPath.indexOf("/"));
+                // primaryPathからパス部分のみを抽出（プロトコル+ホスト部分を除去）
+                String pathPart = "";
+                if (primaryPath.startsWith("https://")) {
+                    int pathStartIndex = primaryPath.indexOf("/", 8); // "https://"の後の最初の"/"
+                    if (pathStartIndex != -1) {
+                        pathPart = primaryPath.substring(pathStartIndex);
+                    }
+                } else {
+                    // プロトコルがない場合は最初の"/"以降をパス部分とする
+                    int pathStartIndex = primaryPath.indexOf("/");
+                    if (pathStartIndex != -1) {
+                        pathPart = primaryPath.substring(pathStartIndex);
+                    }
+                }
+                
                 if (settings.getCloudFrontDnsRecord() != null) {
                     String cloudFrontUrl = settings.getCloudFrontDnsRecord().getValue();
+                    // 末尾のドットを除去
+                    if (cloudFrontUrl.endsWith(".")) {
+                        cloudFrontUrl = cloudFrontUrl.substring(0, cloudFrontUrl.length() - 1);
+                    }
                     if (!cloudFrontUrl.startsWith("http://") && !cloudFrontUrl.startsWith("https://")) {
                         cloudFrontUrl = "https://" + cloudFrontUrl;
                     }
@@ -253,10 +271,20 @@ public class ApiServer {
                 }
                 if (settings.getDomainName() != null) {
                     String domainUrl = settings.getDomainName();
+                    // 末尾のドットを除去
+                    if (domainUrl.endsWith(".")) {
+                        domainUrl = domainUrl.substring(0, domainUrl.length() - 1);
+                    }
                     if (!domainUrl.startsWith("http://") && !domainUrl.startsWith("https://")) {
                         domainUrl = "https://" + domainUrl;
                     }
                     candidateUrls.add(domainUrl + pathPart);
+                    
+                    // カスタムドメインの場合、"api."プレフィックス付きの候補も追加
+                    if (!domainUrl.startsWith("https://api.") && !domainUrl.startsWith("http://api.")) {
+                        String apiDomainUrl = domainUrl.replace("https://", "https://api.");
+                        candidateUrls.add(apiDomainUrl + pathPart);
+                    }
                 }
             }
 
