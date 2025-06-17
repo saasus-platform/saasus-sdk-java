@@ -9,7 +9,6 @@
 |------------ | ------------- | ------------- | -------------|
 |**generatedFileStatus** | **String** | Status of automatically generated files |  |
 |**internalEndpointOpenapiDefinitionFileDownloadUrl** | **String** | URL to download the auto-generated openapi definition file, which will be used to build the API Gateway. |  |
-|**internalEndpointMappingFileDownloadUrl** | **String** | The download URL for the auto-generated internal endpoint mapping file, which will be used to build the API Gateway. |  |
 |**status** | **String** | API Gateway creation status |  |
 |**roleArn** | **String** | ARN of the role for SaaSus Platform to AssumeRole |  |
 |**roleExternalId** | **String** | External id used by SaaSus when AssumeRole to operate SaaS |  |
@@ -30,6 +29,7 @@
 |**endpointSettingsList** | [**List&lt;EndpointSettings&gt;**](EndpointSettings.md) | Endpoint Settings List |  |
 |**tenantRoutingType** | **TenantRoutingType** |  |  |
 |**docsCloudFrontFqdn** | **String** | CloudFront FQDN for Smart API Gateway Documentation |  |
+|**mcpServerUrl** | **String** | URL of the MCP (Model Context Protocol) server for Smart API Gateway |  |
 
 
 

@@ -54,7 +54,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * ApiGatewaySettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-29T19:09:17.011671667Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-12T22:51:41.504076208Z[Etc/UTC]")
 public class ApiGatewaySettings {
   public static final String SERIALIZED_NAME_GENERATED_FILE_STATUS = "generated_file_status";
   @SerializedName(SERIALIZED_NAME_GENERATED_FILE_STATUS)
@@ -63,10 +63,6 @@ public class ApiGatewaySettings {
   public static final String SERIALIZED_NAME_INTERNAL_ENDPOINT_OPENAPI_DEFINITION_FILE_DOWNLOAD_URL = "internal_endpoint_openapi_definition_file_download_url";
   @SerializedName(SERIALIZED_NAME_INTERNAL_ENDPOINT_OPENAPI_DEFINITION_FILE_DOWNLOAD_URL)
   private String internalEndpointOpenapiDefinitionFileDownloadUrl;
-
-  public static final String SERIALIZED_NAME_INTERNAL_ENDPOINT_MAPPING_FILE_DOWNLOAD_URL = "internal_endpoint_mapping_file_download_url";
-  @SerializedName(SERIALIZED_NAME_INTERNAL_ENDPOINT_MAPPING_FILE_DOWNLOAD_URL)
-  private String internalEndpointMappingFileDownloadUrl;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
@@ -148,6 +144,10 @@ public class ApiGatewaySettings {
   @SerializedName(SERIALIZED_NAME_DOCS_CLOUD_FRONT_FQDN)
   private String docsCloudFrontFqdn;
 
+  public static final String SERIALIZED_NAME_MCP_SERVER_URL = "mcp_server_url";
+  @SerializedName(SERIALIZED_NAME_MCP_SERVER_URL)
+  private String mcpServerUrl;
+
   public ApiGatewaySettings() {
   }
 
@@ -186,25 +186,6 @@ public class ApiGatewaySettings {
 
   public void setInternalEndpointOpenapiDefinitionFileDownloadUrl(String internalEndpointOpenapiDefinitionFileDownloadUrl) {
     this.internalEndpointOpenapiDefinitionFileDownloadUrl = internalEndpointOpenapiDefinitionFileDownloadUrl;
-  }
-
-
-  public ApiGatewaySettings internalEndpointMappingFileDownloadUrl(String internalEndpointMappingFileDownloadUrl) {
-    this.internalEndpointMappingFileDownloadUrl = internalEndpointMappingFileDownloadUrl;
-    return this;
-  }
-
-   /**
-   * The download URL for the auto-generated internal endpoint mapping file, which will be used to build the API Gateway.
-   * @return internalEndpointMappingFileDownloadUrl
-  **/
-  @javax.annotation.Nonnull
-  public String getInternalEndpointMappingFileDownloadUrl() {
-    return internalEndpointMappingFileDownloadUrl;
-  }
-
-  public void setInternalEndpointMappingFileDownloadUrl(String internalEndpointMappingFileDownloadUrl) {
-    this.internalEndpointMappingFileDownloadUrl = internalEndpointMappingFileDownloadUrl;
   }
 
 
@@ -603,6 +584,25 @@ public class ApiGatewaySettings {
     this.docsCloudFrontFqdn = docsCloudFrontFqdn;
   }
 
+
+  public ApiGatewaySettings mcpServerUrl(String mcpServerUrl) {
+    this.mcpServerUrl = mcpServerUrl;
+    return this;
+  }
+
+   /**
+   * URL of the MCP (Model Context Protocol) server for Smart API Gateway
+   * @return mcpServerUrl
+  **/
+  @javax.annotation.Nonnull
+  public String getMcpServerUrl() {
+    return mcpServerUrl;
+  }
+
+  public void setMcpServerUrl(String mcpServerUrl) {
+    this.mcpServerUrl = mcpServerUrl;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -660,7 +660,6 @@ public class ApiGatewaySettings {
     ApiGatewaySettings apiGatewaySettings = (ApiGatewaySettings) o;
     return Objects.equals(this.generatedFileStatus, apiGatewaySettings.generatedFileStatus) &&
         Objects.equals(this.internalEndpointOpenapiDefinitionFileDownloadUrl, apiGatewaySettings.internalEndpointOpenapiDefinitionFileDownloadUrl) &&
-        Objects.equals(this.internalEndpointMappingFileDownloadUrl, apiGatewaySettings.internalEndpointMappingFileDownloadUrl) &&
         Objects.equals(this.status, apiGatewaySettings.status) &&
         Objects.equals(this.roleArn, apiGatewaySettings.roleArn) &&
         Objects.equals(this.roleExternalId, apiGatewaySettings.roleExternalId) &&
@@ -680,13 +679,14 @@ public class ApiGatewaySettings {
         Objects.equals(this.restApiEndpoint, apiGatewaySettings.restApiEndpoint) &&
         Objects.equals(this.endpointSettingsList, apiGatewaySettings.endpointSettingsList) &&
         Objects.equals(this.tenantRoutingType, apiGatewaySettings.tenantRoutingType) &&
-        Objects.equals(this.docsCloudFrontFqdn, apiGatewaySettings.docsCloudFrontFqdn)&&
+        Objects.equals(this.docsCloudFrontFqdn, apiGatewaySettings.docsCloudFrontFqdn) &&
+        Objects.equals(this.mcpServerUrl, apiGatewaySettings.mcpServerUrl)&&
         Objects.equals(this.additionalProperties, apiGatewaySettings.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(generatedFileStatus, internalEndpointOpenapiDefinitionFileDownloadUrl, internalEndpointMappingFileDownloadUrl, status, roleArn, roleExternalId, internalEndpointHealthCheckPath, internalEndpointHealthCheckPort, internalEndpointHealthCheckProtocol, internalEndpointHealthStatusCodes, saasSubnetIds, saasVpcId, domainName, isDnsValidated, certificateDnsRecord, cloudFrontDnsRecord, vpcEndpointDnsRecord, defaultDomainName, saasAlbArn, restApiEndpoint, endpointSettingsList, tenantRoutingType, docsCloudFrontFqdn, additionalProperties);
+    return Objects.hash(generatedFileStatus, internalEndpointOpenapiDefinitionFileDownloadUrl, status, roleArn, roleExternalId, internalEndpointHealthCheckPath, internalEndpointHealthCheckPort, internalEndpointHealthCheckProtocol, internalEndpointHealthStatusCodes, saasSubnetIds, saasVpcId, domainName, isDnsValidated, certificateDnsRecord, cloudFrontDnsRecord, vpcEndpointDnsRecord, defaultDomainName, saasAlbArn, restApiEndpoint, endpointSettingsList, tenantRoutingType, docsCloudFrontFqdn, mcpServerUrl, additionalProperties);
   }
 
   @Override
@@ -695,7 +695,6 @@ public class ApiGatewaySettings {
     sb.append("class ApiGatewaySettings {\n");
     sb.append("    generatedFileStatus: ").append(toIndentedString(generatedFileStatus)).append("\n");
     sb.append("    internalEndpointOpenapiDefinitionFileDownloadUrl: ").append(toIndentedString(internalEndpointOpenapiDefinitionFileDownloadUrl)).append("\n");
-    sb.append("    internalEndpointMappingFileDownloadUrl: ").append(toIndentedString(internalEndpointMappingFileDownloadUrl)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    roleArn: ").append(toIndentedString(roleArn)).append("\n");
     sb.append("    roleExternalId: ").append(toIndentedString(roleExternalId)).append("\n");
@@ -716,6 +715,7 @@ public class ApiGatewaySettings {
     sb.append("    endpointSettingsList: ").append(toIndentedString(endpointSettingsList)).append("\n");
     sb.append("    tenantRoutingType: ").append(toIndentedString(tenantRoutingType)).append("\n");
     sb.append("    docsCloudFrontFqdn: ").append(toIndentedString(docsCloudFrontFqdn)).append("\n");
+    sb.append("    mcpServerUrl: ").append(toIndentedString(mcpServerUrl)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -741,7 +741,6 @@ public class ApiGatewaySettings {
     openapiFields = new HashSet<String>();
     openapiFields.add("generated_file_status");
     openapiFields.add("internal_endpoint_openapi_definition_file_download_url");
-    openapiFields.add("internal_endpoint_mapping_file_download_url");
     openapiFields.add("status");
     openapiFields.add("role_arn");
     openapiFields.add("role_external_id");
@@ -762,12 +761,12 @@ public class ApiGatewaySettings {
     openapiFields.add("endpoint_settings_list");
     openapiFields.add("tenant_routing_type");
     openapiFields.add("docs_cloud_front_fqdn");
+    openapiFields.add("mcp_server_url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("generated_file_status");
     openapiRequiredFields.add("internal_endpoint_openapi_definition_file_download_url");
-    openapiRequiredFields.add("internal_endpoint_mapping_file_download_url");
     openapiRequiredFields.add("status");
     openapiRequiredFields.add("role_arn");
     openapiRequiredFields.add("role_external_id");
@@ -788,6 +787,7 @@ public class ApiGatewaySettings {
     openapiRequiredFields.add("endpoint_settings_list");
     openapiRequiredFields.add("tenant_routing_type");
     openapiRequiredFields.add("docs_cloud_front_fqdn");
+    openapiRequiredFields.add("mcp_server_url");
   }
 
  /**
@@ -815,9 +815,6 @@ public class ApiGatewaySettings {
       }
       if (!jsonObj.get("internal_endpoint_openapi_definition_file_download_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_openapi_definition_file_download_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_openapi_definition_file_download_url").toString()));
-      }
-      if (!jsonObj.get("internal_endpoint_mapping_file_download_url").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `internal_endpoint_mapping_file_download_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("internal_endpoint_mapping_file_download_url").toString()));
       }
       if (!jsonObj.get("status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
@@ -878,6 +875,9 @@ public class ApiGatewaySettings {
       TenantRoutingType.validateJsonElement(jsonObj.get("tenant_routing_type"));
       if (!jsonObj.get("docs_cloud_front_fqdn").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `docs_cloud_front_fqdn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("docs_cloud_front_fqdn").toString()));
+      }
+      if (!jsonObj.get("mcp_server_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mcp_server_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mcp_server_url").toString()));
       }
   }
 

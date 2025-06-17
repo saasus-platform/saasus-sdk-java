@@ -4,12 +4,14 @@ All URIs are relative to *https://api.saasus.io/v1/apigateway*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**applyDraftApiGatewaySettings**](SmartApiGatewayApi.md#applyDraftApiGatewaySettings) | **POST** /draft/settings/apply | Apply draft configuration information for Smart API Gateway function |
 | [**createApiGateway**](SmartApiGatewayApi.md#createApiGateway) | **POST** /create | Create the API Gateway |
 | [**createApiKey**](SmartApiGatewayApi.md#createApiKey) | **POST** /api-keys | Create an API key |
 | [**getApiGatewaySettings**](SmartApiGatewayApi.md#getApiGatewaySettings) | **GET** /settings | Obtain configuration information for api gateway function |
 | [**getApiKey**](SmartApiGatewayApi.md#getApiKey) | **GET** /api-keys/{api_key} | get API key details by API key |
 | [**getApiKeys**](SmartApiGatewayApi.md#getApiKeys) | **GET** /api-keys | API key list or get API key by condition |
 | [**getCloudFormationLaunchStackLink**](SmartApiGatewayApi.md#getCloudFormationLaunchStackLink) | **GET** /cloudformation-launch-stack-link | Get the link to create the AWS CloudFormation stack |
+| [**getDraftApiGatewaySettings**](SmartApiGatewayApi.md#getDraftApiGatewaySettings) | **GET** /draft/settings | Obtain draft configuration information for Smart API Gateway function |
 | [**getTenant**](SmartApiGatewayApi.md#getTenant) | **GET** /tenants/{tenant_id} | Get tenant information |
 | [**publishApiGateway**](SmartApiGatewayApi.md#publishApiGateway) | **POST** /publish | Publish the API Gateway |
 | [**refreshClientSecret**](SmartApiGatewayApi.md#refreshClientSecret) | **POST** /api-keys/{api_key}/client-secret | Update the client secret of the API key |
@@ -19,6 +21,69 @@ All URIs are relative to *https://api.saasus.io/v1/apigateway*
 | [**updateTenant**](SmartApiGatewayApi.md#updateTenant) | **PATCH** /tenants/{tenant_id} | Update tenant information |
 | [**uploadGenerationFiles**](SmartApiGatewayApi.md#uploadGenerationFiles) | **POST** /upload | Upload files to create an API Gateway |
 
+
+<a id="applyDraftApiGatewaySettings"></a>
+# **applyDraftApiGatewaySettings**
+> applyDraftApiGatewaySettings()
+
+Apply draft configuration information for Smart API Gateway function
+
+Apply draft configuration information for Smart API Gateway function. This applies the changes made in the draft settings to the actual Smart API Gateway. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.apigateway.ApiClient;
+import saasus.sdk.apigateway.ApiException;
+import saasus.sdk.apigateway.Configuration;
+import saasus.sdk.apigateway.auth.*;
+import saasus.sdk.apigateway.models.*;
+import saasus.sdk.apigateway.api.SmartApiGatewayApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/apigateway");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(defaultClient);
+    try {
+      apiInstance.applyDraftApiGatewaySettings();
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SmartApiGatewayApi#applyDraftApiGatewaySettings");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **500** | Internal Server Error |  -  |
 
 <a id="createApiGateway"></a>
 # **createApiGateway**
@@ -405,6 +470,70 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**CloudFormationLaunchStackLink**](CloudFormationLaunchStackLink.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="getDraftApiGatewaySettings"></a>
+# **getDraftApiGatewaySettings**
+> DraftApiGatewaySettings getDraftApiGatewaySettings()
+
+Obtain draft configuration information for Smart API Gateway function
+
+Obtain draft configuration information for Smart API Gateway function. You can check the settings generated from the uploaded source code before applying them. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.apigateway.ApiClient;
+import saasus.sdk.apigateway.ApiException;
+import saasus.sdk.apigateway.Configuration;
+import saasus.sdk.apigateway.auth.*;
+import saasus.sdk.apigateway.models.*;
+import saasus.sdk.apigateway.api.SmartApiGatewayApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/apigateway");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(defaultClient);
+    try {
+      DraftApiGatewaySettings result = apiInstance.getDraftApiGatewaySettings();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SmartApiGatewayApi#getDraftApiGatewaySettings");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DraftApiGatewaySettings**](DraftApiGatewaySettings.md)
 
 ### Authorization
 
