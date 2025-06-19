@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * reCAPTCHA authentication settings ※ This function is not yet provided, so it cannot be changed or saved. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-19T09:08:21.140838443Z[Etc/UTC]")
 public class RecaptchaProps {
   public static final String SERIALIZED_NAME_SITE_KEY = "site_key";
   @SerializedName(SERIALIZED_NAME_SITE_KEY)
