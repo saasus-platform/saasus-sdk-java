@@ -50,7 +50,7 @@ import saasus.sdk.awsmarketplace.JSON;
 /**
  * CatalogEntityVisibility
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:34.280462778Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-19T09:08:32.806147674Z[Etc/UTC]")
 public class CatalogEntityVisibility {
   public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
   @SerializedName(SERIALIZED_NAME_VISIBILITY)
