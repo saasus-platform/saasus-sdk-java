@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import jakarta.servlet.ServletContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -69,17 +70,35 @@ public class ApiServer {
         }
     }
 
+    // 既存のメソッド（後方互換性のため）
     public static void start(int port) throws IOException {
+        start(port, null);
+    }
+
+    // 新しいメソッド（ServletContext対応）
+    public static void start(int port, ServletContext servletContext) throws IOException {
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
-        server.createContext("/", new DynamicHandler());
+        server.createContext("/", new DynamicHandler(servletContext));
         server.setExecutor(null);
         server.start();
-        logger.info("Server is listening on port " + port);
+        logger.info("Server is listening on port " + port + 
+                    (servletContext != null ? " with ServletContext" : ""));
     }
 
     static class DynamicHandler implements HttpHandler {
         private final Map<String, Class<?>> classCache = new HashMap<>();
         private final Map<String, Method> methodCache = new HashMap<>();
+        private final ServletContext servletContext; // 追加
+
+        // デフォルトコンストラクタ（後方互換性のため）
+        public DynamicHandler() {
+            this(null);
+        }
+
+        // ServletContext対応コンストラクタ
+        public DynamicHandler(ServletContext servletContext) {
+            this.servletContext = servletContext;
+        }
 
         private CachedApiData getApiData(String apiKey) throws ApiException {
             // キャッシュから取得
@@ -306,90 +325,107 @@ public class ApiServer {
 
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            String apiKey = exchange.getRequestHeaders().getFirst("x-api-key");
-            if (apiKey == null || apiKey.isEmpty()) {
-                sendResponse(exchange, 401, "{\"message\": \"x-api-key header is required\"}");
-                return;
+            // ServletContextがある場合、クラスローダーを設定
+            ClassLoader originalClassLoader = null;
+            if (servletContext != null) {
+                originalClassLoader = Thread.currentThread().getContextClassLoader();
+                Thread.currentThread().setContextClassLoader(servletContext.getClassLoader());
+                if (DEBUG) {
+                    logger.info("Set context ClassLoader from ServletContext");
+                }
             }
 
-            CachedApiData apiData = null;
             try {
-                apiData = getApiData(apiKey);
-            } catch (Exception e) {
-                logger.log(Level.WARNING, "Failed to get API data", e);
-            }
+                String apiKey = exchange.getRequestHeaders().getFirst("x-api-key");
+                if (apiKey == null || apiKey.isEmpty()) {
+                    sendResponse(exchange, 401, "{\"message\": \"x-api-key header is required\"}");
+                    return;
+                }
 
-            if (!verifySignature(exchange, apiData)) {
-                sendResponse(exchange, 401, "{\"message\": \"Invalid signature\"}");
-                return;
-            }
+                CachedApiData apiData = null;
+                try {
+                    apiData = getApiData(apiKey);
+                } catch (Exception e) {
+                    logger.log(Level.WARNING, "Failed to get API data", e);
+                }
 
-            String path = exchange.getRequestURI().getPath();
-            String[] pathParts = path.split("/");
+                if (!verifySignature(exchange, apiData)) {
+                    sendResponse(exchange, 401, "{\"message\": \"Invalid signature\"}");
+                    return;
+                }
 
-            if (pathParts.length < 3) {
-                sendResponse(exchange, 400, "Invalid path. Use format: /ClassName/methodName");
-                return;
-            }
+                String path = exchange.getRequestURI().getPath();
+                String[] pathParts = path.split("/");
 
-            String className = pathParts[1];
-            String methodName = pathParts[2];
+                if (pathParts.length < 3) {
+                    sendResponse(exchange, 400, "Invalid path. Use format: /ClassName/methodName");
+                    return;
+                }
 
-            // ルーティング処理の統合
-            if (apiData != null && apiData.tenant != null && apiData.tenant.getRouting() != null) {
-                String routingValue = apiData.tenant.getRouting().getPath();
-                if (routingValue != null && !routingValue.isEmpty()) {
-                    // パスにルーティング値が含まれている場合のみルーティング処理を適用
-                    if (path.contains("/" + routingValue + "/")) {
-                        String newPath = path.replace("/" + routingValue, "");
-                        String[] newPathParts = newPath.split("/");
-                        if (newPathParts.length >= 3) {
-                            className = newPathParts[1];
-                            methodName = newPathParts[2];
+                String className = pathParts[1];
+                String methodName = pathParts[2];
+
+                // ルーティング処理の統合
+                if (apiData != null && apiData.tenant != null && apiData.tenant.getRouting() != null) {
+                    String routingValue = apiData.tenant.getRouting().getPath();
+                    if (routingValue != null && !routingValue.isEmpty()) {
+                        // パスにルーティング値が含まれている場合のみルーティング処理を適用
+                        if (path.contains("/" + routingValue + "/")) {
+                            String newPath = path.replace("/" + routingValue, "");
+                            String[] newPathParts = newPath.split("/");
+                            if (newPathParts.length >= 3) {
+                                className = newPathParts[1];
+                                methodName = newPathParts[2];
+                            } else {
+                                sendResponse(exchange, 400, "Invalid path after routing: " + newPath);
+                                return;
+                            }
                         } else {
-                            sendResponse(exchange, 400, "Invalid path after routing: " + newPath);
-                            return;
+                            // API Gatewayやプロキシ経由のリクエストの場合、
+                            // テナントルーティングを適用せずに直接処理
+                            if (DEBUG) {
+                                logger.info("Routing path '" + routingValue + "' not found in URL '" + path
+                                        + "', proceeding without tenant routing");
+                            }
+                            // 現在のpathPartsをそのまま使用（className, methodNameは既に設定済み）
                         }
-                    } else {
-                        // API Gatewayやプロキシ経由のリクエストの場合、
-                        // テナントルーティングを適用せずに直接処理
-                        if (DEBUG) {
-                            logger.info("Routing path '" + routingValue + "' not found in URL '" + path
-                                    + "', proceeding without tenant routing");
-                        }
-                        // 現在のpathPartsをそのまま使用（className, methodNameは既に設定済み）
                     }
                 }
-            }
 
-            Map<String, String> queryParams = parseQueryParams(exchange.getRequestURI());
+                Map<String, String> queryParams = parseQueryParams(exchange.getRequestURI());
 
-            try {
-                if (DEBUG) {
-                    logger.info("Invoking method - Class: " + className + ", Method: " + methodName);
+                try {
+                    if (DEBUG) {
+                        logger.info("Invoking method - Class: " + className + ", Method: " + methodName);
+                    }
+
+                    Class<?> clazz = getClass(className);
+                    Method method = getMethod(clazz, methodName);
+
+                    if (method != null) {
+                        Object[] args = prepareMethodArguments(method, queryParams);
+                        Object response = method.invoke(null, args);
+                        String jsonResponse = objectMapper.writeValueAsString(response);
+                        sendResponse(exchange, 200, jsonResponse);
+                    } else {
+                        sendResponse(exchange, 404, "Method not found: " + methodName);
+                    }
+                } catch (ClassNotFoundException e) {
+                    sendResponse(exchange, 404, "Class not found: " + className);
+                } catch (InvocationTargetException | IllegalAccessException e) {
+                    logger.log(Level.SEVERE, "Error invoking method", e);
+                    sendResponse(exchange, 500, "Error invoking method: " + e.getMessage());
+                } catch (IllegalArgumentException e) {
+                    sendResponse(exchange, 400, "Invalid arguments: " + e.getMessage());
+                } catch (Exception e) {
+                    logger.log(Level.SEVERE, "Internal server error", e);
+                    sendResponse(exchange, 500, "Internal server error: " + e.getMessage());
                 }
-
-                Class<?> clazz = getClass(className);
-                Method method = getMethod(clazz, methodName);
-
-                if (method != null) {
-                    Object[] args = prepareMethodArguments(method, queryParams);
-                    Object response = method.invoke(null, args);
-                    String jsonResponse = objectMapper.writeValueAsString(response);
-                    sendResponse(exchange, 200, jsonResponse);
-                } else {
-                    sendResponse(exchange, 404, "Method not found: " + methodName);
+            } finally {
+                // クラスローダーを元に戻す
+                if (originalClassLoader != null) {
+                    Thread.currentThread().setContextClassLoader(originalClassLoader);
                 }
-            } catch (ClassNotFoundException e) {
-                sendResponse(exchange, 404, "Class not found: " + className);
-            } catch (InvocationTargetException | IllegalAccessException e) {
-                logger.log(Level.SEVERE, "Error invoking method", e);
-                sendResponse(exchange, 500, "Error invoking method: " + e.getMessage());
-            } catch (IllegalArgumentException e) {
-                sendResponse(exchange, 400, "Invalid arguments: " + e.getMessage());
-            } catch (Exception e) {
-                logger.log(Level.SEVERE, "Internal server error", e);
-                sendResponse(exchange, 500, "Internal server error: " + e.getMessage());
             }
         }
 
