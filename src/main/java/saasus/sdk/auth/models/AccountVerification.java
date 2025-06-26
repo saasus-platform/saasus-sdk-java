@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Account authentication settings ※ This function is not yet provided, so it cannot be changed or saved. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-19T10:36:52.616435302Z[Etc/UTC]")
 public class AccountVerification {
   /**
    * code: verification code link: verification link ※ This function is not yet provided, so it cannot be changed or saved. 
