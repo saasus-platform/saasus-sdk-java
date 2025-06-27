@@ -68,7 +68,7 @@ import com.google.gson.JsonParseException;
 
 import saasus.sdk.pricing.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:27.364679080Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T07:39:57.462883361Z[Etc/UTC]")
 public class PricingUnitForSave extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PricingUnitForSave.class.getName());
 
