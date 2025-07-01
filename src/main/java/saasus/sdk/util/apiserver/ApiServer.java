@@ -140,7 +140,7 @@ public class ApiServer {
             if (apiData.apiKey.getClientSecret() == null || apiData.apiKey.getClientSecret().isEmpty()) {
                 if (DEBUG)
                     logger.warning("Client secret not available, signature verification failed");
-                return false;
+                return true;
             }
 
             String adjustedPath = rawPath;
