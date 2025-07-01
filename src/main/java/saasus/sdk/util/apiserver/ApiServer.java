@@ -562,10 +562,6 @@ public class ApiServer {
                     throw new IllegalStateException("Required identity fields are missing");
                 }
                 
-                if (userId == null) {
-                    userId = ""; // 空文字列をデフォルトとする
-                }
-                
                 String envId = envIdInt.toString();
                 
                 if (DEBUG) {
