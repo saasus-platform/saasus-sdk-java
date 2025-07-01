@@ -26,7 +26,6 @@ import saasus.sdk.pricing.models.AggregateUsage;
 import saasus.sdk.pricing.models.Currency;
 import saasus.sdk.pricing.models.PricingTier;
 import saasus.sdk.pricing.models.RecurringInterval;
-import saasus.sdk.pricing.models.UnitType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -69,6 +68,14 @@ public class PricingTieredUnitTest {
     }
 
     /**
+     * Test the property 'uType'
+     */
+    @Test
+    public void uTypeTest() {
+        // TODO: test uType
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test
@@ -90,14 +97,6 @@ public class PricingTieredUnitTest {
     @Test
     public void descriptionTest() {
         // TODO: test description
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
     }
 
     /**
