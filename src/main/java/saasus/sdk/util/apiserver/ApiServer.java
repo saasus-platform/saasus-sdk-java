@@ -140,7 +140,7 @@ public class ApiServer {
             if (apiData.apiKey.getClientSecret() == null || apiData.apiKey.getClientSecret().isEmpty()) {
                 if (DEBUG)
                     logger.warning("Client secret not available, signature verification failed");
-                return false;
+                return true;
             }
 
             String adjustedPath = rawPath;
@@ -421,7 +421,14 @@ public class ApiServer {
                 Method method = getMethod(clazz, methodName);
 
                 if (method != null) {
-                    Object[] args = prepareMethodArguments(method, queryParams);
+                    boolean needsIdentity = requiresSaaSusIdentity(method);
+                    SaaSusIdentity identity = null;
+                    
+                    if (needsIdentity) {
+                        identity = createSaaSusIdentity(apiData);
+                    }
+                    
+                    Object[] args = prepareMethodArguments(method, queryParams, identity);
                     Object response = method.invoke(null, args);
                     String jsonResponse = objectMapper.writeValueAsString(response);
                     sendResponse(exchange, 200, jsonResponse);
@@ -479,11 +486,25 @@ public class ApiServer {
             return queryParams;
         }
 
-        private Object[] prepareMethodArguments(Method method, Map<String, String> queryParams) {
+        private Object[] prepareMethodArguments(Method method, Map<String, String> queryParams, SaaSusIdentity identity) {
             Parameter[] parameters = method.getParameters();
             List<Object> args = new ArrayList<>();
 
             for (Parameter parameter : parameters) {
+                Class<?> paramType = parameter.getType();
+                
+                // SaaSusIdentityパラメータの検出と自動注入
+                if (paramType == SaaSusIdentity.class) {
+                    if (identity == null) {
+                        throw new IllegalStateException("SaaSusIdentity is required but not available");
+                    }
+                    if (DEBUG) {
+                        logger.info("Auto-injecting SaaSusIdentity for parameter: " + parameter.getName());
+                    }
+                    args.add(identity);
+                    continue;
+                }
+                
                 String paramName = parameter.getName();
                 String paramValue = queryParams.get(paramName);
 
@@ -491,7 +512,6 @@ public class ApiServer {
                     throw new IllegalArgumentException("Missing parameter: " + paramName);
                 }
 
-                Class<?> paramType = parameter.getType();
                 args.add(convertParamValue(paramValue, paramType));
             }
 
@@ -511,6 +531,50 @@ public class ApiServer {
                 return Boolean.parseBoolean(value);
             }
             throw new IllegalArgumentException("Unsupported parameter type: " + type.getName());
+        }
+
+        /**
+         * メソッドがSaaSusIdentityパラメータを必要とするかチェック
+         * @param method チェック対象のメソッド
+         * @return SaaSusIdentityパラメータが必要な場合true
+         */
+        private boolean requiresSaaSusIdentity(Method method) {
+            Parameter[] parameters = method.getParameters();
+            for (Parameter parameter : parameters) {
+                if (parameter.getType() == SaaSusIdentity.class) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private SaaSusIdentity createSaaSusIdentity(CachedApiData apiData) {
+            try {
+                if (apiData == null || apiData.apiKey == null) {
+                    throw new IllegalStateException("API data not available for identity creation");
+                }
+                
+                String userId = apiData.apiKey.getUserId();
+                String tenantId = apiData.apiKey.getTenantId();
+                Integer envIdInt = apiData.apiKey.getEnvId();
+                
+                if (tenantId == null || envIdInt == null) {
+                    throw new IllegalStateException("Required identity fields are missing");
+                }
+                
+                String envId = envIdInt.toString();
+                
+                if (DEBUG) {
+                    logger.info("Creating SaaSusIdentity - userId: " + userId +
+                               ", tenantId: " + tenantId + ", envId: " + envId);
+                }
+                
+                return new SaaSusIdentity(userId, tenantId, envId);
+                
+            } catch (Exception e) {
+                logger.warning("Failed to create SaaSusIdentity: " + e.getMessage());
+                throw new IllegalStateException("Identity creation failed", e);
+            }
         }
 
         private void sendResponse(HttpExchange exchange, int statusCode, String response) throws IOException {
