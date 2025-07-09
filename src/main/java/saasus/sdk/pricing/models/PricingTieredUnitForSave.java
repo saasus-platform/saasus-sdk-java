@@ -26,7 +26,6 @@ import java.util.List;
 import saasus.sdk.pricing.models.AggregateUsage;
 import saasus.sdk.pricing.models.Currency;
 import saasus.sdk.pricing.models.PricingTier;
-import saasus.sdk.pricing.models.UnitType;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,7 +54,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingTieredUnitForSave
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:27.364679080Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:34.475188381Z[Etc/UTC]")
 public class PricingTieredUnitForSave {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -68,10 +67,6 @@ public class PricingTieredUnitForSave {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private UnitType type;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -92,6 +87,60 @@ public class PricingTieredUnitForSave {
   public static final String SERIALIZED_NAME_AGGREGATE_USAGE = "aggregate_usage";
   @SerializedName(SERIALIZED_NAME_AGGREGATE_USAGE)
   private AggregateUsage aggregateUsage;
+
+  /**
+   * Gets or Sets uType
+   */
+  @JsonAdapter(UTypeEnum.Adapter.class)
+  public enum UTypeEnum {
+    TIERED("tiered");
+
+    private String value;
+
+    UTypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UTypeEnum fromValue(String value) {
+      for (UTypeEnum b : UTypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<UTypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UTypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UTypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return UTypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      UTypeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_U_TYPE = "u_type";
+  @SerializedName(SERIALIZED_NAME_U_TYPE)
+  private UTypeEnum uType;
 
   public PricingTieredUnitForSave() {
   }
@@ -150,25 +199,6 @@ public class PricingTieredUnitForSave {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-
-  public PricingTieredUnitForSave type(UnitType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nonnull
-  public UnitType getType() {
-    return type;
-  }
-
-  public void setType(UnitType type) {
-    this.type = type;
   }
 
 
@@ -275,6 +305,25 @@ public class PricingTieredUnitForSave {
   }
 
 
+  public PricingTieredUnitForSave uType(UTypeEnum uType) {
+    this.uType = uType;
+    return this;
+  }
+
+   /**
+   * Get uType
+   * @return uType
+  **/
+  @javax.annotation.Nonnull
+  public UTypeEnum getuType() {
+    return uType;
+  }
+
+  public void setuType(UTypeEnum uType) {
+    this.uType = uType;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -288,17 +337,17 @@ public class PricingTieredUnitForSave {
     return Objects.equals(this.name, pricingTieredUnitForSave.name) &&
         Objects.equals(this.displayName, pricingTieredUnitForSave.displayName) &&
         Objects.equals(this.description, pricingTieredUnitForSave.description) &&
-        Objects.equals(this.type, pricingTieredUnitForSave.type) &&
         Objects.equals(this.currency, pricingTieredUnitForSave.currency) &&
         Objects.equals(this.tiers, pricingTieredUnitForSave.tiers) &&
         Objects.equals(this.upperCount, pricingTieredUnitForSave.upperCount) &&
         Objects.equals(this.meteringUnitName, pricingTieredUnitForSave.meteringUnitName) &&
-        Objects.equals(this.aggregateUsage, pricingTieredUnitForSave.aggregateUsage);
+        Objects.equals(this.aggregateUsage, pricingTieredUnitForSave.aggregateUsage) &&
+        Objects.equals(this.uType, pricingTieredUnitForSave.uType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, displayName, description, type, currency, tiers, upperCount, meteringUnitName, aggregateUsage);
+    return Objects.hash(name, displayName, description, currency, tiers, upperCount, meteringUnitName, aggregateUsage, uType);
   }
 
   @Override
@@ -308,12 +357,12 @@ public class PricingTieredUnitForSave {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
     sb.append("    upperCount: ").append(toIndentedString(upperCount)).append("\n");
     sb.append("    meteringUnitName: ").append(toIndentedString(meteringUnitName)).append("\n");
     sb.append("    aggregateUsage: ").append(toIndentedString(aggregateUsage)).append("\n");
+    sb.append("    uType: ").append(toIndentedString(uType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -339,23 +388,23 @@ public class PricingTieredUnitForSave {
     openapiFields.add("name");
     openapiFields.add("display_name");
     openapiFields.add("description");
-    openapiFields.add("type");
     openapiFields.add("currency");
     openapiFields.add("tiers");
     openapiFields.add("upper_count");
     openapiFields.add("metering_unit_name");
     openapiFields.add("aggregate_usage");
+    openapiFields.add("u_type");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("display_name");
     openapiRequiredFields.add("description");
-    openapiRequiredFields.add("type");
     openapiRequiredFields.add("currency");
     openapiRequiredFields.add("tiers");
     openapiRequiredFields.add("upper_count");
     openapiRequiredFields.add("metering_unit_name");
+    openapiRequiredFields.add("u_type");
   }
 
  /**
@@ -395,8 +444,6 @@ public class PricingTieredUnitForSave {
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // validate the required field `type`
-      UnitType.validateJsonElement(jsonObj.get("type"));
       // validate the required field `currency`
       Currency.validateJsonElement(jsonObj.get("currency"));
       // ensure the json data is an array
@@ -416,6 +463,11 @@ public class PricingTieredUnitForSave {
       if (jsonObj.get("aggregate_usage") != null && !jsonObj.get("aggregate_usage").isJsonNull()) {
         AggregateUsage.validateJsonElement(jsonObj.get("aggregate_usage"));
       }
+      if (!jsonObj.get("u_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `u_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("u_type").toString()));
+      }
+      // validate the required field `u_type`
+      UTypeEnum.validateJsonElement(jsonObj.get("u_type"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

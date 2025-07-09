@@ -31,7 +31,6 @@ import saasus.sdk.pricing.models.PricingTieredUnit;
 import saasus.sdk.pricing.models.PricingTieredUsageUnit;
 import saasus.sdk.pricing.models.PricingUsageUnit;
 import saasus.sdk.pricing.models.RecurringInterval;
-import saasus.sdk.pricing.models.UnitType;
 
 
 
@@ -68,7 +67,7 @@ import com.google.gson.JsonParseException;
 
 import saasus.sdk.pricing.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:27.364679080Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:34.475188381Z[Etc/UTC]")
 public class PricingUnit extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PricingUnit.class.getName());
 
@@ -129,11 +128,11 @@ public class PricingUnit extends AbstractOpenApiSchema {
 
                     // use discriminator value for faster oneOf lookup
                     PricingUnit newPricingUnit = new PricingUnit();
-                    if (jsonObject.get("type") == null) {
-                        log.log(Level.WARNING, "Failed to lookup discriminator value for PricingUnit as `type` was not found in the payload or the payload is empty.");
+                    if (jsonObject.get("u_type") == null) {
+                        log.log(Level.WARNING, "Failed to lookup discriminator value for PricingUnit as `u_type` was not found in the payload or the payload is empty.");
                     } else  {
-                        // look up the discriminator value in the field `type`
-                        switch (jsonObject.get("type").getAsString()) {
+                        // look up the discriminator value in the field `u_type`
+                        switch (jsonObject.get("u_type").getAsString()) {
                             case "fixed":
                                 deserialized = adapterPricingFixedUnit.fromJsonTree(jsonObject);
                                 newPricingUnit.setActualInstance(deserialized);
@@ -167,7 +166,7 @@ public class PricingUnit extends AbstractOpenApiSchema {
                                 newPricingUnit.setActualInstance(deserialized);
                                 return newPricingUnit;
                             default:
-                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for PricingUnit. Possible values: fixed tiered tiered_usage usage PricingFixedUnit PricingTieredUnit PricingTieredUsageUnit PricingUsageUnit", jsonObject.get("type").getAsString()));
+                                log.log(Level.WARNING, String.format("Failed to lookup discriminator value `%s` for PricingUnit. Possible values: fixed tiered tiered_usage usage PricingFixedUnit PricingTieredUnit PricingTieredUsageUnit PricingUsageUnit", jsonObject.get("u_type").getAsString()));
                         }
                     }
 

@@ -22,7 +22,6 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import saasus.sdk.pricing.models.Currency;
-import saasus.sdk.pricing.models.UnitType;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +50,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingUnitBaseProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:27.364679080Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-05-16T05:24:34.475188381Z[Etc/UTC]")
 public class PricingUnitBaseProps {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -64,10 +63,6 @@ public class PricingUnitBaseProps {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private UnitType type;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -133,25 +128,6 @@ public class PricingUnitBaseProps {
   }
 
 
-  public PricingUnitBaseProps type(UnitType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nonnull
-  public UnitType getType() {
-    return type;
-  }
-
-  public void setType(UnitType type) {
-    this.type = type;
-  }
-
-
   public PricingUnitBaseProps currency(Currency currency) {
     this.currency = currency;
     return this;
@@ -184,13 +160,12 @@ public class PricingUnitBaseProps {
     return Objects.equals(this.name, pricingUnitBaseProps.name) &&
         Objects.equals(this.displayName, pricingUnitBaseProps.displayName) &&
         Objects.equals(this.description, pricingUnitBaseProps.description) &&
-        Objects.equals(this.type, pricingUnitBaseProps.type) &&
         Objects.equals(this.currency, pricingUnitBaseProps.currency);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, displayName, description, type, currency);
+    return Objects.hash(name, displayName, description, currency);
   }
 
   @Override
@@ -200,7 +175,6 @@ public class PricingUnitBaseProps {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -227,7 +201,6 @@ public class PricingUnitBaseProps {
     openapiFields.add("name");
     openapiFields.add("display_name");
     openapiFields.add("description");
-    openapiFields.add("type");
     openapiFields.add("currency");
 
     // a set of required properties/fields (JSON key names)
@@ -235,7 +208,6 @@ public class PricingUnitBaseProps {
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("display_name");
     openapiRequiredFields.add("description");
-    openapiRequiredFields.add("type");
     openapiRequiredFields.add("currency");
   }
 
@@ -276,8 +248,6 @@ public class PricingUnitBaseProps {
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // validate the required field `type`
-      UnitType.validateJsonElement(jsonObj.get("type"));
       // validate the required field `currency`
       Currency.validateJsonElement(jsonObj.get("currency"));
   }

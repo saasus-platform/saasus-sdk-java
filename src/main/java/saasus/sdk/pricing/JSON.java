@@ -72,7 +72,7 @@ public class JSON {
                         classByDiscriminatorValue.put("PricingUsageUnit", saasus.sdk.pricing.models.PricingUsageUnit.class);
                         classByDiscriminatorValue.put("PricingUnit", saasus.sdk.pricing.models.PricingUnit.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
-                                getDiscriminatorValue(readElement, "type"));
+                                getDiscriminatorValue(readElement, "u_type"));
                     }
           })
                 .registerTypeSelector(saasus.sdk.pricing.models.PricingUnitForSave.class, new TypeSelector<saasus.sdk.pricing.models.PricingUnitForSave>() {
@@ -89,7 +89,7 @@ public class JSON {
                         classByDiscriminatorValue.put("PricingUsageUnitForSave", saasus.sdk.pricing.models.PricingUsageUnitForSave.class);
                         classByDiscriminatorValue.put("PricingUnitForSave", saasus.sdk.pricing.models.PricingUnitForSave.class);
                         return getClassByDiscriminator(classByDiscriminatorValue,
-                                getDiscriminatorValue(readElement, "type"));
+                                getDiscriminatorValue(readElement, "u_type"));
                     }
           })
         ;
