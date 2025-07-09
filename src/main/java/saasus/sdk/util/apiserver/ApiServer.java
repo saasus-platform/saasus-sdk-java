@@ -421,11 +421,11 @@ public class ApiServer {
                 Method method = getMethod(clazz, methodName);
 
                 if (method != null) {
-                    boolean needsIdentity = requiresSaaSusIdentity(method);
-                    SaaSusIdentity identity = null;
+                    boolean needsIdentity = requiresSaasusIdentity(method);
+                    SaasusIdentity identity = null;
                     
                     if (needsIdentity) {
-                        identity = createSaaSusIdentity(apiData);
+                        identity = createSaasusIdentity(apiData);
                     }
                     
                     Object[] args = prepareMethodArguments(method, queryParams, identity);
@@ -486,20 +486,20 @@ public class ApiServer {
             return queryParams;
         }
 
-        private Object[] prepareMethodArguments(Method method, Map<String, String> queryParams, SaaSusIdentity identity) {
+        private Object[] prepareMethodArguments(Method method, Map<String, String> queryParams, SaasusIdentity identity) {
             Parameter[] parameters = method.getParameters();
             List<Object> args = new ArrayList<>();
 
             for (Parameter parameter : parameters) {
                 Class<?> paramType = parameter.getType();
                 
-                // SaaSusIdentityパラメータの検出と自動注入
-                if (paramType == SaaSusIdentity.class) {
+                // SaasusIdentityパラメータの検出と自動注入
+                if (paramType == SaasusIdentity.class) {
                     if (identity == null) {
-                        throw new IllegalStateException("SaaSusIdentity is required but not available");
+                        throw new IllegalStateException("SaasusIdentity is required but not available");
                     }
                     if (DEBUG) {
-                        logger.info("Auto-injecting SaaSusIdentity for parameter: " + parameter.getName());
+                        logger.info("Auto-injecting SaasusIdentity for parameter: " + parameter.getName());
                     }
                     args.add(identity);
                     continue;
@@ -534,21 +534,21 @@ public class ApiServer {
         }
 
         /**
-         * メソッドがSaaSusIdentityパラメータを必要とするかチェック
+         * メソッドがSaasusIdentityパラメータを必要とするかチェック
          * @param method チェック対象のメソッド
-         * @return SaaSusIdentityパラメータが必要な場合true
+         * @return SaasusIdentityパラメータが必要な場合true
          */
-        private boolean requiresSaaSusIdentity(Method method) {
+        private boolean requiresSaasusIdentity(Method method) {
             Parameter[] parameters = method.getParameters();
             for (Parameter parameter : parameters) {
-                if (parameter.getType() == SaaSusIdentity.class) {
+                if (parameter.getType() == SaasusIdentity.class) {
                     return true;
                 }
             }
             return false;
         }
 
-        private SaaSusIdentity createSaaSusIdentity(CachedApiData apiData) {
+        private SaasusIdentity createSaasusIdentity(CachedApiData apiData) {
             try {
                 if (apiData == null || apiData.apiKey == null) {
                     throw new IllegalStateException("API data not available for identity creation");
@@ -565,14 +565,14 @@ public class ApiServer {
                 String envId = envIdInt.toString();
                 
                 if (DEBUG) {
-                    logger.info("Creating SaaSusIdentity - userId: " + userId +
+                    logger.info("Creating SaasusIdentity - userId: " + userId +
                                ", tenantId: " + tenantId + ", envId: " + envId);
                 }
                 
-                return new SaaSusIdentity(userId, tenantId, envId);
+                return new SaasusIdentity(userId, tenantId, envId);
                 
             } catch (Exception e) {
-                logger.warning("Failed to create SaaSusIdentity: " + e.getMessage());
+                logger.warning("Failed to create SaasusIdentity: " + e.getMessage());
                 throw new IllegalStateException("Identity creation failed", e);
             }
         }

@@ -5,12 +5,12 @@ import java.util.Objects;
 /**
  * SaaSus APIから取得したテナント・環境・ユーザー情報を統一的に管理するIDオブジェクト
  */
-public final class SaaSusIdentity {
+public final class SaasusIdentity {
     private final String userId;
     private final String tenantId;
     private final String envId;
     
-    public SaaSusIdentity(String userId, String tenantId, String envId) {
+    public SaasusIdentity(String userId, String tenantId, String envId) {
         // セキュリティ: 入力値検証
         this.userId = validateAndNormalizeUserId(userId);
         this.tenantId = validateAndNormalize(tenantId, "tenantId");
@@ -52,7 +52,7 @@ public final class SaaSusIdentity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SaaSusIdentity that = (SaaSusIdentity) o;
+        SaasusIdentity that = (SaasusIdentity) o;
         return Objects.equals(userId, that.userId) &&
                Objects.equals(tenantId, that.tenantId) &&
                Objects.equals(envId, that.envId);
@@ -65,7 +65,7 @@ public final class SaaSusIdentity {
     
     @Override
     public String toString() {
-        return "SaaSusIdentity{" +
+        return "SaasusIdentity{" +
                "userId='" + userId + '\'' +
                ", tenantId='" + tenantId + '\'' +
                ", envId='" + envId + '\'' +
