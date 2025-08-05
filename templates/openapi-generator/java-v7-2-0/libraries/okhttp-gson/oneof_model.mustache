@@ -330,6 +330,7 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
   * @throws IOException if the JSON Element is invalid with respect to {{classname}}
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    {{^discriminator}}
     // validate oneOf schemas one by one
     int validCount = 0;
     ArrayList<String> errorMessages = new ArrayList<>();
@@ -398,6 +399,24 @@ public class {{classname}} extends AbstractOpenApiSchema{{#vendorExtensions.x-im
     if (validCount != 1) {
       throw new IOException(String.format("The JSON string is invalid for {{classname}} with oneOf schemas: {{#oneOf}}{{{.}}}{{^-last}}, {{/-last}}{{/oneOf}}. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
     }
+    {{/discriminator}}
+    {{#discriminator}}
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("{{propertyBaseName}}") == null) {
+      throw new IOException("Discriminator field `{{propertyBaseName}}` is missing");
+    }
+
+    switch (jsonObj.get("{{propertyBaseName}}").getAsString()) {
+    {{#mappedModels}}
+      case "{{{mappingName}}}":
+          {{modelName}}.validateJsonElement(jsonObj);
+          break;
+    {{/mappedModels}}
+          default:
+              throw new IOException("Unknown discriminator value: "
+                  + jsonObj.get("{{propertyBaseName}}").getAsString());
+      }
+  {{/discriminator}}
   }
 
  /**
