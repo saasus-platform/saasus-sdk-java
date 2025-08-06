@@ -46,4 +46,18 @@ public class UserInfoApiTest {
         // TODO: test validations
     }
 
+    /**
+     * Get User Info by Email
+     *
+     * Get user information by email address. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getUserInfoByEmailTest() throws ApiException {
+        String email = null;
+        UserInfo response = api.getUserInfoByEmail(email);
+        // TODO: test validations
+    }
+
 }
