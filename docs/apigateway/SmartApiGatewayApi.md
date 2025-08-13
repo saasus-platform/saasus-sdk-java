@@ -5,6 +5,7 @@ All URIs are relative to *https://api.saasus.io/v1/apigateway*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**applyDraftApiGatewaySettings**](SmartApiGatewayApi.md#applyDraftApiGatewaySettings) | **POST** /draft/settings/apply | Apply draft configuration information for Smart API Gateway function |
+| [**cancelDraftApiGatewaySettings**](SmartApiGatewayApi.md#cancelDraftApiGatewaySettings) | **POST** /draft/settings/cancel | Cancel draft configuration information for Smart API Gateway function |
 | [**createApiGateway**](SmartApiGatewayApi.md#createApiGateway) | **POST** /create | Create the API Gateway |
 | [**createApiKey**](SmartApiGatewayApi.md#createApiKey) | **POST** /api-keys | Create an API key |
 | [**getApiGatewaySettings**](SmartApiGatewayApi.md#getApiGatewaySettings) | **GET** /settings | Obtain configuration information for api gateway function |
@@ -54,6 +55,69 @@ public class Example {
       apiInstance.applyDraftApiGatewaySettings();
     } catch (ApiException e) {
       System.err.println("Exception when calling SmartApiGatewayApi#applyDraftApiGatewaySettings");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="cancelDraftApiGatewaySettings"></a>
+# **cancelDraftApiGatewaySettings**
+> cancelDraftApiGatewaySettings()
+
+Cancel draft configuration information for Smart API Gateway function
+
+Cancel draft configuration information for Smart API Gateway function. This cancels the changes made in the draft settings without applying them to the actual Smart API Gateway. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.apigateway.ApiClient;
+import saasus.sdk.apigateway.ApiException;
+import saasus.sdk.apigateway.Configuration;
+import saasus.sdk.apigateway.auth.*;
+import saasus.sdk.apigateway.models.*;
+import saasus.sdk.apigateway.api.SmartApiGatewayApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/apigateway");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    SmartApiGatewayApi apiInstance = new SmartApiGatewayApi(defaultClient);
+    try {
+      apiInstance.cancelDraftApiGatewaySettings();
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SmartApiGatewayApi#cancelDraftApiGatewaySettings");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

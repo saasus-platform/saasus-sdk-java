@@ -49,7 +49,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * Permit requests up to the limit number of times within a range (seconds) time for each target.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-12T22:51:41.504076208Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-13T06:27:47.035984428Z[Etc/UTC]")
 public class Throttling {
   /**
    * Target of restriction
@@ -58,7 +58,9 @@ public class Throttling {
   public enum TargetEnum {
     TENANT("tenant"),
     
-    USER("user");
+    USER("user"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -81,7 +83,7 @@ public class Throttling {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<TargetEnum> {

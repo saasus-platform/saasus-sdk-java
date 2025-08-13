@@ -21,7 +21,7 @@ import java.util.List;
  * <p>ApiException class.</p>
  */
 @SuppressWarnings("serial")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-12T22:51:41.504076208Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-13T06:27:47.035984428Z[Etc/UTC]")
 public class ApiException extends Exception {
     private int code = 0;
     private Map<String, List<String>> responseHeaders = null;

@@ -54,7 +54,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * ApiGatewaySettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-12T22:51:41.504076208Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-13T06:27:47.035984428Z[Etc/UTC]")
 public class ApiGatewaySettings {
   public static final String SERIALIZED_NAME_GENERATED_FILE_STATUS = "generated_file_status";
   @SerializedName(SERIALIZED_NAME_GENERATED_FILE_STATUS)

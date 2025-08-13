@@ -52,7 +52,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * DraftApiGatewaySettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-12T22:51:41.504076208Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-13T06:27:47.035984428Z[Etc/UTC]")
 public class DraftApiGatewaySettings {
   public static final String SERIALIZED_NAME_INTERNAL_ENDPOINT_OPENAPI_DEFINITION_FILE_DOWNLOAD_URL = "internal_endpoint_openapi_definition_file_download_url";
   @SerializedName(SERIALIZED_NAME_INTERNAL_ENDPOINT_OPENAPI_DEFINITION_FILE_DOWNLOAD_URL)

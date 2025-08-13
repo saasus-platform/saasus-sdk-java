@@ -20,6 +20,7 @@ Permit requests up to the limit number of times within a range (seconds) time fo
 |---- | -----|
 | TENANT | &quot;tenant&quot; |
 | USER | &quot;user&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 
