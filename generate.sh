@@ -47,7 +47,7 @@ do
     -g java \
     --additional-properties=modelPackage=saasus.sdk.${module}.models,apiPackage=saasus.sdk.${module}.api \
     -o /local/generated/${module} \
-    --additional-properties useOneOfDiscriminatorLookup=true,disallowAdditionalPropertiesIfNotPresent=false
+    --additional-properties useOneOfDiscriminatorLookup=true,disallowAdditionalPropertiesIfNotPresent=false,enumUnknownDefaultCase=true
 done
 
 for module in ${MODULES}
