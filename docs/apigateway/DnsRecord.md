@@ -19,6 +19,7 @@
 |---- | -----|
 | CNAME | &quot;CNAME&quot; |
 | TXT | &quot;TXT&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

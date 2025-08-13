@@ -29,6 +29,7 @@ Settings per endpoint
 | CONNECT | &quot;CONNECT&quot; |
 | OPTIONS | &quot;OPTIONS&quot; |
 | TRACE | &quot;TRACE&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

@@ -49,7 +49,7 @@ import saasus.sdk.apigateway.JSON;
 /**
  * DnsRecord
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-06-12T22:51:41.504076208Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-13T06:27:47.035984428Z[Etc/UTC]")
 public class DnsRecord {
   /**
    * CNAME Resource Record
@@ -58,7 +58,9 @@ public class DnsRecord {
   public enum TypeEnum {
     CNAME("CNAME"),
     
-    TXT("TXT");
+    TXT("TXT"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
@@ -81,7 +83,7 @@ public class DnsRecord {
           return b;
         }
       }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+      return UNKNOWN_DEFAULT_OPEN_API;
     }
 
     public static class Adapter extends TypeAdapter<TypeEnum> {

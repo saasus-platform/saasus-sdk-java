@@ -56,6 +56,19 @@ public class SmartApiGatewayApiTest {
     }
 
     /**
+     * Cancel draft configuration information for Smart API Gateway function
+     *
+     * Cancel draft configuration information for Smart API Gateway function. This cancels the changes made in the draft settings without applying them to the actual Smart API Gateway. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void cancelDraftApiGatewaySettingsTest() throws ApiException {
+        api.cancelDraftApiGatewaySettings();
+        // TODO: test validations
+    }
+
+    /**
      * Create the API Gateway
      *
      * Create the API Gateway. 
