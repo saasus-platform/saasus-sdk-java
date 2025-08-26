@@ -153,6 +153,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.SignUpWithAwsMarketplaceParam.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.SingleTenantSettings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.SoftwareTokenSecretCode.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.StripeCustomer.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.Tenant.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.TenantAttributes.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new saasus.sdk.auth.models.TenantDetail.CustomTypeAdapterFactory());
