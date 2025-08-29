@@ -4,20 +4,28 @@
 if [ $# -ge 1 ]; then
   RAW_VERSION=$1
   CLEAN_VERSION=${RAW_VERSION#v}
-  echo "Updating pom.xml version to ${CLEAN_VERSION}"
+  echo "Target SDK version: ${CLEAN_VERSION}"
 
-  awk -v v="$CLEAN_VERSION" '
-    BEGIN { replaced = 0 }
-    /<version>.*<\/version>/ && replaced == 0 {
-      sub(/<version>.*<\/version>/, "<version>" v "</version>")
-      replaced = 1
-    }
-    { print }
-  ' pom.xml > pom.tmp && mv pom.tmp pom.xml
+  # sh 互換のバージョン形式チェック（例: 1.2.3, 1.2.3rc1, 1.2.3-beta.1）
+  echo "$CLEAN_VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+([a-zA-Z0-9.-]*)?$'
+  if [ $? -ne 0 ]; then
+    echo "Invalid version format: ${CLEAN_VERSION}. Skipping version update."
+  else
+    echo "Updating pom.xml version to ${CLEAN_VERSION}"
 
-  echo "Updated pom.xml version to ${CLEAN_VERSION}"
+    awk -v v="$CLEAN_VERSION" '
+      BEGIN { replaced = 0 }
+      /<version>.*<\/version>/ && replaced == 0 {
+        sub(/<version>.*<\/version>/, "<version>" v "</version>")
+        replaced = 1
+      }
+      { print }
+    ' pom.xml > pom.tmp && mv pom.tmp pom.xml
+
+    echo "Updated pom.xml version to ${CLEAN_VERSION}"
+  fi
 else
-  echo "Version argument not provided — skipping pom.xml version update"
+  echo "No version argument provided, skipping version update"
 fi
 
 # 生成するモジュール名の配列
