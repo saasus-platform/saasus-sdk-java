@@ -68,7 +68,7 @@ import com.google.gson.JsonParseException;
 
 import saasus.sdk.pricing.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:27.364679080Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-05T10:04:25.963592007Z[Etc/UTC]")
 public class PricingUnit extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PricingUnit.class.getName());
 
@@ -366,44 +366,40 @@ public class PricingUnit extends AbstractOpenApiSchema {
   * @throws IOException if the JSON Element is invalid with respect to PricingUnit
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    // validate oneOf schemas one by one
-    int validCount = 0;
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with PricingTieredUsageUnit
-    try {
-      PricingTieredUsageUnit.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PricingTieredUsageUnit failed with `%s`.", e.getMessage()));
-      // continue to the next one
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("type") == null) {
+      throw new IOException("Discriminator field `type` is missing");
     }
-    // validate the json string with PricingTieredUnit
-    try {
-      PricingTieredUnit.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PricingTieredUnit failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with PricingUsageUnit
-    try {
-      PricingUsageUnit.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PricingUsageUnit failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with PricingFixedUnit
-    try {
-      PricingFixedUnit.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PricingFixedUnit failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    if (validCount != 1) {
-      throw new IOException(String.format("The JSON string is invalid for PricingUnit with oneOf schemas: PricingFixedUnit, PricingTieredUnit, PricingTieredUsageUnit, PricingUsageUnit. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
-    }
+
+    switch (jsonObj.get("type").getAsString()) {
+      case "fixed":
+          PricingFixedUnit.validateJsonElement(jsonObj);
+          break;
+      case "tiered":
+          PricingTieredUnit.validateJsonElement(jsonObj);
+          break;
+      case "tiered_usage":
+          PricingTieredUsageUnit.validateJsonElement(jsonObj);
+          break;
+      case "usage":
+          PricingUsageUnit.validateJsonElement(jsonObj);
+          break;
+      case "PricingFixedUnit":
+          PricingFixedUnit.validateJsonElement(jsonObj);
+          break;
+      case "PricingTieredUnit":
+          PricingTieredUnit.validateJsonElement(jsonObj);
+          break;
+      case "PricingTieredUsageUnit":
+          PricingTieredUsageUnit.validateJsonElement(jsonObj);
+          break;
+      case "PricingUsageUnit":
+          PricingUsageUnit.validateJsonElement(jsonObj);
+          break;
+          default:
+              throw new IOException("Unknown discriminator value: "
+                  + jsonObj.get("type").getAsString());
+      }
   }
 
  /**

@@ -68,7 +68,7 @@ import com.google.gson.JsonParseException;
 
 import saasus.sdk.pricing.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:27.364679080Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-05T10:04:25.963592007Z[Etc/UTC]")
 public class PricingUnitForSave extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PricingUnitForSave.class.getName());
 
@@ -366,44 +366,40 @@ public class PricingUnitForSave extends AbstractOpenApiSchema {
   * @throws IOException if the JSON Element is invalid with respect to PricingUnitForSave
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-    // validate oneOf schemas one by one
-    int validCount = 0;
-    ArrayList<String> errorMessages = new ArrayList<>();
-    // validate the json string with PricingTieredUsageUnitForSave
-    try {
-      PricingTieredUsageUnitForSave.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PricingTieredUsageUnitForSave failed with `%s`.", e.getMessage()));
-      // continue to the next one
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    if (jsonObj.get("type") == null) {
+      throw new IOException("Discriminator field `type` is missing");
     }
-    // validate the json string with PricingTieredUnitForSave
-    try {
-      PricingTieredUnitForSave.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PricingTieredUnitForSave failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with PricingUsageUnitForSave
-    try {
-      PricingUsageUnitForSave.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PricingUsageUnitForSave failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    // validate the json string with PricingFixedUnitForSave
-    try {
-      PricingFixedUnitForSave.validateJsonElement(jsonElement);
-      validCount++;
-    } catch (Exception e) {
-      errorMessages.add(String.format("Deserialization for PricingFixedUnitForSave failed with `%s`.", e.getMessage()));
-      // continue to the next one
-    }
-    if (validCount != 1) {
-      throw new IOException(String.format("The JSON string is invalid for PricingUnitForSave with oneOf schemas: PricingFixedUnitForSave, PricingTieredUnitForSave, PricingTieredUsageUnitForSave, PricingUsageUnitForSave. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s", validCount, errorMessages, jsonElement.toString()));
-    }
+
+    switch (jsonObj.get("type").getAsString()) {
+      case "fixed":
+          PricingFixedUnitForSave.validateJsonElement(jsonObj);
+          break;
+      case "tiered":
+          PricingTieredUnitForSave.validateJsonElement(jsonObj);
+          break;
+      case "tiered_usage":
+          PricingTieredUsageUnitForSave.validateJsonElement(jsonObj);
+          break;
+      case "usage":
+          PricingUsageUnitForSave.validateJsonElement(jsonObj);
+          break;
+      case "PricingFixedUnitForSave":
+          PricingFixedUnitForSave.validateJsonElement(jsonObj);
+          break;
+      case "PricingTieredUnitForSave":
+          PricingTieredUnitForSave.validateJsonElement(jsonObj);
+          break;
+      case "PricingTieredUsageUnitForSave":
+          PricingTieredUsageUnitForSave.validateJsonElement(jsonObj);
+          break;
+      case "PricingUsageUnitForSave":
+          PricingUsageUnitForSave.validateJsonElement(jsonObj);
+          break;
+          default:
+              throw new IOException("Unknown discriminator value: "
+                  + jsonObj.get("type").getAsString());
+      }
   }
 
  /**

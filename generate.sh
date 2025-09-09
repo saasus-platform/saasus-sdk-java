@@ -75,7 +75,8 @@ do
     -g java \
     --additional-properties=modelPackage=saasus.sdk.${module}.models,apiPackage=saasus.sdk.${module}.api \
     -o /local/generated/${module} \
-    --additional-properties useOneOfDiscriminatorLookup=true
+    --additional-properties useOneOfDiscriminatorLookup=true \
+    --template-dir /local/templates/openapi-generator/java-v7-2-0//libraries/okhttp-gson/
 done
 
 for module in ${MODULES}

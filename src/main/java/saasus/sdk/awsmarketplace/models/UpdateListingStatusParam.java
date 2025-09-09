@@ -50,7 +50,7 @@ import saasus.sdk.awsmarketplace.JSON;
 /**
  * UpdateListingStatusParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:34.280462778Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-05T10:04:28.904100550Z[Etc/UTC]")
 public class UpdateListingStatusParam {
   public static final String SERIALIZED_NAME_LISTING_STATUS = "listing_status";
   @SerializedName(SERIALIZED_NAME_LISTING_STATUS)
