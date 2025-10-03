@@ -4,18 +4,18 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**getCloudFormationLaunchStackLinkForSingleTenant**](SingleTenantApi.md#getCloudFormationLaunchStackLinkForSingleTenant) | **GET** /single-tenant/cloudformation-launch-stack-link | Get CloudFormation Stack Launch Link For Single Tenant |
-| [**getSingleTenantSettings**](SingleTenantApi.md#getSingleTenantSettings) | **GET** /single-tenant/settings | Retrieve the settings of the single tenant. |
-| [**updateSingleTenantSettings**](SingleTenantApi.md#updateSingleTenantSettings) | **PATCH** /single-tenant/settings | Update configuration information for single-tenant functionality |
+| [**getCloudFormationLaunchStackLinkForSingleTenant**](SingleTenantApi.md#getCloudFormationLaunchStackLinkForSingleTenant) | **GET** /single-tenant/cloudformation-launch-stack-link | Get CloudFormation Stack Launch Link For SaaS Infrastructure Management |
+| [**getSingleTenantSettings**](SingleTenantApi.md#getSingleTenantSettings) | **GET** /single-tenant/settings | Retrieve the settings of the SaaS Infrastructure Management. |
+| [**updateSingleTenantSettings**](SingleTenantApi.md#updateSingleTenantSettings) | **PATCH** /single-tenant/settings | Update configuration information for SaaS Infrastructure Management |
 
 
 <a id="getCloudFormationLaunchStackLinkForSingleTenant"></a>
 # **getCloudFormationLaunchStackLinkForSingleTenant**
 > CloudFormationLaunchStackLink getCloudFormationLaunchStackLinkForSingleTenant()
 
-Get CloudFormation Stack Launch Link For Single Tenant
+Get CloudFormation Stack Launch Link For SaaS Infrastructure Management
 
-Get the CloudFormation stack activation link for Single Tenant. 
+Get the CloudFormation stack activation link for SaaS Infrastructure Management. 
 
 ### Example
 ```java
@@ -77,7 +77,7 @@ This endpoint does not need any parameter.
 # **getSingleTenantSettings**
 > SingleTenantSettings getSingleTenantSettings()
 
-Retrieve the settings of the single tenant.
+Retrieve the settings of the SaaS Infrastructure Management.
 
 ### Example
 ```java
@@ -139,9 +139,9 @@ This endpoint does not need any parameter.
 # **updateSingleTenantSettings**
 > updateSingleTenantSettings(updateSingleTenantSettingsParam)
 
-Update configuration information for single-tenant functionality
+Update configuration information for SaaS Infrastructure Management
 
-Updates configuration information for single-tenant functionality Returns error if single tenant feature cannot be enabled. 
+Updates configuration information for SaaS Infrastructure Management Returns error if SaaS Infrastructure Management feature cannot be enabled. 
 
 ### Example
 ```java

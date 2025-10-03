@@ -49,11 +49,15 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateSaasUserPasswordParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-10-03T12:17:39.959708583Z[Etc/UTC]")
 public class UpdateSaasUserPasswordParam {
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
   private String password;
+
+  public static final String SERIALIZED_NAME_TEMPORARY = "temporary";
+  @SerializedName(SERIALIZED_NAME_TEMPORARY)
+  private Boolean temporary;
 
   public UpdateSaasUserPasswordParam() {
   }
@@ -77,6 +81,25 @@ public class UpdateSaasUserPasswordParam {
   }
 
 
+  public UpdateSaasUserPasswordParam temporary(Boolean temporary) {
+    this.temporary = temporary;
+    return this;
+  }
+
+   /**
+   * Set to true to mark the new password as a temporary password (user must change on next sign-in)
+   * @return temporary
+  **/
+  @javax.annotation.Nullable
+  public Boolean getTemporary() {
+    return temporary;
+  }
+
+  public void setTemporary(Boolean temporary) {
+    this.temporary = temporary;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -87,12 +110,13 @@ public class UpdateSaasUserPasswordParam {
       return false;
     }
     UpdateSaasUserPasswordParam updateSaasUserPasswordParam = (UpdateSaasUserPasswordParam) o;
-    return Objects.equals(this.password, updateSaasUserPasswordParam.password);
+    return Objects.equals(this.password, updateSaasUserPasswordParam.password) &&
+        Objects.equals(this.temporary, updateSaasUserPasswordParam.temporary);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password);
+    return Objects.hash(password, temporary);
   }
 
   @Override
@@ -100,6 +124,7 @@ public class UpdateSaasUserPasswordParam {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateSaasUserPasswordParam {\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    temporary: ").append(toIndentedString(temporary)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -123,6 +148,7 @@ public class UpdateSaasUserPasswordParam {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("password");
+    openapiFields.add("temporary");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
