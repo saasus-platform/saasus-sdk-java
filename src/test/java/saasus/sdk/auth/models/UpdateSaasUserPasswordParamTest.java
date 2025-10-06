@@ -45,4 +45,12 @@ public class UpdateSaasUserPasswordParamTest {
         // TODO: test password
     }
 
+    /**
+     * Test the property 'temporary'
+     */
+    @Test
+    public void temporaryTest() {
+        // TODO: test temporary
+    }
+
 }
