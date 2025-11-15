@@ -29,7 +29,7 @@ else
 fi
 
 # 生成するモジュール名の配列
-MODULES="auth pricing billing awsmarketplace integration apilog communication"
+MODULES="auth pricing billing awsmarketplace integration apilog communication apigateway"
 
 # sdkに含まれる生成したプログラムを削除
 SDK_SRC_DIR="src/main/java/saasus/sdk"
@@ -75,7 +75,7 @@ do
     -g java \
     --additional-properties=modelPackage=saasus.sdk.${module}.models,apiPackage=saasus.sdk.${module}.api \
     -o /local/generated/${module} \
-    --additional-properties useOneOfDiscriminatorLookup=true
+    --additional-properties useOneOfDiscriminatorLookup=true,disallowAdditionalPropertiesIfNotPresent=false,enumUnknownDefaultCase=true
 done
 
 for module in ${MODULES}

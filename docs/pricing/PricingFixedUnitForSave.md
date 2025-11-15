@@ -10,10 +10,18 @@
 |**name** | **String** | Name |  |
 |**displayName** | **String** | Display Name |  |
 |**description** | **String** | Description |  |
-|**type** | **UnitType** |  |  |
 |**currency** | **Currency** |  |  |
 |**unitAmount** | **Integer** | Price |  |
 |**recurringInterval** | **RecurringInterval** |  |  |
+|**uType** | [**UTypeEnum**](#UTypeEnum) |  |  |
+
+
+
+## Enum: UTypeEnum
+
+| Name | Value |
+|---- | -----|
+| FIXED | &quot;fixed&quot; |
 
 
 
