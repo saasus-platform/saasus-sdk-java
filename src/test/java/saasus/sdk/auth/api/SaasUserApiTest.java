@@ -25,8 +25,12 @@ import saasus.sdk.auth.models.MfaPreference;
 import saasus.sdk.auth.models.RequestEmailUpdateParam;
 import saasus.sdk.auth.models.RequestExternalUserLinkParam;
 import saasus.sdk.auth.models.ResendSignUpConfirmationEmailParam;
+import saasus.sdk.auth.models.RespondToSignInChallengeParam;
+import saasus.sdk.auth.models.RespondToSignInChallengeResult;
 import saasus.sdk.auth.models.SaasUser;
 import saasus.sdk.auth.models.SaasUsers;
+import saasus.sdk.auth.models.SignInParam;
+import saasus.sdk.auth.models.SignInResult;
 import saasus.sdk.auth.models.SignUpParam;
 import saasus.sdk.auth.models.SignUpWithAwsMarketplaceParam;
 import saasus.sdk.auth.models.SoftwareTokenSecretCode;
@@ -97,7 +101,7 @@ public class SaasUserApiTest {
     /**
      * Create SaaS User
      *
-     * Create SaaS User. 
+     * Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -232,6 +236,34 @@ public class SaasUserApiTest {
     public void resendSignUpConfirmationEmailTest() throws ApiException {
         ResendSignUpConfirmationEmailParam resendSignUpConfirmationEmailParam = null;
         api.resendSignUpConfirmationEmail(resendSignUpConfirmationEmailParam);
+        // TODO: test validations
+    }
+
+    /**
+     * Respond to Sign In Challenge
+     *
+     * Respond to a sign-in challenge. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void respondToSignInChallengeTest() throws ApiException {
+        RespondToSignInChallengeParam respondToSignInChallengeParam = null;
+        RespondToSignInChallengeResult response = api.respondToSignInChallenge(respondToSignInChallengeParam);
+        // TODO: test validations
+    }
+
+    /**
+     * Sign In
+     *
+     * A user attempts to sign in. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void signInTest() throws ApiException {
+        SignInParam signInParam = null;
+        SignInResult response = api.signIn(signInParam);
         // TODO: test validations
     }
 
