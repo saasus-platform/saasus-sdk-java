@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * SingleTenantSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-01-23T15:50:39.102766483Z[Etc/UTC]")
 public class SingleTenantSettings {
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -80,7 +80,7 @@ public class SingleTenantSettings {
   }
 
    /**
-   * enable Single Tenant settings or not
+   * enable SaaS Infrastructure Management settings or not
    * @return enabled
   **/
   @javax.annotation.Nonnull
