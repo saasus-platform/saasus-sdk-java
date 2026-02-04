@@ -38,8 +38,12 @@ import saasus.sdk.auth.models.MfaPreference;
 import saasus.sdk.auth.models.RequestEmailUpdateParam;
 import saasus.sdk.auth.models.RequestExternalUserLinkParam;
 import saasus.sdk.auth.models.ResendSignUpConfirmationEmailParam;
+import saasus.sdk.auth.models.RespondToSignInChallengeParam;
+import saasus.sdk.auth.models.RespondToSignInChallengeResult;
 import saasus.sdk.auth.models.SaasUser;
 import saasus.sdk.auth.models.SaasUsers;
+import saasus.sdk.auth.models.SignInParam;
+import saasus.sdk.auth.models.SignInResult;
 import saasus.sdk.auth.models.SignUpParam;
 import saasus.sdk.auth.models.SignUpWithAwsMarketplaceParam;
 import saasus.sdk.auth.models.SoftwareTokenSecretCode;
@@ -531,7 +535,7 @@ public class SaasUserApi {
 
     /**
      * Create SaaS User
-     * Create SaaS User. 
+     * Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
      * @param createSaasUserParam  (optional)
      * @return SaasUser
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -550,7 +554,7 @@ public class SaasUserApi {
 
     /**
      * Create SaaS User
-     * Create SaaS User. 
+     * Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
      * @param createSaasUserParam  (optional)
      * @return ApiResponse&lt;SaasUser&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -570,7 +574,7 @@ public class SaasUserApi {
 
     /**
      * Create SaaS User (asynchronously)
-     * Create SaaS User. 
+     * Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
      * @param createSaasUserParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1708,6 +1712,258 @@ public class SaasUserApi {
 
         okhttp3.Call localVarCall = resendSignUpConfirmationEmailValidateBeforeCall(resendSignUpConfirmationEmailParam, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for respondToSignInChallenge
+     * @param respondToSignInChallengeParam  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call respondToSignInChallengeCall(RespondToSignInChallengeParam respondToSignInChallengeParam, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = respondToSignInChallengeParam;
+
+        // create path and map variables
+        String localVarPath = "/sign-in/challenge";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call respondToSignInChallengeValidateBeforeCall(RespondToSignInChallengeParam respondToSignInChallengeParam, final ApiCallback _callback) throws ApiException {
+        return respondToSignInChallengeCall(respondToSignInChallengeParam, _callback);
+
+    }
+
+    /**
+     * Respond to Sign In Challenge
+     * Respond to a sign-in challenge. 
+     * @param respondToSignInChallengeParam  (optional)
+     * @return RespondToSignInChallengeResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public RespondToSignInChallengeResult respondToSignInChallenge(RespondToSignInChallengeParam respondToSignInChallengeParam) throws ApiException {
+        ApiResponse<RespondToSignInChallengeResult> localVarResp = respondToSignInChallengeWithHttpInfo(respondToSignInChallengeParam);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Respond to Sign In Challenge
+     * Respond to a sign-in challenge. 
+     * @param respondToSignInChallengeParam  (optional)
+     * @return ApiResponse&lt;RespondToSignInChallengeResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RespondToSignInChallengeResult> respondToSignInChallengeWithHttpInfo(RespondToSignInChallengeParam respondToSignInChallengeParam) throws ApiException {
+        okhttp3.Call localVarCall = respondToSignInChallengeValidateBeforeCall(respondToSignInChallengeParam, null);
+        Type localVarReturnType = new TypeToken<RespondToSignInChallengeResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Respond to Sign In Challenge (asynchronously)
+     * Respond to a sign-in challenge. 
+     * @param respondToSignInChallengeParam  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call respondToSignInChallengeAsync(RespondToSignInChallengeParam respondToSignInChallengeParam, final ApiCallback<RespondToSignInChallengeResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = respondToSignInChallengeValidateBeforeCall(respondToSignInChallengeParam, _callback);
+        Type localVarReturnType = new TypeToken<RespondToSignInChallengeResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for signIn
+     * @param signInParam  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call signInCall(SignInParam signInParam, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = signInParam;
+
+        // create path and map variables
+        String localVarPath = "/sign-in";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call signInValidateBeforeCall(SignInParam signInParam, final ApiCallback _callback) throws ApiException {
+        return signInCall(signInParam, _callback);
+
+    }
+
+    /**
+     * Sign In
+     * A user attempts to sign in. 
+     * @param signInParam  (optional)
+     * @return SignInResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public SignInResult signIn(SignInParam signInParam) throws ApiException {
+        ApiResponse<SignInResult> localVarResp = signInWithHttpInfo(signInParam);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Sign In
+     * A user attempts to sign in. 
+     * @param signInParam  (optional)
+     * @return ApiResponse&lt;SignInResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SignInResult> signInWithHttpInfo(SignInParam signInParam) throws ApiException {
+        okhttp3.Call localVarCall = signInValidateBeforeCall(signInParam, null);
+        Type localVarReturnType = new TypeToken<SignInResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Sign In (asynchronously)
+     * A user attempts to sign in. 
+     * @param signInParam  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call signInAsync(SignInParam signInParam, final ApiCallback<SignInResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = signInValidateBeforeCall(signInParam, _callback);
+        Type localVarReturnType = new TypeToken<SignInResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**

@@ -53,7 +53,7 @@ import saasus.sdk.communication.JSON;
 /**
  * Feedback
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:43.518804990Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-04T12:34:09.203486524Z[Etc/UTC]")
 public class Feedback {
   public static final String SERIALIZED_NAME_FEEDBACK_TITLE = "feedback_title";
   @SerializedName(SERIALIZED_NAME_FEEDBACK_TITLE)
