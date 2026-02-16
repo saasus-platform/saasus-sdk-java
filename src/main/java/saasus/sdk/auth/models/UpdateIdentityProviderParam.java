@@ -51,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateIdentityProviderParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2025-08-26T03:51:01.025650104Z[Etc/UTC]")
 public class UpdateIdentityProviderParam {
   public static final String SERIALIZED_NAME_PROVIDER = "provider";
   @SerializedName(SERIALIZED_NAME_PROVIDER)

@@ -138,8 +138,8 @@ public class SingleTenantApi {
     }
 
     /**
-     * Get CloudFormation Stack Launch Link For Single Tenant
-     * Get the CloudFormation stack activation link for Single Tenant. 
+     * Get CloudFormation Stack Launch Link For SaaS Infrastructure Management
+     * Get the CloudFormation stack activation link for SaaS Infrastructure Management. 
      * @return CloudFormationLaunchStackLink
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -155,8 +155,8 @@ public class SingleTenantApi {
     }
 
     /**
-     * Get CloudFormation Stack Launch Link For Single Tenant
-     * Get the CloudFormation stack activation link for Single Tenant. 
+     * Get CloudFormation Stack Launch Link For SaaS Infrastructure Management
+     * Get the CloudFormation stack activation link for SaaS Infrastructure Management. 
      * @return ApiResponse&lt;CloudFormationLaunchStackLink&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -173,8 +173,8 @@ public class SingleTenantApi {
     }
 
     /**
-     * Get CloudFormation Stack Launch Link For Single Tenant (asynchronously)
-     * Get the CloudFormation stack activation link for Single Tenant. 
+     * Get CloudFormation Stack Launch Link For SaaS Infrastructure Management (asynchronously)
+     * Get the CloudFormation stack activation link for SaaS Infrastructure Management. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -255,7 +255,7 @@ public class SingleTenantApi {
     }
 
     /**
-     * Retrieve the settings of the single tenant.
+     * Retrieve the settings of the SaaS Infrastructure Management.
      * 
      * @return SingleTenantSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -272,7 +272,7 @@ public class SingleTenantApi {
     }
 
     /**
-     * Retrieve the settings of the single tenant.
+     * Retrieve the settings of the SaaS Infrastructure Management.
      * 
      * @return ApiResponse&lt;SingleTenantSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -290,7 +290,7 @@ public class SingleTenantApi {
     }
 
     /**
-     * Retrieve the settings of the single tenant. (asynchronously)
+     * Retrieve the settings of the SaaS Infrastructure Management. (asynchronously)
      * 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -375,8 +375,8 @@ public class SingleTenantApi {
     }
 
     /**
-     * Update configuration information for single-tenant functionality
-     * Updates configuration information for single-tenant functionality Returns error if single tenant feature cannot be enabled. 
+     * Update configuration information for SaaS Infrastructure Management
+     * Updates configuration information for SaaS Infrastructure Management Returns error if SaaS Infrastructure Management feature cannot be enabled. 
      * @param updateSingleTenantSettingsParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -392,8 +392,8 @@ public class SingleTenantApi {
     }
 
     /**
-     * Update configuration information for single-tenant functionality
-     * Updates configuration information for single-tenant functionality Returns error if single tenant feature cannot be enabled. 
+     * Update configuration information for SaaS Infrastructure Management
+     * Updates configuration information for SaaS Infrastructure Management Returns error if SaaS Infrastructure Management feature cannot be enabled. 
      * @param updateSingleTenantSettingsParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -411,8 +411,8 @@ public class SingleTenantApi {
     }
 
     /**
-     * Update configuration information for single-tenant functionality (asynchronously)
-     * Updates configuration information for single-tenant functionality Returns error if single tenant feature cannot be enabled. 
+     * Update configuration information for SaaS Infrastructure Management (asynchronously)
+     * Updates configuration information for SaaS Infrastructure Management Returns error if SaaS Infrastructure Management feature cannot be enabled. 
      * @param updateSingleTenantSettingsParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
