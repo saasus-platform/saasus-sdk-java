@@ -17,6 +17,8 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 | [**requestEmailUpdate**](SaasUserApi.md#requestEmailUpdate) | **POST** /users/{user_id}/email/request | Request User Email Update |
 | [**requestExternalUserLink**](SaasUserApi.md#requestExternalUserLink) | **POST** /external-users/request | Request External User Account Link |
 | [**resendSignUpConfirmationEmail**](SaasUserApi.md#resendSignUpConfirmationEmail) | **POST** /sign-up/resend | Resend Sign Up Confirmation Email |
+| [**respondToSignInChallenge**](SaasUserApi.md#respondToSignInChallenge) | **POST** /sign-in/challenge | Respond to Sign In Challenge |
+| [**signIn**](SaasUserApi.md#signIn) | **POST** /sign-in | Sign In |
 | [**signUp**](SaasUserApi.md#signUp) | **POST** /sign-up | Sign Up |
 | [**signUpWithAwsMarketplace**](SaasUserApi.md#signUpWithAwsMarketplace) | **POST** /aws-marketplace/sign-up | Sign Up with AWS Marketplace |
 | [**unlinkProvider**](SaasUserApi.md#unlinkProvider) | **DELETE** /users/{user_id}/providers/{provider_name} | Unlink external identity providers |
@@ -234,11 +236,11 @@ public class Example {
 
 <a id="createSaasUser"></a>
 # **createSaasUser**
-> SaasUser createSaasUser(createSaasUserParam)
+> CreatedSaasUser createSaasUser(createSaasUserParam)
 
 Create SaaS User
 
-Create SaaS User. 
+Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
 
 ### Example
 ```java
@@ -262,7 +264,7 @@ public class Example {
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
     CreateSaasUserParam createSaasUserParam = new CreateSaasUserParam(); // CreateSaasUserParam | 
     try {
-      SaasUser result = apiInstance.createSaasUser(createSaasUserParam);
+      CreatedSaasUser result = apiInstance.createSaasUser(createSaasUserParam);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SaasUserApi#createSaasUser");
@@ -283,7 +285,7 @@ public class Example {
 
 ### Return type
 
-[**SaasUser**](SaasUser.md)
+[**CreatedSaasUser**](CreatedSaasUser.md)
 
 ### Authorization
 
@@ -373,11 +375,11 @@ public class Example {
 
 <a id="deleteSaasUser"></a>
 # **deleteSaasUser**
-> deleteSaasUser(userId)
+> UserInfo deleteSaasUser(userId)
 
 Delete User
 
-Delete all users with matching user ID from the tenant and SaaS. 
+Delete all users with matching user ID from the tenant and SaaS. Returns user information before deletion. 
 
 ### Example
 ```java
@@ -401,7 +403,8 @@ public class Example {
     SaasUserApi apiInstance = new SaasUserApi(defaultClient);
     String userId = "f94bfffc-8be2-11ec-b41a-0242ac120004"; // String | User ID
     try {
-      apiInstance.deleteSaasUser(userId);
+      UserInfo result = apiInstance.deleteSaasUser(userId);
+      System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling SaasUserApi#deleteSaasUser");
       System.err.println("Status code: " + e.getCode());
@@ -421,7 +424,7 @@ public class Example {
 
 ### Return type
 
-null (empty response body)
+[**UserInfo**](UserInfo.md)
 
 ### Authorization
 
@@ -909,6 +912,144 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="respondToSignInChallenge"></a>
+# **respondToSignInChallenge**
+> RespondToSignInChallengeResult respondToSignInChallenge(respondToSignInChallengeParam)
+
+Respond to Sign In Challenge
+
+Respond to a sign-in challenge. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.auth.ApiClient;
+import saasus.sdk.auth.ApiException;
+import saasus.sdk.auth.Configuration;
+import saasus.sdk.auth.auth.*;
+import saasus.sdk.auth.models.*;
+import saasus.sdk.auth.api.SaasUserApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/auth");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    SaasUserApi apiInstance = new SaasUserApi(defaultClient);
+    RespondToSignInChallengeParam respondToSignInChallengeParam = new RespondToSignInChallengeParam(); // RespondToSignInChallengeParam | 
+    try {
+      RespondToSignInChallengeResult result = apiInstance.respondToSignInChallenge(respondToSignInChallengeParam);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SaasUserApi#respondToSignInChallenge");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **respondToSignInChallengeParam** | [**RespondToSignInChallengeParam**](RespondToSignInChallengeParam.md)|  | [optional] |
+
+### Return type
+
+[**RespondToSignInChallengeResult**](RespondToSignInChallengeResult.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="signIn"></a>
+# **signIn**
+> SignInResult signIn(signInParam)
+
+Sign In
+
+A user attempts to sign in. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.auth.ApiClient;
+import saasus.sdk.auth.ApiException;
+import saasus.sdk.auth.Configuration;
+import saasus.sdk.auth.auth.*;
+import saasus.sdk.auth.models.*;
+import saasus.sdk.auth.api.SaasUserApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/auth");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    SaasUserApi apiInstance = new SaasUserApi(defaultClient);
+    SignInParam signInParam = new SignInParam(); // SignInParam | 
+    try {
+      SignInResult result = apiInstance.signIn(signInParam);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SaasUserApi#signIn");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **signInParam** | [**SignInParam**](SignInParam.md)|  | [optional] |
+
+### Return type
+
+[**SignInResult**](SignInResult.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
 | **500** | Internal Server Error |  -  |
 
 <a id="signUp"></a>

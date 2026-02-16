@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * DnsRecord
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T10:47:02.475266569Z[Etc/UTC]")
 public class DnsRecord {
   /**
    * CNAME Resource Record

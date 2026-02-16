@@ -49,7 +49,7 @@ import saasus.sdk.apilog.JSON;
 /**
  * ApiLog
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:40.405574501Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-02-16T10:47:20.246425704Z[Etc/UTC]")
 public class ApiLog {
   public static final String SERIALIZED_NAME_TRACE_ID = "trace_id";
   @SerializedName(SERIALIZED_NAME_TRACE_ID)

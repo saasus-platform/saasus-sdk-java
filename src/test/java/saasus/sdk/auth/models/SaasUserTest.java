@@ -56,6 +56,14 @@ public class SaasUserTest {
     }
 
     /**
+     * Test the property 'signInId'
+     */
+    @Test
+    public void signInIdTest() {
+        // TODO: test signInId
+    }
+
+    /**
      * Test the property 'attributes'
      */
     @Test
