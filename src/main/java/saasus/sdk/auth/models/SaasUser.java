@@ -51,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * SaasUser
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T12:17:01.545468350Z[Etc/UTC]")
 public class SaasUser {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -60,6 +60,10 @@ public class SaasUser {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_SIGN_IN_ID = "sign_in_id";
+  @SerializedName(SERIALIZED_NAME_SIGN_IN_ID)
+  private String signInId;
 
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
@@ -93,7 +97,7 @@ public class SaasUser {
   }
 
    /**
-   * E-mail
+   * E-mail. For sign-in ID authentication users, this field is not set. 
    * @return email
   **/
   @javax.annotation.Nonnull
@@ -103,6 +107,25 @@ public class SaasUser {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+
+  public SaasUser signInId(String signInId) {
+    this.signInId = signInId;
+    return this;
+  }
+
+   /**
+   * Sign-in ID. For email authentication users, this field is not set. 
+   * @return signInId
+  **/
+  @javax.annotation.Nonnull
+  public String getSignInId() {
+    return signInId;
+  }
+
+  public void setSignInId(String signInId) {
+    this.signInId = signInId;
   }
 
 
@@ -145,12 +168,13 @@ public class SaasUser {
     SaasUser saasUser = (SaasUser) o;
     return Objects.equals(this.id, saasUser.id) &&
         Objects.equals(this.email, saasUser.email) &&
+        Objects.equals(this.signInId, saasUser.signInId) &&
         Objects.equals(this.attributes, saasUser.attributes);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, email, attributes);
+    return Objects.hash(id, email, signInId, attributes);
   }
 
   @Override
@@ -159,6 +183,7 @@ public class SaasUser {
     sb.append("class SaasUser {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    signInId: ").append(toIndentedString(signInId)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -184,12 +209,14 @@ public class SaasUser {
     openapiFields = new HashSet<String>();
     openapiFields.add("id");
     openapiFields.add("email");
+    openapiFields.add("sign_in_id");
     openapiFields.add("attributes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
     openapiRequiredFields.add("id");
     openapiRequiredFields.add("email");
+    openapiRequiredFields.add("sign_in_id");
     openapiRequiredFields.add("attributes");
   }
 
@@ -226,6 +253,9 @@ public class SaasUser {
       }
       if (!jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if (!jsonObj.get("sign_in_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sign_in_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sign_in_id").toString()));
       }
   }
 

@@ -17,6 +17,7 @@ import saasus.sdk.auth.ApiException;
 import saasus.sdk.auth.models.Error;
 import saasus.sdk.auth.models.Role;
 import saasus.sdk.auth.models.Roles;
+import saasus.sdk.auth.models.UpdateRoleParam;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -71,6 +72,21 @@ public class RoleApiTest {
     @Test
     public void getRolesTest() throws ApiException {
         Roles response = api.getRoles();
+        // TODO: test validations
+    }
+
+    /**
+     * Update Role
+     *
+     * Update role display name. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateRoleTest() throws ApiException {
+        String roleName = null;
+        UpdateRoleParam updateRoleParam = null;
+        api.updateRole(roleName, updateRoleParam);
         // TODO: test validations
     }
 

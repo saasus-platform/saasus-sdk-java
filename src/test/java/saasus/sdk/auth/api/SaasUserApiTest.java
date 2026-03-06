@@ -14,27 +14,36 @@
 package saasus.sdk.auth.api;
 
 import saasus.sdk.auth.ApiException;
+import saasus.sdk.auth.models.ConfirmDeviceParam;
+import saasus.sdk.auth.models.ConfirmDeviceResult;
 import saasus.sdk.auth.models.ConfirmEmailUpdateParam;
 import saasus.sdk.auth.models.ConfirmExternalUserLinkParam;
 import saasus.sdk.auth.models.ConfirmSignUpWithAwsMarketplaceParam;
 import saasus.sdk.auth.models.CreateSaasUserParam;
 import saasus.sdk.auth.models.CreateSecretCodeParam;
+import saasus.sdk.auth.models.CreatedSaasUser;
 import saasus.sdk.auth.models.Error;
 import saasus.sdk.auth.models.LinkAwsMarketplaceParam;
 import saasus.sdk.auth.models.MfaPreference;
 import saasus.sdk.auth.models.RequestEmailUpdateParam;
 import saasus.sdk.auth.models.RequestExternalUserLinkParam;
 import saasus.sdk.auth.models.ResendSignUpConfirmationEmailParam;
+import saasus.sdk.auth.models.RespondToSignInChallengeParam;
+import saasus.sdk.auth.models.RespondToSignInChallengeResult;
 import saasus.sdk.auth.models.SaasUser;
 import saasus.sdk.auth.models.SaasUsers;
+import saasus.sdk.auth.models.SignInParam;
+import saasus.sdk.auth.models.SignInResult;
 import saasus.sdk.auth.models.SignUpParam;
 import saasus.sdk.auth.models.SignUpWithAwsMarketplaceParam;
 import saasus.sdk.auth.models.SoftwareTokenSecretCode;
 import saasus.sdk.auth.models.Tenant;
+import saasus.sdk.auth.models.UpdateDeviceStatusParam;
 import saasus.sdk.auth.models.UpdateSaasUserAttributesParam;
 import saasus.sdk.auth.models.UpdateSaasUserEmailParam;
 import saasus.sdk.auth.models.UpdateSaasUserPasswordParam;
 import saasus.sdk.auth.models.UpdateSoftwareTokenParam;
+import saasus.sdk.auth.models.UserInfo;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -50,6 +59,20 @@ import java.util.Map;
 public class SaasUserApiTest {
 
     private final SaasUserApi api = new SaasUserApi();
+
+    /**
+     * Confirm Device
+     *
+     * Confirms a device for remembering. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void confirmDeviceTest() throws ApiException {
+        ConfirmDeviceParam confirmDeviceParam = null;
+        ConfirmDeviceResult response = api.confirmDevice(confirmDeviceParam);
+        // TODO: test validations
+    }
 
     /**
      * Confirm User Email Update
@@ -97,14 +120,14 @@ public class SaasUserApiTest {
     /**
      * Create SaaS User
      *
-     * Create SaaS User. 
+     * Create SaaS User. If attributes is empty, a temporary password will be sent to the registered email. 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void createSaasUserTest() throws ApiException {
         CreateSaasUserParam createSaasUserParam = null;
-        SaasUser response = api.createSaasUser(createSaasUserParam);
+        CreatedSaasUser response = api.createSaasUser(createSaasUserParam);
         // TODO: test validations
     }
 
@@ -126,14 +149,14 @@ public class SaasUserApiTest {
     /**
      * Delete User
      *
-     * Delete all users with matching user ID from the tenant and SaaS. 
+     * Delete all users with matching user ID from the tenant and SaaS. Returns user information before deletion. 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteSaasUserTest() throws ApiException {
         String userId = null;
-        api.deleteSaasUser(userId);
+        UserInfo response = api.deleteSaasUser(userId);
         // TODO: test validations
     }
 
@@ -236,6 +259,34 @@ public class SaasUserApiTest {
     }
 
     /**
+     * Respond to Sign In Challenge
+     *
+     * Respond to a sign-in challenge. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void respondToSignInChallengeTest() throws ApiException {
+        RespondToSignInChallengeParam respondToSignInChallengeParam = null;
+        RespondToSignInChallengeResult response = api.respondToSignInChallenge(respondToSignInChallengeParam);
+        // TODO: test validations
+    }
+
+    /**
+     * Sign In
+     *
+     * A user attempts to sign in. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void signInTest() throws ApiException {
+        SignInParam signInParam = null;
+        SignInResult response = api.signIn(signInParam);
+        // TODO: test validations
+    }
+
+    /**
      * Sign Up
      *
      * Register a new user. A temporary password will be sent to the registered email. 
@@ -275,6 +326,20 @@ public class SaasUserApiTest {
         String providerName = null;
         String userId = null;
         api.unlinkProvider(providerName, userId);
+        // TODO: test validations
+    }
+
+    /**
+     * Update Device Status
+     *
+     * Updates the device status. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void updateDeviceStatusTest() throws ApiException {
+        UpdateDeviceStatusParam updateDeviceStatusParam = null;
+        api.updateDeviceStatus(updateDeviceStatusParam);
         // TODO: test validations
     }
 

@@ -47,13 +47,17 @@ import java.util.Set;
 import saasus.sdk.auth.JSON;
 
 /**
- * CreateSaasUserParam
+ * Either email or sign_in_id must be specified, but not both. - If email is specified: Email authentication user will be created.   When password is not specified, a temporary password will be sent by email. - If sign_in_id is specified: Sign-in ID authentication user will be created.   When password is not specified, it will be auto-generated and returned in the response. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-06T12:17:01.545468350Z[Etc/UTC]")
 public class CreateSaasUserParam {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
+
+  public static final String SERIALIZED_NAME_SIGN_IN_ID = "sign_in_id";
+  @SerializedName(SERIALIZED_NAME_SIGN_IN_ID)
+  private String signInId;
 
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
@@ -71,7 +75,7 @@ public class CreateSaasUserParam {
    * E-mail
    * @return email
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getEmail() {
     return email;
   }
@@ -81,16 +85,35 @@ public class CreateSaasUserParam {
   }
 
 
+  public CreateSaasUserParam signInId(String signInId) {
+    this.signInId = signInId;
+    return this;
+  }
+
+   /**
+   * Sign-in ID (alphanumeric and symbols -_ only, max 50 characters) 
+   * @return signInId
+  **/
+  @javax.annotation.Nullable
+  public String getSignInId() {
+    return signInId;
+  }
+
+  public void setSignInId(String signInId) {
+    this.signInId = signInId;
+  }
+
+
   public CreateSaasUserParam password(String password) {
     this.password = password;
     return this;
   }
 
    /**
-   * Password
+   * Password. For email authentication, if not specified, a temporary password will be sent by email. For sign-in ID authentication, if not specified, password will be auto-generated and returned. 
    * @return password
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   public String getPassword() {
     return password;
   }
@@ -111,12 +134,13 @@ public class CreateSaasUserParam {
     }
     CreateSaasUserParam createSaasUserParam = (CreateSaasUserParam) o;
     return Objects.equals(this.email, createSaasUserParam.email) &&
+        Objects.equals(this.signInId, createSaasUserParam.signInId) &&
         Objects.equals(this.password, createSaasUserParam.password);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(email, password);
+    return Objects.hash(email, signInId, password);
   }
 
   @Override
@@ -124,6 +148,7 @@ public class CreateSaasUserParam {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateSaasUserParam {\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    signInId: ").append(toIndentedString(signInId)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -148,12 +173,11 @@ public class CreateSaasUserParam {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("email");
+    openapiFields.add("sign_in_id");
     openapiFields.add("password");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("email");
-    openapiRequiredFields.add("password");
   }
 
  /**
@@ -176,18 +200,14 @@ public class CreateSaasUserParam {
           throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateSaasUserParam` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : CreateSaasUserParam.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
-        }
-      }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("email").isJsonPrimitive()) {
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
-      if (!jsonObj.get("password").isJsonPrimitive()) {
+      if ((jsonObj.get("sign_in_id") != null && !jsonObj.get("sign_in_id").isJsonNull()) && !jsonObj.get("sign_in_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sign_in_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sign_in_id").toString()));
+      }
+      if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
   }

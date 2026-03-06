@@ -17,6 +17,7 @@
 | Name | Value |
 |---- | -----|
 | SOFTWARETOKEN | &quot;softwareToken&quot; |
+| EMAIL | &quot;email&quot; |
 
 
 
