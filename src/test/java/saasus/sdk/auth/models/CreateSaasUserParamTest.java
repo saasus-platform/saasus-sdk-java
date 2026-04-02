@@ -46,6 +46,14 @@ public class CreateSaasUserParamTest {
     }
 
     /**
+     * Test the property 'signInId'
+     */
+    @Test
+    public void signInIdTest() {
+        // TODO: test signInId
+    }
+
+    /**
      * Test the property 'password'
      */
     @Test

@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateCustomizePageSettingsParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-02T14:12:22.974804226Z[Etc/UTC]")
 public class UpdateCustomizePageSettingsParam {
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -66,6 +66,10 @@ public class UpdateCustomizePageSettingsParam {
   public static final String SERIALIZED_NAME_GOOGLE_TAG_MANAGER_CONTAINER_ID = "google_tag_manager_container_id";
   @SerializedName(SERIALIZED_NAME_GOOGLE_TAG_MANAGER_CONTAINER_ID)
   private String googleTagManagerContainerId;
+
+  public static final String SERIALIZED_NAME_IS_SIGN_IN_ID_ENABLED = "is_sign_in_id_enabled";
+  @SerializedName(SERIALIZED_NAME_IS_SIGN_IN_ID_ENABLED)
+  private Boolean isSignInIdEnabled;
 
   public static final String SERIALIZED_NAME_ICON = "icon";
   @SerializedName(SERIALIZED_NAME_ICON)
@@ -154,6 +158,25 @@ public class UpdateCustomizePageSettingsParam {
   }
 
 
+  public UpdateCustomizePageSettingsParam isSignInIdEnabled(Boolean isSignInIdEnabled) {
+    this.isSignInIdEnabled = isSignInIdEnabled;
+    return this;
+  }
+
+   /**
+   * display setting for sign-in ID on the sign-in screen
+   * @return isSignInIdEnabled
+  **/
+  @javax.annotation.Nullable
+  public Boolean getIsSignInIdEnabled() {
+    return isSignInIdEnabled;
+  }
+
+  public void setIsSignInIdEnabled(Boolean isSignInIdEnabled) {
+    this.isSignInIdEnabled = isSignInIdEnabled;
+  }
+
+
   public UpdateCustomizePageSettingsParam icon(String icon) {
     this.icon = icon;
     return this;
@@ -206,13 +229,14 @@ public class UpdateCustomizePageSettingsParam {
         Objects.equals(this.termsOfServiceUrl, updateCustomizePageSettingsParam.termsOfServiceUrl) &&
         Objects.equals(this.privacyPolicyUrl, updateCustomizePageSettingsParam.privacyPolicyUrl) &&
         Objects.equals(this.googleTagManagerContainerId, updateCustomizePageSettingsParam.googleTagManagerContainerId) &&
+        Objects.equals(this.isSignInIdEnabled, updateCustomizePageSettingsParam.isSignInIdEnabled) &&
         Objects.equals(this.icon, updateCustomizePageSettingsParam.icon) &&
         Objects.equals(this.favicon, updateCustomizePageSettingsParam.favicon);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(title, termsOfServiceUrl, privacyPolicyUrl, googleTagManagerContainerId, icon, favicon);
+    return Objects.hash(title, termsOfServiceUrl, privacyPolicyUrl, googleTagManagerContainerId, isSignInIdEnabled, icon, favicon);
   }
 
   @Override
@@ -223,6 +247,7 @@ public class UpdateCustomizePageSettingsParam {
     sb.append("    termsOfServiceUrl: ").append(toIndentedString(termsOfServiceUrl)).append("\n");
     sb.append("    privacyPolicyUrl: ").append(toIndentedString(privacyPolicyUrl)).append("\n");
     sb.append("    googleTagManagerContainerId: ").append(toIndentedString(googleTagManagerContainerId)).append("\n");
+    sb.append("    isSignInIdEnabled: ").append(toIndentedString(isSignInIdEnabled)).append("\n");
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
     sb.append("    favicon: ").append(toIndentedString(favicon)).append("\n");
     sb.append("}");
@@ -251,6 +276,7 @@ public class UpdateCustomizePageSettingsParam {
     openapiFields.add("terms_of_service_url");
     openapiFields.add("privacy_policy_url");
     openapiFields.add("google_tag_manager_container_id");
+    openapiFields.add("is_sign_in_id_enabled");
     openapiFields.add("icon");
     openapiFields.add("favicon");
 

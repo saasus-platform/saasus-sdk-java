@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * MfaPreference
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-08-16T05:09:21.529968105Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-02T14:12:22.974804226Z[Etc/UTC]")
 public class MfaPreference {
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
@@ -60,7 +60,9 @@ public class MfaPreference {
    */
   @JsonAdapter(MethodEnum.Adapter.class)
   public enum MethodEnum {
-    SOFTWARETOKEN("softwareToken");
+    SOFTWARETOKEN("softwareToken"),
+    
+    EMAIL("email");
 
     private String value;
 

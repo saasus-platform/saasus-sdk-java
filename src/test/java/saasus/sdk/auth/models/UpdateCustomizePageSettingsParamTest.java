@@ -70,6 +70,14 @@ public class UpdateCustomizePageSettingsParamTest {
     }
 
     /**
+     * Test the property 'isSignInIdEnabled'
+     */
+    @Test
+    public void isSignInIdEnabledTest() {
+        // TODO: test isSignInIdEnabled
+    }
+
+    /**
      * Test the property 'icon'
      */
     @Test

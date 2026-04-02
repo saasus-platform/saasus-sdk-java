@@ -7,6 +7,7 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 | [**createRole**](RoleApi.md#createRole) | **POST** /roles | Create Role |
 | [**deleteRole**](RoleApi.md#deleteRole) | **DELETE** /roles/{role_name} | Delete Role |
 | [**getRoles**](RoleApi.md#getRoles) | **GET** /roles | Get Roles |
+| [**updateRole**](RoleApi.md#updateRole) | **PATCH** /roles/{role_name} | Update Role |
 
 
 <a id="createRole"></a>
@@ -208,5 +209,76 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="updateRole"></a>
+# **updateRole**
+> updateRole(roleName, updateRoleParam)
+
+Update Role
+
+Update role display name. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.auth.ApiClient;
+import saasus.sdk.auth.ApiException;
+import saasus.sdk.auth.Configuration;
+import saasus.sdk.auth.auth.*;
+import saasus.sdk.auth.models.*;
+import saasus.sdk.auth.api.RoleApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/auth");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    RoleApi apiInstance = new RoleApi(defaultClient);
+    String roleName = "admin"; // String | Role name
+    UpdateRoleParam updateRoleParam = new UpdateRoleParam(); // UpdateRoleParam | 
+    try {
+      apiInstance.updateRole(roleName, updateRoleParam);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling RoleApi#updateRole");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **roleName** | **String**| Role name | |
+| **updateRoleParam** | [**UpdateRoleParam**](UpdateRoleParam.md)|  | [optional] |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **404** | Not Found |  -  |
 | **500** | Internal Server Error |  -  |
 
