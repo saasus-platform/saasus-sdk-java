@@ -71,7 +71,9 @@ public enum AwsRegion {
   
   ME_SOUTH_1("me-south-1"),
   
-  SA_EAST_1("sa-east-1");
+  SA_EAST_1("sa-east-1"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -94,7 +96,7 @@ public enum AwsRegion {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 
   public static class Adapter extends TypeAdapter<AwsRegion> {

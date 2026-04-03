@@ -11,5 +11,7 @@
 
 * `ALWAYS_INVOICE` (value: `"always_invoice"`)
 
+* `UNKNOWN_DEFAULT_OPEN_API` (value: `"unknown_default_open_api"`)
+
 
 

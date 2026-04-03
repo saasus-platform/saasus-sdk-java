@@ -18,6 +18,7 @@
 | Name | Value |
 |---- | -----|
 | CNAME | &quot;CNAME&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

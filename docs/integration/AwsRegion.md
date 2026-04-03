@@ -49,5 +49,7 @@
 
 * `SA_EAST_1` (value: `"sa-east-1"`)
 
+* `UNKNOWN_DEFAULT_OPEN_API` (value: `"unknown_default_open_api"`)
+
 
 

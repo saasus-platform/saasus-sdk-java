@@ -19,6 +19,7 @@ Account authentication settings ※ This function is not yet provided, so it can
 |---- | -----|
 | CODE | &quot;code&quot; |
 | LINK | &quot;link&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 
@@ -29,6 +30,7 @@ Account authentication settings ※ This function is not yet provided, so it can
 | EMAIL | &quot;email&quot; |
 | SMS | &quot;sms&quot; |
 | SMSOREMAIL | &quot;smsOrEmail&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

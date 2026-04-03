@@ -31,7 +31,9 @@ public enum InvoiceLanguage {
   
   JA_JP("ja-JP"),
   
-  EN_US("en-US");
+  EN_US("en-US"),
+  
+  UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
   private String value;
 
@@ -54,7 +56,7 @@ public enum InvoiceLanguage {
         return b;
       }
     }
-    throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    return UNKNOWN_DEFAULT_OPEN_API;
   }
 
   public static class Adapter extends TypeAdapter<InvoiceLanguage> {
