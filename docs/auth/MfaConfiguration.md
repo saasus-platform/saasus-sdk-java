@@ -18,6 +18,7 @@ MFA device authentication settings ※ This function is not yet provided, so it 
 |---- | -----|
 | ON | &quot;on&quot; |
 | OPTIONAL | &quot;optional&quot; |
+| UNKNOWN_DEFAULT_OPEN_API | &quot;unknown_default_open_api&quot; |
 
 
 

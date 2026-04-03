@@ -69,4 +69,12 @@ public class CustomizePageSettingsPropsTest {
         // TODO: test googleTagManagerContainerId
     }
 
+    /**
+     * Test the property 'isSignInIdEnabled'
+     */
+    @Test
+    public void isSignInIdEnabledTest() {
+        // TODO: test isSignInIdEnabled
+    }
+
 }
