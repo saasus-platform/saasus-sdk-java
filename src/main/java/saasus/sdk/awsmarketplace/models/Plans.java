@@ -52,7 +52,7 @@ import saasus.sdk.awsmarketplace.JSON;
 /**
  * Plans
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:52.397055709Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T11:50:06.799799451Z[Etc/UTC]")
 public class Plans {
   public static final String SERIALIZED_NAME_PLANS = "plans";
   @SerializedName(SERIALIZED_NAME_PLANS)

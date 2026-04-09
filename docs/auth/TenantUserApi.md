@@ -12,6 +12,7 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 | [**getAllTenantUsers**](TenantUserApi.md#getAllTenantUsers) | **GET** /tenants/all/users | Get Users |
 | [**getTenantUser**](TenantUserApi.md#getTenantUser) | **GET** /tenants/{tenant_id}/users/{user_id} | Get Tenant User |
 | [**getTenantUsers**](TenantUserApi.md#getTenantUsers) | **GET** /tenants/{tenant_id}/users | Get Tenant Users |
+| [**searchTenantUsers**](TenantUserApi.md#searchTenantUsers) | **GET** /tenants/all/users/search | Search Tenant Users |
 | [**updateTenantUser**](TenantUserApi.md#updateTenantUser) | **PATCH** /tenants/{tenant_id}/users/{user_id} | Update Tenant User Attribute |
 
 
@@ -572,6 +573,89 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="searchTenantUsers"></a>
+# **searchTenantUsers**
+> SearchTenantUsersResult searchTenantUsers(tenantId, id, email, signInId, envId, roleId, limit, cursor)
+
+Search Tenant Users
+
+Search tenant users by user id, tenant id, email, sign-in ID, env, or role. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.auth.ApiClient;
+import saasus.sdk.auth.ApiException;
+import saasus.sdk.auth.Configuration;
+import saasus.sdk.auth.auth.*;
+import saasus.sdk.auth.models.*;
+import saasus.sdk.auth.api.TenantUserApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/auth");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    TenantUserApi apiInstance = new TenantUserApi(defaultClient);
+    String tenantId = "tenantId_example"; // String | Tenant ID
+    String id = "id_example"; // String | User ID
+    String email = "email_example"; // String | Email prefix
+    String signInId = "signInId_example"; // String | Sign-in ID prefix
+    Integer envId = 56; // Integer | Environment ID
+    String roleId = "roleId_example"; // String | Role ID
+    Long limit = 56L; // Long | Maximum number of users to retrieve
+    String cursor = "cursor_example"; // String | Cursor for cursor pagination
+    try {
+      SearchTenantUsersResult result = apiInstance.searchTenantUsers(tenantId, id, email, signInId, envId, roleId, limit, cursor);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling TenantUserApi#searchTenantUsers");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tenantId** | **String**| Tenant ID | [optional] |
+| **id** | **String**| User ID | [optional] |
+| **email** | **String**| Email prefix | [optional] |
+| **signInId** | **String**| Sign-in ID prefix | [optional] |
+| **envId** | **Integer**| Environment ID | [optional] |
+| **roleId** | **String**| Role ID | [optional] |
+| **limit** | **Long**| Maximum number of users to retrieve | [optional] |
+| **cursor** | **String**| Cursor for cursor pagination | [optional] |
+
+### Return type
+
+[**SearchTenantUsersResult**](SearchTenantUsersResult.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **500** | Internal Server Error |  -  |
 
 <a id="updateTenantUser"></a>
