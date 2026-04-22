@@ -30,6 +30,7 @@ import java.io.IOException;
 import saasus.sdk.auth.models.CreateTenantUserParam;
 import saasus.sdk.auth.models.CreateTenantUserRolesParam;
 import saasus.sdk.auth.models.Error;
+import saasus.sdk.auth.models.SearchTenantUsersResult;
 import saasus.sdk.auth.models.UpdateTenantUserParam;
 import saasus.sdk.auth.models.User;
 import saasus.sdk.auth.models.Users;
@@ -1164,6 +1165,191 @@ public class TenantUserApi {
 
         okhttp3.Call localVarCall = getTenantUsersValidateBeforeCall(tenantId, _callback);
         Type localVarReturnType = new TypeToken<Users>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for searchTenantUsers
+     * @param tenantId Tenant ID (optional)
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param envId Environment ID (optional)
+     * @param roleId Role ID (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchTenantUsersCall(String tenantId, String id, String email, String signInId, Integer envId, String roleId, Long limit, String cursor, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tenants/all/users/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenant_id", tenantId));
+        }
+
+        if (id != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
+        }
+
+        if (email != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("email", email));
+        }
+
+        if (signInId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sign_in_id", signInId));
+        }
+
+        if (envId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("env_id", envId));
+        }
+
+        if (roleId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("role_id", roleId));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchTenantUsersValidateBeforeCall(String tenantId, String id, String email, String signInId, Integer envId, String roleId, Long limit, String cursor, final ApiCallback _callback) throws ApiException {
+        return searchTenantUsersCall(tenantId, id, email, signInId, envId, roleId, limit, cursor, _callback);
+
+    }
+
+    /**
+     * Search Tenant Users
+     * Search tenant users by user id, tenant id, email, sign-in ID, env, or role. 
+     * @param tenantId Tenant ID (optional)
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param envId Environment ID (optional)
+     * @param roleId Role ID (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @return SearchTenantUsersResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public SearchTenantUsersResult searchTenantUsers(String tenantId, String id, String email, String signInId, Integer envId, String roleId, Long limit, String cursor) throws ApiException {
+        ApiResponse<SearchTenantUsersResult> localVarResp = searchTenantUsersWithHttpInfo(tenantId, id, email, signInId, envId, roleId, limit, cursor);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search Tenant Users
+     * Search tenant users by user id, tenant id, email, sign-in ID, env, or role. 
+     * @param tenantId Tenant ID (optional)
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param envId Environment ID (optional)
+     * @param roleId Role ID (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @return ApiResponse&lt;SearchTenantUsersResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SearchTenantUsersResult> searchTenantUsersWithHttpInfo(String tenantId, String id, String email, String signInId, Integer envId, String roleId, Long limit, String cursor) throws ApiException {
+        okhttp3.Call localVarCall = searchTenantUsersValidateBeforeCall(tenantId, id, email, signInId, envId, roleId, limit, cursor, null);
+        Type localVarReturnType = new TypeToken<SearchTenantUsersResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search Tenant Users (asynchronously)
+     * Search tenant users by user id, tenant id, email, sign-in ID, env, or role. 
+     * @param tenantId Tenant ID (optional)
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param envId Environment ID (optional)
+     * @param roleId Role ID (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchTenantUsersAsync(String tenantId, String id, String email, String signInId, Integer envId, String roleId, Long limit, String cursor, final ApiCallback<SearchTenantUsersResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchTenantUsersValidateBeforeCall(tenantId, id, email, signInId, envId, roleId, limit, cursor, _callback);
+        Type localVarReturnType = new TypeToken<SearchTenantUsersResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

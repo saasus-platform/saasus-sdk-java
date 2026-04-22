@@ -50,7 +50,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * UpdateMeteringUnitTimestampCountNowParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:46.621994899Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-22T11:54:39.623213690Z[Etc/UTC]")
 public class UpdateMeteringUnitTimestampCountNowParam {
   public static final String SERIALIZED_NAME_METHOD = "method";
   @SerializedName(SERIALIZED_NAME_METHOD)
