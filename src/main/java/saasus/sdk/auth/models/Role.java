@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * role info
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T11:49:59.158500551Z[Etc/UTC]")
 public class Role {
   public static final String SERIALIZED_NAME_ROLE_NAME = "role_name";
   @SerializedName(SERIALIZED_NAME_ROLE_NAME)

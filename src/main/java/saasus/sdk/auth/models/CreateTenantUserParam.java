@@ -51,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Either email or sign_in_id must be specified, but not both. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T11:49:59.158500551Z[Etc/UTC]")
 public class CreateTenantUserParam {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)

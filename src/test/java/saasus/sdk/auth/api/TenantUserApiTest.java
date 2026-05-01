@@ -17,6 +17,7 @@ import saasus.sdk.auth.ApiException;
 import saasus.sdk.auth.models.CreateTenantUserParam;
 import saasus.sdk.auth.models.CreateTenantUserRolesParam;
 import saasus.sdk.auth.models.Error;
+import saasus.sdk.auth.models.SearchTenantUsersResult;
 import saasus.sdk.auth.models.UpdateTenantUserParam;
 import saasus.sdk.auth.models.User;
 import saasus.sdk.auth.models.Users;
@@ -153,6 +154,27 @@ public class TenantUserApiTest {
     public void getTenantUsersTest() throws ApiException {
         String tenantId = null;
         Users response = api.getTenantUsers(tenantId);
+        // TODO: test validations
+    }
+
+    /**
+     * Search Tenant Users
+     *
+     * Search tenant users by user id, tenant id, email, sign-in ID, env, or role. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void searchTenantUsersTest() throws ApiException {
+        String tenantId = null;
+        String id = null;
+        String email = null;
+        String signInId = null;
+        Integer envId = null;
+        String roleId = null;
+        Long limit = null;
+        String cursor = null;
+        SearchTenantUsersResult response = api.searchTenantUsers(tenantId, id, email, signInId, envId, roleId, limit, cursor);
         // TODO: test validations
     }
 

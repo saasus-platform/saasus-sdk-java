@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * UpdateSaasUserSignInIdParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T11:49:59.158500551Z[Etc/UTC]")
 public class UpdateSaasUserSignInIdParam {
   public static final String SERIALIZED_NAME_SIGN_IN_ID = "sign_in_id";
   @SerializedName(SERIALIZED_NAME_SIGN_IN_ID)
