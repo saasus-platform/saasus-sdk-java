@@ -13,6 +13,7 @@ public class AuthApiClient extends ApiClient {
     
     private String referer;
     private String xSaasusReferer;
+    private String xSaaSusTraceId;
 
     @Override
     public <T> ApiResponse<T> execute(Call call, Type returnType) throws ApiException {        
@@ -34,6 +35,10 @@ public class AuthApiClient extends ApiClient {
 
         if (this.xSaasusReferer != null) {
             requestBuilder.header("X-SaaSus-Referer", this.xSaasusReferer);
+        }
+
+        if (this.xSaaSusTraceId != null) {
+            requestBuilder.header("X-SaaSus-Trace-Id", this.xSaaSusTraceId);
         }
 
         Request newRequest = requestBuilder.build();
@@ -61,5 +66,16 @@ public class AuthApiClient extends ApiClient {
 
     public void setXSaasusReferer(String xSaasusReferer) {
         this.xSaasusReferer = xSaasusReferer;
+    }
+
+    private String getXSaaSusTraceId() {
+        if (xSaaSusTraceId == null) {
+            return "";
+        }
+        return xSaaSusTraceId;
+    }
+
+    public void setXSaaSusTraceId(String xSaaSusTraceId) {
+        this.xSaaSusTraceId = xSaaSusTraceId;
     }
 }
