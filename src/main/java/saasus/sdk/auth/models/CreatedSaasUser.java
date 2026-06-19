@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -51,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * CreatedSaasUser
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-06-19T11:58:20.866534802Z[Etc/UTC]")
 public class CreatedSaasUser {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -68,6 +69,10 @@ public class CreatedSaasUser {
   public static final String SERIALIZED_NAME_ATTRIBUTES = "attributes";
   @SerializedName(SERIALIZED_NAME_ATTRIBUTES)
   private Map<String, Object> attributes = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_LAST_LOGIN_AT = "last_login_at";
+  @SerializedName(SERIALIZED_NAME_LAST_LOGIN_AT)
+  private Integer lastLoginAt;
 
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
@@ -160,6 +165,25 @@ public class CreatedSaasUser {
   }
 
 
+  public CreatedSaasUser lastLoginAt(Integer lastLoginAt) {
+    this.lastLoginAt = lastLoginAt;
+    return this;
+  }
+
+   /**
+   * Last login date and time (unix timestamp). Null if the user has never logged in. 
+   * @return lastLoginAt
+  **/
+  @javax.annotation.Nullable
+  public Integer getLastLoginAt() {
+    return lastLoginAt;
+  }
+
+  public void setLastLoginAt(Integer lastLoginAt) {
+    this.lastLoginAt = lastLoginAt;
+  }
+
+
   public CreatedSaasUser password(String password) {
     this.password = password;
     return this;
@@ -237,13 +261,25 @@ public class CreatedSaasUser {
         Objects.equals(this.email, createdSaasUser.email) &&
         Objects.equals(this.signInId, createdSaasUser.signInId) &&
         Objects.equals(this.attributes, createdSaasUser.attributes) &&
+        Objects.equals(this.lastLoginAt, createdSaasUser.lastLoginAt) &&
         Objects.equals(this.password, createdSaasUser.password)&&
         Objects.equals(this.additionalProperties, createdSaasUser.additionalProperties);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(id, email, signInId, attributes, password, additionalProperties);
+    return Objects.hash(id, email, signInId, attributes, lastLoginAt, password, additionalProperties);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -254,6 +290,7 @@ public class CreatedSaasUser {
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
     sb.append("    signInId: ").append(toIndentedString(signInId)).append("\n");
     sb.append("    attributes: ").append(toIndentedString(attributes)).append("\n");
+    sb.append("    lastLoginAt: ").append(toIndentedString(lastLoginAt)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
@@ -282,6 +319,7 @@ public class CreatedSaasUser {
     openapiFields.add("email");
     openapiFields.add("sign_in_id");
     openapiFields.add("attributes");
+    openapiFields.add("last_login_at");
     openapiFields.add("password");
 
     // a set of required properties/fields (JSON key names)
