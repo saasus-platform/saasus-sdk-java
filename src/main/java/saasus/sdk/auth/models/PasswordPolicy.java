@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Password Policy
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T07:46:53.157866744Z[Etc/UTC]")
 public class PasswordPolicy {
   public static final String SERIALIZED_NAME_MINIMUM_LENGTH = "minimum_length";
   @SerializedName(SERIALIZED_NAME_MINIMUM_LENGTH)

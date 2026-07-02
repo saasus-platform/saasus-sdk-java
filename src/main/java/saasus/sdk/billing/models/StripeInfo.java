@@ -49,7 +49,7 @@ import saasus.sdk.billing.JSON;
 /**
  * StripeInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:49.925806961Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-07-02T07:47:00.857758771Z[Etc/UTC]")
 public class StripeInfo {
   public static final String SERIALIZED_NAME_IS_REGISTERED = "is_registered";
   @SerializedName(SERIALIZED_NAME_IS_REGISTERED)
