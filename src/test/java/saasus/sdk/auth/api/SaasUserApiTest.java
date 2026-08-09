@@ -33,6 +33,7 @@ import saasus.sdk.auth.models.RespondToSignInChallengeResult;
 import saasus.sdk.auth.models.SaasUser;
 import saasus.sdk.auth.models.SaasUserResetPasswordResult;
 import saasus.sdk.auth.models.SaasUsers;
+import saasus.sdk.auth.models.SearchSaasUsersResult;
 import saasus.sdk.auth.models.SignInParam;
 import saasus.sdk.auth.models.SignInResult;
 import saasus.sdk.auth.models.SignUpParam;
@@ -285,6 +286,24 @@ public class SaasUserApiTest {
     public void respondToSignInChallengeTest() throws ApiException {
         RespondToSignInChallengeParam respondToSignInChallengeParam = null;
         RespondToSignInChallengeResult response = api.respondToSignInChallenge(respondToSignInChallengeParam);
+        // TODO: test validations
+    }
+
+    /**
+     * Search SaaS Users
+     *
+     * Search SaaS users by user ID, email, or sign-in ID. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void searchSaasUsersTest() throws ApiException {
+        String id = null;
+        String email = null;
+        String signInId = null;
+        Long limit = null;
+        String cursor = null;
+        SearchSaasUsersResult response = api.searchSaasUsers(id, email, signInId, limit, cursor);
         // TODO: test validations
     }
 
