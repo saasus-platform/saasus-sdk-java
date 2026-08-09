@@ -51,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Parameters required for user sign-in The required parameters vary depending on the sign_in_flow. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T11:49:57.058378794Z[Etc/UTC]")
 public class SignInParam {
   /**
    * The sign-in flow to use for authentication. Currently, only USER_SRP_AUTH is supported. 

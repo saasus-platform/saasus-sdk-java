@@ -1,6 +1,6 @@
 /*
- * SaaSus Communication API Schema
- * SaaSus Communication API Schema
+ * SaaSus Auth API Schema
+ * Schema
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -11,7 +11,7 @@
  */
 
 
-package saasus.sdk.communication.models;
+package saasus.sdk.auth.models;
 
 import java.util.Objects;
 import com.google.gson.TypeAdapter;
@@ -20,7 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import saasus.sdk.auth.models.User;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -44,36 +47,67 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import saasus.sdk.communication.JSON;
+import saasus.sdk.auth.JSON;
 
 /**
- * UpdateFeedbackCommentParam
+ * SearchTenantUsersResult
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T11:50:14.192295155Z[Etc/UTC]")
-public class UpdateFeedbackCommentParam {
-  public static final String SERIALIZED_NAME_BODY = "body";
-  @SerializedName(SERIALIZED_NAME_BODY)
-  private String body;
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T11:49:57.058378794Z[Etc/UTC]")
+public class SearchTenantUsersResult {
+  public static final String SERIALIZED_NAME_USERS = "users";
+  @SerializedName(SERIALIZED_NAME_USERS)
+  private List<User> users = new ArrayList<>();
 
-  public UpdateFeedbackCommentParam() {
+  public static final String SERIALIZED_NAME_CURSOR = "cursor";
+  @SerializedName(SERIALIZED_NAME_CURSOR)
+  private String cursor;
+
+  public SearchTenantUsersResult() {
   }
 
-  public UpdateFeedbackCommentParam body(String body) {
-    this.body = body;
+  public SearchTenantUsersResult users(List<User> users) {
+    this.users = users;
+    return this;
+  }
+
+  public SearchTenantUsersResult addUsersItem(User usersItem) {
+    if (this.users == null) {
+      this.users = new ArrayList<>();
+    }
+    this.users.add(usersItem);
     return this;
   }
 
    /**
-   * Get body
-   * @return body
+   * Get users
+   * @return users
   **/
   @javax.annotation.Nonnull
-  public String getBody() {
-    return body;
+  public List<User> getUsers() {
+    return users;
   }
 
-  public void setBody(String body) {
-    this.body = body;
+  public void setUsers(List<User> users) {
+    this.users = users;
+  }
+
+
+  public SearchTenantUsersResult cursor(String cursor) {
+    this.cursor = cursor;
+    return this;
+  }
+
+   /**
+   * Pagination cursor for the next page
+   * @return cursor
+  **/
+  @javax.annotation.Nullable
+  public String getCursor() {
+    return cursor;
+  }
+
+  public void setCursor(String cursor) {
+    this.cursor = cursor;
   }
 
   /**
@@ -89,9 +123,9 @@ public class UpdateFeedbackCommentParam {
    *
    * @param key name of the property
    * @param value value of the property
-   * @return the UpdateFeedbackCommentParam instance itself
+   * @return the SearchTenantUsersResult instance itself
    */
-  public UpdateFeedbackCommentParam putAdditionalProperty(String key, Object value) {
+  public SearchTenantUsersResult putAdditionalProperty(String key, Object value) {
     if (this.additionalProperties == null) {
         this.additionalProperties = new HashMap<String, Object>();
     }
@@ -130,21 +164,23 @@ public class UpdateFeedbackCommentParam {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateFeedbackCommentParam updateFeedbackCommentParam = (UpdateFeedbackCommentParam) o;
-    return Objects.equals(this.body, updateFeedbackCommentParam.body)&&
-        Objects.equals(this.additionalProperties, updateFeedbackCommentParam.additionalProperties);
+    SearchTenantUsersResult searchTenantUsersResult = (SearchTenantUsersResult) o;
+    return Objects.equals(this.users, searchTenantUsersResult.users) &&
+        Objects.equals(this.cursor, searchTenantUsersResult.cursor)&&
+        Objects.equals(this.additionalProperties, searchTenantUsersResult.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(body, additionalProperties);
+    return Objects.hash(users, cursor, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateFeedbackCommentParam {\n");
-    sb.append("    body: ").append(toIndentedString(body)).append("\n");
+    sb.append("class SearchTenantUsersResult {\n");
+    sb.append("    users: ").append(toIndentedString(users)).append("\n");
+    sb.append("    cursor: ").append(toIndentedString(cursor)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -168,35 +204,46 @@ public class UpdateFeedbackCommentParam {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("body");
+    openapiFields.add("users");
+    openapiFields.add("cursor");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("body");
+    openapiRequiredFields.add("users");
   }
 
  /**
   * Validates the JSON Element and throws an exception if issues found
   *
   * @param jsonElement JSON Element
-  * @throws IOException if the JSON Element is invalid with respect to UpdateFeedbackCommentParam
+  * @throws IOException if the JSON Element is invalid with respect to SearchTenantUsersResult
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
       if (jsonElement == null) {
-        if (!UpdateFeedbackCommentParam.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateFeedbackCommentParam is not found in the empty JSON string", UpdateFeedbackCommentParam.openapiRequiredFields.toString()));
+        if (!SearchTenantUsersResult.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SearchTenantUsersResult is not found in the empty JSON string", SearchTenantUsersResult.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : UpdateFeedbackCommentParam.openapiRequiredFields) {
+      for (String requiredField : SearchTenantUsersResult.openapiRequiredFields) {
         if (jsonElement.getAsJsonObject().get(requiredField) == null) {
           throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (!jsonObj.get("body").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `body` to be a primitive type in the JSON string but got `%s`", jsonObj.get("body").toString()));
+      // ensure the json data is an array
+      if (!jsonObj.get("users").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `users` to be an array in the JSON string but got `%s`", jsonObj.get("users").toString()));
+      }
+
+      JsonArray jsonArrayusers = jsonObj.getAsJsonArray("users");
+      // validate the required field `users` (array)
+      for (int i = 0; i < jsonArrayusers.size(); i++) {
+        User.validateJsonElement(jsonArrayusers.get(i));
+      };
+      if ((jsonObj.get("cursor") != null && !jsonObj.get("cursor").isJsonNull()) && !jsonObj.get("cursor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cursor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cursor").toString()));
       }
   }
 
@@ -204,16 +251,16 @@ public class UpdateFeedbackCommentParam {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!UpdateFeedbackCommentParam.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'UpdateFeedbackCommentParam' and its subtypes
+       if (!SearchTenantUsersResult.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SearchTenantUsersResult' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<UpdateFeedbackCommentParam> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateFeedbackCommentParam.class));
+       final TypeAdapter<SearchTenantUsersResult> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SearchTenantUsersResult.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<UpdateFeedbackCommentParam>() {
+       return (TypeAdapter<T>) new TypeAdapter<SearchTenantUsersResult>() {
            @Override
-           public void write(JsonWriter out, UpdateFeedbackCommentParam value) throws IOException {
+           public void write(JsonWriter out, SearchTenantUsersResult value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              obj.remove("additionalProperties");
              // serialize additional properties
@@ -236,12 +283,12 @@ public class UpdateFeedbackCommentParam {
            }
 
            @Override
-           public UpdateFeedbackCommentParam read(JsonReader in) throws IOException {
+           public SearchTenantUsersResult read(JsonReader in) throws IOException {
              JsonElement jsonElement = elementAdapter.read(in);
              validateJsonElement(jsonElement);
              JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
-             UpdateFeedbackCommentParam instance = thisAdapter.fromJsonTree(jsonObj);
+             SearchTenantUsersResult instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                if (!openapiFields.contains(entry.getKey())) {
                  if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -268,18 +315,18 @@ public class UpdateFeedbackCommentParam {
   }
 
  /**
-  * Create an instance of UpdateFeedbackCommentParam given an JSON string
+  * Create an instance of SearchTenantUsersResult given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of UpdateFeedbackCommentParam
-  * @throws IOException if the JSON string is invalid with respect to UpdateFeedbackCommentParam
+  * @return An instance of SearchTenantUsersResult
+  * @throws IOException if the JSON string is invalid with respect to SearchTenantUsersResult
   */
-  public static UpdateFeedbackCommentParam fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, UpdateFeedbackCommentParam.class);
+  public static SearchTenantUsersResult fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SearchTenantUsersResult.class);
   }
 
  /**
-  * Convert an instance of UpdateFeedbackCommentParam to an JSON string
+  * Convert an instance of SearchTenantUsersResult to an JSON string
   *
   * @return JSON string
   */

@@ -13,7 +13,7 @@
 
 package saasus.sdk.integration;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:55.139903272Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-09T11:50:09.374690434Z[Etc/UTC]")
 public class Configuration {
     public static final String VERSION = "1.0.0";
 
