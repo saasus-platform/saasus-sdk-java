@@ -46,6 +46,7 @@ import saasus.sdk.auth.models.RespondToSignInChallengeResult;
 import saasus.sdk.auth.models.SaasUser;
 import saasus.sdk.auth.models.SaasUserResetPasswordResult;
 import saasus.sdk.auth.models.SaasUsers;
+import saasus.sdk.auth.models.SearchSaasUsersResult;
 import saasus.sdk.auth.models.SignInParam;
 import saasus.sdk.auth.models.SignInResult;
 import saasus.sdk.auth.models.SignUpParam;
@@ -2109,6 +2110,167 @@ public class SaasUserApi {
 
         okhttp3.Call localVarCall = respondToSignInChallengeValidateBeforeCall(respondToSignInChallengeParam, _callback);
         Type localVarReturnType = new TypeToken<RespondToSignInChallengeResult>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for searchSaasUsers
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchSaasUsersCall(String id, String email, String signInId, Long limit, String cursor, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (id != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
+        }
+
+        if (email != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("email", email));
+        }
+
+        if (signInId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sign_in_id", signInId));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchSaasUsersValidateBeforeCall(String id, String email, String signInId, Long limit, String cursor, final ApiCallback _callback) throws ApiException {
+        return searchSaasUsersCall(id, email, signInId, limit, cursor, _callback);
+
+    }
+
+    /**
+     * Search SaaS Users
+     * Search SaaS users by user ID, email, or sign-in ID. 
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @return SearchSaasUsersResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public SearchSaasUsersResult searchSaasUsers(String id, String email, String signInId, Long limit, String cursor) throws ApiException {
+        ApiResponse<SearchSaasUsersResult> localVarResp = searchSaasUsersWithHttpInfo(id, email, signInId, limit, cursor);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search SaaS Users
+     * Search SaaS users by user ID, email, or sign-in ID. 
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @return ApiResponse&lt;SearchSaasUsersResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SearchSaasUsersResult> searchSaasUsersWithHttpInfo(String id, String email, String signInId, Long limit, String cursor) throws ApiException {
+        okhttp3.Call localVarCall = searchSaasUsersValidateBeforeCall(id, email, signInId, limit, cursor, null);
+        Type localVarReturnType = new TypeToken<SearchSaasUsersResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search SaaS Users (asynchronously)
+     * Search SaaS users by user ID, email, or sign-in ID. 
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchSaasUsersAsync(String id, String email, String signInId, Long limit, String cursor, final ApiCallback<SearchSaasUsersResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchSaasUsersValidateBeforeCall(id, email, signInId, limit, cursor, _callback);
+        Type localVarReturnType = new TypeToken<SearchSaasUsersResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

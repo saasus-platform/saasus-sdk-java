@@ -50,7 +50,7 @@ import saasus.sdk.integration.JSON;
 /**
  * EventBridgeSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:55.139903272Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T11:50:11.928040599Z[Etc/UTC]")
 public class EventBridgeSettings {
   public static final String SERIALIZED_NAME_AWS_ACCOUNT_ID = "aws_account_id";
   @SerializedName(SERIALIZED_NAME_AWS_ACCOUNT_ID)

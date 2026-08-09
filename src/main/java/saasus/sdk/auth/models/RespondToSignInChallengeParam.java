@@ -52,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Parameters required to respond to a sign-in challenge 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-01T11:49:59.158500551Z[Etc/UTC]")
 public class RespondToSignInChallengeParam {
   public static final String SERIALIZED_NAME_CHALLENGE_NAME = "challenge_name";
   @SerializedName(SERIALIZED_NAME_CHALLENGE_NAME)
