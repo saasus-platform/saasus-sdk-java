@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * ConfirmSignUpWithAwsMarketplaceParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-31T14:06:16.619911258Z[Etc/UTC]")
 public class ConfirmSignUpWithAwsMarketplaceParam {
   public static final String SERIALIZED_NAME_TENANT_NAME = "tenant_name";
   @SerializedName(SERIALIZED_NAME_TENANT_NAME)
