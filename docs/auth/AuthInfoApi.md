@@ -6,10 +6,10 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 |------------- | ------------- | -------------|
 | [**getAuthInfo**](AuthInfoApi.md#getAuthInfo) | **GET** /auth-info | Get Authentication Info |
 | [**getIdentityProviders**](AuthInfoApi.md#getIdentityProviders) | **GET** /identity-providers | Get Sign-In Information Via External Provider |
-| [**getSignInSettings**](AuthInfoApi.md#getSignInSettings) | **GET** /sign-in-settings | Get Password Requirements |
+| [**getSignInSettings**](AuthInfoApi.md#getSignInSettings) | **GET** /sign-in-settings | Get Sign-In Settings |
 | [**updateAuthInfo**](AuthInfoApi.md#updateAuthInfo) | **PUT** /auth-info | Update Authentication Info |
 | [**updateIdentityProvider**](AuthInfoApi.md#updateIdentityProvider) | **PUT** /identity-providers | Update Sign-In Information |
-| [**updateSignInSettings**](AuthInfoApi.md#updateSignInSettings) | **PUT** /sign-in-settings | Update Password Requirements |
+| [**updateSignInSettings**](AuthInfoApi.md#updateSignInSettings) | **PUT** /sign-in-settings | Update Sign-In Settings |
 
 
 <a id="getAuthInfo"></a>
@@ -144,9 +144,9 @@ This endpoint does not need any parameter.
 # **getSignInSettings**
 > SignInSettings getSignInSettings()
 
-Get Password Requirements
+Get Sign-In Settings
 
-Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+Get sign-in settings, including user password requirements and refresh token validity period. 
 
 ### Example
 ```java
@@ -336,15 +336,16 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **500** | Internal Server Error |  -  |
 
 <a id="updateSignInSettings"></a>
 # **updateSignInSettings**
 > updateSignInSettings(updateSignInSettingsParam)
 
-Update Password Requirements
+Update Sign-In Settings
 
-Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+Update sign-in settings, including user password requirements and refresh token validity period. 
 
 ### Example
 ```java
@@ -403,5 +404,6 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | Invalid Parameter |  -  |
 | **500** | Internal Server Error |  -  |
 

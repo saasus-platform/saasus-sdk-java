@@ -52,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * Result returned after a sign-in attempt 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-08-31T14:06:16.619911258Z[Etc/UTC]")
 public class SignInResult {
   public static final String SERIALIZED_NAME_CHALLENGE_NAME = "challenge_name";
   @SerializedName(SERIALIZED_NAME_CHALLENGE_NAME)
