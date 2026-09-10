@@ -5,3 +5,10 @@ target
 !.github/
 !.github/workflows/
 !.github/workflows/*.yml
+
+# Local E2E credentials
+.env
+.env.*
+
+# Generated E2E snapshots and reports
+tests/e2e/snapshot/
