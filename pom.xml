@@ -69,13 +69,6 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    
     <!-- add -->
     <!-- @Nullable annotation -->
     <dependency>
@@ -139,7 +132,7 @@
     </dependency>
     <dependency>
         <groupId>org.junit.platform</groupId>
-        <artifactId>junit-platform-runner</artifactId>
+        <artifactId>junit-platform-launcher</artifactId>
         <version>${junit-platform-runner.version}</version>
         <scope>test</scope>
     </dependency>
@@ -159,6 +152,23 @@
 
   <build>
     <plugins>
+      <!-- Ensure JUnit 5 (JUnit Platform) tests are executed. Without an explicit
+           provider, Surefire auto-detected the legacy JUnit3 provider and skipped
+           the Jupiter tests. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <!-- E2E tests hit the live SaaSus API and require real credentials, so they must
+               never run as part of the ordinary unit-test phase (`mvn test`). They are run
+               explicitly via the `e2e` profile (`mvn verify -Pe2e`). -->
+          <excludes>
+            <exclude>**/e2e/**/*E2ETest.java</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+
       <!-- ソースJAR -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -212,6 +222,42 @@
   </build>
   <!-- 署名プラグインをリリース時だけ有効にするプロファイル -->
   <profiles>
+    <profile>
+      <id>e2e</id>
+      <!-- Runs the live E2E tests (saasus/sdk/e2e/**/*E2ETest) against the real SaaSus API.
+           Requires SAASUS_SAAS_ID / SAASUS_API_KEY / SAASUS_SECRET_KEY in the process
+           environment; pricing additionally needs TEST_TENANT_ID. Run with `mvn verify -Pe2e`.
+           Snapshot capture/compare is toggled via the E2E_SNAPSHOT_* environment variables. -->
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>3.2.5</version>
+            <configuration>
+              <includes>
+                <include>**/e2e/**/*E2ETest.java</include>
+              </includes>
+              <!-- Fail the build (rather than silently skip) so a misconfigured E2E run
+                   is always surfaced. -->
+              <testFailureIgnore>false</testFailureIgnore>
+            </configuration>
+            <executions>
+              <execution>
+                <id>e2e-integration-tests</id>
+                <goals>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <id>sign-release</id>
       <activation>

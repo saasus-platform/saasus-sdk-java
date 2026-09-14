@@ -1,6 +1,11 @@
 .vscode
 target
 *.yml
+.worktrees/
+
+# Local E2E test artifacts — must not be committed to the public repo
+.env
+/tests/e2e/snapshot/
 
 !.github/
 !.github/workflows/
