@@ -52,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * CreateTenantInvitationParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-09-17T12:47:17.642435555Z[Etc/UTC]")
 public class CreateTenantInvitationParam {
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
