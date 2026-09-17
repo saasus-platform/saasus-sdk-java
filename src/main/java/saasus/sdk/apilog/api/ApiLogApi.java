@@ -206,8 +206,10 @@ public class ApiLogApi {
     /**
      * Build call for getLogs
      * @param createdDate The date, in format of YYYY-MM-DD, to retrieve the log. (optional)
-     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. (optional)
+     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. Cannot be specified together with start_at/end_at. (optional)
      * @param limit Maximum number of logs to retrieve. (optional)
+     * @param startAt The start of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored. (optional)
+     * @param endAt The end of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored. (optional)
      * @param cursor Cursor for cursor pagination. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -219,7 +221,7 @@ public class ApiLogApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogsCall(LocalDate createdDate, OffsetDateTime createdAt, Long limit, String cursor, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getLogsCall(LocalDate createdDate, OffsetDateTime createdAt, Long limit, Long startAt, Long endAt, String cursor, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -256,6 +258,14 @@ public class ApiLogApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
+        if (startAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_at", startAt));
+        }
+
+        if (endAt != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_at", endAt));
+        }
+
         if (cursor != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
         }
@@ -280,8 +290,8 @@ public class ApiLogApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getLogsValidateBeforeCall(LocalDate createdDate, OffsetDateTime createdAt, Long limit, String cursor, final ApiCallback _callback) throws ApiException {
-        return getLogsCall(createdDate, createdAt, limit, cursor, _callback);
+    private okhttp3.Call getLogsValidateBeforeCall(LocalDate createdDate, OffsetDateTime createdAt, Long limit, Long startAt, Long endAt, String cursor, final ApiCallback _callback) throws ApiException {
+        return getLogsCall(createdDate, createdAt, limit, startAt, endAt, cursor, _callback);
 
     }
 
@@ -289,8 +299,10 @@ public class ApiLogApi {
      * Get API execution log list
      * Retrieve the log of all API executions.
      * @param createdDate The date, in format of YYYY-MM-DD, to retrieve the log. (optional)
-     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. (optional)
+     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. Cannot be specified together with start_at/end_at. (optional)
      * @param limit Maximum number of logs to retrieve. (optional)
+     * @param startAt The start of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored. (optional)
+     * @param endAt The end of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored. (optional)
      * @param cursor Cursor for cursor pagination. (optional)
      * @return ApiLogs
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -301,8 +313,8 @@ public class ApiLogApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiLogs getLogs(LocalDate createdDate, OffsetDateTime createdAt, Long limit, String cursor) throws ApiException {
-        ApiResponse<ApiLogs> localVarResp = getLogsWithHttpInfo(createdDate, createdAt, limit, cursor);
+    public ApiLogs getLogs(LocalDate createdDate, OffsetDateTime createdAt, Long limit, Long startAt, Long endAt, String cursor) throws ApiException {
+        ApiResponse<ApiLogs> localVarResp = getLogsWithHttpInfo(createdDate, createdAt, limit, startAt, endAt, cursor);
         return localVarResp.getData();
     }
 
@@ -310,8 +322,10 @@ public class ApiLogApi {
      * Get API execution log list
      * Retrieve the log of all API executions.
      * @param createdDate The date, in format of YYYY-MM-DD, to retrieve the log. (optional)
-     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. (optional)
+     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. Cannot be specified together with start_at/end_at. (optional)
      * @param limit Maximum number of logs to retrieve. (optional)
+     * @param startAt The start of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored. (optional)
+     * @param endAt The end of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored. (optional)
      * @param cursor Cursor for cursor pagination. (optional)
      * @return ApiResponse&lt;ApiLogs&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -322,8 +336,8 @@ public class ApiLogApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ApiLogs> getLogsWithHttpInfo(LocalDate createdDate, OffsetDateTime createdAt, Long limit, String cursor) throws ApiException {
-        okhttp3.Call localVarCall = getLogsValidateBeforeCall(createdDate, createdAt, limit, cursor, null);
+    public ApiResponse<ApiLogs> getLogsWithHttpInfo(LocalDate createdDate, OffsetDateTime createdAt, Long limit, Long startAt, Long endAt, String cursor) throws ApiException {
+        okhttp3.Call localVarCall = getLogsValidateBeforeCall(createdDate, createdAt, limit, startAt, endAt, cursor, null);
         Type localVarReturnType = new TypeToken<ApiLogs>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -332,8 +346,10 @@ public class ApiLogApi {
      * Get API execution log list (asynchronously)
      * Retrieve the log of all API executions.
      * @param createdDate The date, in format of YYYY-MM-DD, to retrieve the log. (optional)
-     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. (optional)
+     * @param createdAt The datetime, in ISO 8601 format, to retrieve the log. Cannot be specified together with start_at/end_at. (optional)
      * @param limit Maximum number of logs to retrieve. (optional)
+     * @param startAt The start of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored. (optional)
+     * @param endAt The end of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored. (optional)
      * @param cursor Cursor for cursor pagination. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -345,9 +361,9 @@ public class ApiLogApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getLogsAsync(LocalDate createdDate, OffsetDateTime createdAt, Long limit, String cursor, final ApiCallback<ApiLogs> _callback) throws ApiException {
+    public okhttp3.Call getLogsAsync(LocalDate createdDate, OffsetDateTime createdAt, Long limit, Long startAt, Long endAt, String cursor, final ApiCallback<ApiLogs> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getLogsValidateBeforeCall(createdDate, createdAt, limit, cursor, _callback);
+        okhttp3.Call localVarCall = getLogsValidateBeforeCall(createdDate, createdAt, limit, startAt, endAt, cursor, _callback);
         Type localVarReturnType = new TypeToken<ApiLogs>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
