@@ -6,6 +6,7 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 |------------- | ------------- | -------------|
 | [**createAuthCredentials**](CredentialApi.md#createAuthCredentials) | **POST** /credentials | Save Authentication/Authorization Information |
 | [**getAuthCredentials**](CredentialApi.md#getAuthCredentials) | **GET** /credentials | Get Authentication/Authorization Information |
+| [**revokeToken**](CredentialApi.md#revokeToken) | **POST** /token/revoke | Revoke Token |
 
 
 <a id="createAuthCredentials"></a>
@@ -149,5 +150,73 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **404** | Not Found |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="revokeToken"></a>
+# **revokeToken**
+> revokeToken(revokeTokenParam)
+
+Revoke Token
+
+Revoke the specified refresh token. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.auth.ApiClient;
+import saasus.sdk.auth.ApiException;
+import saasus.sdk.auth.Configuration;
+import saasus.sdk.auth.auth.*;
+import saasus.sdk.auth.models.*;
+import saasus.sdk.auth.api.CredentialApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/auth");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    CredentialApi apiInstance = new CredentialApi(defaultClient);
+    RevokeTokenParam revokeTokenParam = new RevokeTokenParam(); // RevokeTokenParam | 
+    try {
+      apiInstance.revokeToken(revokeTokenParam);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CredentialApi#revokeToken");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **revokeTokenParam** | [**RevokeTokenParam**](RevokeTokenParam.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **500** | Internal Server Error |  -  |
 
