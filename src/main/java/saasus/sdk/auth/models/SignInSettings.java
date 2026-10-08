@@ -27,6 +27,7 @@ import saasus.sdk.auth.models.IdentityProviderConfiguration;
 import saasus.sdk.auth.models.MfaConfiguration;
 import saasus.sdk.auth.models.PasswordPolicy;
 import saasus.sdk.auth.models.RecaptchaProps;
+import saasus.sdk.auth.models.RefreshTokenValidity;
 import saasus.sdk.auth.models.SelfRegist;
 
 import com.google.gson.Gson;
@@ -56,7 +57,7 @@ import saasus.sdk.auth.JSON;
 /**
  * SignInSettings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-08T04:30:41.262209885Z[Etc/UTC]")
 public class SignInSettings {
   public static final String SERIALIZED_NAME_PASSWORD_POLICY = "password_policy";
   @SerializedName(SERIALIZED_NAME_PASSWORD_POLICY)
@@ -85,6 +86,10 @@ public class SignInSettings {
   public static final String SERIALIZED_NAME_IDENTITY_PROVIDER_CONFIGURATION = "identity_provider_configuration";
   @SerializedName(SERIALIZED_NAME_IDENTITY_PROVIDER_CONFIGURATION)
   private IdentityProviderConfiguration identityProviderConfiguration;
+
+  public static final String SERIALIZED_NAME_REFRESH_TOKEN_VALIDITY = "refresh_token_validity";
+  @SerializedName(SERIALIZED_NAME_REFRESH_TOKEN_VALIDITY)
+  private RefreshTokenValidity refreshTokenValidity;
 
   public SignInSettings() {
   }
@@ -221,6 +226,25 @@ public class SignInSettings {
     this.identityProviderConfiguration = identityProviderConfiguration;
   }
 
+
+  public SignInSettings refreshTokenValidity(RefreshTokenValidity refreshTokenValidity) {
+    this.refreshTokenValidity = refreshTokenValidity;
+    return this;
+  }
+
+   /**
+   * Get refreshTokenValidity
+   * @return refreshTokenValidity
+  **/
+  @javax.annotation.Nonnull
+  public RefreshTokenValidity getRefreshTokenValidity() {
+    return refreshTokenValidity;
+  }
+
+  public void setRefreshTokenValidity(RefreshTokenValidity refreshTokenValidity) {
+    this.refreshTokenValidity = refreshTokenValidity;
+  }
+
   /**
    * A container for additional, undeclared properties.
    * This is a holder for any undeclared properties as specified with
@@ -282,13 +306,14 @@ public class SignInSettings {
         Objects.equals(this.recaptchaProps, signInSettings.recaptchaProps) &&
         Objects.equals(this.accountVerification, signInSettings.accountVerification) &&
         Objects.equals(this.selfRegist, signInSettings.selfRegist) &&
-        Objects.equals(this.identityProviderConfiguration, signInSettings.identityProviderConfiguration)&&
+        Objects.equals(this.identityProviderConfiguration, signInSettings.identityProviderConfiguration) &&
+        Objects.equals(this.refreshTokenValidity, signInSettings.refreshTokenValidity)&&
         Objects.equals(this.additionalProperties, signInSettings.additionalProperties);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(passwordPolicy, deviceConfiguration, mfaConfiguration, recaptchaProps, accountVerification, selfRegist, identityProviderConfiguration, additionalProperties);
+    return Objects.hash(passwordPolicy, deviceConfiguration, mfaConfiguration, recaptchaProps, accountVerification, selfRegist, identityProviderConfiguration, refreshTokenValidity, additionalProperties);
   }
 
   @Override
@@ -302,6 +327,7 @@ public class SignInSettings {
     sb.append("    accountVerification: ").append(toIndentedString(accountVerification)).append("\n");
     sb.append("    selfRegist: ").append(toIndentedString(selfRegist)).append("\n");
     sb.append("    identityProviderConfiguration: ").append(toIndentedString(identityProviderConfiguration)).append("\n");
+    sb.append("    refreshTokenValidity: ").append(toIndentedString(refreshTokenValidity)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -332,6 +358,7 @@ public class SignInSettings {
     openapiFields.add("account_verification");
     openapiFields.add("self_regist");
     openapiFields.add("identity_provider_configuration");
+    openapiFields.add("refresh_token_validity");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -342,6 +369,7 @@ public class SignInSettings {
     openapiRequiredFields.add("account_verification");
     openapiRequiredFields.add("self_regist");
     openapiRequiredFields.add("identity_provider_configuration");
+    openapiRequiredFields.add("refresh_token_validity");
   }
 
  /**
@@ -378,6 +406,8 @@ public class SignInSettings {
       SelfRegist.validateJsonElement(jsonObj.get("self_regist"));
       // validate the required field `identity_provider_configuration`
       IdentityProviderConfiguration.validateJsonElement(jsonObj.get("identity_provider_configuration"));
+      // validate the required field `refresh_token_validity`
+      RefreshTokenValidity.validateJsonElement(jsonObj.get("refresh_token_validity"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

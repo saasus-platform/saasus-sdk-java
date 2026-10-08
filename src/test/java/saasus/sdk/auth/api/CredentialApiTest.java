@@ -17,6 +17,7 @@ import saasus.sdk.auth.ApiException;
 import saasus.sdk.auth.models.AuthorizationTempCode;
 import saasus.sdk.auth.models.Credentials;
 import saasus.sdk.auth.models.Error;
+import saasus.sdk.auth.models.RevokeTokenParam;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -60,6 +61,20 @@ public class CredentialApiTest {
         String authFlow = null;
         String refreshToken = null;
         Credentials response = api.getAuthCredentials(code, authFlow, refreshToken);
+        // TODO: test validations
+    }
+
+    /**
+     * Revoke Token
+     *
+     * Revoke the specified refresh token. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void revokeTokenTest() throws ApiException {
+        RevokeTokenParam revokeTokenParam = null;
+        api.revokeToken(revokeTokenParam);
         // TODO: test validations
     }
 

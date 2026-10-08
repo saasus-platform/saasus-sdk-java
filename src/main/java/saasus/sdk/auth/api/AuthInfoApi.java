@@ -374,8 +374,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * Get Password Requirements
-     * Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Get Sign-In Settings
+     * Get sign-in settings, including user password requirements and refresh token validity period. 
      * @return SignInSettings
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -391,8 +391,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * Get Password Requirements
-     * Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Get Sign-In Settings
+     * Get sign-in settings, including user password requirements and refresh token validity period. 
      * @return ApiResponse&lt;SignInSettings&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -409,8 +409,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * Get Password Requirements (asynchronously)
-     * Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Get Sign-In Settings (asynchronously)
+     * Get sign-in settings, including user password requirements and refresh token validity period. 
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -556,6 +556,7 @@ public class AuthInfoApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
@@ -619,6 +620,7 @@ public class AuthInfoApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
@@ -636,6 +638,7 @@ public class AuthInfoApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
@@ -655,6 +658,7 @@ public class AuthInfoApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
@@ -674,6 +678,7 @@ public class AuthInfoApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid Parameter </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
@@ -729,14 +734,15 @@ public class AuthInfoApi {
     }
 
     /**
-     * Update Password Requirements
-     * Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Update Sign-In Settings
+     * Update sign-in settings, including user password requirements and refresh token validity period. 
      * @param updateSignInSettingsParam  (optional)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid Parameter </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
@@ -745,8 +751,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * Update Password Requirements
-     * Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Update Sign-In Settings
+     * Update sign-in settings, including user password requirements and refresh token validity period. 
      * @param updateSignInSettingsParam  (optional)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -754,6 +760,7 @@ public class AuthInfoApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid Parameter </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
@@ -763,8 +770,8 @@ public class AuthInfoApi {
     }
 
     /**
-     * Update Password Requirements (asynchronously)
-     * Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Update Sign-In Settings (asynchronously)
+     * Update sign-in settings, including user password requirements and refresh token validity period. 
      * @param updateSignInSettingsParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -773,6 +780,7 @@ public class AuthInfoApi {
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Invalid Parameter </td><td>  -  </td></tr>
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */

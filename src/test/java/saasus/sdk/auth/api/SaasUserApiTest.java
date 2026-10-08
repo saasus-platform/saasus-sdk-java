@@ -33,6 +33,9 @@ import saasus.sdk.auth.models.RespondToSignInChallengeResult;
 import saasus.sdk.auth.models.SaasUser;
 import saasus.sdk.auth.models.SaasUserResetPasswordResult;
 import saasus.sdk.auth.models.SaasUsers;
+import saasus.sdk.auth.models.SaasUsersCount;
+import saasus.sdk.auth.models.SaveSaasUsersCountParam;
+import saasus.sdk.auth.models.SearchSaasUsersResult;
 import saasus.sdk.auth.models.SignInParam;
 import saasus.sdk.auth.models.SignInResult;
 import saasus.sdk.auth.models.SignUpParam;
@@ -190,6 +193,19 @@ public class SaasUserApiTest {
     }
 
     /**
+     * Get SaaS Users Count
+     *
+     * Get the count of SaaS users. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getSaasUsersCountTest() throws ApiException {
+        SaasUsersCount response = api.getSaasUsersCount();
+        // TODO: test validations
+    }
+
+    /**
      * Get User&#39;s MFA Settings
      *
      * Get the user&#39;s MFA settings. 
@@ -285,6 +301,38 @@ public class SaasUserApiTest {
     public void respondToSignInChallengeTest() throws ApiException {
         RespondToSignInChallengeParam respondToSignInChallengeParam = null;
         RespondToSignInChallengeResult response = api.respondToSignInChallenge(respondToSignInChallengeParam);
+        // TODO: test validations
+    }
+
+    /**
+     * Save SaaS Users Count
+     *
+     * Save the count of SaaS users. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void saveSaasUsersCountTest() throws ApiException {
+        SaveSaasUsersCountParam saveSaasUsersCountParam = null;
+        api.saveSaasUsersCount(saveSaasUsersCountParam);
+        // TODO: test validations
+    }
+
+    /**
+     * Search SaaS Users
+     *
+     * Search SaaS users by user ID, email, or sign-in ID. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void searchSaasUsersTest() throws ApiException {
+        String id = null;
+        String email = null;
+        String signInId = null;
+        Long limit = null;
+        String cursor = null;
+        SearchSaasUsersResult response = api.searchSaasUsers(id, email, signInId, limit, cursor);
         // TODO: test validations
     }
 

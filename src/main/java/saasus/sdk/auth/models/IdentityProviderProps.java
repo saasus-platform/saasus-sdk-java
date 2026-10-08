@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * IdentityProviderProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-08T04:30:41.262209885Z[Etc/UTC]")
 public class IdentityProviderProps {
   public static final String SERIALIZED_NAME_APPLICATION_ID = "application_id";
   @SerializedName(SERIALIZED_NAME_APPLICATION_ID)
