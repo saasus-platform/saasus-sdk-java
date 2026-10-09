@@ -63,9 +63,9 @@ public class AuthInfoApiTest {
     }
 
     /**
-     * Get Password Requirements
+     * Get Sign-In Settings
      *
-     * Get user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Get sign-in settings, including user password requirements and refresh token validity period. 
      *
      * @throws ApiException if the Api call fails
      */
@@ -104,9 +104,9 @@ public class AuthInfoApiTest {
     }
 
     /**
-     * Update Password Requirements
+     * Update Sign-In Settings
      *
-     * Update user password requirements. Set a secure password that is difficult to decipher by increasing the number of digits by combining alphabets, numbers, and symbols. 
+     * Update sign-in settings, including user password requirements and refresh token validity period. 
      *
      * @throws ApiException if the Api call fails
      */
