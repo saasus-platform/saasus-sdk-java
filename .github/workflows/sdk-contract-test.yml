@@ -1,0 +1,131 @@
+# SDK contract test (A)(B)(C) calling workflow.
+#
+# This thin file lives in the SDK repository. The language-agnostic steps
+# (fetch spec, start Prism, resolve the previous release tag) come from the
+# central reusable repo saasus-platform/github-actions. The language-specific
+# build/harness steps stay here.
+#
+# What it checks:
+#   (A) the latest SDK generates from the current OpenAPI spec and builds/type-checks
+#   (B) the latest SDK's requests are accepted by the mock and responses deserialize
+#   (C) the previously released SDK still deserializes responses from the latest spec
+#
+# Security:
+#   - pull_request only (never pull_request_target); fork PRs do not receive secrets.
+#   - the job name below is fixed so it can be set as a required status check.
+#   - the api read token and bearer tokens are masked; no response body, spec body
+#     or PII is printed.
+#
+# NOTE: pin third-party and official actions by commit SHA before enabling as a
+# required check (see the github-actions repo README "Pinning").
+
+name: SDK Contract Test
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: sdk-contract-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # The job name "contract-test" is the required status check name. Do not rename.
+  contract-test:
+    name: contract-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MODULES: "auth pricing billing awsmarketplace integration apilog communication"
+    steps:
+      - name: Checkout PR (latest SDK)
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
+        with:
+          distribution: temurin
+          java-version: "8"
+
+      - name: Set up Node (for Prism via npx)
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "20"
+
+      # Short-lived installation token (contents:read on the private api repo only).
+      - name: Mint api read token
+        id: api-token
+        uses: actions/create-github-app-token@d72941d797fd3113feb6b93fd0dec494b13a2547 # v1
+        with:
+          app-id: ${{ secrets.SPEC_READER_APP_ID }}
+          private-key: ${{ secrets.SPEC_READER_PRIVATE_KEY }}
+          owner: Anti-Pattern-Inc
+          repositories: saasus-api
+
+      # api repository and its latest stable tag are resolved inside the action.
+      - name: Fetch OpenAPI spec
+        id: spec
+        uses: saasus-platform/github-actions/.github/actions/fetch-openapi-spec@abac383f282509c7f72dd6d06a61e2111c1b19cd # github-actions main
+        with:
+          token: ${{ steps.api-token.outputs.token }}
+          modules: ${{ env.MODULES }}
+          dest: openapi-spec
+
+      # (A) Generate the latest SDK from the fetched spec and build/type-check it.
+      - name: (A) Generate latest SDK and build
+        env:
+          SPEC_DIR: ${{ steps.spec.outputs.spec-dir }}
+        run: |
+          set -euo pipefail
+          # Map normalized <module>.yml to the filenames generate.sh expects.
+          cp "${SPEC_DIR}/auth.yml"           authapi.yml
+          cp "${SPEC_DIR}/pricing.yml"        pricingapi.yml
+          cp "${SPEC_DIR}/billing.yml"        billingapi.yml
+          cp "${SPEC_DIR}/awsmarketplace.yml" awsmarketplaceapi.yml
+          cp "${SPEC_DIR}/communication.yml"  communicationapi.yml
+          cp "${SPEC_DIR}/apilog.yml"         apilogapi.yml
+          cp "${SPEC_DIR}/integration.yml"    integration.yml
+          sh generate.sh
+          mvn -B -ntp -DskipTests test-compile
+
+      - name: Start Prism mocks
+        uses: saasus-platform/github-actions/.github/actions/setup-prism@abac383f282509c7f72dd6d06a61e2111c1b19cd # github-actions main
+        with:
+          spec-dir: ${{ steps.spec.outputs.spec-dir }}
+          modules: ${{ steps.spec.outputs.modules }}
+          base-port: "4010"
+
+      # (B) Latest SDK spec-compliance: requests accepted + responses deserialize.
+      - name: (B) Latest SDK contract
+        run: |
+          set -euo pipefail
+          mvn -B -ntp -q dependency:build-classpath -Dmdep.outputFile=cp.txt
+          java -cp "target/classes:target/test-classes:$(cat cp.txt)" \
+            saasus.sdk.contract.ContractRunner
+
+      # Previous release tag of this repository (defaults to the current repo).
+      - name: Resolve previous SDK stable tag
+        id: old-tag
+        uses: saasus-platform/github-actions/.github/actions/resolve-latest-stable-tag@abac383f282509c7f72dd6d06a61e2111c1b19cd # github-actions main
+
+      - name: Checkout old SDK
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ steps.old-tag.outputs.tag }}
+          path: old-sdk
+
+      # (C) Forward compatibility: old SDK deserializes latest-spec responses.
+      - name: (C) Old SDK forward-compat
+        run: |
+          set -euo pipefail
+          mkdir -p old-sdk/src/test/java/saasus/sdk
+          cp -r src/test/java/saasus/sdk/contract old-sdk/src/test/java/saasus/sdk/contract
+          cd old-sdk
+          mvn -B -ntp -DskipTests test-compile
+          mvn -B -ntp -q dependency:build-classpath -Dmdep.outputFile=cp.txt
+          java -cp "target/classes:target/test-classes:$(cat cp.txt)" \
+            saasus.sdk.contract.ContractRunner
