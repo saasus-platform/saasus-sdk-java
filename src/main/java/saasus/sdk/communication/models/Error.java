@@ -49,7 +49,7 @@ import saasus.sdk.communication.JSON;
 /**
  * Error
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:54:00.284033201Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T13:38:15.610180405Z[Etc/UTC]")
 public class Error {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)

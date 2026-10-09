@@ -51,7 +51,7 @@ import saasus.sdk.auth.JSON;
 /**
  * If identity_provider_props is null, the sign-in information for the external identity provider specified in provider_type is disabled. 
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:42.076013416Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-09T13:37:50.924702802Z[Etc/UTC]")
 public class UpdateTenantIdentityProviderParam {
   public static final String SERIALIZED_NAME_PROVIDER_TYPE = "provider_type";
   @SerializedName(SERIALIZED_NAME_PROVIDER_TYPE)
