@@ -22,7 +22,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.junit.jupiter.api.Assertions;
-import org.opentest4j.TestAbortedException;
 
 /**
  * Reflective contract engine behind the JUnit suite ({@link ContractTest}).
@@ -256,28 +255,25 @@ public final class ContractEngine {
         }
 
         /**
-         * Classifies a thrown error into pass ({@code null}), skip, or failure.
+         * Classifies a thrown error into pass ({@code null}) or failure.
          *
          * <p>Operations declaring no 2xx response (e.g. ReturnInternalServerError)
          * are a positive check: the SDK must surface the declared error, so an
          * {@code ApiException} whose status the spec declares is a <em>pass</em>.
          *
-         * <p>Otherwise a 4xx is a failure — the request the SDK built from the
-         * spec was rejected by the mock that validates against the same spec, so
-         * either the SDK or the spec is wrong. A 5xx is <em>skipped</em>: Prism
-         * runs in static mode, where a 5xx means it could not produce a response
-         * from the spec's examples. That is a mock/spec response-side limitation
-         * rather than an SDK fault, and the request was still accepted. Anything
-         * else (a deserialization error, a null payload) is a failure.
+         * <p>Everything else is a failure. A 4xx means the request the SDK built
+         * from the spec was rejected by the mock that validates against the same
+         * spec, so either the SDK or the spec is wrong. A 5xx means Prism, which
+         * runs in static mode, could not produce the response the spec declares
+         * (e.g. no content it can serve for the negotiated media type) — a spec
+         * defect, and skipping it would leave the response deserialization of
+         * that operation unverified. A deserialization error or a null payload
+         * is a failure as well.
          */
         private Throwable classify(Throwable err) {
             int code = httpCode(err);
             if (!op.hasSuccess && code != 0 && op.declaredStatuses.contains(code)) {
                 return null; // expected error response, surfaced correctly
-            }
-            if (code >= 500) {
-                throw new TestAbortedException("request accepted; mock could not generate a"
-                        + " response from the spec examples (HTTP " + code + ")");
             }
             return err;
         }

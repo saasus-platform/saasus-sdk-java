@@ -136,22 +136,11 @@ jobs:
       # shipped with. Prism was started above from the latest spec, and
       # CONTRACT_SPEC_DIR points at the latest spec, so the old SDK round-trips
       # against the latest contract.
-      #
-      # Transition period: tags released before the contract suite was bundled
-      # have no suite to run, so (C) is skipped until such a release exists.
       - name: (C) Old SDK forward-compat (bundled suite)
         env:
           CONTRACT_SPEC_DIR: ${{ steps.spec.outputs.spec-dir }}
         run: |
           set -euo pipefail
-          suite="old-sdk/src/test/java/saasus/sdk/contract/ContractTest.java"
-          if [ ! -f "$suite" ]; then
-            # TODO(after first release that bundles the contract suite): replace
-            # this `exit 0` with `exit 1` so a missing bundled suite fails (C),
-            # instead of passing during the transition period.
-            echo "::notice::(C) skipped: old SDK tag '${{ steps.old-tag.outputs.tag }}' does not bundle the contract suite yet (transition period)."
-            exit 0
-          fi
           cd old-sdk
           mvn -B -ntp test
 

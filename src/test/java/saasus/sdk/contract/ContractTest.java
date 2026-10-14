@@ -15,8 +15,7 @@ import org.junit.jupiter.params.provider.MethodSource;
  * <p>Each (operation, call form) is a separate parameterized test so the
  * operation and form appear in the surefire report (one testcase per case) and
  * failures are counted individually. The work is delegated to
- * {@link ContractEngine}: every case must round-trip, except that a case the
- * mock cannot generate a response for is reported as skipped.
+ * {@link ContractEngine}: every case must round-trip.
  *
  * <p>Modules without a configured Prism endpoint contribute no cases, so the
  * suite runs against a single module locally and all modules in CI. Synthetic
