@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -48,28 +49,26 @@ public class ContractTest {
     /**
      * Every spec operation of a configured module must map to a generated SDK
      * method. Enforced for the latest SDK (CONTRACT_REQUIRE_COMPLETE=true, set
-     * in workflow step B); an older SDK (C) legitimately lacks newer operations.
+     * in workflow step B); an older SDK (C) legitimately lacks newer operations,
+     * so the check is reported as skipped there rather than silently passing.
+     *
+     * <p>A run where no mock is reachable needs no guard here: {@link #cases()}
+     * is then empty and the parameterized test above fails with JUnit's
+     * zero-invocation configuration error.
      */
     @Test
     void allOperationsEnumerated() {
-        if (!"true".equalsIgnoreCase(System.getenv("CONTRACT_REQUIRE_COMPLETE"))) {
-            return;
-        }
-        List<String> configured = new ArrayList<String>();
+        Assumptions.assumeTrue("true".equalsIgnoreCase(System.getenv("CONTRACT_REQUIRE_COMPLETE")),
+                "CONTRACT_REQUIRE_COMPLETE is not set: completeness is only enforced for the latest SDK");
         List<String> missing = new ArrayList<String>();
         for (String module : ContractEngine.MODULES) {
             if (PrismEndpoints.urlForOrNull(module) == null) {
                 continue;
             }
-            configured.add(module);
             for (String op : ContractEngine.unmappedOperations(module)) {
                 missing.add(module + "." + op);
             }
         }
-        // Without this, a run where no mock is reachable would contribute no
-        // cases at all and still report success.
-        Assertions.assertFalse(configured.isEmpty(),
-                "no module has a Prism endpoint configured, so no contract case ran");
         Assertions.assertTrue(missing.isEmpty(),
                 "spec operations not enumerated in SDK: " + missing);
     }

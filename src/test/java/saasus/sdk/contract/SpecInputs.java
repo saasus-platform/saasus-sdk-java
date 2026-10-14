@@ -182,6 +182,13 @@ public final class SpecInputs {
         return out;
     }
 
+    /**
+     * Collects the declared parameters. {@code in} and {@code required} are
+     * deliberately not recorded: the generator maps every parameter to a
+     * positional argument regardless of its location, and the harness always
+     * supplies a value for every argument (optional ones included) so that
+     * optional path/query parameters are exercised too.
+     */
     @SuppressWarnings("unchecked")
     private void addParameters(List<Param> out, List<Object> raw) {
         if (raw == null) {
@@ -194,8 +201,6 @@ public final class SpecInputs {
             Map<String, Object> p = resolve((Map<String, Object>) o);
             Param param = new Param();
             param.name = str(p.get("name"));
-            param.in = str(p.get("in"));
-            param.required = Boolean.TRUE.equals(p.get("required"));
             param.schema = p.get("schema") instanceof Map
                     ? resolve((Map<String, Object>) p.get("schema")) : null;
             param.example = p.containsKey("example") ? p.get("example")
@@ -338,7 +343,6 @@ public final class SpecInputs {
                     }
                 }
             }
-            merged.put("type", "object");
             merged.put("properties", props);
             merged.put("required", required);
             return synthObject(merged);
@@ -416,10 +420,9 @@ public final class SpecInputs {
         String memberName = memberRef != null
                 ? memberRef.substring(memberRef.lastIndexOf('/') + 1) : null;
         Object mapping = discriminator.get("mapping");
-        if (mapping instanceof Map && memberName != null) {
+        if (mapping instanceof Map && memberRef != null) {
             for (Map.Entry<String, Object> e : ((Map<String, Object>) mapping).entrySet()) {
-                String target = String.valueOf(e.getValue());
-                if (target.equals(memberRef) || target.endsWith("/" + memberName)) {
+                if (String.valueOf(e.getValue()).equals(memberRef)) {
                     return e.getKey();
                 }
             }
@@ -536,8 +539,6 @@ public final class SpecInputs {
 
     public static final class Param {
         public String name;
-        public String in;
-        public boolean required;
         public Map<String, Object> schema;
         public Object example;
     }

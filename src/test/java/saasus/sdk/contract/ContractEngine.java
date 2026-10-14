@@ -7,8 +7,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Proxy;
-import java.lang.reflect.Type;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -23,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
+import org.junit.jupiter.api.Assertions;
 import org.opentest4j.TestAbortedException;
 
 /**
@@ -34,9 +33,15 @@ import org.opentest4j.TestAbortedException;
  *       runtime by scanning the generated {@code saasus.sdk.<module>.api.*Api}
  *       classes. Nothing is hardcoded, so an SDK that lacks an API simply has
  *       nothing enumerated for it (natural exclusion).</li>
- *   <li><b>Four call forms</b> — every operation is exercised through all four
- *       generated forms: synchronous, {@code WithHttpInfo}, {@code Call} and
- *       {@code Async}.</li>
+ *   <li><b>Call forms</b> — every operation is exercised through the
+ *       synchronous and the {@code Async} form. The generated {@code Call} and
+ *       {@code WithHttpInfo} forms are not exercised separately: the
+ *       synchronous form delegates to them
+ *       ({@code foo -> fooWithHttpInfo -> fooValidateBeforeCall -> fooCall}
+ *       plus {@code ApiClient.execute}), so they execute no line the
+ *       synchronous form does not. {@code Async} is not a subset — it goes
+ *       through {@code ApiClient.executeAsync} and {@code ApiCallback} — so it
+ *       is exercised on its own.</li>
  *   <li><b>Spec-driven inputs</b> — path/query/header values and request bodies
  *       come from {@link SpecInputs}.</li>
  * </ul>
@@ -54,12 +59,12 @@ public final class ContractEngine {
     private static final String BEARER = "synthetic-bearer-token";
     private static final long ASYNC_TIMEOUT_SECONDS = 30;
 
-    /** One {@code ApiClient} per module and base URL, reused across cases. */
+    /** One {@code ApiClient} per module, reused across that module's cases. */
     private static final Map<String, Object> CLIENTS = new ConcurrentHashMap<String, Object>();
 
-    /** The four generated call forms per operation. */
+    /** The generated call forms that are exercised per operation. */
     public enum Form {
-        SYNC, WITH_HTTP_INFO, CALL, ASYNC
+        SYNC, ASYNC
     }
 
     private ContractEngine() {
@@ -129,7 +134,9 @@ public final class ContractEngine {
             return null;
         }
         Method sync = findDeclaredMethod(api, SpecInputs.methodName(op.operationId));
-        // A real operation also has a matching <name>Call form generated.
+        // A real operation also has a matching <name>Call form generated. This
+        // also rejects a method name that collides with the API class's own
+        // accessors (getApiClient, setCustomBaseUrl, ...), which have no Call form.
         return sync != null && hasMethodNamed(api, sync.getName() + "Call") ? sync : null;
     }
 
@@ -147,8 +154,10 @@ public final class ContractEngine {
     }
 
     /**
-     * Finds the public, non-form-suffixed declared method with the given name
-     * (the synchronous operation), or {@code null}.
+     * Finds the public declared method with the given name (the synchronous
+     * operation), or {@code null}. The name is the operationId-derived method
+     * name, so the {@code Call}/{@code Async}/{@code WithHttpInfo} forms cannot
+     * match it.
      */
     private static Method findDeclaredMethod(Class<?> api, String name) {
         for (Method m : api.getDeclaredMethods()) {
@@ -156,14 +165,9 @@ public final class ContractEngine {
             if (!Modifier.isPublic(mod) || Modifier.isStatic(mod) || m.isSynthetic() || m.isBridge()) {
                 continue;
             }
-            String n = m.getName();
-            if (!n.equals(name)) {
-                continue;
+            if (m.getName().equals(name)) {
+                return m;
             }
-            if (n.endsWith("Call") || n.endsWith("Async") || n.endsWith("WithHttpInfo")) {
-                continue;
-            }
-            return m;
         }
         return null;
     }
@@ -202,10 +206,6 @@ public final class ContractEngine {
             this.variantLabel = variantLabel;
         }
 
-        public String operationId() {
-            return syncMethod.getName();
-        }
-
         /** Stable, human-readable id, e.g. {@code pricing.PricingUnitsApi.createPricingUnit(fixed)}. */
         public String id() {
             return module + "." + apiClass.getSimpleName() + "." + syncMethod.getName()
@@ -230,21 +230,8 @@ public final class ContractEngine {
                     case SYNC: {
                         Object result = syncMethod.invoke(api, args);
                         if (syncMethod.getReturnType() != void.class) {
-                            require(result != null, "sync result deserialized to null");
+                            Assertions.assertNotNull(result, "sync result deserialized to null");
                         }
-                        break;
-                    }
-                    case WITH_HTTP_INFO: {
-                        Method m = apiClass.getMethod(name + "WithHttpInfo", params);
-                        Object resp = m.invoke(api, args);
-                        require(resp != null, "WithHttpInfo ApiResponse was null");
-                        break;
-                    }
-                    case CALL: {
-                        Class<?> cb = apiCallbackClass(module);
-                        Method m = apiClass.getMethod(name + "Call", append(params, cb));
-                        Object call = m.invoke(api, append(args, (Object) null));
-                        executeCall(client, call);
                         break;
                     }
                     case ASYNC: {
@@ -295,18 +282,6 @@ public final class ContractEngine {
             return err;
         }
 
-        // Executes an okhttp3.Call built by the Call form and deserializes the response.
-        private void executeCall(Object client, Object call) throws Exception {
-            Class<?> callClass = Class.forName("okhttp3.Call");
-            Type returnType = syncMethod.getGenericReturnType();
-            if (returnType == void.class || returnType == Void.class) {
-                client.getClass().getMethod("execute", callClass).invoke(client, call);
-            } else {
-                client.getClass().getMethod("execute", callClass, Type.class)
-                        .invoke(client, call, returnType);
-            }
-        }
-
         // Invokes the Async form with a dynamic ApiCallback and waits for the result.
         private void awaitAsync(Method asyncMethod, Object api, Object[] args, Class<?> cbClass)
                 throws Throwable {
@@ -345,15 +320,25 @@ public final class ContractEngine {
         Class<?>[] params = sync.getParameterTypes();
         java.lang.reflect.Type[] generics = sync.getGenericParameterTypes();
         SpecInputs.Param[] bound = bindParams(sync, op);
-        // The request body is the one argument that carries no spec parameter.
+        // The request body is the one argument that carries no spec parameter,
+        // so after name binding exactly one argument is unbound when the
+        // operation has a body and none when it has not. Anything else means a
+        // spec parameter did not bind, which must not be papered over with a
+        // constant: the request would then be sent with a value the spec never
+        // declared (the forward-compat run found exactly such a mis-binding).
+        int unbound = 0;
         int bodyIndex = -1;
-        if (op.bodySchema != null) {
-            for (int i = params.length - 1; i >= 0; i--) {
-                if (bound[i] == null) {
-                    bodyIndex = i;
-                    break;
-                }
+        for (int i = 0; i < params.length; i++) {
+            if (bound[i] == null) {
+                unbound++;
+                bodyIndex = i;
             }
+        }
+        int expected = op.bodySchema != null ? 1 : 0;
+        if (unbound != expected) {
+            throw new IllegalStateException("parameter binding failed for " + sync.getName()
+                    + ": expected " + expected + " unbound argument(s) (the request body), got "
+                    + unbound + " of " + params.length);
         }
         Object[] args = new Object[params.length];
         for (int i = 0; i < params.length; i++) {
@@ -362,11 +347,9 @@ public final class ContractEngine {
             } else if (Collection.class.isAssignableFrom(params[i])) {
                 // Array parameter: supply a single spec-derived element.
                 Class<?> element = elementType(generics[i]);
-                String item = bound[i] != null ? spec.synthArrayItem(bound[i]) : "synthetic";
-                args[i] = Collections.singletonList(coerce(item, element));
+                args[i] = Collections.singletonList(coerce(spec.synthArrayItem(bound[i]), element));
             } else {
-                String value = bound[i] != null ? spec.synthParam(bound[i]) : "synthetic";
-                args[i] = coerce(value, params[i]);
+                args[i] = coerce(spec.synthParam(bound[i]), params[i]);
             }
         }
         return args;
@@ -381,28 +364,29 @@ public final class ContractEngine {
      * generated from a different spec revision — the forward-compatibility case,
      * where a parameter may have been inserted in the middle of the list — still
      * binds every value to the right argument. Argument names are in the
-     * bytecode because the build passes {@code -parameters}; an SDK compiled
-     * without it falls back to declaration order, which is the generator's order
-     * for the spec revision that SDK was generated from.
+     * bytecode because the build passes {@code -parameters}, and every release
+     * that bundles this suite also bundles that {@code pom.xml}, so the names
+     * are always present. If they are not, binding fails loudly rather than
+     * falling back to declaration order: positional binding silently sends a
+     * valid-looking request built from the wrong values.
      */
     private static SpecInputs.Param[] bindParams(Method sync, SpecInputs.Operation op) {
         java.lang.reflect.Parameter[] declared = sync.getParameters();
         SpecInputs.Param[] bound = new SpecInputs.Param[declared.length];
-        if (declared.length > 0 && declared[0].isNamePresent()) {
-            for (int i = 0; i < declared.length; i++) {
-                for (SpecInputs.Param p : op.parameters) {
-                    if (declared[i].getName().equals(SpecInputs.argName(p.name))) {
-                        bound[i] = p;
-                        break;
-                    }
-                }
-            }
+        if (declared.length == 0) {
             return bound;
         }
-        int scalarCount = op.bodySchema != null && declared.length > 0
-                ? declared.length - 1 : declared.length;
-        for (int i = 0; i < scalarCount && i < op.parameters.size(); i++) {
-            bound[i] = op.parameters.get(i);
+        if (!declared[0].isNamePresent()) {
+            throw new IllegalStateException("argument names are missing from " + sync.getName()
+                    + "; the SDK must be compiled with -parameters for name-based binding");
+        }
+        for (int i = 0; i < declared.length; i++) {
+            for (SpecInputs.Param p : op.parameters) {
+                if (declared[i].getName().equals(SpecInputs.argName(p.name))) {
+                    bound[i] = p;
+                    break;
+                }
+            }
         }
         return bound;
     }
@@ -447,15 +431,6 @@ public final class ContractEngine {
             if (t == Boolean.class || t == boolean.class) {
                 return parseBoolean(v.trim());
             }
-            if (t == Float.class || t == float.class) {
-                return Float.valueOf(v.trim());
-            }
-            if (t == Double.class || t == double.class) {
-                return Double.valueOf(v.trim());
-            }
-            if (t == BigDecimal.class) {
-                return new BigDecimal(v.trim());
-            }
             if (t == LocalDate.class) {
                 return LocalDate.parse(v);
             }
@@ -498,13 +473,13 @@ public final class ContractEngine {
     // --- reflective SDK access ---------------------------------------------
 
     /**
-     * The module's {@code ApiClient}, created once per base URL. An OkHttp
+     * The module's {@code ApiClient}, created once per module. A module has a
+     * single Prism mock, so the base URL is determined by the module. An OkHttp
      * client owns connection and thread pools, so it is shared across the
      * module's cases instead of being rebuilt for each one.
      */
     private static Object apiClient(String module, String baseUrl) throws Exception {
-        String key = module + " " + baseUrl;
-        Object cached = CLIENTS.get(key);
+        Object cached = CLIENTS.get(module);
         if (cached != null) {
             return cached;
         }
@@ -515,7 +490,7 @@ public final class ContractEngine {
         // requests without credentials. A synthetic token satisfies the presence
         // check; Prism does not validate its value. Synthetic data only.
         clientClass.getMethod("setBearerToken", String.class).invoke(client, BEARER);
-        CLIENTS.put(key, client);
+        CLIENTS.put(module, client);
         return client;
     }
 
@@ -556,11 +531,5 @@ public final class ContractEngine {
         Object[] out = Arrays.copyOf(arr, arr.length + 1);
         out[arr.length] = extra;
         return out;
-    }
-
-    private static void require(boolean condition, String message) {
-        if (!condition) {
-            throw new IllegalStateException(message);
-        }
     }
 }

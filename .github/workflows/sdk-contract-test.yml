@@ -67,39 +67,32 @@ jobs:
           repositories: saasus-api
 
       # api repository and its latest stable tag are resolved inside the action.
+      #
+      # TODO(before un-drafting): drop the `ref` below so the latest stable api
+      # tag is used again. It is pinned to the head of
+      # Anti-Pattern-Inc/saasus-api#2650, which makes the pricing request/response
+      # oneOf discriminable; without it 16 cases fail with 422 and 64 are skipped
+      # on responses Prism cannot generate. Remove once #2650 is released in a tag.
       - name: Fetch OpenAPI spec
         id: spec
         uses: saasus-platform/github-actions/.github/actions/fetch-openapi-spec@3828a6f1321f954cbb32e8cb3bd253593d5fa0c1 # github-actions main
         with:
           token: ${{ steps.api-token.outputs.token }}
+          ref: 6a764c9dacaa6e59b2ecf93b1baf2d13c4cdf826
           modules: ${{ env.MODULES }}
           dest: openapi-spec
 
       # (A) Generate the latest SDK from the fetched spec and build/type-check it.
+      # generate.sh resolves <module>.yml inside SPEC_DIR itself (single source
+      # of the module -> spec-file rule) and aborts non-zero on any generator or
+      # copy failure, so no separate emptiness check is needed here.
       - name: (A) Generate latest SDK and build
         env:
           SPEC_DIR: ${{ steps.spec.outputs.spec-dir }}
         run: |
           set -euo pipefail
-          # Map normalized <module>.yml to the filenames generate.sh expects
-          # (same rule as generate.sh: <module>api.yml, except integration).
-          for m in ${MODULES}; do
-            if [ "${m}" = "integration" ]; then
-              cp "${SPEC_DIR}/${m}.yml" "${m}.yml"
-            else
-              cp "${SPEC_DIR}/${m}.yml" "${m}api.yml"
-            fi
-          done
           # Capture the generator output (incl. any warnings) for the artifact.
-          sh generate.sh 2>&1 | tee generate.log
-          # Fail fast if generation/copy produced no sources for any module
-          # (generate.sh runs the generator per module and does not itself abort).
-          for m in ${MODULES}; do
-            if ! ls "src/main/java/saasus/sdk/${m}/api/"*.java >/dev/null 2>&1; then
-              echo "::error::SDK generation failed: src/main/java/saasus/sdk/${m}/api is missing or empty"
-              exit 1
-            fi
-          done
+          bash generate.sh 2>&1 | tee generate.log
           mvn -B -ntp -DskipTests test-compile
 
       # Static mode: responses come from the spec's examples, which is the
@@ -114,7 +107,8 @@ jobs:
 
       # (B) Latest SDK spec-compliance: requests accepted + responses deserialize.
       # Runs via the stable `mvn test` entry point (JUnit). The contract suite
-      # auto-enumerates every operation and exercises all four call forms; the
+      # auto-enumerates every operation and exercises the sync and async call
+      # forms (the Call/WithHttpInfo forms are sub-paths of sync); the
       # Prism base URLs come from the setup-prism step (PRISM_URL_<MODULE> env),
       # and request inputs are synthesized from the spec in CONTRACT_SPEC_DIR.
       - name: (B) Latest SDK contract
