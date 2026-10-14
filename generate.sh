@@ -70,7 +70,7 @@ do
         target="/local/${module}api.yml"
     fi
 
-    docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli:v7.2.0 generate \
+    docker run --rm --user "$(id -u):$(id -g)" -v ${PWD}:/local openapitools/openapi-generator-cli:v7.2.0 generate \
     -i ${target} \
     -g java \
     --additional-properties=modelPackage=saasus.sdk.${module}.models,apiPackage=saasus.sdk.${module}.api \
