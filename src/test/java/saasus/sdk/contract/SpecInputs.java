@@ -34,6 +34,9 @@ import org.yaml.snakeyaml.Yaml;
  */
 public final class SpecInputs {
 
+    /** Fallback value for a string with neither an example nor a usable schema. */
+    static final String SYNTHETIC = "synthetic";
+
     /** Parsed spec per module ({@code null} value = no spec file for it). */
     private static final Map<String, SpecInputs> CACHE = new HashMap<String, SpecInputs>();
 
@@ -236,7 +239,7 @@ public final class SpecInputs {
             return String.valueOf(p.example);
         }
         Object v = synthFromSchema(p.schema);
-        return v == null ? "synthetic" : String.valueOf(v);
+        return v == null ? SYNTHETIC : String.valueOf(v);
     }
 
     /** Synthesizes a single element value (as a String) for an array parameter. */
@@ -245,7 +248,7 @@ public final class SpecInputs {
         if (p.schema != null && "array".equals(p.schema.get("type"))
                 && p.schema.get("items") instanceof Map) {
             Object v = synthFromSchema((Map<String, Object>) p.schema.get("items"));
-            return v == null ? "synthetic" : String.valueOf(v);
+            return v == null ? SYNTHETIC : String.valueOf(v);
         }
         return synthParam(p);
     }
@@ -365,26 +368,32 @@ public final class SpecInputs {
             }
             return arr;
         }
-        return synthScalar(type, str(schema.get("format")));
+        return synthScalar(schema);
     }
 
+    /**
+     * Fills every declared property, not just the required ones: an optional
+     * property that is never sent leaves its own serialization, and the required
+     * fields nested below it, unverified.
+     */
     @SuppressWarnings("unchecked")
     private Object synthObject(Map<String, Object> schema) {
         Map<String, Object> out = new LinkedHashMap<String, Object>();
-        Object propsObj = schema.get("properties");
-        if (!(propsObj instanceof Map)) {
-            return out;
+        Map<String, Object> props = schema.get("properties") instanceof Map
+                ? (Map<String, Object>) schema.get("properties")
+                : new LinkedHashMap<String, Object>();
+        for (Map.Entry<String, Object> e : props.entrySet()) {
+            if (e.getValue() instanceof Map) {
+                out.put(e.getKey(), synthFromSchema((Map<String, Object>) e.getValue()));
+            }
         }
-        Map<String, Object> props = (Map<String, Object>) propsObj;
+        // A required name with no declaration still has to be present.
         List<Object> required = schema.get("required") instanceof List
                 ? (List<Object>) schema.get("required") : new ArrayList<Object>();
         for (Object req : required) {
             String name = String.valueOf(req);
-            Object propSchema = props.get(name);
-            if (propSchema instanceof Map) {
-                out.put(name, synthFromSchema((Map<String, Object>) propSchema));
-            } else {
-                out.put(name, "synthetic");
+            if (!out.containsKey(name)) {
+                out.put(name, SYNTHETIC);
             }
         }
         return out;
@@ -427,10 +436,11 @@ public final class SpecInputs {
                 }
             }
         }
-        return memberName != null ? memberName : "synthetic";
+        return memberName != null ? memberName : SYNTHETIC;
     }
 
-    private Object synthScalar(String type, String format) {
+    private Object synthScalar(Map<String, Object> schema) {
+        String type = str(schema.get("type"));
         if ("integer".equals(type) || "number".equals(type)) {
             return Integer.valueOf(1);
         }
@@ -438,6 +448,7 @@ public final class SpecInputs {
             return Boolean.TRUE;
         }
         // string (and unknown types) -> format-aware synthetic value.
+        String format = str(schema.get("format"));
         if ("date".equals(format)) {
             return "2024-01-01";
         }
@@ -450,7 +461,18 @@ public final class SpecInputs {
         if ("uuid".equals(format)) {
             return "00000000-0000-0000-0000-000000000000";
         }
-        return "synthetic";
+        // A string with no example still has to clear the declared length floor
+        // or the mock rejects it. Padding with an alphanumeric also satisfies
+        // the character patterns these specs declare.
+        StringBuilder value = new StringBuilder(SYNTHETIC);
+        for (int minLength = intOf(schema.get("minLength")); value.length() < minLength;) {
+            value.append('x');
+        }
+        return value.toString();
+    }
+
+    private static int intOf(Object v) {
+        return v instanceof Number ? ((Number) v).intValue() : 0;
     }
 
     // --- $ref resolution ----------------------------------------------------
