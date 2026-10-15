@@ -71,11 +71,11 @@ jobs:
       # TODO(before un-drafting): drop the `ref` below so the latest stable api
       # tag is used again. It is pinned to the head of
       # Anti-Pattern-Inc/saasus-api#2650, which makes the pricing request/response
-      # oneOf discriminable and quotes the numeric examples on string-typed
+      # oneOf discriminable and quotes the non-string examples on string-typed
       # properties; without it 16 cases fail with 422, 64 are skipped on
       # responses Prism cannot generate, and the string-typed properties whose
-      # example is an unquoted number fail to bind. Remove once #2650 is
-      # released in a tag.
+      # example is an unquoted number or an unquoted YAML 1.1 boolean (`on`)
+      # fail to bind. Remove once #2650 is released in a tag.
       - name: Fetch OpenAPI spec
         id: spec
         uses: saasus-platform/github-actions/.github/actions/fetch-openapi-spec@3828a6f1321f954cbb32e8cb3bd253593d5fa0c1 # github-actions main
