@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 生成に失敗したまま後続のコピーやビルドに進ませないため、失敗時は即終了する。
+set -eu
+
 # バージョン引数がある場合のみ pom.xml を更新
 if [ $# -ge 1 ]; then
   RAW_VERSION=$1
@@ -7,10 +10,7 @@ if [ $# -ge 1 ]; then
   echo "Target SDK version: ${CLEAN_VERSION}"
 
   # sh 互換のバージョン形式チェック（例: 1.2.3, 1.2.3rc1, 1.2.3-beta.1）
-  echo "$CLEAN_VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+([a-zA-Z0-9.-]*)?$'
-  if [ $? -ne 0 ]; then
-    echo "Invalid version format: ${CLEAN_VERSION}. Skipping version update."
-  else
+  if echo "$CLEAN_VERSION" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+([a-zA-Z0-9.-]*)?$'; then
     echo "Updating pom.xml version to ${CLEAN_VERSION}"
 
     awk -v v="$CLEAN_VERSION" '
@@ -23,6 +23,8 @@ if [ $# -ge 1 ]; then
     ' pom.xml > pom.tmp && mv pom.tmp pom.xml
 
     echo "Updated pom.xml version to ${CLEAN_VERSION}"
+  else
+    echo "Invalid version format: ${CLEAN_VERSION}. Skipping version update."
   fi
 else
   echo "No version argument provided, skipping version update"
@@ -30,6 +32,19 @@ fi
 
 # 生成するモジュール名の配列
 MODULES="auth pricing billing awsmarketplace integration apilog communication"
+
+# OpenAPI spec の置き場所。既定はリポジトリ直下。
+SPEC_DIR="${SPEC_DIR:-.}"
+
+# spec ファイル解決の唯一の規則。正規化済みの <module>.yml（fetch-openapi-spec
+# アクションの出力。integration も同形）を優先し、無ければ従来の <module>api.yml。
+spec_file() {
+    if [ -f "${SPEC_DIR}/$1.yml" ]; then
+        echo "${SPEC_DIR}/$1.yml"
+    else
+        echo "${SPEC_DIR}/$1api.yml"
+    fi
+}
 
 # sdkに含まれる生成したプログラムを削除
 SDK_SRC_DIR="src/main/java/saasus/sdk"
@@ -64,13 +79,18 @@ done
 #Javaクラスを生成
 for module in ${MODULES}
 do
-    if [ "${module}" = "integration" ]; then
-        target="/local/${module}.yml"
-    else
-        target="/local/${module}api.yml"
+    spec="$(spec_file "${module}")"
+    if [ ! -f "${spec}" ]; then
+        echo "spec not found for module '${module}': ${spec}" >&2
+        exit 1
     fi
+    # SPEC_DIR がリポジトリ外でも動くよう、spec は別に読み取り専用でマウントする。
+    spec_mount="$(cd "$(dirname "${spec}")" && pwd)"
+    target="/spec/$(basename "${spec}")"
 
-    docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli:v7.2.0 generate \
+    docker run --rm --user "$(id -u):$(id -g)" \
+    -v ${PWD}:/local -v "${spec_mount}:/spec:ro" \
+    openapitools/openapi-generator-cli:v7.2.0 generate \
     -i ${target} \
     -g java \
     --additional-properties=modelPackage=saasus.sdk.${module}.models,apiPackage=saasus.sdk.${module}.api \
