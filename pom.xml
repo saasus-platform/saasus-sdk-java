@@ -57,7 +57,6 @@
     <jackson-databind-nullable-version>0.2.6</jackson-databind-nullable-version>
     <jakarta-annotation-version>1.3.5</jakarta-annotation-version>
     <junit-version>5.9.1</junit-version>
-    <junit-platform-runner.version>1.9.1</junit-platform-runner.version>
     <mockito-core-version>3.12.4</mockito-core-version>
     <javax.ws.rs-api-version>2.1.1</javax.ws.rs-api-version>
     <jsr311-api-version>1.1.1</jsr311-api-version>
@@ -69,13 +68,6 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    
     <!-- add -->
     <!-- @Nullable annotation -->
     <dependency>
@@ -138,15 +130,22 @@
         <scope>test</scope>
     </dependency>
     <dependency>
-        <groupId>org.junit.platform</groupId>
-        <artifactId>junit-platform-runner</artifactId>
-        <version>${junit-platform-runner.version}</version>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-params</artifactId>
+        <version>${junit-version}</version>
         <scope>test</scope>
     </dependency>
     <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
         <version>${mockito-core-version}</version>
+        <scope>test</scope>
+    </dependency>
+    <!-- Contract test: parse the OpenAPI spec to synthesize request inputs. -->
+    <dependency>
+        <groupId>org.yaml</groupId>
+        <artifactId>snakeyaml</artifactId>
+        <version>2.2</version>
         <scope>test</scope>
     </dependency>
     <!-- <dependency>
@@ -159,6 +158,30 @@
 
   <build>
     <plugins>
+      <!-- Keep parameter names in the bytecode: the contract test binds spec
+           parameters to generated arguments by name, not by position. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <parameters>true</parameters>
+        </configuration>
+      </plugin>
+      <!-- Run JUnit 5 (Jupiter) tests, including the contract suite, on `mvn test`. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <!-- Put each case's display name (operation + call form) in the XML
+               report, instead of contract(Case)[N]. -->
+          <statelessTestsetReporter
+              implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+            <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
+          </statelessTestsetReporter>
+        </configuration>
+      </plugin>
       <!-- ソースJAR -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
