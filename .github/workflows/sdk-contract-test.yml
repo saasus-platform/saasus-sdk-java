@@ -85,7 +85,7 @@ jobs:
           CONTRACT_SPEC_DIR: ${{ steps.spec.outputs.spec-dir }}
           # Candidate SDK must cover every spec operation: unmapped operations fail.
           CONTRACT_REQUIRE_COMPLETE: "true"
-        run: mvn -B -ntp test
+        run: mvn -B -ntp test -Dtest=saasus.sdk.contract.**
 
       # Latest release tag; the action defaults to this repository.
       - name: Resolve latest release tag
@@ -114,7 +114,7 @@ jobs:
         run: |
           set -euo pipefail
           cd latest-release
-          mvn -B -ntp test -Dtest=saasus.sdk.contract.ContractTest
+          mvn -B -ntp test -Dtest=saasus.sdk.contract.**
 
       # Evidence of what ran: each case is a display name in the report.
       # Uploaded on failure too, where the (C) report can be absent because (B)
