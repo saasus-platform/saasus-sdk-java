@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import saasus.sdk.pricing.models.Currency;
 import saasus.sdk.pricing.models.RecurringInterval;
-import saasus.sdk.pricing.models.UnitType;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,7 +51,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingFixedUnitForSave
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:46.621994899Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-23T10:14:15.132534948Z[Etc/UTC]")
 public class PricingFixedUnitForSave {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -66,9 +65,61 @@ public class PricingFixedUnitForSave {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  /**
+   * Gets or Sets type
+   */
+  @JsonAdapter(TypeEnum.Adapter.class)
+  public enum TypeEnum {
+    FIXED("fixed"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    TypeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static TypeEnum fromValue(String value) {
+      for (TypeEnum b : TypeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<TypeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final TypeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public TypeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return TypeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      TypeEnum.fromValue(value);
+    }
+  }
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  private UnitType type;
+  private TypeEnum type;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -142,7 +193,7 @@ public class PricingFixedUnitForSave {
   }
 
 
-  public PricingFixedUnitForSave type(UnitType type) {
+  public PricingFixedUnitForSave type(TypeEnum type) {
     this.type = type;
     return this;
   }
@@ -152,11 +203,11 @@ public class PricingFixedUnitForSave {
    * @return type
   **/
   @javax.annotation.Nonnull
-  public UnitType getType() {
+  public TypeEnum getType() {
     return type;
   }
 
-  public void setType(UnitType type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 
@@ -369,8 +420,11 @@ public class PricingFixedUnitForSave {
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
       // validate the required field `type`
-      UnitType.validateJsonElement(jsonObj.get("type"));
+      TypeEnum.validateJsonElement(jsonObj.get("type"));
       // validate the required field `currency`
       Currency.validateJsonElement(jsonObj.get("currency"));
       // validate the required field `recurring_interval`

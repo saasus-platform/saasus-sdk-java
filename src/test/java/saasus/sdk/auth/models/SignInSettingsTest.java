@@ -26,6 +26,7 @@ import saasus.sdk.auth.models.IdentityProviderConfiguration;
 import saasus.sdk.auth.models.MfaConfiguration;
 import saasus.sdk.auth.models.PasswordPolicy;
 import saasus.sdk.auth.models.RecaptchaProps;
+import saasus.sdk.auth.models.RefreshTokenValidity;
 import saasus.sdk.auth.models.SelfRegist;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -98,6 +99,14 @@ public class SignInSettingsTest {
     @Test
     public void identityProviderConfigurationTest() {
         // TODO: test identityProviderConfiguration
+    }
+
+    /**
+     * Test the property 'refreshTokenValidity'
+     */
+    @Test
+    public void refreshTokenValidityTest() {
+        // TODO: test refreshTokenValidity
     }
 
 }

@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -69,6 +70,14 @@ public class CreatedSaasUserTest {
     @Test
     public void attributesTest() {
         // TODO: test attributes
+    }
+
+    /**
+     * Test the property 'lastLoginAt'
+     */
+    @Test
+    public void lastLoginAtTest() {
+        // TODO: test lastLoginAt
     }
 
     /**

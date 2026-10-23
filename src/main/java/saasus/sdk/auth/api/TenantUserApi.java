@@ -30,6 +30,9 @@ import java.io.IOException;
 import saasus.sdk.auth.models.CreateTenantUserParam;
 import saasus.sdk.auth.models.CreateTenantUserRolesParam;
 import saasus.sdk.auth.models.Error;
+import saasus.sdk.auth.models.SaveTenantUsersCountsParam;
+import saasus.sdk.auth.models.SearchTenantUsersResult;
+import saasus.sdk.auth.models.TenantUsersCounts;
 import saasus.sdk.auth.models.UpdateTenantUserParam;
 import saasus.sdk.auth.models.User;
 import saasus.sdk.auth.models.Users;
@@ -900,6 +903,123 @@ public class TenantUserApi {
         return localVarCall;
     }
     /**
+     * Build call for getAllTenantUsersCount
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllTenantUsersCountCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tenants/all/users/count";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAllTenantUsersCountValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        return getAllTenantUsersCountCall(_callback);
+
+    }
+
+    /**
+     * Get Tenant Users Count
+     * Get the count of tenant users for each tenant. 
+     * @return TenantUsersCounts
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public TenantUsersCounts getAllTenantUsersCount() throws ApiException {
+        ApiResponse<TenantUsersCounts> localVarResp = getAllTenantUsersCountWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get Tenant Users Count
+     * Get the count of tenant users for each tenant. 
+     * @return ApiResponse&lt;TenantUsersCounts&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TenantUsersCounts> getAllTenantUsersCountWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getAllTenantUsersCountValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<TenantUsersCounts>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get Tenant Users Count (asynchronously)
+     * Get the count of tenant users for each tenant. 
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getAllTenantUsersCountAsync(final ApiCallback<TenantUsersCounts> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAllTenantUsersCountValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<TenantUsersCounts>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getTenantUser
      * @param tenantId Tenant ID (required)
      * @param userId User ID (required)
@@ -1164,6 +1284,322 @@ public class TenantUserApi {
 
         okhttp3.Call localVarCall = getTenantUsersValidateBeforeCall(tenantId, _callback);
         Type localVarReturnType = new TypeToken<Users>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for saveTenantUsersCounts
+     * @param saveTenantUsersCountsParam  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 501 </td><td> Not Implemented </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call saveTenantUsersCountsCall(SaveTenantUsersCountsParam saveTenantUsersCountsParam, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = saveTenantUsersCountsParam;
+
+        // create path and map variables
+        String localVarPath = "/tenants/all/users/count";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call saveTenantUsersCountsValidateBeforeCall(SaveTenantUsersCountsParam saveTenantUsersCountsParam, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'saveTenantUsersCountsParam' is set
+        if (saveTenantUsersCountsParam == null) {
+            throw new ApiException("Missing the required parameter 'saveTenantUsersCountsParam' when calling saveTenantUsersCounts(Async)");
+        }
+
+        return saveTenantUsersCountsCall(saveTenantUsersCountsParam, _callback);
+
+    }
+
+    /**
+     * Save Tenant Users Count
+     * Save the count of tenant users for each tenant. 
+     * @param saveTenantUsersCountsParam  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 501 </td><td> Not Implemented </td><td>  -  </td></tr>
+     </table>
+     */
+    public void saveTenantUsersCounts(SaveTenantUsersCountsParam saveTenantUsersCountsParam) throws ApiException {
+        saveTenantUsersCountsWithHttpInfo(saveTenantUsersCountsParam);
+    }
+
+    /**
+     * Save Tenant Users Count
+     * Save the count of tenant users for each tenant. 
+     * @param saveTenantUsersCountsParam  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 501 </td><td> Not Implemented </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> saveTenantUsersCountsWithHttpInfo(SaveTenantUsersCountsParam saveTenantUsersCountsParam) throws ApiException {
+        okhttp3.Call localVarCall = saveTenantUsersCountsValidateBeforeCall(saveTenantUsersCountsParam, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Save Tenant Users Count (asynchronously)
+     * Save the count of tenant users for each tenant. 
+     * @param saveTenantUsersCountsParam  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+        <tr><td> 501 </td><td> Not Implemented </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call saveTenantUsersCountsAsync(SaveTenantUsersCountsParam saveTenantUsersCountsParam, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = saveTenantUsersCountsValidateBeforeCall(saveTenantUsersCountsParam, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for searchTenantUsers
+     * @param tenantId Tenant ID (optional)
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param envId Environment ID (optional)
+     * @param roleName Role Name (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchTenantUsersCall(String tenantId, String id, String email, String signInId, Integer envId, String roleName, Long limit, String cursor, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/tenants/all/users/search";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tenantId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tenant_id", tenantId));
+        }
+
+        if (id != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
+        }
+
+        if (email != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("email", email));
+        }
+
+        if (signInId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sign_in_id", signInId));
+        }
+
+        if (envId != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("env_id", envId));
+        }
+
+        if (roleName != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("role_name", roleName));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (cursor != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("cursor", cursor));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchTenantUsersValidateBeforeCall(String tenantId, String id, String email, String signInId, Integer envId, String roleName, Long limit, String cursor, final ApiCallback _callback) throws ApiException {
+        return searchTenantUsersCall(tenantId, id, email, signInId, envId, roleName, limit, cursor, _callback);
+
+    }
+
+    /**
+     * Search Tenant Users
+     * Search tenant users by user id, tenant id, email, sign-in ID, env, or role. 
+     * @param tenantId Tenant ID (optional)
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param envId Environment ID (optional)
+     * @param roleName Role Name (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @return SearchTenantUsersResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public SearchTenantUsersResult searchTenantUsers(String tenantId, String id, String email, String signInId, Integer envId, String roleName, Long limit, String cursor) throws ApiException {
+        ApiResponse<SearchTenantUsersResult> localVarResp = searchTenantUsersWithHttpInfo(tenantId, id, email, signInId, envId, roleName, limit, cursor);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Search Tenant Users
+     * Search tenant users by user id, tenant id, email, sign-in ID, env, or role. 
+     * @param tenantId Tenant ID (optional)
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param envId Environment ID (optional)
+     * @param roleName Role Name (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @return ApiResponse&lt;SearchTenantUsersResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SearchTenantUsersResult> searchTenantUsersWithHttpInfo(String tenantId, String id, String email, String signInId, Integer envId, String roleName, Long limit, String cursor) throws ApiException {
+        okhttp3.Call localVarCall = searchTenantUsersValidateBeforeCall(tenantId, id, email, signInId, envId, roleName, limit, cursor, null);
+        Type localVarReturnType = new TypeToken<SearchTenantUsersResult>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Search Tenant Users (asynchronously)
+     * Search tenant users by user id, tenant id, email, sign-in ID, env, or role. 
+     * @param tenantId Tenant ID (optional)
+     * @param id User ID (optional)
+     * @param email Email prefix (optional)
+     * @param signInId Sign-in ID prefix (optional)
+     * @param envId Environment ID (optional)
+     * @param roleName Role Name (optional)
+     * @param limit Maximum number of items to retrieve (optional)
+     * @param cursor Cursor for cursor pagination (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchTenantUsersAsync(String tenantId, String id, String email, String signInId, Integer envId, String roleName, Long limit, String cursor, final ApiCallback<SearchTenantUsersResult> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchTenantUsersValidateBeforeCall(tenantId, id, email, signInId, envId, roleName, limit, cursor, _callback);
+        Type localVarReturnType = new TypeToken<SearchTenantUsersResult>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

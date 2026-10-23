@@ -56,8 +56,12 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingTieredUsageUnit
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:46.621994899Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-10-23T10:14:15.132534948Z[Etc/UTC]")
 public class PricingTieredUsageUnit {
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private UnitType type;
+
   public static final String SERIALIZED_NAME_UPPER_COUNT = "upper_count";
   @SerializedName(SERIALIZED_NAME_UPPER_COUNT)
   private Integer upperCount;
@@ -81,10 +85,6 @@ public class PricingTieredUsageUnit {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private UnitType type;
 
   public static final String SERIALIZED_NAME_CURRENCY = "currency";
   @SerializedName(SERIALIZED_NAME_CURRENCY)
@@ -112,6 +112,25 @@ public class PricingTieredUsageUnit {
 
   public PricingTieredUsageUnit() {
   }
+
+  public PricingTieredUsageUnit type(UnitType type) {
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nonnull
+  public UnitType getType() {
+    return type;
+  }
+
+  public void setType(UnitType type) {
+    this.type = type;
+  }
+
 
   public PricingTieredUsageUnit upperCount(Integer upperCount) {
     this.upperCount = upperCount;
@@ -224,25 +243,6 @@ public class PricingTieredUsageUnit {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-
-  public PricingTieredUsageUnit type(UnitType type) {
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nonnull
-  public UnitType getType() {
-    return type;
-  }
-
-  public void setType(UnitType type) {
-    this.type = type;
   }
 
 
@@ -422,13 +422,13 @@ public class PricingTieredUsageUnit {
       return false;
     }
     PricingTieredUsageUnit pricingTieredUsageUnit = (PricingTieredUsageUnit) o;
-    return Objects.equals(this.upperCount, pricingTieredUsageUnit.upperCount) &&
+    return Objects.equals(this.type, pricingTieredUsageUnit.type) &&
+        Objects.equals(this.upperCount, pricingTieredUsageUnit.upperCount) &&
         Objects.equals(this.meteringUnitName, pricingTieredUsageUnit.meteringUnitName) &&
         Objects.equals(this.aggregateUsage, pricingTieredUsageUnit.aggregateUsage) &&
         Objects.equals(this.name, pricingTieredUsageUnit.name) &&
         Objects.equals(this.displayName, pricingTieredUsageUnit.displayName) &&
         Objects.equals(this.description, pricingTieredUsageUnit.description) &&
-        Objects.equals(this.type, pricingTieredUsageUnit.type) &&
         Objects.equals(this.currency, pricingTieredUsageUnit.currency) &&
         Objects.equals(this.tiers, pricingTieredUsageUnit.tiers) &&
         Objects.equals(this.id, pricingTieredUsageUnit.id) &&
@@ -440,20 +440,20 @@ public class PricingTieredUsageUnit {
 
   @Override
   public int hashCode() {
-    return Objects.hash(upperCount, meteringUnitName, aggregateUsage, name, displayName, description, type, currency, tiers, id, meteringUnitId, recurringInterval, used, additionalProperties);
+    return Objects.hash(type, upperCount, meteringUnitName, aggregateUsage, name, displayName, description, currency, tiers, id, meteringUnitId, recurringInterval, used, additionalProperties);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PricingTieredUsageUnit {\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    upperCount: ").append(toIndentedString(upperCount)).append("\n");
     sb.append("    meteringUnitName: ").append(toIndentedString(meteringUnitName)).append("\n");
     sb.append("    aggregateUsage: ").append(toIndentedString(aggregateUsage)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    currency: ").append(toIndentedString(currency)).append("\n");
     sb.append("    tiers: ").append(toIndentedString(tiers)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -483,13 +483,13 @@ public class PricingTieredUsageUnit {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("type");
     openapiFields.add("upper_count");
     openapiFields.add("metering_unit_name");
     openapiFields.add("aggregate_usage");
     openapiFields.add("name");
     openapiFields.add("display_name");
     openapiFields.add("description");
-    openapiFields.add("type");
     openapiFields.add("currency");
     openapiFields.add("tiers");
     openapiFields.add("id");
@@ -499,12 +499,12 @@ public class PricingTieredUsageUnit {
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("type");
     openapiRequiredFields.add("upper_count");
     openapiRequiredFields.add("metering_unit_name");
     openapiRequiredFields.add("name");
     openapiRequiredFields.add("display_name");
     openapiRequiredFields.add("description");
-    openapiRequiredFields.add("type");
     openapiRequiredFields.add("currency");
     openapiRequiredFields.add("tiers");
     openapiRequiredFields.add("id");
@@ -533,6 +533,8 @@ public class PricingTieredUsageUnit {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the required field `type`
+      UnitType.validateJsonElement(jsonObj.get("type"));
       if (!jsonObj.get("metering_unit_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metering_unit_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metering_unit_name").toString()));
       }
@@ -549,8 +551,6 @@ public class PricingTieredUsageUnit {
       if (!jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
-      // validate the required field `type`
-      UnitType.validateJsonElement(jsonObj.get("type"));
       // validate the required field `currency`
       Currency.validateJsonElement(jsonObj.get("currency"));
       // ensure the json data is an array

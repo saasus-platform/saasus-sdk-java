@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**type** | **UnitType** |  |  |
 |**upperCount** | **Integer** | Upper limit |  |
 |**unitAmount** | **Integer** | Amount per usage |  |
 |**meteringUnitName** | **String** | Metering unit name |  |
@@ -14,7 +15,6 @@
 |**name** | **String** | Name |  |
 |**displayName** | **String** | Display Name |  |
 |**description** | **String** | Description |  |
-|**type** | **UnitType** |  |  |
 |**currency** | **Currency** |  |  |
 |**id** | **String** | Universally Unique Identifier |  |
 |**meteringUnitId** | **String** | Universally Unique Identifier |  |
