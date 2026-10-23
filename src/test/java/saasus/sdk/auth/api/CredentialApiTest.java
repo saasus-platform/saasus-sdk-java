@@ -15,8 +15,11 @@ package saasus.sdk.auth.api;
 
 import saasus.sdk.auth.ApiException;
 import saasus.sdk.auth.models.AuthorizationTempCode;
+import saasus.sdk.auth.models.CreateAuthCredentialsParam;
 import saasus.sdk.auth.models.Credentials;
 import saasus.sdk.auth.models.Error;
+import saasus.sdk.auth.models.ExchangeAuthCredentialsParam;
+import saasus.sdk.auth.models.RevokeTokenParam;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -36,14 +39,28 @@ public class CredentialApiTest {
     /**
      * Save Authentication/Authorization Information
      *
-     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
+     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. When code_challenge is specified, the temporary code can only be exchanged via POST /credentials/exchange and cannot be retrieved via GET /credentials. 
      *
      * @throws ApiException if the Api call fails
      */
     @Test
     public void createAuthCredentialsTest() throws ApiException {
-        Credentials body = null;
-        AuthorizationTempCode response = api.createAuthCredentials(body);
+        CreateAuthCredentialsParam createAuthCredentialsParam = null;
+        AuthorizationTempCode response = api.createAuthCredentials(createAuthCredentialsParam);
+        // TODO: test validations
+    }
+
+    /**
+     * Exchange a Temporary Code for Authentication/Authorization Information
+     *
+     * Exchange a temporary code for ID token, access token, and refresh token by verifying the PKCE code verifier. Only temporary codes created with code_challenge can be exchanged. Temporary codes created without code_challenge must be retrieved via GET /credentials. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void exchangeAuthCredentialsTest() throws ApiException {
+        ExchangeAuthCredentialsParam exchangeAuthCredentialsParam = null;
+        Credentials response = api.exchangeAuthCredentials(exchangeAuthCredentialsParam);
         // TODO: test validations
     }
 
@@ -60,6 +77,20 @@ public class CredentialApiTest {
         String authFlow = null;
         String refreshToken = null;
         Credentials response = api.getAuthCredentials(code, authFlow, refreshToken);
+        // TODO: test validations
+    }
+
+    /**
+     * Revoke Token
+     *
+     * Revoke the specified refresh token. 
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void revokeTokenTest() throws ApiException {
+        RevokeTokenParam revokeTokenParam = null;
+        api.revokeToken(revokeTokenParam);
         // TODO: test validations
     }
 

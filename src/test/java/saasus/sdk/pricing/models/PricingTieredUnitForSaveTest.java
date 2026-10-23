@@ -25,7 +25,6 @@ import java.util.List;
 import saasus.sdk.pricing.models.AggregateUsage;
 import saasus.sdk.pricing.models.Currency;
 import saasus.sdk.pricing.models.PricingTier;
-import saasus.sdk.pricing.models.UnitType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 

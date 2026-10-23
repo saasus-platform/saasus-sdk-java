@@ -78,7 +78,7 @@ public class Example {
 
 <a id="getLogs"></a>
 # **getLogs**
-> ApiLogs getLogs(createdDate, createdAt, limit, cursor)
+> ApiLogs getLogs(createdDate, createdAt, limit, startAt, endAt, cursor)
 
 Get API execution log list
 
@@ -105,11 +105,13 @@ public class Example {
 
     ApiLogApi apiInstance = new ApiLogApi(defaultClient);
     LocalDate createdDate = LocalDate.now(); // LocalDate | The date, in format of YYYY-MM-DD, to retrieve the log.
-    OffsetDateTime createdAt = OffsetDateTime.now(); // OffsetDateTime | The datetime, in ISO 8601 format, to retrieve the log.
+    OffsetDateTime createdAt = OffsetDateTime.now(); // OffsetDateTime | The datetime, in ISO 8601 format, to retrieve the log. Cannot be specified together with start_at/end_at.
     Long limit = 56L; // Long | Maximum number of logs to retrieve.
+    Long startAt = 56L; // Long | The start of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored.
+    Long endAt = 56L; // Long | The end of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored.
     String cursor = "cursor_example"; // String | Cursor for cursor pagination.
     try {
-      ApiLogs result = apiInstance.getLogs(createdDate, createdAt, limit, cursor);
+      ApiLogs result = apiInstance.getLogs(createdDate, createdAt, limit, startAt, endAt, cursor);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApiLogApi#getLogs");
@@ -127,8 +129,10 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **createdDate** | **LocalDate**| The date, in format of YYYY-MM-DD, to retrieve the log. | [optional] |
-| **createdAt** | **OffsetDateTime**| The datetime, in ISO 8601 format, to retrieve the log. | [optional] |
+| **createdAt** | **OffsetDateTime**| The datetime, in ISO 8601 format, to retrieve the log. Cannot be specified together with start_at/end_at. | [optional] |
 | **limit** | **Long**| Maximum number of logs to retrieve. | [optional] |
+| **startAt** | **Long**| The start of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored. | [optional] |
+| **endAt** | **Long**| The end of the search range as an epoch second timestamp. Used for range search. Cannot be specified together with created_at. When specified, created_date is ignored. | [optional] |
 | **cursor** | **String**| Cursor for cursor pagination. | [optional] |
 
 ### Return type

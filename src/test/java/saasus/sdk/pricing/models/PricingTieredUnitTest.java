@@ -45,6 +45,14 @@ public class PricingTieredUnitTest {
     }
 
     /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
+    }
+
+    /**
      * Test the property 'upperCount'
      */
     @Test
@@ -90,14 +98,6 @@ public class PricingTieredUnitTest {
     @Test
     public void descriptionTest() {
         // TODO: test description
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
     }
 
     /**
