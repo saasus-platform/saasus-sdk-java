@@ -73,6 +73,7 @@ do
     docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli:v7.2.0 generate \
     -i ${target} \
     -g java \
+    --template-dir /local/templates/openapi-generator/java-v7-2-0 \
     --additional-properties=modelPackage=saasus.sdk.${module}.models,apiPackage=saasus.sdk.${module}.api \
     -o /local/generated/${module} \
     --additional-properties useOneOfDiscriminatorLookup=true,disallowAdditionalPropertiesIfNotPresent=false,enumUnknownDefaultCase=true
