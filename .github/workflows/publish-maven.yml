@@ -33,5 +33,6 @@ jobs:
           gpg-passphrase:  GPG_PASSPHRASE
 
       # Sonatype OSSRH（ステージング）にデプロイ → 自動で Close → Release
+      # コントラクトテストは Prism 前提のため、リリース経路では実行しない。
       - name: Verify & Publish to Maven Central
-        run: mvn -B -ntp -Psign-release deploy
+        run: mvn -B -ntp -Psign-release -DskipTests deploy
