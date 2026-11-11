@@ -41,6 +41,14 @@ public class PricingFixedUnitTest {
     }
 
     /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
+    }
+
+    /**
      * Test the property 'unitAmount'
      */
     @Test
@@ -78,14 +86,6 @@ public class PricingFixedUnitTest {
     @Test
     public void descriptionTest() {
         // TODO: test description
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
     }
 
     /**

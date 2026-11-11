@@ -5,16 +5,18 @@ All URIs are relative to *https://api.saasus.io/v1/auth*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**createAuthCredentials**](CredentialApi.md#createAuthCredentials) | **POST** /credentials | Save Authentication/Authorization Information |
+| [**exchangeAuthCredentials**](CredentialApi.md#exchangeAuthCredentials) | **POST** /credentials/exchange | Exchange a Temporary Code for Authentication/Authorization Information |
 | [**getAuthCredentials**](CredentialApi.md#getAuthCredentials) | **GET** /credentials | Get Authentication/Authorization Information |
+| [**revokeToken**](CredentialApi.md#revokeToken) | **POST** /token/revoke | Revoke Token |
 
 
 <a id="createAuthCredentials"></a>
 # **createAuthCredentials**
-> AuthorizationTempCode createAuthCredentials(body)
+> AuthorizationTempCode createAuthCredentials(createAuthCredentialsParam)
 
 Save Authentication/Authorization Information
 
-Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
+Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. When code_challenge is specified, the temporary code can only be exchanged via POST /credentials/exchange and cannot be retrieved via GET /credentials. 
 
 ### Example
 ```java
@@ -36,9 +38,9 @@ public class Example {
     Bearer.setBearerToken("BEARER TOKEN");
 
     CredentialApi apiInstance = new CredentialApi(defaultClient);
-    Credentials body = new Credentials(); // Credentials | 
+    CreateAuthCredentialsParam createAuthCredentialsParam = new CreateAuthCredentialsParam(); // CreateAuthCredentialsParam | 
     try {
-      AuthorizationTempCode result = apiInstance.createAuthCredentials(body);
+      AuthorizationTempCode result = apiInstance.createAuthCredentials(createAuthCredentialsParam);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CredentialApi#createAuthCredentials");
@@ -55,7 +57,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **body** | **Credentials**|  | [optional] |
+| **createAuthCredentialsParam** | [**CreateAuthCredentialsParam**](CreateAuthCredentialsParam.md)|  | [optional] |
 
 ### Return type
 
@@ -76,6 +78,77 @@ public class Example {
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
 | **401** | Unauthorized |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="exchangeAuthCredentials"></a>
+# **exchangeAuthCredentials**
+> Credentials exchangeAuthCredentials(exchangeAuthCredentialsParam)
+
+Exchange a Temporary Code for Authentication/Authorization Information
+
+Exchange a temporary code for ID token, access token, and refresh token by verifying the PKCE code verifier. Only temporary codes created with code_challenge can be exchanged. Temporary codes created without code_challenge must be retrieved via GET /credentials. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.auth.ApiClient;
+import saasus.sdk.auth.ApiException;
+import saasus.sdk.auth.Configuration;
+import saasus.sdk.auth.auth.*;
+import saasus.sdk.auth.models.*;
+import saasus.sdk.auth.api.CredentialApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/auth");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    CredentialApi apiInstance = new CredentialApi(defaultClient);
+    ExchangeAuthCredentialsParam exchangeAuthCredentialsParam = new ExchangeAuthCredentialsParam(); // ExchangeAuthCredentialsParam | 
+    try {
+      Credentials result = apiInstance.exchangeAuthCredentials(exchangeAuthCredentialsParam);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CredentialApi#exchangeAuthCredentials");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **exchangeAuthCredentialsParam** | [**ExchangeAuthCredentialsParam**](ExchangeAuthCredentialsParam.md)|  | |
+
+### Return type
+
+[**Credentials**](Credentials.md)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not Found |  -  |
 | **500** | Internal Server Error |  -  |
 
 <a id="getAuthCredentials"></a>
@@ -149,5 +222,73 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **404** | Not Found |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a id="revokeToken"></a>
+# **revokeToken**
+> revokeToken(revokeTokenParam)
+
+Revoke Token
+
+Revoke the specified refresh token. 
+
+### Example
+```java
+// Import classes:
+import saasus.sdk.auth.ApiClient;
+import saasus.sdk.auth.ApiException;
+import saasus.sdk.auth.Configuration;
+import saasus.sdk.auth.auth.*;
+import saasus.sdk.auth.models.*;
+import saasus.sdk.auth.api.CredentialApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.saasus.io/v1/auth");
+    
+    // Configure HTTP bearer authorization: Bearer
+    HttpBearerAuth Bearer = (HttpBearerAuth) defaultClient.getAuthentication("Bearer");
+    Bearer.setBearerToken("BEARER TOKEN");
+
+    CredentialApi apiInstance = new CredentialApi(defaultClient);
+    RevokeTokenParam revokeTokenParam = new RevokeTokenParam(); // RevokeTokenParam | 
+    try {
+      apiInstance.revokeToken(revokeTokenParam);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CredentialApi#revokeToken");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **revokeTokenParam** | [**RevokeTokenParam**](RevokeTokenParam.md)|  | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[Bearer](../README.md#Bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad Request |  -  |
 | **500** | Internal Server Error |  -  |
 
