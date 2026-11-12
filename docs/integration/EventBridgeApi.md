@@ -76,6 +76,7 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **501** | Not Implemented |  -  |
 | **500** | Internal Server Error |  -  |
 
 <a id="createEventBridgeTestEvent"></a>

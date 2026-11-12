@@ -68,7 +68,7 @@ import com.google.gson.JsonParseException;
 
 import saasus.sdk.pricing.JSON;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-04-03T08:53:46.621994899Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-11T13:46:28.436166691Z[Etc/UTC]")
 public class PricingUnit extends AbstractOpenApiSchema {
     private static final Logger log = Logger.getLogger(PricingUnit.class.getName());
 
@@ -366,6 +366,43 @@ public class PricingUnit extends AbstractOpenApiSchema {
   * @throws IOException if the JSON Element is invalid with respect to PricingUnit
   */
   public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    // use the discriminator value to validate only the schema it maps to.
+    // validating every oneOf schema fails when two of them have the same structure.
+    if (jsonElement != null && jsonElement.isJsonObject()) {
+      JsonElement discriminatorValue = jsonElement.getAsJsonObject().get("type");
+      if (discriminatorValue != null && discriminatorValue.isJsonPrimitive()) {
+        switch (discriminatorValue.getAsString()) {
+          case "fixed":
+            PricingFixedUnit.validateJsonElement(jsonElement);
+            return;
+          case "tiered":
+            PricingTieredUnit.validateJsonElement(jsonElement);
+            return;
+          case "tiered_usage":
+            PricingTieredUsageUnit.validateJsonElement(jsonElement);
+            return;
+          case "usage":
+            PricingUsageUnit.validateJsonElement(jsonElement);
+            return;
+          case "PricingFixedUnit":
+            PricingFixedUnit.validateJsonElement(jsonElement);
+            return;
+          case "PricingTieredUnit":
+            PricingTieredUnit.validateJsonElement(jsonElement);
+            return;
+          case "PricingTieredUsageUnit":
+            PricingTieredUsageUnit.validateJsonElement(jsonElement);
+            return;
+          case "PricingUsageUnit":
+            PricingUsageUnit.validateJsonElement(jsonElement);
+            return;
+          default:
+            // unknown discriminator value, fall back to validating every oneOf schema
+            break;
+        }
+      }
+    }
+
     // validate oneOf schemas one by one
     int validCount = 0;
     ArrayList<String> errorMessages = new ArrayList<>();

@@ -14,6 +14,7 @@
 |**accountVerification** | [**AccountVerification**](AccountVerification.md) |  |  |
 |**selfRegist** | [**SelfRegist**](SelfRegist.md) |  |  |
 |**identityProviderConfiguration** | [**IdentityProviderConfiguration**](IdentityProviderConfiguration.md) |  |  |
+|**refreshTokenValidity** | [**RefreshTokenValidity**](RefreshTokenValidity.md) |  |  |
 
 
 

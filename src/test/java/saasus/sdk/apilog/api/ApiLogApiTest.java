@@ -61,8 +61,10 @@ public class ApiLogApiTest {
         LocalDate createdDate = null;
         OffsetDateTime createdAt = null;
         Long limit = null;
+        Long startAt = null;
+        Long endAt = null;
         String cursor = null;
-        ApiLogs response = api.getLogs(createdDate, createdAt, limit, cursor);
+        ApiLogs response = api.getLogs(createdDate, createdAt, limit, startAt, endAt, cursor);
         // TODO: test validations
     }
 

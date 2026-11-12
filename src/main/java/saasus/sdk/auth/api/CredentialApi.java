@@ -28,8 +28,11 @@ import java.io.IOException;
 
 
 import saasus.sdk.auth.models.AuthorizationTempCode;
+import saasus.sdk.auth.models.CreateAuthCredentialsParam;
 import saasus.sdk.auth.models.Credentials;
 import saasus.sdk.auth.models.Error;
+import saasus.sdk.auth.models.ExchangeAuthCredentialsParam;
+import saasus.sdk.auth.models.RevokeTokenParam;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -76,7 +79,7 @@ public class CredentialApi {
 
     /**
      * Build call for createAuthCredentials
-     * @param body  (optional)
+     * @param createAuthCredentialsParam  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -89,7 +92,7 @@ public class CredentialApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAuthCredentialsCall(Credentials body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createAuthCredentialsCall(CreateAuthCredentialsParam createAuthCredentialsParam, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -103,7 +106,7 @@ public class CredentialApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = createAuthCredentialsParam;
 
         // create path and map variables
         String localVarPath = "/credentials";
@@ -135,15 +138,15 @@ public class CredentialApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createAuthCredentialsValidateBeforeCall(Credentials body, final ApiCallback _callback) throws ApiException {
-        return createAuthCredentialsCall(body, _callback);
+    private okhttp3.Call createAuthCredentialsValidateBeforeCall(CreateAuthCredentialsParam createAuthCredentialsParam, final ApiCallback _callback) throws ApiException {
+        return createAuthCredentialsCall(createAuthCredentialsParam, _callback);
 
     }
 
     /**
      * Save Authentication/Authorization Information
-     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
-     * @param body  (optional)
+     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. When code_challenge is specified, the temporary code can only be exchanged via POST /credentials/exchange and cannot be retrieved via GET /credentials. 
+     * @param createAuthCredentialsParam  (optional)
      * @return AuthorizationTempCode
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -155,15 +158,15 @@ public class CredentialApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public AuthorizationTempCode createAuthCredentials(Credentials body) throws ApiException {
-        ApiResponse<AuthorizationTempCode> localVarResp = createAuthCredentialsWithHttpInfo(body);
+    public AuthorizationTempCode createAuthCredentials(CreateAuthCredentialsParam createAuthCredentialsParam) throws ApiException {
+        ApiResponse<AuthorizationTempCode> localVarResp = createAuthCredentialsWithHttpInfo(createAuthCredentialsParam);
         return localVarResp.getData();
     }
 
     /**
      * Save Authentication/Authorization Information
-     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
-     * @param body  (optional)
+     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. When code_challenge is specified, the temporary code can only be exchanged via POST /credentials/exchange and cannot be retrieved via GET /credentials. 
+     * @param createAuthCredentialsParam  (optional)
      * @return ApiResponse&lt;AuthorizationTempCode&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -175,16 +178,16 @@ public class CredentialApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AuthorizationTempCode> createAuthCredentialsWithHttpInfo(Credentials body) throws ApiException {
-        okhttp3.Call localVarCall = createAuthCredentialsValidateBeforeCall(body, null);
+    public ApiResponse<AuthorizationTempCode> createAuthCredentialsWithHttpInfo(CreateAuthCredentialsParam createAuthCredentialsParam) throws ApiException {
+        okhttp3.Call localVarCall = createAuthCredentialsValidateBeforeCall(createAuthCredentialsParam, null);
         Type localVarReturnType = new TypeToken<AuthorizationTempCode>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Save Authentication/Authorization Information (asynchronously)
-     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. 
-     * @param body  (optional)
+     * Temporarily save the parameter for the ID token, access token, and refresh token and return a temporary code for obtaining. Temporary codes are valid for 10 seconds from issuance. When code_challenge is specified, the temporary code can only be exchanged via POST /credentials/exchange and cannot be retrieved via GET /credentials. 
+     * @param createAuthCredentialsParam  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -197,10 +200,149 @@ public class CredentialApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createAuthCredentialsAsync(Credentials body, final ApiCallback<AuthorizationTempCode> _callback) throws ApiException {
+    public okhttp3.Call createAuthCredentialsAsync(CreateAuthCredentialsParam createAuthCredentialsParam, final ApiCallback<AuthorizationTempCode> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createAuthCredentialsValidateBeforeCall(body, _callback);
+        okhttp3.Call localVarCall = createAuthCredentialsValidateBeforeCall(createAuthCredentialsParam, _callback);
         Type localVarReturnType = new TypeToken<AuthorizationTempCode>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for exchangeAuthCredentials
+     * @param exchangeAuthCredentialsParam  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call exchangeAuthCredentialsCall(ExchangeAuthCredentialsParam exchangeAuthCredentialsParam, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = exchangeAuthCredentialsParam;
+
+        // create path and map variables
+        String localVarPath = "/credentials/exchange";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call exchangeAuthCredentialsValidateBeforeCall(ExchangeAuthCredentialsParam exchangeAuthCredentialsParam, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'exchangeAuthCredentialsParam' is set
+        if (exchangeAuthCredentialsParam == null) {
+            throw new ApiException("Missing the required parameter 'exchangeAuthCredentialsParam' when calling exchangeAuthCredentials(Async)");
+        }
+
+        return exchangeAuthCredentialsCall(exchangeAuthCredentialsParam, _callback);
+
+    }
+
+    /**
+     * Exchange a Temporary Code for Authentication/Authorization Information
+     * Exchange a temporary code for ID token, access token, and refresh token by verifying the PKCE code verifier. Only temporary codes created with code_challenge can be exchanged. Temporary codes created without code_challenge must be retrieved via GET /credentials. 
+     * @param exchangeAuthCredentialsParam  (required)
+     * @return Credentials
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public Credentials exchangeAuthCredentials(ExchangeAuthCredentialsParam exchangeAuthCredentialsParam) throws ApiException {
+        ApiResponse<Credentials> localVarResp = exchangeAuthCredentialsWithHttpInfo(exchangeAuthCredentialsParam);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Exchange a Temporary Code for Authentication/Authorization Information
+     * Exchange a temporary code for ID token, access token, and refresh token by verifying the PKCE code verifier. Only temporary codes created with code_challenge can be exchanged. Temporary codes created without code_challenge must be retrieved via GET /credentials. 
+     * @param exchangeAuthCredentialsParam  (required)
+     * @return ApiResponse&lt;Credentials&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Credentials> exchangeAuthCredentialsWithHttpInfo(ExchangeAuthCredentialsParam exchangeAuthCredentialsParam) throws ApiException {
+        okhttp3.Call localVarCall = exchangeAuthCredentialsValidateBeforeCall(exchangeAuthCredentialsParam, null);
+        Type localVarReturnType = new TypeToken<Credentials>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Exchange a Temporary Code for Authentication/Authorization Information (asynchronously)
+     * Exchange a temporary code for ID token, access token, and refresh token by verifying the PKCE code verifier. Only temporary codes created with code_challenge can be exchanged. Temporary codes created without code_challenge must be retrieved via GET /credentials. 
+     * @param exchangeAuthCredentialsParam  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Not Found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call exchangeAuthCredentialsAsync(ExchangeAuthCredentialsParam exchangeAuthCredentialsParam, final ApiCallback<Credentials> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = exchangeAuthCredentialsValidateBeforeCall(exchangeAuthCredentialsParam, _callback);
+        Type localVarReturnType = new TypeToken<Credentials>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -347,6 +489,133 @@ public class CredentialApi {
         okhttp3.Call localVarCall = getAuthCredentialsValidateBeforeCall(code, authFlow, refreshToken, _callback);
         Type localVarReturnType = new TypeToken<Credentials>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for revokeToken
+     * @param revokeTokenParam  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call revokeTokenCall(RevokeTokenParam revokeTokenParam, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = revokeTokenParam;
+
+        // create path and map variables
+        String localVarPath = "/token/revoke";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "Bearer" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call revokeTokenValidateBeforeCall(RevokeTokenParam revokeTokenParam, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'revokeTokenParam' is set
+        if (revokeTokenParam == null) {
+            throw new ApiException("Missing the required parameter 'revokeTokenParam' when calling revokeToken(Async)");
+        }
+
+        return revokeTokenCall(revokeTokenParam, _callback);
+
+    }
+
+    /**
+     * Revoke Token
+     * Revoke the specified refresh token. 
+     * @param revokeTokenParam  (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public void revokeToken(RevokeTokenParam revokeTokenParam) throws ApiException {
+        revokeTokenWithHttpInfo(revokeTokenParam);
+    }
+
+    /**
+     * Revoke Token
+     * Revoke the specified refresh token. 
+     * @param revokeTokenParam  (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> revokeTokenWithHttpInfo(RevokeTokenParam revokeTokenParam) throws ApiException {
+        okhttp3.Call localVarCall = revokeTokenValidateBeforeCall(revokeTokenParam, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Revoke Token (asynchronously)
+     * Revoke the specified refresh token. 
+     * @param revokeTokenParam  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call revokeTokenAsync(RevokeTokenParam revokeTokenParam, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = revokeTokenValidateBeforeCall(revokeTokenParam, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
 }

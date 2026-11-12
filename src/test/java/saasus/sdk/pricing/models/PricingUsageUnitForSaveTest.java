@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.util.Arrays;
 import saasus.sdk.pricing.models.AggregateUsage;
 import saasus.sdk.pricing.models.Currency;
-import saasus.sdk.pricing.models.UnitType;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
