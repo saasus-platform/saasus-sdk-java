@@ -52,7 +52,7 @@ import saasus.sdk.pricing.JSON;
 /**
  * PricingPlanProps
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-11T13:46:28.436166691Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-19T09:53:39.979353693Z[Etc/UTC]")
 public class PricingPlanProps {
   public static final String SERIALIZED_NAME_PRICING_MENUS = "pricing_menus";
   @SerializedName(SERIALIZED_NAME_PRICING_MENUS)

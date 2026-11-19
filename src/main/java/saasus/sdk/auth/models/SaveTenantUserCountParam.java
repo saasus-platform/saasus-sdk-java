@@ -49,7 +49,7 @@ import saasus.sdk.auth.JSON;
 /**
  * SaveTenantUserCountParam
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-11T13:46:24.352879770Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-19T09:53:33.328688125Z[Etc/UTC]")
 public class SaveTenantUserCountParam {
   public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
   @SerializedName(SERIALIZED_NAME_TENANT_ID)
