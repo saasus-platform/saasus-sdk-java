@@ -57,6 +57,22 @@ public class BasicInfoTest {
     }
 
     /**
+     * Test the property 'domainSetupStatus'
+     */
+    @Test
+    public void domainSetupStatusTest() {
+        // TODO: test domainSetupStatus
+    }
+
+    /**
+     * Test the property 'domainSetupReasonCode'
+     */
+    @Test
+    public void domainSetupReasonCodeTest() {
+        // TODO: test domainSetupReasonCode
+    }
+
+    /**
      * Test the property 'certificateDnsRecord'
      */
     @Test

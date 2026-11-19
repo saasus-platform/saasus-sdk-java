@@ -52,7 +52,7 @@ import saasus.sdk.auth.JSON;
 /**
  * BasicInfo
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-11T13:46:24.352879770Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-11-19T09:53:33.328688125Z[Etc/UTC]")
 public class BasicInfo {
   public static final String SERIALIZED_NAME_DOMAIN_NAME = "domain_name";
   @SerializedName(SERIALIZED_NAME_DOMAIN_NAME)
@@ -61,6 +61,130 @@ public class BasicInfo {
   public static final String SERIALIZED_NAME_IS_DNS_VALIDATED = "is_dns_validated";
   @SerializedName(SERIALIZED_NAME_IS_DNS_VALIDATED)
   private Boolean isDnsValidated;
+
+  /**
+   * Domain setup status. Pending means validation or configuration is in progress; action_required means user action is needed; completed means configuration has been accepted.
+   */
+  @JsonAdapter(DomainSetupStatusEnum.Adapter.class)
+  public enum DomainSetupStatusEnum {
+    DomainSetupPending("pending"),
+    
+    DomainSetupActionRequired("action_required"),
+    
+    DomainSetupCompleted("completed"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    DomainSetupStatusEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DomainSetupStatusEnum fromValue(String value) {
+      for (DomainSetupStatusEnum b : DomainSetupStatusEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<DomainSetupStatusEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DomainSetupStatusEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DomainSetupStatusEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DomainSetupStatusEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      DomainSetupStatusEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_DOMAIN_SETUP_STATUS = "domain_setup_status";
+  @SerializedName(SERIALIZED_NAME_DOMAIN_SETUP_STATUS)
+  private DomainSetupStatusEnum domainSetupStatus;
+
+  /**
+   * Reason domain setup is incomplete. Omitted when no known reason is available. DNS validation may still be pending while records propagate. Failed or timed-out certificate requests require resubmitting the domain settings after correcting DNS.
+   */
+  @JsonAdapter(DomainSetupReasonCodeEnum.Adapter.class)
+  public enum DomainSetupReasonCodeEnum {
+    CNAME_ALREADY_EXISTS("CNAME_ALREADY_EXISTS"),
+    
+    CERTIFICATE_VALIDATION_TIMED_OUT("CERTIFICATE_VALIDATION_TIMED_OUT"),
+    
+    CERTIFICATE_CAA_ERROR("CERTIFICATE_CAA_ERROR"),
+    
+    CERTIFICATE_PENDING_VALIDATION("CERTIFICATE_PENDING_VALIDATION"),
+    
+    CLOUDFRONT_DNS_NOT_CONFIGURED("CLOUDFRONT_DNS_NOT_CONFIGURED"),
+    
+    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+    private String value;
+
+    DomainSetupReasonCodeEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static DomainSetupReasonCodeEnum fromValue(String value) {
+      for (DomainSetupReasonCodeEnum b : DomainSetupReasonCodeEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      return UNKNOWN_DEFAULT_OPEN_API;
+    }
+
+    public static class Adapter extends TypeAdapter<DomainSetupReasonCodeEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final DomainSetupReasonCodeEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public DomainSetupReasonCodeEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return DomainSetupReasonCodeEnum.fromValue(value);
+      }
+    }
+
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      String value = jsonElement.getAsString();
+      DomainSetupReasonCodeEnum.fromValue(value);
+    }
+  }
+
+  public static final String SERIALIZED_NAME_DOMAIN_SETUP_REASON_CODE = "domain_setup_reason_code";
+  @SerializedName(SERIALIZED_NAME_DOMAIN_SETUP_REASON_CODE)
+  private DomainSetupReasonCodeEnum domainSetupReasonCode;
 
   public static final String SERIALIZED_NAME_CERTIFICATE_DNS_RECORD = "certificate_dns_record";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE_DNS_RECORD)
@@ -128,6 +252,44 @@ public class BasicInfo {
 
   public void setIsDnsValidated(Boolean isDnsValidated) {
     this.isDnsValidated = isDnsValidated;
+  }
+
+
+  public BasicInfo domainSetupStatus(DomainSetupStatusEnum domainSetupStatus) {
+    this.domainSetupStatus = domainSetupStatus;
+    return this;
+  }
+
+   /**
+   * Domain setup status. Pending means validation or configuration is in progress; action_required means user action is needed; completed means configuration has been accepted.
+   * @return domainSetupStatus
+  **/
+  @javax.annotation.Nullable
+  public DomainSetupStatusEnum getDomainSetupStatus() {
+    return domainSetupStatus;
+  }
+
+  public void setDomainSetupStatus(DomainSetupStatusEnum domainSetupStatus) {
+    this.domainSetupStatus = domainSetupStatus;
+  }
+
+
+  public BasicInfo domainSetupReasonCode(DomainSetupReasonCodeEnum domainSetupReasonCode) {
+    this.domainSetupReasonCode = domainSetupReasonCode;
+    return this;
+  }
+
+   /**
+   * Reason domain setup is incomplete. Omitted when no known reason is available. DNS validation may still be pending while records propagate. Failed or timed-out certificate requests require resubmitting the domain settings after correcting DNS.
+   * @return domainSetupReasonCode
+  **/
+  @javax.annotation.Nullable
+  public DomainSetupReasonCodeEnum getDomainSetupReasonCode() {
+    return domainSetupReasonCode;
+  }
+
+  public void setDomainSetupReasonCode(DomainSetupReasonCodeEnum domainSetupReasonCode) {
+    this.domainSetupReasonCode = domainSetupReasonCode;
   }
 
 
@@ -328,6 +490,8 @@ public class BasicInfo {
     BasicInfo basicInfo = (BasicInfo) o;
     return Objects.equals(this.domainName, basicInfo.domainName) &&
         Objects.equals(this.isDnsValidated, basicInfo.isDnsValidated) &&
+        Objects.equals(this.domainSetupStatus, basicInfo.domainSetupStatus) &&
+        Objects.equals(this.domainSetupReasonCode, basicInfo.domainSetupReasonCode) &&
         Objects.equals(this.certificateDnsRecord, basicInfo.certificateDnsRecord) &&
         Objects.equals(this.cloudFrontDnsRecord, basicInfo.cloudFrontDnsRecord) &&
         Objects.equals(this.dkimDnsRecords, basicInfo.dkimDnsRecords) &&
@@ -340,7 +504,7 @@ public class BasicInfo {
 
   @Override
   public int hashCode() {
-    return Objects.hash(domainName, isDnsValidated, certificateDnsRecord, cloudFrontDnsRecord, dkimDnsRecords, defaultDomainName, fromEmailAddress, replyEmailAddress, isSesSandboxGranted, additionalProperties);
+    return Objects.hash(domainName, isDnsValidated, domainSetupStatus, domainSetupReasonCode, certificateDnsRecord, cloudFrontDnsRecord, dkimDnsRecords, defaultDomainName, fromEmailAddress, replyEmailAddress, isSesSandboxGranted, additionalProperties);
   }
 
   @Override
@@ -349,6 +513,8 @@ public class BasicInfo {
     sb.append("class BasicInfo {\n");
     sb.append("    domainName: ").append(toIndentedString(domainName)).append("\n");
     sb.append("    isDnsValidated: ").append(toIndentedString(isDnsValidated)).append("\n");
+    sb.append("    domainSetupStatus: ").append(toIndentedString(domainSetupStatus)).append("\n");
+    sb.append("    domainSetupReasonCode: ").append(toIndentedString(domainSetupReasonCode)).append("\n");
     sb.append("    certificateDnsRecord: ").append(toIndentedString(certificateDnsRecord)).append("\n");
     sb.append("    cloudFrontDnsRecord: ").append(toIndentedString(cloudFrontDnsRecord)).append("\n");
     sb.append("    dkimDnsRecords: ").append(toIndentedString(dkimDnsRecords)).append("\n");
@@ -381,6 +547,8 @@ public class BasicInfo {
     openapiFields = new HashSet<String>();
     openapiFields.add("domain_name");
     openapiFields.add("is_dns_validated");
+    openapiFields.add("domain_setup_status");
+    openapiFields.add("domain_setup_reason_code");
     openapiFields.add("certificate_dns_record");
     openapiFields.add("cloud_front_dns_record");
     openapiFields.add("dkim_dns_records");
@@ -424,6 +592,20 @@ public class BasicInfo {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("domain_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `domain_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_name").toString()));
+      }
+      if ((jsonObj.get("domain_setup_status") != null && !jsonObj.get("domain_setup_status").isJsonNull()) && !jsonObj.get("domain_setup_status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `domain_setup_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_setup_status").toString()));
+      }
+      // validate the optional field `domain_setup_status`
+      if (jsonObj.get("domain_setup_status") != null && !jsonObj.get("domain_setup_status").isJsonNull()) {
+        DomainSetupStatusEnum.validateJsonElement(jsonObj.get("domain_setup_status"));
+      }
+      if ((jsonObj.get("domain_setup_reason_code") != null && !jsonObj.get("domain_setup_reason_code").isJsonNull()) && !jsonObj.get("domain_setup_reason_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `domain_setup_reason_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("domain_setup_reason_code").toString()));
+      }
+      // validate the optional field `domain_setup_reason_code`
+      if (jsonObj.get("domain_setup_reason_code") != null && !jsonObj.get("domain_setup_reason_code").isJsonNull()) {
+        DomainSetupReasonCodeEnum.validateJsonElement(jsonObj.get("domain_setup_reason_code"));
       }
       // validate the required field `certificate_dns_record`
       DnsRecord.validateJsonElement(jsonObj.get("certificate_dns_record"));
